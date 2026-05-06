@@ -1,0 +1,45 @@
+rules_version = '2';
+
+// 보안 모델
+//   1) 인증된 사용자만 (request.auth != null) — Firebase Auth 통과 필수
+//   2) 화이트리스트 stateDoc만 허용 — 알 수 없는 키 차단
+//   3) retreatId는 자유 — 다른 교회가 fork 후 자기 ID 써도 작동
+//   4) 그 외 모든 경로 차단
+//
+// ⚠ 한계 (별도 큰 작업으로 보강 필요):
+//   • PIN/비밀번호 검증은 클라이언트 UI에만 있음 — Firestore rule은 Firebase Auth만 봄
+//   • 익명 인증이 활성화돼 있으면 PIN 모르는 사람도 직접 접근 가능
+//   • 근본 해결: Firebase Functions로 PIN 검증 후 custom claim 발급
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /retreats/{retreatId}/state/{stateDoc} {
+      allow read, write: if request.auth != null
+        && stateDoc in [
+          'participants',
+          'checklistStatus',
+          'checklistItems',
+          'checkIn',
+          'churchConfig',
+          'churchConfirm',
+          'groupMeta',
+          'roomConfig',
+          'noticeItems',
+          'noticeTargetConfig',
+          'safetyItems',
+          'scheduleCategories',
+          'scheduleItems',
+          'authCreds',
+          'applicationQueue',
+          'changeLog',
+          'dailyWord',
+          'eventConfig',
+          'menuVisibility'
+        ];
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

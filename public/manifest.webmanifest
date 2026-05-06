@@ -1,0 +1,19 @@
+{
+  "name": "2026 수련회 운영 시스템",
+  "short_name": "수련회 운영",
+  "description": "2026 수련회 참가자, 신청, 현장 운영 관리",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020818",
+  "theme_color": "#020818",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

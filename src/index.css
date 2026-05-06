@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --eum-orange:   #F08C28;
+  --eum-orange-d: #D87515;
+  --eum-orange-l: #FFB870;
+  --eum-navy:     #1B3A5C;
+  --eum-navy-d:   #0F2540;
+  --eum-cream:    #FFF8EC;
+  --eum-gold:     #C9962B;
+  --eum-gold-l:   #F0BC78;
+  --eum-bg-0:     #020818;
+  --eum-bg-1:     #0a1628;
+  --eum-bg-2:     #0f2040;
+  --eum-mobile-tab-h: 64px;
+  --eum-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--eum-bg-0) 0%, var(--eum-bg-1) 50%, var(--eum-bg-2) 100%);
+    min-height: 100vh;
+    font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #f1f5f9;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a1628;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--eum-navy);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--eum-gold);
+  }
+
+  /* 키보드 포커스 가시성 — 마우스 클릭 시에는 표시되지 않음 */
+  :focus-visible {
+    outline: 2px solid var(--eum-gold-l);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* 모바일에서 입력 시 자동확대 방지 (iOS Safari) */
+  input, select, textarea, button {
+    font-family: inherit;
+  }
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px;
+    }
+  }
+}
+
+/* 모션 감소를 선호하는 사용자 — 트랜지션·애니메이션 최소화 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 인쇄 전역 스타일 ─────────────────────────────────────────────────────── */
+@media print {
+  /* 레이아웃 초기화 */
+  aside,
+  header { display: none !important; }
+  main   { margin-left: 0 !important; padding: 0 !important; }
+  body   { background: white !important; color: #1e293b !important; }
+
+  /* 비인쇄 영역 */
+  .no-print { display: none !important; }
+
+  /* 인쇄 영역 */
+  #print-area {
+    background: white !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* 표 공통 */
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    page-break-inside: auto;
+  }
+  .print-table thead { display: table-header-group; }
+  .print-table th {
+    background: #e2e8f0 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    border: 0.75pt solid #94a3b8;
+    padding: 2.5pt 4pt;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .print-table td {
+    border: 0.5pt solid #cbd5e1;
+    padding: 2pt 4pt;
+    vertical-align: top;
+  }
+  .bg-slate-50 {
+    background: #f8fafc !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .print-break-avoid { page-break-inside: avoid; }
+}
+
+@layer utilities {
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-active {
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15), rgba(37, 99, 235, 0.08));
+    border-left: 3px solid #06b6d4;
+    color: #22d3ee;
+  }
+  .nav-item {
+    border-left: 3px solid transparent;
+  }
+  .input {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(15, 23, 42, 0.92);
+    color: #f8fafc;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.875rem;
+    outline: none;
+  }
+  .input::placeholder {
+    color: #64748b;
+  }
+  .input:focus {
+    border-color: rgba(34, 211, 238, 0.75);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+  }
+  .input option {
+    background: #0f172a;
+    color: #f8fafc;
+  }
+}

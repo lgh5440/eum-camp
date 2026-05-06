@@ -1,0 +1,19 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "hosting": {
+    "target": "camp",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      { "source": "/apply",  "destination": "/share-apply.html" },
+      { "source": "/system", "destination": "/share-system.html" },
+      { "source": "**",      "destination": "/index.html" }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "my-real-id-683cc"
+  },
+  "targets": {
+    "my-real-id-683cc": {
+      "hosting": {
+        "camp": [
+          "eum-camp"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>E:um 고정 프레임 시안</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #020818;
+    color: white;
+    min-height: 100vh;
+  }
+
+  /* ── 전체 레이아웃 ────────────────────────────────── */
+  .app {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ── 사이드바 ────────────────────────────────────── */
+  .sidebar {
+    background: linear-gradient(180deg, #0a1628 0%, #020818 100%);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* E:um 브랜드 영역 — 고정 (로고 좌·슬로건 우) ───── */
+  .brand-frame {
+    padding: 20px 14px;
+    border-bottom: 1px solid rgba(240,140,40,0.18);
+    background: linear-gradient(135deg, rgba(240,140,40,0.06) 0%, rgba(15,37,64,0.4) 100%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-frame .logo {
+    width: 80px; height: 80px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(240,188,120,0.25));
+  }
+  .brand-frame .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .brand-frame .slogan-ko {
+    font-size: 13px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.55;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  /* 행사 D-day 배지 */
+  .dday-card {
+    margin: 12px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(139,92,246,0.08));
+    border: 1px solid rgba(6,182,212,0.25);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .dday-card .label {
+    font-size: 10px; color: #94a3b8;
+  }
+  .dday-card .dday {
+    font-size: 18px; font-weight: 900; color: #67e8f9;
+    margin-top: 4px;
+  }
+
+  /* 메뉴 */
+  .menu {
+    flex: 1; padding: 8px;
+  }
+  .menu-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 8px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px; font-weight: 500;
+    cursor: pointer; margin-bottom: 2px;
+  }
+  .menu-item:hover { background: rgba(255,255,255,0.04); }
+  .menu-item.active {
+    background: rgba(6,182,212,0.12);
+    color: #67e8f9;
+    border-left: 3px solid #06b6d4;
+    padding-left: 9px;
+  }
+  .menu-item .icon { width: 16px; text-align: center; }
+
+  /* 푸터 슬로건 강조 */
+  .sidebar-footer {
+    padding: 14px 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.25);
+  }
+  .sidebar-footer .theme-label {
+    font-size: 9px; color: rgba(240,140,40,0.7);
+    font-weight: 700; letter-spacing: 1px;
+  }
+  .sidebar-footer .theme-name {
+    font-size: 14px; font-weight: 800; color: white;
+    margin-top: 4px;
+  }
+  .sidebar-footer .theme-sub {
+    font-size: 10px; color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  /* ── 메인 영역 ───────────────────────────────────── */
+  .main {
+    padding: 0;
+  }
+
+  /* 상단 헤더 */
+  .top-header {
+    height: 56px;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; padding: 0 24px;
+    gap: 16px;
+  }
+  .top-header .crumb { color: #94a3b8; font-size: 13px; }
+  .top-header .crumb strong { color: white; font-weight: 700; }
+  .top-header .right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .badge-mini {
+    padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700;
+    background: rgba(16,185,129,0.15); color: #6ee7b7;
+    border: 1px solid rgba(16,185,129,0.3);
+  }
+  .role-badge {
+    padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700;
+    background: rgba(245,158,11,0.12); color: #fde68a;
+    border: 1px solid rgba(245,158,11,0.3);
+  }
+
+  /* 콘텐츠 — Hero */
+  .content { padding: 20px 24px; }
+  .hero {
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(6,182,212,0.18) 0%, rgba(37,99,235,0.25) 45%, rgba(109,40,217,0.2) 80%, rgba(139,92,246,0.12) 100%);
+    border: 1px solid rgba(6,182,212,0.25);
+    padding: 36px 40px;
+    position: relative; overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 48px; font-weight: 900; letter-spacing: -1px;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    font-size: 14px; font-weight: 700; color: #67e8f9;
+  }
+  .hero .meta {
+    margin-top: 20px; display: flex; gap: 18px;
+    color: rgba(255,255,255,0.7); font-size: 13px;
+  }
+
+  /* 요약 카드 */
+  .stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .stat-card .emoji { font-size: 18px; }
+  .stat-card .label { font-size: 10px; color: #94a3b8; }
+  .stat-card .num { font-size: 20px; font-weight: 800; }
+
+  /* 비교 헤더 */
+  .compare-bar {
+    background: white;
+    color: #1b3a5c;
+    padding: 16px 24px;
+    border-radius: 16px;
+    margin: 24px;
+    font-size: 13px;
+  }
+  .compare-bar h2 { font-size: 16px; margin-bottom: 6px; color: #F08C28; }
+</style>
+</head>
+<body>
+
+<div class="compare-bar">
+  <h2>E:um 고정 프레임 시안 — 기존 대시보드 톤 유지</h2>
+  로고 + "이음(E:um)" 슬로건은 <strong>사이드바 상단</strong>에 작게 고정.
+  하단에는 "주제·부제" 강조 영역. 메인 콘텐츠는 기존 다크 그라데이션 유지.
+  모든 페이지에서 항상 보임.
+</div>
+
+<div class="app">
+  <!-- ───────── 사이드바 ───────── -->
+  <aside class="sidebar">
+    <!-- E:um 브랜드 영역 (모든 페이지 공통) -->
+    <div class="brand-frame">
+      <div class="logo">
+        <img src="eum-logo.png" alt="E:um">
+      </div>
+      <div class="slogan-ko">하나님과 사람을<br>사람과 사람을</div>
+    </div>
+
+    <!-- D-day 카드 -->
+    <div class="dday-card">
+      <div class="label">7.26~28 (주일~화)</div>
+      <div class="dday">D-82</div>
+    </div>
+
+    <!-- 메뉴 -->
+    <nav class="menu">
+      <div class="menu-item active"><span class="icon">📊</span>메인 대시보드</div>
+      <div class="menu-item"><span class="icon">👥</span>참가자 관리</div>
+      <div class="menu-item"><span class="icon">📥</span>온라인 신청 대기함</div>
+      <div class="menu-item"><span class="icon">⛪</span>교회별 신청 현황</div>
+      <div class="menu-item"><span class="icon">🔢</span>조 편성</div>
+      <div class="menu-item"><span class="icon">📅</span>일정 관리</div>
+      <div class="menu-item"><span class="icon">🛏</span>숙소/방 배정</div>
+      <div class="menu-item"><span class="icon">🚌</span>차량 배정</div>
+      <div class="menu-item"><span class="icon">✅</span>운영 체크리스트</div>
+      <div class="menu-item"><span class="icon">⚠️</span>안전 관리</div>
+    </nav>
+
+    <!-- 푸터: 행사 주제 -->
+    <div class="sidebar-footer">
+      <div class="theme-label">2026 THEME</div>
+      <div class="theme-name">MY REAL ID</div>
+      <div class="theme-sub">AI 시대 속에서의 정체성</div>
+    </div>
+  </aside>
+
+  <!-- ───────── 메인 영역 ───────── -->
+  <main class="main">
+    <header class="top-header">
+      <span class="crumb">수련회 운영 시스템 · <strong>메인 대시보드</strong></span>
+      <div class="right">
+        <span class="badge-mini">🌥 온라인 동기화</span>
+        <span class="role-badge">🛡 진행위원 · 홍길동 목사</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Hero (기존 톤 그대로) -->
+      <div class="hero">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <span style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; padding:3px 12px; border-radius:12px; font-size:11px; font-weight:700;">2026 청소년 여름수련회</span>
+          <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); color:#6ee7b7; padding:3px 12px; border-radius:12px; font-size:12px; font-weight:900;">D-82</span>
+        </div>
+        <h1>MY REAL ID</h1>
+        <p class="subtitle">AI 시대 속에서의 정체성</p>
+        <div class="meta">
+          <span>📍 연천 은혜수양관</span>
+          <span>📅 2026.07.26 ~ 28</span>
+        </div>
+      </div>
+
+      <!-- 요약 카드 -->
+      <div class="stats">
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(6,182,212,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(6,182,212,0.3);">
+          <span class="emoji">👥</span><div><div class="label">전체 인원</div><div class="num" style="color:#06b6d4">11<span style="font-size:11px;color:#cbd5e1">명</span></div></div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(16,185,129,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(16,185,129,0.3);">
+          <span class="emoji">🎓</span><div><div class="label">학생</div><div class="num" style="color:#10b981">8<span style="font-size:11px;color:#cbd5e1">명</span></div></div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(59,130,246,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(59,130,246,0.3);">
+          <span class="emoji">⛪</span><div><div class="label">참여 교회</div><div class="num" style="color:#3b82f6">2<span style="font-size:11px;color:#cbd5e1">개</span></div></div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(245,158,11,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(245,158,11,0.3);">
+          <span class="emoji">👤</span><div><div class="label">교사·운영진</div><div class="num" style="color:#f59e0b">3<span style="font-size:11px;color:#cbd5e1">명</span></div></div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(139,92,246,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(139,92,246,0.3);">
+          <span class="emoji">🏷️</span><div><div class="label">조 배정률</div><div class="num" style="color:#8b5cf6">0<span style="font-size:11px;color:#cbd5e1">%</span></div></div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(135deg, rgba(6,182,212,0.14) 0%, rgba(255,255,255,0.04) 100%); border-color:rgba(6,182,212,0.3);">
+          <span class="emoji">⏱</span><div><div class="label">준비 진행률</div><div class="num" style="color:#67e8f9">29<span style="font-size:11px;color:#cbd5e1">%</span></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

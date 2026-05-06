@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>E:um 대시보드 레이아웃 시안 (3가지)</title>
+<style>
+  :root {
+    /* E:um 브랜드 컬러 — 가이드 이미지 추정값. 실제 값 알려주시면 바로 교체 */
+    --eum-orange:    #F08C28;   /* 주황 메인 */
+    --eum-orange-d:  #D87515;   /* 진한 주황 */
+    --eum-orange-l:  #FFB870;   /* 연한 주황 */
+    --eum-navy:      #1B3A5C;   /* 청 메인 */
+    --eum-navy-d:    #0F2540;   /* 진한 네이비 */
+    --eum-cream:     #FFF8EC;   /* 따뜻한 배경 */
+    --eum-gold:      #C9962B;   /* 골드 (로고용) */
+    --eum-text:      #2A2A2A;
+    --eum-text-soft: #6B7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #f3f4f6;
+    color: var(--eum-text);
+    padding: 32px;
+  }
+  h1 { font-size: 22px; margin-bottom: 8px; color: var(--eum-navy); }
+  h2 { font-size: 14px; margin-bottom: 12px; color: var(--eum-text-soft); font-weight: 600; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .layout {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .badge {
+    display: inline-block;
+    background: var(--eum-orange);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* ── HERO 공통 컨테이너 ─────────────────────────────── */
+  .hero {
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    min-height: 240px;
+  }
+
+  /* ── 시안 A: 좌측 로고+슬로건 / 우측 이벤트 카드 ────── */
+  .hero-a {
+    background: linear-gradient(135deg, var(--eum-cream) 0%, #FFE4C4 100%);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .hero-a .left { display: flex; align-items: center; gap: 24px; }
+  .hero-a .logo { width: 96px; height: 96px; }
+  .hero-a .text-block .title-ko {
+    font-size: 24px; font-weight: 800; color: var(--eum-navy-d);
+    line-height: 1.3;
+  }
+  .hero-a .text-block .title-en {
+    font-size: 12px; font-weight: 700; color: var(--eum-orange-d);
+    letter-spacing: 1.5px; margin-top: 6px;
+  }
+  .hero-a .text-block .brand {
+    font-size: 32px; font-weight: 900; color: var(--eum-gold);
+    letter-spacing: 2px; margin-top: 12px;
+  }
+  .hero-a .right {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 24px;
+    border: 2px solid var(--eum-orange-l);
+    min-width: 240px;
+  }
+  .hero-a .right .label {
+    font-size: 11px; color: var(--eum-orange-d); font-weight: 700;
+  }
+  .hero-a .right .event-name {
+    font-size: 18px; font-weight: 800; color: var(--eum-navy-d);
+    margin-top: 4px;
+  }
+  .hero-a .right .meta {
+    font-size: 12px; color: var(--eum-text-soft); margin-top: 8px;
+  }
+  .hero-a .right .dday {
+    display: inline-block; background: var(--eum-orange);
+    color: white; padding: 4px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 800; margin-top: 8px;
+  }
+
+  /* ── 시안 B: 중앙 정렬, 로고 위·슬로건 아래 ─────────── */
+  .hero-b {
+    background: linear-gradient(180deg, white 0%, var(--eum-cream) 100%);
+    padding: 48px 32px;
+    text-align: center;
+    border: 2px solid var(--eum-orange-l);
+  }
+  .hero-b .logo { width: 88px; height: 88px; margin: 0 auto; }
+  .hero-b .brand {
+    font-size: 36px; font-weight: 900; color: var(--eum-gold);
+    letter-spacing: 4px; margin-top: 16px;
+  }
+  .hero-b .title-ko {
+    font-size: 22px; font-weight: 800; color: var(--eum-navy-d);
+    margin-top: 16px;
+  }
+  .hero-b .title-en {
+    font-size: 12px; font-weight: 700; color: var(--eum-orange);
+    letter-spacing: 2px; margin-top: 8px;
+  }
+  .hero-b .divider {
+    width: 60px; height: 3px; background: var(--eum-orange);
+    margin: 20px auto;
+  }
+  .hero-b .event-name {
+    font-size: 18px; font-weight: 700; color: var(--eum-navy);
+  }
+  .hero-b .meta {
+    font-size: 13px; color: var(--eum-text-soft); margin-top: 6px;
+  }
+
+  /* ── 시안 C: 좌측 슬로건/영문 / 우측 큰 로고 ────────── */
+  .hero-c {
+    background: linear-gradient(135deg, var(--eum-navy-d) 0%, var(--eum-navy) 60%, var(--eum-orange-d) 100%);
+    padding: 48px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    color: white;
+  }
+  .hero-c .left { flex: 1; }
+  .hero-c .left .badge2 {
+    display: inline-block; background: rgba(255,255,255,0.15);
+    color: var(--eum-orange-l); padding: 4px 12px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; margin-bottom: 12px;
+  }
+  .hero-c .left .title-ko {
+    font-size: 28px; font-weight: 800; line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .hero-c .left .title-en {
+    font-size: 13px; color: var(--eum-orange-l); letter-spacing: 2px;
+    font-weight: 600;
+  }
+  .hero-c .left .meta {
+    margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.7);
+  }
+  .hero-c .right {
+    width: 160px; height: 160px; flex-shrink: 0;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%; padding: 16px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 80px rgba(240,140,40,0.3);
+  }
+  .hero-c .right img { width: 100%; height: 100%; }
+
+  /* ── 카드 그리드 (모든 시안 공통 미리보기) ──────────── */
+  .stat-cards {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 14px;
+    border: 1px solid #E5E7EB;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 20px; font-weight: 800;
+    color: var(--eum-orange-d);
+  }
+  .stat-card .label {
+    font-size: 10px; color: var(--eum-text-soft);
+    margin-top: 2px;
+  }
+
+  /* ── 컬러 팔레트 표시 ──────────────────────────────── */
+  .palette {
+    display: flex; gap: 12px; margin-top: 16px;
+    padding: 16px; background: #FAFAFA; border-radius: 12px;
+  }
+  .swatch { width: 60px; flex-shrink: 0; }
+  .swatch .chip { height: 48px; border-radius: 8px; border: 1px solid #E5E7EB; }
+  .swatch .name { font-size: 10px; color: var(--eum-text-soft); margin-top: 4px; text-align: center; }
+
+  .note {
+    background: #FFF8EC; border-left: 4px solid var(--eum-orange);
+    padding: 12px 16px; border-radius: 8px; margin-top: 16px;
+    font-size: 12px; color: var(--eum-text);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>E:um 대시보드 헤로 레이아웃 시안 (3가지)</h1>
+  <p style="color:var(--eum-text-soft); font-size:13px; margin-bottom:32px;">
+    각 시안 비교 후 마음에 드는 방향 알려주시면 본격 적용. 컬러는 브랜드 가이드 추정값 — 정확한 HEX 알려주시면 즉시 교체.
+  </p>
+
+  <!-- ═══════════════════ 시안 A ═══════════════════ -->
+  <div class="layout">
+    <span class="badge">시안 A</span>
+    <h2>좌측 로고 + 슬로건 · 우측 행사 카드 (분할 구도, 차분)</h2>
+    <div class="hero hero-a">
+      <div class="left">
+        <img class="logo" src="eum-logo.png" alt="E:um 로고">
+        <div class="text-block">
+          <div class="brand">E:um</div>
+          <div class="title-ko">하나님과 사람을,<br>사람과 사람을</div>
+          <div class="title-en">GOD TO PEOPLE · PEOPLE TO PEOPLE</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="label">2026 SUMMER RETREAT</div>
+        <div class="event-name">MY REAL ID</div>
+        <div class="meta">📍 연천 은혜수양관<br>📅 7.26~28</div>
+        <div class="dday">D-82</div>
+      </div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="num">11</div><div class="label">전체 인원</div></div>
+      <div class="stat-card"><div class="num">8</div><div class="label">학생</div></div>
+      <div class="stat-card"><div class="num">2</div><div class="label">참여 교회</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="label">교사·운영진</div></div>
+      <div class="stat-card"><div class="num">0%</div><div class="label">조 배정률</div></div>
+      <div class="stat-card"><div class="num">29%</div><div class="label">준비 진행률</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ 시안 B ═══════════════════ -->
+  <div class="layout">
+    <span class="badge">시안 B</span>
+    <h2>중앙 정렬 · 로고 위 · 슬로건 아래 (대칭, 단정)</h2>
+    <div class="hero hero-b">
+      <img class="logo" src="eum-logo.png" alt="E:um 로고">
+      <div class="brand">E:um</div>
+      <div class="title-ko">하나님과 사람을, 사람과 사람을</div>
+      <div class="title-en">GOD TO PEOPLE · PEOPLE TO PEOPLE</div>
+      <div class="divider"></div>
+      <div class="event-name">MY REAL ID — 2026 청소년 여름수련회</div>
+      <div class="meta">📍 연천 은혜수양관 · 📅 2026.07.26 ~ 28 · D-82</div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="num">11</div><div class="label">전체 인원</div></div>
+      <div class="stat-card"><div class="num">8</div><div class="label">학생</div></div>
+      <div class="stat-card"><div class="num">2</div><div class="label">참여 교회</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="label">교사·운영진</div></div>
+      <div class="stat-card"><div class="num">0%</div><div class="label">조 배정률</div></div>
+      <div class="stat-card"><div class="num">29%</div><div class="label">준비 진행률</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ 시안 C ═══════════════════ -->
+  <div class="layout">
+    <span class="badge">시안 C</span>
+    <h2>다크 그라데이션 · 좌측 슬로건 / 우측 큰 로고 (현재 디자인 톤 유지 + 브랜드 통합)</h2>
+    <div class="hero hero-c">
+      <div class="left">
+        <span class="badge2">2026 청소년 여름수련회</span>
+        <div class="title-ko">하나님과 사람을,<br>사람과 사람을</div>
+        <div class="title-en">GOD TO PEOPLE · PEOPLE TO PEOPLE</div>
+        <div class="meta">📍 연천 은혜수양관 · 📅 7.26~28 · D-82</div>
+      </div>
+      <div class="right">
+        <img src="eum-logo.png" alt="E:um 로고">
+      </div>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="num">11</div><div class="label">전체 인원</div></div>
+      <div class="stat-card"><div class="num">8</div><div class="label">학생</div></div>
+      <div class="stat-card"><div class="num">2</div><div class="label">참여 교회</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="label">교사·운영진</div></div>
+      <div class="stat-card"><div class="num">0%</div><div class="label">조 배정률</div></div>
+      <div class="stat-card"><div class="num">29%</div><div class="label">준비 진행률</div></div>
+    </div>
+  </div>
+
+  <!-- 컬러 팔레트 -->
+  <div class="layout">
+    <h2>적용된 브랜드 컬러 (가이드 이미지 추정)</h2>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#F08C28"></div><div class="name">Orange<br>#F08C28</div></div>
+      <div class="swatch"><div class="chip" style="background:#D87515"></div><div class="name">Orange D<br>#D87515</div></div>
+      <div class="swatch"><div class="chip" style="background:#FFB870"></div><div class="name">Orange L<br>#FFB870</div></div>
+      <div class="swatch"><div class="chip" style="background:#1B3A5C"></div><div class="name">Navy<br>#1B3A5C</div></div>
+      <div class="swatch"><div class="chip" style="background:#0F2540"></div><div class="name">Navy D<br>#0F2540</div></div>
+      <div class="swatch"><div class="chip" style="background:#FFF8EC; border:1px solid #ddd"></div><div class="name">Cream<br>#FFF8EC</div></div>
+      <div class="swatch"><div class="chip" style="background:#C9962B"></div><div class="name">Gold<br>#C9962B</div></div>
+    </div>
+    <div class="note">
+      💡 정확한 브랜드 컬러 HEX 값(브랜드 가이드의 색상 코드)을 알려주시면 즉시 교체합니다.
+      현재는 가이드 이미지 픽셀 추출 추정값입니다.
+    </div>
+  </div>
+</div>
+</body>
+</html>
