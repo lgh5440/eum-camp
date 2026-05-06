@@ -154,19 +154,19 @@ function EventMetaEditor() {
           <Input
             value={draft.title}
             onChange={v => update('title', v)}
-            placeholder="2026 서울남지방회 연합 청소년 수련회"
+            placeholder="예: 2027 ○○교회 여름 수련회"
           />
         </Field>
 
         <Field label="메인 텍스트 (대시보드 큰 문구)">
-          <Input value={draft.theme} onChange={v => update('theme', v)} placeholder="MY REAL ID" />
+          <Input value={draft.theme} onChange={v => update('theme', v)} placeholder="예: GO! · 부흥 · LIGHT" />
         </Field>
         <Field label="부제 (메인 텍스트 아래 작은 문구)">
-          <Input value={draft.subTheme} onChange={v => update('subTheme', v)} placeholder="AI 시대 속에서의 정체성" />
+          <Input value={draft.subTheme} onChange={v => update('subTheme', v)} placeholder="주제 부연 설명을 입력하세요" />
         </Field>
 
         <Field label="지방회 / 주최">
-          <Input value={draft.district} onChange={v => update('district', v)} placeholder="서울남지방회" />
+          <Input value={draft.district} onChange={v => update('district', v)} placeholder="예: ○○교회 청년부, ○○지방회" />
         </Field>
         <Field label="앱 헤더 표시명">
           <Input value={draft.appName} onChange={v => update('appName', v)} placeholder="수련회 운영 시스템" />
@@ -180,10 +180,10 @@ function EventMetaEditor() {
         </Field>
 
         <Field label="장소명" icon={<MapPin size={14} aria-hidden="true" />}>
-          <Input value={draft.venue} onChange={v => update('venue', v)} placeholder="연천 은혜수양관" />
+          <Input value={draft.venue} onChange={v => update('venue', v)} placeholder="예: ○○ 수양관 / ○○ 청소년수련원" />
         </Field>
         <Field label="장소 주소" icon={<MapPin size={14} aria-hidden="true" />}>
-          <Input value={draft.venueAddress} onChange={v => update('venueAddress', v)} placeholder="경기 연천군 군남면 남계로 305" />
+          <Input value={draft.venueAddress} onChange={v => update('venueAddress', v)} placeholder="예: 경기도 ○○시 ○○면 ○○로 123" />
         </Field>
 
         <Field label="총원 (정원)" icon={<UsersIcon size={14} aria-hidden="true" />}>
@@ -201,17 +201,17 @@ function EventMetaEditor() {
         <Field label="저녁집회 강사" icon={<Mic size={14} aria-hidden="true" />}>
           <Input value={draft.eveningSpeaker.name}
             onChange={v => updatePerson('eveningSpeaker', 'name', v)}
-            placeholder="박찬희 목사" />
+            placeholder="예: ○○○ 목사" />
         </Field>
         <Field label="특강 강사" icon={<Mic size={14} aria-hidden="true" />}>
           <Input value={draft.lectureSpeaker.name}
             onChange={v => updatePerson('lectureSpeaker', 'name', v)}
-            placeholder="최윤식 박사" />
+            placeholder="예: ○○○ 교수 / 박사" />
         </Field>
         <Field label="찬양과 경배" colSpan={2}>
           <Input value={draft.worshipTeam.name}
             onChange={v => updatePerson('worshipTeam', 'name', v)}
-            placeholder="성결대학교 주사랑 음악선교단" />
+            placeholder="예: ○○ 음악선교단 / ○○교회 찬양팀" />
         </Field>
 
         {/* 문의 */}
@@ -220,12 +220,12 @@ function EventMetaEditor() {
         <Field label="문의 담당자" icon={<Phone size={14} aria-hidden="true" />}>
           <Input value={draft.inquiry.name}
             onChange={v => updatePerson('inquiry', 'name', v)}
-            placeholder="홍길동 목사" />
+            placeholder="예: ○○○ 목사 / 운영팀장" />
         </Field>
         <Field label="문의 전화 (010-XXXX-XXXX)" icon={<Phone size={14} aria-hidden="true" />}>
           <Input value={draft.inquiry.phone ?? ''}
             onChange={v => updatePerson('inquiry', 'phone', v)}
-            placeholder="010-0000-0001" />
+            placeholder="010-0000-0000" />
         </Field>
       </div>
 

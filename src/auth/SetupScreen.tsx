@@ -100,7 +100,7 @@ export default function SetupScreen() {
               value={adminName}
               onChange={e => setAdminName(e.target.value)}
               className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
-              placeholder="예: 홍길동 목사"
+              placeholder="예: 김○○ 목사 / 운영팀장"
               required
             />
           </Field>

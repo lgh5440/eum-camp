@@ -15,9 +15,9 @@ export interface EventConfig {
   version: number;
 
   /** ── 기본 정보 ─────────────────────────────────────────── */
-  /** 정식 행사명 (예: "2026 서울남지방회 연합 청소년 수련회") */
+  /** 정식 행사명 (예: "○○○○ 수련회") */
   title: string;
-  /** 메인 슬로건 / 메인 텍스트 (예: "MY REAL ID") */
+  /** 메인 슬로건 / 메인 텍스트 */
   theme: string;
   /** 부제 (예: "AI 시대 속에서의 정체성") */
   subTheme: string;
@@ -33,7 +33,7 @@ export interface EventConfig {
   venueAddress: string;
 
   /** ── 주최 단체 / 앱 ──────────────────────────────────────── */
-  district: string;     // 예: "서울남지방회"
+  district: string;     // 예: "○○지방회 / ○○교회 청년부"
   appName: string;      // 헤더 표시 (예: "수련회 운영 시스템")
 
   /** ── 강사·진행팀 ─────────────────────────────────────────── */
