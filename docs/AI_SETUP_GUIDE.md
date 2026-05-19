@@ -69,22 +69,37 @@ Claude Code는 Anthropic이 만든 **한국어로 자연스럽게 대화하는 A
 이 폴더에 다운받아서 우리 교회용으로 셋업해줘.
 
 다음 순서로 진행해줘:
-1. 코드 다운로드 (git clone)
-2. Node.js 설치 확인 — 없으면 다운로드 링크를 한국어로 알려주고 설치 끝날 때까지 기다려줘
+1. 코드 다운로드 (git clone https://github.com/lgh5440/eum-camp.git .)
+2. Node.js 설치 확인 — 없으면 https://nodejs.org LTS 다운로드 링크를 한국어로 알려주고 설치 끝날 때까지 기다려줘
 3. 의존성 설치 (npm install)
+   - "moderate severity vulnerability" 경고가 떠도 무시해도 된다고 안심시켜줘
 4. Firebase 무료 프로젝트 만들기
-   - Firebase Console 어디를 클릭해야 하는지 단계마다 설명
-   - 「프로덕션 모드」 / 「asia-northeast3 (Seoul)」 선택
-   - ⚠️ 「Authentication → 익명 로그인」 활성화 빠뜨리지 말 것
-5. 환경변수(.env.local) 채우기 — 어디서 어떤 값을 복사해야 하는지 콕 짚어줘
-6. firebase login + 첫 배포 (npm run deploy:firebase)
-7. 배포 끝나면 사이트 주소 알려주고, 우리 교회 행사 정보 입력 화면 안내
+   - Firebase Console (console.firebase.google.com) 어디를 클릭해야 하는지 단계마다 설명
+   - Firestore Database 만들 때 「프로덕션 모드」 / 「asia-northeast3 (Seoul)」 선택
+   - ⚠️ 「Authentication → 로그인 방법 → 익명」 활성화 빠뜨리지 말 것 (이거 빠뜨리면 시스템 안 돌아감)
+   - 웹 앱(`</>`) 등록 시 "Firebase Hosting도 설정" 체크박스는 체크하지 말 것 (CLI에서 따로 함)
+5. 환경변수(.env.local) 채우기
+   - `.env.example`을 복사해서 `.env.local` 생성
+   - Firebase Console에서 apiKey/projectId 등 값 복사해서 채우기
+   - `VITE_FIREBASE_EVENT_ID`는 본인 행사 고유 ID로 (예: hometown-church-2027) — **절대 'youth-retreat-2026' 같이 다른 행사 ID 사용 금지**
+6. Firebase CLI 로그인 + 프로젝트 연결
+   - npm install -g firebase-tools (이미 있으면 스킵)
+   - firebase login (브라우저 자동 열림)
+   - firebase use --add → 본인 프로젝트 선택 → alias는 'default'
+   - ⚠️ 이 저장소는 firebase.json에 `"target": "camp"`가 설정돼 있어서 추가 명령 1개 필수:
+     `firebase target:apply hosting camp [본인 프로젝트 ID]`
+     예: 본인 Firebase 프로젝트가 'hometown-church-retreat'이면
+     `firebase target:apply hosting camp hometown-church-retreat`
+     이 명령 빠뜨리면 deploy 시 "Hosting target 'camp' not defined" 에러 발생
+7. 첫 배포 (npm run deploy:firebase)
+8. 배포 끝나면 사이트 주소 알려주고, 첫 진행위원 인증 설정 화면 안내
 
 내 상황:
 - 운영체제: (Windows / Mac — 본인 환경 한 단어로 적기)
 - 우리 교회 이름: 「○○○○교회」
 - 행사명: 「20○○ 우리 교회 수련회」
 - 일정: 20○○년 ○월 ○일 ~ ○월 ○일
+- Firebase 프로젝트 ID 후보: 「○○○○-retreat-20○○」 (영문·숫자·하이픈만)
 
 진행 중 막히면 그 단계에서 멈추고 한국어로 다시 쉽게 설명해줘.
 명령어 실행 전엔 항상 「이 명령 실행해도 될까요?」 라고 물어봐줘.
@@ -104,6 +119,11 @@ AI는 차례대로 이런 것을 물어볼 거예요. 당황하지 말고 차근
 
 → 시키는 대로 설치 후 채팅창에 **"설치 끝났어"** 라고 답하면 됨.
 
+### npm install 후 "moderate severity vulnerability" 경고가 떠요
+> 화면: `1 moderate severity vulnerability` 같은 빨간 글씨
+
+→ **무시해도 됨.** 라이브러리 안의 작은 보안 패치 권고일 뿐, 우리 시스템에는 영향 없음. AI가 이걸 보고 "괜찮습니다, 계속 진행할게요" 라고 알아서 안심시켜줄 거예요.
+
 ### Firebase 프로젝트 만들 때
 > AI: "[console.firebase.google.com] 에 접속해서 「프로젝트 만들기」 클릭하세요. 프로젝트 이름은 「우리교회-수련회-2027」 같이 영문·숫자·하이픈으로 입력해주세요."
 
@@ -118,6 +138,11 @@ AI는 차례대로 이런 것을 물어볼 거예요. 당황하지 말고 차근
 > AI: "마지막으로 한 가지만 더! Firebase Console 좌측 메뉴 「Authentication」 → 「로그인 방법」 → 「익명」 클릭 → 「사용 설정」 토글 켜기 → 저장. 끝나면 알려주세요."
 
 → 이거 빠뜨리면 시스템 안 돌아감. **반드시 켜야 함.**
+
+### "Hosting target 'camp' not defined" 에러가 떠요
+> 화면: `Error: Hosting site or target "camp" not detected in firebase.json`
+
+→ `firebase target:apply` 명령을 빠뜨린 것. AI에게 **"firebase target:apply 명령 실행해줘. 내 Firebase 프로젝트 ID는 [본인 프로젝트 ID]야"** 라고 말하면 자동 처리.
 
 ### 배포 끝!
 > AI: "배포 완료! 사이트 주소는 https://○○○○.web.app 입니다. 브라우저에서 열어보세요."

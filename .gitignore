@@ -13,6 +13,11 @@ dist-ssr
 .sheet-build
 *.local
 
+# Firebase — 각 사용자가 본인 프로젝트로 설정
+# (.firebaserc는 firebase use --add 시 자동 생성됨)
+.firebaserc
+.firebase/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
