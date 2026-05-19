@@ -1,10 +1,15 @@
-// 캐시 전략 v3
+// 캐시 전략 v5
 //   - navigate(HTML)         : network-first, 실패 시 캐시
-//   - /assets/*-[hash].js|css: 파일명에 해시가 있어 불변 → cache-first (영구 가능)
+//   - /assets/*-[hash].js|css: 파일명에 해시가 있어 불변 → cache-first
+//     단, 캐시 미스 시 fetch 실패하면 빈 응답으로 빠지지 말고 명확한 404 반환
+//     (main.tsx의 vite:preloadError 자동 reload 핸들러가 받음)
 //   - 그 외(아이콘·매니페스트·/apply·/system): network-first, 실패 시 캐시
 // 배포 후 새로고침 한 번이면 즉시 최신 버전이 표시됨 (강력 새로고침 불필요).
+//
+// CACHE_NAME을 bump하면 activate 시 모든 옛 캐시가 자동 삭제됨 — 새 deploy로
+// 청크 해시가 바뀐 경우 옛 청크 잔재 제거 효과.
 
-const CACHE_NAME = 'eum-camp-shell-v4';
+const CACHE_NAME = 'eum-camp-shell-v5';
 const CORE_ASSETS = [
   '/',
   '/manifest.webmanifest',
