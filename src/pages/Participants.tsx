@@ -1,14 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 import { Search, Users, AlertTriangle, UserPlus, Upload, Download } from 'lucide-react';
-import { churches, rooms } from '../data/mockData';
+import { rooms } from '../data/mockData';
 import type { Participant } from '../types';
 import ParticipantDetailModal from '../components/ParticipantDetailModal';
 import ParticipantFormModal from '../components/ParticipantFormModal';
 import CsvImportModal from '../components/CsvImportModal';
 import { saveParticipants } from '../utils/participantStorage';
-import { useParticipants, useGroupMeta } from '../hooks/useSharedData';
+import { useParticipants, useGroupMeta, useChurchConfig } from '../hooks/useSharedData';
 import { parseParticipantsCSV, type CsvParseResult } from '../utils/csvParser';
 import { participantsToCSV, downloadCSV, buildFilename } from '../utils/csvExport';
+import { displayChurchName } from '../utils/churchIdentity';
 
 const statusLabel: Record<Participant['status'], string> = {
   confirmed: '확정', pending: '대기', cancelled: '취소',
@@ -27,6 +28,7 @@ const gradeOrder = ['중1','중2','중3','고1','고2','고3','교사'];
 export default function Participants() {
   const sharedParticipants = useParticipants();
   const groups             = useGroupMeta();
+  const churches           = useChurchConfig();
   const [participantList, setParticipantList] = useState<Participant[]>(sharedParticipants);
   const [search, setSearch]             = useState('');
   const [filterGender, setFilterGender] = useState<'all' | 'M' | 'F'>('all');
@@ -85,7 +87,7 @@ export default function Participants() {
     const list = scope === 'filtered' ? filtered : participantList;
     const csv  = participantsToCSV(list, { churchMap, groupMap, roomMap });
     const suffix = scope === 'filtered' && filtered.length < participantList.length ? '-filtered' : '';
-    downloadCSV(csv, buildFilename(`youth-retreat-participants${suffix}`));
+    downloadCSV(csv, buildFilename(`eum-camp-participants${suffix}`));
   }
 
   function handleCsvFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -317,6 +319,7 @@ export default function Participants() {
           <table className="w-full">
             <thead>
               <tr style={{ background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                <th className="px-2 sm:px-3 py-3 text-left text-xs font-medium text-slate-400 whitespace-nowrap w-12">#</th>
                 <th className="px-3 sm:px-4 py-3 text-left text-xs font-medium text-slate-400 whitespace-nowrap">이름</th>
                 <th className="hidden sm:table-cell px-3 sm:px-4 py-3 text-left text-xs font-medium text-slate-400 whitespace-nowrap">교회</th>
                 <th className="hidden sm:table-cell px-3 sm:px-4 py-3 text-left text-xs font-medium text-slate-400 whitespace-nowrap">학년</th>
@@ -328,7 +331,7 @@ export default function Participants() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map(p => (
+              {filtered.map((p, idx) => (
                 <tr
                   key={p.id}
                   className="transition-colors hover:bg-white/5 cursor-pointer"
@@ -336,6 +339,7 @@ export default function Participants() {
                   onClick={() => setSelected(p)}
                   title={`${p.name} 상세 보기`}
                 >
+                  <td className="px-2 sm:px-3 py-3 text-xs text-slate-400 font-mono whitespace-nowrap">{idx + 1}</td>
                   <td className="px-3 sm:px-4 py-3">
                     <div className="flex items-center gap-2">
                       <div
@@ -350,8 +354,8 @@ export default function Participants() {
                       <span className="text-sm font-medium text-white whitespace-nowrap">{p.name}</span>
                     </div>
                   </td>
-                  <td className="hidden sm:table-cell px-3 sm:px-4 py-3 text-sm text-slate-300 whitespace-nowrap">
-                    {churchMap[p.church] || p.church}
+                  <td className="hidden sm:table-cell px-3 sm:px-4 py-3 text-sm text-slate-300 whitespace-nowrap max-w-[160px] truncate">
+                    {displayChurchName(p.church, churchMap)}
                   </td>
                   <td className="hidden sm:table-cell px-3 sm:px-4 py-3 text-sm text-slate-300">{p.grade}</td>
                   <td className="hidden md:table-cell px-3 sm:px-4 py-3">

@@ -4,7 +4,7 @@ import { logChange } from './changeLogStorage';
 import { findParticipantDuplicates, type DuplicateLevel } from './duplicateParticipants';
 import { publishStorageChange } from './storageEvents';
 
-export const APPLICATION_QUEUE_KEY = 'youth-retreat-application-queue-v1';
+export const APPLICATION_QUEUE_KEY = 'eum-camp:applications:queue:v1';
 
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
 export type ApplicationSource = 'google-form' | 'naver-form' | 'csv' | 'manual';

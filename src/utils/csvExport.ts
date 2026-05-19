@@ -85,7 +85,7 @@ export function downloadCSV(csvText: string, filename: string): void {
 }
 
 // 오늘 날짜 기반 파일명
-export function buildFilename(prefix = 'youth-retreat-participants'): string {
+export function buildFilename(prefix = 'eum-camp-participants'): string {
   const d   = new Date();
   const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
   return `${prefix}-${ymd}.csv`;

@@ -7,7 +7,7 @@ export interface GroupRow    { name: string; count: number; leader: string; colo
 export interface RoomRow     { name: string; cap: number; assigned: number }
 export interface SafetyRow   { label: string; value: string; color: string; emoji: string }
 
-const K = (s: string) => `youth-retreat-2026:dashboard:${s}`;
+const K = (s: string) => `eum-camp:dashboard:${s}`;
 
 export const PALETTE = [
   '#06b6d4','#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#ec4899','#14b8a6',

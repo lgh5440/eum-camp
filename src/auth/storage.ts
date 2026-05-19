@@ -6,9 +6,9 @@ import type { AuthCreds, Session } from './types';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from '../utils/storageEvents';
 
-export const CREDS_KEY   = 'youth-retreat-2026:auth:creds';
-export const SESSION_KEY = 'youth-retreat-2026:auth:session';
-const ATTEMPT_KEY = 'youth-retreat-2026:auth:attempts';
+export const CREDS_KEY   = 'eum-camp:auth:creds';
+export const SESSION_KEY = 'eum-camp:auth:session';
+const ATTEMPT_KEY = 'eum-camp:auth:attempts';
 
 const CRED_VERSION = 1;
 

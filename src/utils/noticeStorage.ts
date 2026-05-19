@@ -3,12 +3,12 @@ import type { Notice } from '../types';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from './storageEvents';
 
-export const NOTICE_ITEMS_KEY = 'youth-retreat-2026:notices:v1';
+export const NOTICE_ITEMS_KEY = 'eum-camp:notices:v1';
 
 // 한 번만 자동 시드할 공지 ID 목록 (mockData 신규 항목)
 // 사용자가 의도적으로 삭제한 경우 다시 추가하지 않도록 SEED_FLAG_KEY로 추적
 const SEED_NOTICE_IDS = ['n00'] as const;
-const SEED_FLAG_KEY = 'youth-retreat-2026:notices:seeded-v1';
+const SEED_FLAG_KEY = 'eum-camp:notices:seeded-v1';
 
 function seedMissingNotices(items: Notice[]): Notice[] {
   if (localStorage.getItem(SEED_FLAG_KEY) === '1') return items;

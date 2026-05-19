@@ -13,7 +13,7 @@ export interface ChurchConfig {
   teacherPhone?: string;
 }
 
-export const CHURCH_CONFIG_KEY = 'youth-retreat-2026:church-config:v1';
+export const CHURCH_CONFIG_KEY = 'eum-camp:church-config:v1';
 
 function defaultConfig(): ChurchConfig[] {
   return mockChurches.map(c => ({

@@ -50,7 +50,7 @@ interface CloudStateDoc<T> {
   updatedAt?: unknown;
 }
 
-const PENDING_CLOUD_WRITES_KEY = 'youth-retreat-2026:cloud:pending-writes';
+const PENDING_CLOUD_WRITES_KEY = 'eum-camp:cloud:pending-writes';
 
 type PendingWrites = Partial<Record<CloudStateKey, unknown>>;
 

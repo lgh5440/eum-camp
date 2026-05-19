@@ -3,7 +3,7 @@ import type { Schedule } from '../types';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from './storageEvents';
 
-export const SCHEDULE_STORAGE_KEY = 'youth-retreat-2026:schedules:v1';
+export const SCHEDULE_STORAGE_KEY = 'eum-camp:schedules:v1';
 
 export function loadScheduleItems(): Schedule[] {
   try {

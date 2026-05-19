@@ -1,4 +1,4 @@
-export const SHARED_STORAGE_EVENT = 'youth-retreat-2026:shared-storage-change';
+export const SHARED_STORAGE_EVENT = 'eum-camp:shared-storage-change';
 
 export function publishStorageChange(key: string): void {
   if (typeof window === 'undefined') return;

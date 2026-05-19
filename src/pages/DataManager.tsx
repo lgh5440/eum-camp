@@ -27,7 +27,7 @@ function isVolunteer(p: Participant): boolean {
 
 // ── 상수 ─────────────────────────────────────────────────────────────────────
 
-const APP_NAME   = 'youth-retreat-2026';
+const APP_NAME   = 'eum-camp';
 const BACKUP_VER = 1;
 
 // ── 타입 ─────────────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ function buildBackupPayload(): { payload: BackupPayload; filename: string } {
     changeLog:        loadChangeLog(),
   };
 
-  return { payload, filename: `youth-retreat-backup-${date}-${time}.json` };
+  return { payload, filename: `eum-camp-backup-${date}-${time}.json` };
 }
 
 function triggerJsonDownload(json: string, filename: string): void {

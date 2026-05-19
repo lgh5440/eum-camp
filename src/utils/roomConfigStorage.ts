@@ -3,7 +3,7 @@ import { rooms as mockRooms } from '../data/mockData';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from './storageEvents';
 
-export const ROOM_CONFIG_KEY = 'youth-retreat-2026:room-config:v1';
+export const ROOM_CONFIG_KEY = 'eum-camp:room-config:v1';
 
 export function loadRoomConfig(): Room[] {
   try {

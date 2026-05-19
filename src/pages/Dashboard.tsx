@@ -7,6 +7,7 @@ import {
   useScheduleItems, useSafetyItems,
 } from '../hooks/useSharedData';
 import { computeStats, computeCheckInStats } from '../utils/dashboardStats';
+import { resolveChurchId } from '../utils/churchIdentity';
 import { EVENT, computeDday } from '../data/eventInfo';
 import { type PageKey } from '../components/Sidebar';
 import type { ChecklistItem, Schedule } from '../types';
@@ -147,11 +148,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   const safetyItems   = useSafetyItems();
 
   // 교회별 신청 현황 (참가자 status !== cancelled 만 카운트)
+  // p.church가 ID 또는 이름으로 저장될 수 있어 resolveChurchId로 정규화 후 카운트
   const churchBreakdown = useMemo(() => {
     const counts = new Map<string, number>();
     for (const p of participants) {
       if (p.status === 'cancelled') continue;
-      counts.set(p.church, (counts.get(p.church) ?? 0) + 1);
+      const cid = resolveChurchId(p.church, churchConfigs);
+      counts.set(cid, (counts.get(cid) ?? 0) + 1);
     }
     return churchConfigs.map((c, i) => ({
       id:    c.id,

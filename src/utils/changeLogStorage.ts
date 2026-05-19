@@ -3,7 +3,7 @@ import { SESSION_KEY } from '../auth/storage';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from './storageEvents';
 
-export const CHANGE_LOG_KEY = 'youth-retreat-change-log-v1';
+export const CHANGE_LOG_KEY = 'eum-camp:change-log:v1';
 const MAX_LOG_ENTRIES = 200;
 
 export interface ChangeLogEntry {

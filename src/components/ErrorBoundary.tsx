@@ -18,7 +18,7 @@ interface State {
   count: number;
 }
 
-const STORE_KEY = 'youth-retreat-2026:errorlog';
+const STORE_KEY = 'eum-camp:errorlog';
 
 function persistError(scope: string, error: Error, info: ErrorInfo) {
   try {

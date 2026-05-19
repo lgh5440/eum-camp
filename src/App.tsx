@@ -17,7 +17,6 @@ const Vehicles             = lazy(() => import('./pages/Vehicles'));
 const Checklist            = lazy(() => import('./pages/Checklist'));
 const Safety               = lazy(() => import('./pages/Safety'));
 const Notices              = lazy(() => import('./pages/Notices'));
-const Documents            = lazy(() => import('./pages/Documents'));
 const PrintCenter          = lazy(() => import('./pages/PrintCenter'));
 const DataManager          = lazy(() => import('./pages/DataManager'));
 const EmergencyContacts    = lazy(() => import('./pages/EmergencyContacts'));
@@ -50,7 +49,6 @@ const PAGE_TITLES: Record<PageKey, string> = {
   checklist:    '운영 체크리스트',
   safety:       '안전 관리',
   notices:      '공지사항',
-  documents:    '문서 자료',
   printcenter:  '출력 센터',
   datamanager:   '데이터 관리',
   emergency:     '비상연락망',
@@ -66,7 +64,7 @@ function isPageKey(v: string | null): v is PageKey {
   return !!v && (PAGE_KEYS as string[]).includes(v);
 }
 
-const PAGE_STORE_KEY = 'youth-retreat-2026:ui:lastPage';
+const PAGE_STORE_KEY = 'eum-camp:ui:lastPage';
 
 function getHashPage(): string {
   return window.location.hash.replace(/^#\/?/, '').split('?')[0];
@@ -85,7 +83,6 @@ function PageContent({ page, onNavigate }: { page: PageKey; onNavigate: (p: Page
     case 'checklist':    return <Checklist />;
     case 'safety':       return <Safety />;
     case 'notices':      return <Notices />;
-    case 'documents':    return <Documents />;
     case 'printcenter':  return <PrintCenter />;
     case 'datamanager':   return <DataManager />;
     case 'emergency':     return <EmergencyContacts />;

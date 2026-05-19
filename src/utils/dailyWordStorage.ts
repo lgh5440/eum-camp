@@ -9,7 +9,7 @@ export interface DailyWord {
   note: string;
 }
 
-export const DAILY_WORD_KEY = 'youth-retreat-2026:daily-word:v1';
+export const DAILY_WORD_KEY = 'eum-camp:daily-word:v1';
 
 export const DEFAULT_DAILY_WORD: DailyWord = {
   badge: '오늘의 말씀',

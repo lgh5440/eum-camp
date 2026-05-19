@@ -6,10 +6,11 @@ import {
   saveCheckInMap, toggleCheckIn,
   type CheckInMap, type CheckInEntry,
 } from '../utils/checkInStorage';
-import { useCheckInMap, useParticipants } from '../hooks/useSharedData';
+import { useCheckInMap, useParticipants, useChurchConfig } from '../hooks/useSharedData';
 import { isStudent, GROUP_CONFIG } from '../utils/groupAssignment';
 import { VEHICLE_CONFIG, INDIVIDUAL_ID } from '../utils/vehicleAssignment';
 import { churches as masterChurches, rooms as masterRooms } from '../data/mockData';
+import { isCorruptChurchValue } from '../utils/churchIdentity';
 import type { Participant } from '../types';
 
 // ── 정적 룩업 맵 ──────────────────────────────────────────────────────────────────
@@ -47,8 +48,12 @@ interface CardProps {
 }
 
 function ParticipantCard({ p, entry, onToggle }: CardProps) {
+  const churches = useChurchConfig();
   const isCheckedIn = !!entry?.checkedIn;
-  const churchName  = CHURCH_MAP.get(p.church) ?? p.church;
+  // churchConfig 매칭 entry 우선 — ID가 길어도 등록된 entry면 정상 표시
+  const matchedChurchName = churches.find(c => c.id === p.church)?.name;
+  const churchName  = matchedChurchName
+    ?? (isCorruptChurchValue(p.church) ? '(확인 필요)' : (CHURCH_MAP.get(p.church) ?? p.church));
   const role        = getRoleLabel(p);
   const groupName   = p.groupId ? (GROUP_MAP.get(p.groupId) ?? '-') : '-';
   const roomName    = p.roomId  ? (ROOM_MAP.get(p.roomId)  ?? '-') : '-';

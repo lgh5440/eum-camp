@@ -11,13 +11,14 @@ import {
   Settings as SettingsIcon, Download, RefreshCw, Save,
   CheckCircle2, AlertTriangle, MapPin, Calendar, Mic,
   Users as UsersIcon, Phone, Sparkles, Eye, EyeOff, Lock,
+  Plus, X,
 } from 'lucide-react';
 import { useAuth } from '../auth/useAuth';
 import AdminAuthSettings from '../auth/AdminAuthSettings';
 import {
   loadEventConfig, saveEventConfig, resetEventConfig,
 } from '../config/eventConfigStorage';
-import { DEFAULT_EVENT_CONFIG, type EventConfig } from '../config/eventConfig';
+import { DEFAULT_EVENT_CONFIG, type EventConfig, type PersonRef } from '../config/eventConfig';
 import { downloadFullBackup } from '../utils/fullBackup';
 import { navItems, type PageKey } from '../components/Sidebar';
 import { useMenuVisibility } from '../hooks/useSharedData';
@@ -90,10 +91,24 @@ function EventMetaEditor() {
   function update<K extends keyof EventConfig>(key: K, value: EventConfig[K]) {
     setDraft(d => ({ ...d, [key]: value }));
   }
-  function updatePerson<K extends 'eveningSpeaker' | 'lectureSpeaker' | 'worshipTeam' | 'inquiry'>(
+  function updatePerson<K extends 'worshipTeam' | 'inquiry'>(
     key: K, field: 'name' | 'role' | 'phone', value: string
   ) {
     setDraft(d => ({ ...d, [key]: { ...d[key], [field]: value } }));
+  }
+
+  // ── 강사 목록 핸들러 ───────────────────────────────────────────────
+  function updateSpeaker(idx: number, field: 'name' | 'role', value: string) {
+    setDraft(d => {
+      const next = d.speakers.map((s, i) => i === idx ? { ...s, [field]: value } : s);
+      return { ...d, speakers: next };
+    });
+  }
+  function addSpeaker() {
+    setDraft(d => ({ ...d, speakers: [...d.speakers, { role: '', name: '' } as PersonRef] }));
+  }
+  function removeSpeaker(idx: number) {
+    setDraft(d => ({ ...d, speakers: d.speakers.filter((_, i) => i !== idx) }));
   }
 
   function validate(): string | null {
@@ -198,16 +213,60 @@ function EventMetaEditor() {
         {/* 강사 / 진행팀 */}
         <Subheader>강사 · 진행팀</Subheader>
 
-        <Field label="저녁집회 강사" icon={<Mic size={14} aria-hidden="true" />}>
-          <Input value={draft.eveningSpeaker.name}
-            onChange={v => updatePerson('eveningSpeaker', 'name', v)}
-            placeholder="예: ○○○ 목사" />
-        </Field>
-        <Field label="특강 강사" icon={<Mic size={14} aria-hidden="true" />}>
-          <Input value={draft.lectureSpeaker.name}
-            onChange={v => updatePerson('lectureSpeaker', 'name', v)}
-            placeholder="예: ○○○ 교수 / 박사" />
-        </Field>
+        <div className="md:col-span-2 space-y-2">
+          <div className="flex items-center justify-between">
+            <label className="text-xs text-slate-400 inline-flex items-center gap-1.5">
+              <Mic size={14} aria-hidden="true" /> 강사 ({draft.speakers.length}명)
+            </label>
+            <button
+              type="button"
+              onClick={addSpeaker}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/10 transition-colors"
+              style={{ border: '1px solid rgba(6,182,212,0.3)' }}
+            >
+              <Plus size={12} aria-hidden="true" /> 강사 추가
+            </button>
+          </div>
+
+          {draft.speakers.length === 0 ? (
+            <div
+              className="rounded-lg px-3 py-3 text-[11px] text-slate-500 text-center"
+              style={{ background: 'rgba(255,255,255,0.02)', border: '1px dashed rgba(255,255,255,0.1)' }}
+            >
+              등록된 강사가 없습니다. "강사 추가" 버튼으로 등록할 수 있습니다.
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {draft.speakers.map((sp, idx) => (
+                <div
+                  key={idx}
+                  className="grid gap-2 md:grid-cols-[1fr_1.4fr_auto] items-center rounded-lg p-2"
+                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+                >
+                  <Input
+                    value={sp.role ?? ''}
+                    onChange={v => updateSpeaker(idx, 'role', v)}
+                    placeholder="역할 (예: 저녁집회 강사)"
+                  />
+                  <Input
+                    value={sp.name}
+                    onChange={v => updateSpeaker(idx, 'name', v)}
+                    placeholder="강사명 (예: ○○○ 목사)"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removeSpeaker(idx)}
+                    aria-label={`${sp.name || `${idx + 1}번 강사`} 삭제`}
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors"
+                  >
+                    <X size={14} aria-hidden="true" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         <Field label="찬양과 경배" colSpan={2}>
           <Input value={draft.worshipTeam.name}
             onChange={v => updatePerson('worshipTeam', 'name', v)}
@@ -228,12 +287,6 @@ function EventMetaEditor() {
             placeholder="010-0000-0000" />
         </Field>
       </div>
-
-      <HeroImageField
-        value={draft.heroImage}
-        onChange={v => update('heroImage', v)}
-        onError={setError}
-      />
 
       {error && (
         <div role="alert" className="mt-4 rounded-lg p-3 text-xs"
@@ -271,131 +324,6 @@ function EventMetaEditor() {
       </div>
     </section>
   );
-}
-
-// ── 메인 이미지 업로드 필드 ─────────────────────────────────────────────────
-const MAX_HERO_BYTES = 700_000;          // ~700KB 원본 한도
-const MAX_HERO_DIMENSION = 1600;          // 긴 변 최대 1600px (자동 축소)
-
-function HeroImageField({
-  value, onChange, onError,
-}: {
-  value: string | undefined;
-  onChange: (v: string | undefined) => void;
-  onError: (msg: string | null) => void;
-}) {
-  const inputId = useId();
-  const [busy, setBusy] = useState(false);
-
-  function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    if (!file.type.startsWith('image/')) {
-      onError('이미지 파일만 업로드할 수 있습니다.');
-      return;
-    }
-    if (file.size > MAX_HERO_BYTES * 4) {
-      onError(`이미지가 너무 큽니다 (${Math.round(file.size / 1024)}KB). 2MB 이하로 줄여주세요.`);
-      return;
-    }
-    setBusy(true);
-    onError(null);
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = String(reader.result ?? '');
-      compressDataUrl(dataUrl, MAX_HERO_DIMENSION).then(compressed => {
-        if (compressed.length > MAX_HERO_BYTES * 1.5) {
-          onError('압축 후에도 이미지가 너무 큽니다. 더 작은 이미지를 사용해 주세요.');
-          setBusy(false);
-          return;
-        }
-        onChange(compressed);
-        setBusy(false);
-      }).catch(() => {
-        onError('이미지 처리 중 오류가 발생했습니다.');
-        setBusy(false);
-      });
-    };
-    reader.onerror = () => { onError('파일을 읽을 수 없습니다.'); setBusy(false); };
-    reader.readAsDataURL(file);
-  }
-
-  return (
-    <div className="mt-4 rounded-xl p-4"
-      style={{ background: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.25)' }}>
-      <div className="flex items-start gap-3 mb-3">
-        <div className="text-xs font-bold text-violet-300">메인 이미지 (대시보드 Hero)</div>
-        <div className="text-[11px] text-slate-400">설정 안 하면 기본 일러스트가 표시됩니다.</div>
-      </div>
-
-      <div className="flex items-start gap-3 flex-wrap">
-        <div className="rounded-xl overflow-hidden flex-shrink-0"
-          style={{
-            width: 180, height: 100,
-            background: value ? `center/cover no-repeat url(${value})` : 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
-          }}>
-          {!value && (
-            <div className="w-full h-full flex items-center justify-center text-[10px] text-slate-500">
-              미리보기 없음
-            </div>
-          )}
-        </div>
-
-        <div className="flex-1 min-w-0 space-y-2">
-          <label htmlFor={inputId}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer"
-            style={{ background: 'rgba(139,92,246,0.18)', border: '1px solid rgba(139,92,246,0.4)', color: '#c4b5fd' }}>
-            {busy ? '처리 중…' : value ? '이미지 변경' : '이미지 업로드'}
-          </label>
-          <input
-            id={inputId}
-            type="file"
-            accept="image/*"
-            onChange={handleFile}
-            className="hidden"
-            disabled={busy}
-          />
-          {value && (
-            <button
-              type="button"
-              onClick={() => onChange(undefined)}
-              className="text-[11px] text-slate-400 hover:text-rose-300 ml-2"
-            >
-              제거
-            </button>
-          )}
-          <div className="text-[11px] text-slate-500 leading-relaxed">
-            • 권장: 1600×900 이하 JPG/PNG · 700KB 이하<br/>
-            • 자동 축소: 긴 변 1600px로 리사이즈 후 저장<br/>
-            • Firestore document 1MB 제한 — 압축 후 검증
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// 캔버스로 base64 이미지 압축 (긴 변을 maxDim으로 리사이즈, JPEG 0.85 품질)
-function compressDataUrl(dataUrl: string, maxDim: number): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => {
-      const { width, height } = img;
-      const scale = Math.min(1, maxDim / Math.max(width, height));
-      const w = Math.round(width * scale);
-      const h = Math.round(height * scale);
-      const canvas = document.createElement('canvas');
-      canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return reject(new Error('canvas unavailable'));
-      ctx.drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL('image/jpeg', 0.85));
-    };
-    img.onerror = () => reject(new Error('image load failed'));
-    img.src = dataUrl;
-  });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════

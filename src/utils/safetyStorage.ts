@@ -3,7 +3,7 @@ import type { SafetyItem } from '../types';
 import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from './storageEvents';
 
-export const SAFETY_ITEMS_KEY = 'youth-retreat-2026:safety-items:v1';
+export const SAFETY_ITEMS_KEY = 'eum-camp:safety-items:v1';
 
 export function loadSafetyItems(): SafetyItem[] {
   try {

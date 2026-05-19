@@ -4,7 +4,7 @@
 //   - 그 외(아이콘·매니페스트·/apply·/system): network-first, 실패 시 캐시
 // 배포 후 새로고침 한 번이면 즉시 최신 버전이 표시됨 (강력 새로고침 불필요).
 
-const CACHE_NAME = 'youth-retreat-2026-shell-v3';
+const CACHE_NAME = 'eum-camp-shell-v4';
 const CORE_ASSETS = [
   '/',
   '/manifest.webmanifest',

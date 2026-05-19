@@ -9,7 +9,7 @@ export interface GroupMeta {
   color?: string;
 }
 
-export const GROUP_META_KEY = 'youth-retreat-2026:group-meta:v1';
+export const GROUP_META_KEY = 'eum-camp:group-meta:v1';
 
 export const GROUP_COLOR_PALETTE = [
   '#06b6d4', '#3b82f6', '#8b5cf6', '#10b981',

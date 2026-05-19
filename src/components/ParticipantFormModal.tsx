@@ -3,7 +3,7 @@ import { X, UserPlus, Pencil } from 'lucide-react';
 import type { Participant } from '../types';
 import { generateParticipantId } from '../utils/participantStorage';
 import { useChurchConfig, useGroupMeta, useRoomConfig } from '../hooks/useSharedData';
-import { dedupeChurches, resolveChurchId } from '../utils/churchIdentity';
+import { dedupeChurches, resolveChurchId, isCorruptChurchValue } from '../utils/churchIdentity';
 import { FEE_STAGES, feeStageDerive, legacyFeeToStage, type FeeStage } from '../utils/feeLabels';
 
 interface Props {
@@ -66,6 +66,7 @@ function participantToFormData(p: Participant): FormData {
     p.role ?? (p.grade === '교사' ? '교사' : '학생');
   return {
     name: p.name,
+    // p.church 그대로 보존. churchConfig 매칭 entry 여부는 useEffect에서 판단.
     churchId: p.church,
     role,
     grade: STUDENT_GRADES.includes(p.grade) ? p.grade : '해당없음',
@@ -130,13 +131,26 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
     return () => { document.body.style.overflow = prev; };
   }, []);
 
+  // churchConfig 데이터 로드/변경 시 1회만 정규화.
+  // 1) churchConfig에 정확히 매칭되는 entry가 있으면 그대로 유지 (ID가 길어도)
+  // 2) 매칭 안 되고 corrupt 형태(긴 텍스트·콤마 등)면 빈 값으로 — 사용자가 직접 선택하도록
+  // 3) 그 외는 resolveChurchId로 정규화 (이름→ID 변환 등)
   useEffect(() => {
-    const canonicalChurchId = resolveChurchId(form.churchId, churches);
-    if (canonicalChurchId && canonicalChurchId !== form.churchId) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setForm(prev => ({ ...prev, churchId: canonicalChurchId }));
-    }
-  }, [churches, form.churchId]);
+    if (churches.length === 0) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setForm(prev => {
+      if (!prev.churchId) return prev;
+      const exactMatch = churches.some(c => c.id === prev.churchId);
+      if (exactMatch) return prev;
+      if (isCorruptChurchValue(prev.churchId)) {
+        return { ...prev, churchId: '' };
+      }
+      const canonical = resolveChurchId(prev.churchId, churches);
+      return canonical && canonical !== prev.churchId
+        ? { ...prev, churchId: canonical }
+        : prev;
+    });
+  }, [churches]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function set(field: keyof FormData, value: any) {

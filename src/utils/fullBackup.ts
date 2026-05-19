@@ -4,11 +4,12 @@
 
 import { loadEventConfig } from '../config/eventConfigStorage';
 
-const APP_PREFIX = 'youth-retreat-2026:';
+const APP_PREFIX = 'eum-camp:';
 const BACKUP_VER = 2;
 
 export interface FullBackupPayload {
-  app: 'youth-retreat-2026';
+  /** 현재 이음캠프는 'eum-camp'로 기록. 과거 fork 흔적인 'youth-retreat-2026'도 후방호환 허용. */
+  app: 'eum-camp' | 'youth-retreat-2026';
   schemaVersion: number;
   /** 백업 시각 (ISO 8601) */
   backupAt: string;
@@ -22,7 +23,7 @@ export interface FullBackupPayload {
   userAgent: string;
 }
 
-/** localStorage 안의 youth-retreat-2026:* 키를 모두 모아 페이로드로 빌드 */
+/** localStorage 안의 eum-camp:* 키를 모두 모아 페이로드로 빌드 */
 export function buildFullBackup(): { payload: FullBackupPayload; filename: string } {
   const event = loadEventConfig();
   const store: Record<string, unknown> = {};
@@ -51,7 +52,7 @@ export function buildFullBackup(): { payload: FullBackupPayload; filename: strin
   const filename  = `${safeTitle}-fullbackup-${date}-${time}.json`;
 
   const payload: FullBackupPayload = {
-    app:           'youth-retreat-2026',
+    app:           'eum-camp',
     schemaVersion: BACKUP_VER,
     backupAt:      now.toISOString(),
     eventTitle:    event.title,

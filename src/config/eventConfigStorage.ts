@@ -13,7 +13,7 @@ import {
 import { publishStorageChange, listenStorageChange } from '../utils/storageEvents';
 import { queueCloudSave } from '../services/cloudStore';
 
-export const EVENT_CONFIG_KEY = 'youth-retreat-2026:eventConfig';
+export const EVENT_CONFIG_KEY = 'eum-camp:eventConfig';
 
 export function loadEventConfig(): EventConfig {
   try {

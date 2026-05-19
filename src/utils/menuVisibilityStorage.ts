@@ -5,7 +5,7 @@ import type { PageKey } from '../components/Sidebar';
 import { publishStorageChange } from './storageEvents';
 import { queueCloudSave } from '../services/cloudStore';
 
-export const MENU_VISIBILITY_KEY = 'youth-retreat-2026:ui:menu-visibility';
+export const MENU_VISIBILITY_KEY = 'eum-camp:ui:menu-visibility';
 
 export type MenuVisibility = Partial<Record<PageKey, boolean>>;
 

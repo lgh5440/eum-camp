@@ -3,7 +3,7 @@ import { queueCloudSave } from '../services/cloudStore';
 import { logChange } from './changeLogStorage';
 import { publishStorageChange } from './storageEvents';
 
-export const PARTICIPANTS_STORAGE_KEY = 'youth-retreat-participants-v1';
+export const PARTICIPANTS_STORAGE_KEY = 'eum-camp:participants:v1';
 
 // 초기 mockData 시드(샘플 17명)의 고정 ID. 실제 등록자는 generateParticipantId()로
 // `u{timestamp}_xxxxx` 또는 `app_...` 형태이므로 이 값들과 절대 충돌하지 않음.

@@ -2,7 +2,7 @@ import { queueCloudSave } from '../services/cloudStore';
 import { logChange } from './changeLogStorage';
 import { publishStorageChange } from './storageEvents';
 
-export const CHURCH_CONFIRM_KEY = 'youth-retreat-church-confirm-v1';
+export const CHURCH_CONFIRM_KEY = 'eum-camp:church-confirm:v1';
 
 export interface ChurchConfirmEntry {
   confirmed: boolean;

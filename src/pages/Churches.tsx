@@ -9,7 +9,7 @@ import {
 } from '../hooks/useSharedData';
 import { saveChurchConfig, nextChurchId, type ChurchConfig } from '../utils/churchConfigStorage';
 import { saveParticipants } from '../utils/participantStorage';
-import { canonicalizeChurchValue, dedupeChurches, normalizeChurchName, resolveChurchId } from '../utils/churchIdentity';
+import { canonicalizeChurchValue, dedupeChurches, normalizeChurchName, resolveChurchId, isCorruptChurchValue } from '../utils/churchIdentity';
 import { saveChurchConfirmMap, toggleChurchConfirm } from '../utils/churchConfirmStorage';
 import type { ChurchConfirmMap } from '../utils/churchConfirmStorage';
 import { isStudent, GROUP_CONFIG } from '../utils/groupAssignment';
@@ -75,7 +75,11 @@ function buildChurchStats(
 
   const byChurch: Record<string, Participant[]> = {};
   active.forEach(p => {
-    const cid = resolveChurchId(p.church, churchConfig);
+    // churchConfig 매칭 entry가 있으면 그 ID 사용 (ID가 길어도 정상). 없을 때만 corrupt 체크.
+    const exactMatch = churchConfig.some(c => c.id === p.church);
+    const cid = exactMatch
+      ? p.church
+      : (isCorruptChurchValue(p.church) ? '__corrupt__' : resolveChurchId(p.church, churchConfig));
     (byChurch[cid] ??= []).push(p);
   });
 
@@ -115,7 +119,7 @@ function buildChurchStats(
 
       return {
         churchKey,
-        displayName:    cfg?.name ?? churchKey,
+        displayName:    cfg?.name ?? (churchKey === '__corrupt__' ? '⚠ 교회 정보 확인 필요' : churchKey),
         district:       cfg?.district,
         teacherName:    cfg?.teacherName,
         teacherPhone:   cfg?.teacherPhone,

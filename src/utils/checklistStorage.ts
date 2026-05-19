@@ -4,7 +4,7 @@ import { queueCloudSave } from '../services/cloudStore';
 import { logChange } from './changeLogStorage';
 import { publishStorageChange } from './storageEvents';
 
-export const CHECKLIST_STORAGE_KEY = 'youth-retreat-checklist-status-v1';
+export const CHECKLIST_STORAGE_KEY = 'eum-camp:checklist:status:v1';
 export type StatusMap = Record<string, ChecklistItem['status']>;
 
 const VALID_STATUSES = new Set<ChecklistItem['status']>([
@@ -85,7 +85,7 @@ export function calculateChecklistStats(items?: ChecklistItem[]): ChecklistStats
 
 // ── Full item list (add / edit / delete support) ──────────────────────────────
 
-export const CHECKLIST_FULL_KEY = 'youth-retreat-2026:checklist:full:v1';
+export const CHECKLIST_FULL_KEY = 'eum-camp:checklist:full:v1';
 
 /** 전체 항목 로드 — 커스텀 항목 포함, 없으면 status-merged 기본값 */
 export function loadFullChecklistItems(): ChecklistItem[] {

@@ -37,9 +37,9 @@ export interface EventConfig {
   appName: string;      // 헤더 표시 (예: "수련회 운영 시스템")
 
   /** ── 강사·진행팀 ─────────────────────────────────────────── */
-  eveningSpeaker: PersonRef;
-  lectureSpeaker: PersonRef;
-  worshipTeam:    PersonRef;
+  /** 강사 목록 — 0명~N명 자유. v2부터 동적 배열로 관리. */
+  speakers: PersonRef[];
+  worshipTeam: PersonRef;
 
   /** ── 문의 (LoginScreen·ErrorBoundary에 노출) ──────────────── */
   inquiry: PersonRef;
@@ -57,22 +57,21 @@ export interface EventConfig {
 }
 
 export const DEFAULT_EVENT_CONFIG: EventConfig = {
-  version:        1,
-  title:          '',
-  theme:          '',
-  subTheme:       '',
-  startDate:      '',
-  endDate:        '',
-  venue:          '',
-  venueAddress:   '',
-  district:       '',
-  appName:        '이음 캠프 — 수련회·모임 운영 시스템',
-  eveningSpeaker: { role: '저녁집회 강사', name: '' },
-  lectureSpeaker: { role: '특강 강사',     name: '' },
-  worshipTeam:    { role: '찬양과 경배',   name: '' },
-  inquiry:        { role: '문의', name: '', phone: '' },
-  totalQuota:     0,
-  feeAmount:      0,
+  version:      2,
+  title:        '',
+  theme:        '',
+  subTheme:     '',
+  startDate:    '',
+  endDate:      '',
+  venue:        '',
+  venueAddress: '',
+  district:     '',
+  appName:      '이음 캠프 — 수련회·모임 운영 시스템',
+  speakers:     [],
+  worshipTeam:  { role: '찬양과 경배', name: '' },
+  inquiry:      { role: '문의', name: '', phone: '' },
+  totalQuota:   0,
+  feeAmount:    0,
 };
 
 /** 행사 기본 정보가 입력됐는지 — App.tsx에서 EventSetupWizard 표시 여부 결정 */
@@ -129,14 +128,47 @@ export function formatDatesLabel(cfg: EventConfig): string {
   return `${f(s)} - ${eShort}`;
 }
 
-/** 입력값 sanitize — 빈 필드는 기본값으로 폴백 */
+/** v1 스키마 (eveningSpeaker / lectureSpeaker 2개 고정 슬롯) — 마이그레이션 목적의 형태 */
+interface EventConfigV1Legacy {
+  version?: number;
+  eveningSpeaker?: PersonRef;
+  lectureSpeaker?: PersonRef;
+  speakers?: PersonRef[];
+}
+
+/** 입력값 sanitize — 빈 필드는 기본값으로 폴백. v1 데이터는 v2로 자동 마이그레이션. */
 export function mergeEventConfig(override: Partial<EventConfig> | null): EventConfig {
-  if (!override) return { ...DEFAULT_EVENT_CONFIG };
-  const merged: EventConfig = { ...DEFAULT_EVENT_CONFIG, ...override };
-  // 강사·문의는 부분 업데이트도 허용
-  merged.eveningSpeaker = { ...DEFAULT_EVENT_CONFIG.eveningSpeaker, ...(override.eveningSpeaker ?? {}) };
-  merged.lectureSpeaker = { ...DEFAULT_EVENT_CONFIG.lectureSpeaker, ...(override.lectureSpeaker ?? {}) };
-  merged.worshipTeam    = { ...DEFAULT_EVENT_CONFIG.worshipTeam,    ...(override.worshipTeam    ?? {}) };
-  merged.inquiry        = { ...DEFAULT_EVENT_CONFIG.inquiry,        ...(override.inquiry        ?? {}) };
+  if (!override) return { ...DEFAULT_EVENT_CONFIG, speakers: [...DEFAULT_EVENT_CONFIG.speakers] };
+
+  const merged: EventConfig = {
+    ...DEFAULT_EVENT_CONFIG,
+    ...override,
+    // speakers는 아래에서 별도 처리
+    speakers: DEFAULT_EVENT_CONFIG.speakers,
+  };
+
+  // ── 강사 목록: v1 마이그레이션 (eveningSpeaker / lectureSpeaker → speakers) ──
+  const legacy = override as EventConfigV1Legacy;
+  if (Array.isArray(legacy.speakers)) {
+    // v2 형식 — speakers 배열 그대로 사용 (빈 배열 허용)
+    merged.speakers = legacy.speakers.map(s => ({ ...s }));
+  } else if (legacy.eveningSpeaker || legacy.lectureSpeaker) {
+    // v1 형식 — 두 슬롯을 합쳐 배열로 (name이 있는 것만)
+    const migrated: PersonRef[] = [];
+    if (legacy.eveningSpeaker?.name) migrated.push({ ...legacy.eveningSpeaker });
+    if (legacy.lectureSpeaker?.name) migrated.push({ ...legacy.lectureSpeaker });
+    merged.speakers = migrated;
+  } else {
+    // override에 강사 정보 자체가 없으면 DEFAULT 복제 (빈 배열)
+    merged.speakers = DEFAULT_EVENT_CONFIG.speakers.map(s => ({ ...s }));
+  }
+
+  // 단일 객체 필드는 부분 업데이트 허용
+  merged.worshipTeam = { ...DEFAULT_EVENT_CONFIG.worshipTeam, ...(override.worshipTeam ?? {}) };
+  merged.inquiry     = { ...DEFAULT_EVENT_CONFIG.inquiry,     ...(override.inquiry     ?? {}) };
+
+  // 버전 항상 최신으로
+  merged.version = DEFAULT_EVENT_CONFIG.version;
+
   return merged;
 }

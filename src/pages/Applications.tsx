@@ -23,8 +23,8 @@ import {
 import { findParticipantDuplicates } from '../utils/duplicateParticipants';
 import { logChange } from '../utils/changeLogStorage';
 
-const SHEET_URL_KEY = 'youth-retreat-2026:applications:sheet-url';
-const SHEET_AUTO_SYNC_KEY = 'youth-retreat-2026:applications:auto-sync';
+const SHEET_URL_KEY = 'eum-camp:applications:sheet-url';
+const SHEET_AUTO_SYNC_KEY = 'eum-camp:applications:auto-sync';
 
 const sourceLabel: Record<ApplicationSource, string> = {
   'google-form': 'Google Forms',

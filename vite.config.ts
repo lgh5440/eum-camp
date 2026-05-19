@@ -3,9 +3,20 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  server: {
+    port: 5180,
+    strictPort: true,
+  },
   plugins: [
     react(),
     tailwindcss(),
+    {
+      name: 'dev-title-prefix',
+      apply: 'serve',
+      transformIndexHtml(html) {
+        return html.replace(/<title>(.*?)<\/title>/, '<title>[DEV·캠프] $1</title>')
+      },
+    },
   ],
   build: {
     chunkSizeWarningLimit: 700,

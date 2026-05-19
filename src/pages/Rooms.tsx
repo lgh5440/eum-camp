@@ -57,7 +57,8 @@ export default function Rooms() {
   const studentRooms = activeRooms.filter(r => r.type !== 'staff');
   const validRoomIds = new Set(studentRooms.map(r => r.id));
 
-  const students           = activeParticipants.filter(isStudent);
+  // 학생 + 교사·운영진 모두 숙소 배정 대상
+  const students           = activeParticipants;
   const assignedStudents   = students.filter(p => p.roomId && validRoomIds.has(p.roomId));
   const unassignedStudents = students.filter(p => !p.roomId || !validRoomIds.has(p.roomId));
   const remainingSeats     = studentRooms.reduce(
@@ -157,7 +158,7 @@ export default function Rooms() {
         <div>
           <h2 className="text-xl font-bold text-white">숙소 / 방 배정</h2>
           <p className="text-sm text-slate-400 mt-0.5">
-            총 {activeRooms.length}개 방 · 수용 {activeRooms.reduce((s, r) => s + r.capacity, 0)}명
+            총 {activeRooms.length}개 방 · 수용 {activeRooms.reduce((s, r) => s + r.capacity, 0)}명 · 학생·교사·운영진 모두 포함
           </p>
         </div>
 
@@ -220,7 +221,7 @@ export default function Rooms() {
       {/* 요약 통계 6칸 */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {[
-          { label: '전체 학생',  value: students.length,           color: '#64748b' },
+          { label: '전체 인원',  value: students.length,           color: '#64748b' },
           { label: '배정 완료',  value: assignedStudents.length,   color: '#10b981' },
           { label: '미배정',     value: unassignedStudents.length, color: unassignedStudents.length > 0 ? '#f59e0b' : '#64748b' },
           { label: '남학생 방',  value: maleRooms.length,          color: '#3b82f6' },

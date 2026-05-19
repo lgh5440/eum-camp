@@ -15,8 +15,8 @@ export interface NoticeTargetConfig {
   color: string;
 }
 
-export const SCHEDULE_CATEGORY_CONFIG_KEY = 'youth-retreat-2026:schedule-categories:v1';
-export const NOTICE_TARGET_CONFIG_KEY = 'youth-retreat-2026:notice-targets:v1';
+export const SCHEDULE_CATEGORY_CONFIG_KEY = 'eum-camp:schedule-categories:v1';
+export const NOTICE_TARGET_CONFIG_KEY = 'eum-camp:notice-targets:v1';
 
 export const DEFAULT_SCHEDULE_CATEGORY_CONFIG: ScheduleCategoryConfig[] = [
   { key: 'worship', label: '예배/강의', color: '#8b5cf6', icon: '✝️' },

@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, Users, Building2, Grid3X3, CalendarDays,
-  BedDouble, CheckSquare, ShieldAlert, Megaphone, FolderOpen,
+  BedDouble, CheckSquare, ShieldAlert, Megaphone,
   ChevronLeft, ChevronRight, X, Bus, Printer, HardDrive, PhoneCall, UserCheck, Activity, BookOpen, Inbox, Settings,
 } from 'lucide-react';
 import { EVENT, computeDdayLabel } from '../data/eventInfo';
@@ -12,7 +12,7 @@ import { EUM_BRAND, EUM_COLORS } from '../data/eumBrand';
 export type PageKey =
   | 'dashboard' | 'participants' | 'applications' | 'churches' | 'groups'
   | 'schedule' | 'rooms' | 'vehicles' | 'checklist' | 'safety'
-  | 'notices' | 'documents' | 'printcenter' | 'datamanager' | 'emergency' | 'checkin'
+  | 'notices' | 'printcenter' | 'datamanager' | 'emergency' | 'checkin'
   | 'fieldmode' | 'userguide' | 'eventsettings';
 
 export interface NavItem {
@@ -36,7 +36,6 @@ export const navItems: NavItem[] = [
   { key: 'checklist',    label: '운영 체크리스트',   icon: <CheckSquare size={18} /> },
   { key: 'safety',       label: '안전 관리',         icon: <ShieldAlert size={18} /> },
   { key: 'notices',      label: '공지사항',          icon: <Megaphone size={18} /> },
-  { key: 'documents',    label: '문서 자료',         icon: <FolderOpen size={18} /> },
   { key: 'printcenter',  label: '출력 센터',   icon: <Printer   size={18} /> },
   { key: 'datamanager',  label: '데이터 관리', icon: <HardDrive size={18} /> },
   { key: 'emergency',    label: '비상연락망',   icon: <PhoneCall  size={18} /> },

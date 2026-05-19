@@ -2,7 +2,7 @@ import { queueCloudSave } from '../services/cloudStore';
 import { logChange } from './changeLogStorage';
 import { publishStorageChange } from './storageEvents';
 
-export const CHECKIN_KEY = 'youth-retreat-checkin-v1';
+export const CHECKIN_KEY = 'eum-camp:checkin:v1';
 
 export interface CheckInEntry {
   checkedIn: boolean;
