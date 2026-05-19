@@ -20,15 +20,17 @@
 
 ## 1. 코드 받기 (5분)
 
+**원본 저장소 주소**: 👉 [https://github.com/lgh5440/eum-camp](https://github.com/lgh5440/eum-camp)
+
 ### 옵션 A — GitHub Desktop 사용 (가장 쉬움, 비추천 → 옵션 B로 가세요)
 1. [desktop.github.com](https://desktop.github.com) 다운로드 후 설치
-2. 원본 저장소 페이지에서 우상단 **Fork** → 본인 계정으로 복사
+2. [원본 저장소](https://github.com/lgh5440/eum-camp)에서 우상단 **Fork** → 본인 계정으로 복사
 3. 본인 계정의 fork된 저장소 → **Code** → **Open with GitHub Desktop**
 4. 폴더 선택 후 다운로드
 
-### 옵션 B — ZIP 다운로드 (더 빠름)
-1. 원본 저장소 페이지 → **Code (초록색)** → **Download ZIP**
-2. 다운받은 ZIP 압축 풀기 (예: `C:\Users\○○\Desktop\youth-retreat-2026`)
+### 옵션 B — ZIP 다운로드 (더 빠름) ✅ 추천
+1. [원본 저장소](https://github.com/lgh5440/eum-camp) → **Code (초록색)** → **Download ZIP**
+2. 다운받은 ZIP 압축 풀기 (예: `C:\Users\○○\Desktop\eum-camp`)
 
 ---
 
