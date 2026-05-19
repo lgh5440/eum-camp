@@ -46,48 +46,48 @@ export const churches: Church[] = [
 export const participants: Participant[] = [
   // ── 학생 25명 ─────────────────────────────────────────────────────────────
   // 가람교회 (c01) — 4명
-  { id: 'p001', name: '김민준', church: 'c01', grade: '고2', gender: 'M', phone: '010-1000-0001', parentPhone: '010-2000-0001', groupId: 'g01', roomId: 'r01', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p002', name: '이서연', church: 'c01', grade: '고1', gender: 'F', phone: '010-1000-0002', parentPhone: '010-2000-0002', groupId: 'g02', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p003', name: '박지훈', church: 'c01', grade: '중3', gender: 'M', phone: '010-1000-0003', parentPhone: '010-2000-0003', groupId: 'g01', roomId: 'r01', dietType: 'allergy', allergies: '견과류', registeredAt: '2026-06-02', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p004', name: '강수아', church: 'c01', grade: '중2', gender: 'F', phone: '010-1000-0004', parentPhone: '010-2000-0004', groupId: 'g02', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-02', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's001', name: '김민준', church: 'c01', grade: '고2', gender: 'M', phone: '010-1000-0001', parentPhone: '010-2000-0001', groupId: 'g01', roomId: 'r01', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's002', name: '이서연', church: 'c01', grade: '고1', gender: 'F', phone: '010-1000-0002', parentPhone: '010-2000-0002', groupId: 'g02', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's003', name: '박지훈', church: 'c01', grade: '중3', gender: 'M', phone: '010-1000-0003', parentPhone: '010-2000-0003', groupId: 'g01', roomId: 'r01', dietType: 'allergy', allergies: '견과류', registeredAt: '2026-06-02', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's004', name: '강수아', church: 'c01', grade: '중2', gender: 'F', phone: '010-1000-0004', parentPhone: '010-2000-0004', groupId: 'g02', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-02', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 새벽이슬교회 (c02) — 4명
-  { id: 'p005', name: '최수아', church: 'c02', grade: '고2', gender: 'F', phone: '010-1000-0005', parentPhone: '010-2000-0005', groupId: 'g03', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-03', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
-  { id: 'p006', name: '정도현', church: 'c02', grade: '고3', gender: 'M', phone: '010-1000-0006', parentPhone: '010-2000-0006', groupId: 'g04', roomId: 'r02', dietType: 'vegetarian', registeredAt: '2026-06-03', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p007', name: '김하준', church: 'c02', grade: '중1', gender: 'M', phone: '010-1000-0007', parentPhone: '010-2000-0007', groupId: 'g05', roomId: 'r02', dietType: 'normal', registeredAt: '2026-06-04', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p008', name: '이채원', church: 'c02', grade: '중3', gender: 'F', phone: '010-1000-0008', parentPhone: '010-2000-0008', groupId: 'g06', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-04', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's005', name: '최수아', church: 'c02', grade: '고2', gender: 'F', phone: '010-1000-0005', parentPhone: '010-2000-0005', groupId: 'g03', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-03', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
+  { id: 's006', name: '정도현', church: 'c02', grade: '고3', gender: 'M', phone: '010-1000-0006', parentPhone: '010-2000-0006', groupId: 'g04', roomId: 'r02', dietType: 'vegetarian', registeredAt: '2026-06-03', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's007', name: '김하준', church: 'c02', grade: '중1', gender: 'M', phone: '010-1000-0007', parentPhone: '010-2000-0007', groupId: 'g05', roomId: 'r02', dietType: 'normal', registeredAt: '2026-06-04', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's008', name: '이채원', church: 'c02', grade: '중3', gender: 'F', phone: '010-1000-0008', parentPhone: '010-2000-0008', groupId: 'g06', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-04', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 푸른초장교회 (c03) — 3명
-  { id: 'p009', name: '한지민', church: 'c03', grade: '중2', gender: 'F', phone: '010-1000-0009', parentPhone: '010-2000-0009', groupId: 'g01', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-05', status: 'confirmed', fee: 'partial', feeAmount: 30000, feeStage: 'pre', role: '학생' },
-  { id: 'p010', name: '오준서', church: 'c03', grade: '중1', gender: 'M', phone: '010-1000-0010', parentPhone: '010-2000-0010', groupId: 'g02', roomId: 'r03', dietType: 'normal', registeredAt: '2026-06-05', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
-  { id: 'p011', name: '박서영', church: 'c03', grade: '고1', gender: 'F', phone: '010-1000-0011', parentPhone: '010-2000-0011', groupId: 'g03', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-06', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's009', name: '한지민', church: 'c03', grade: '중2', gender: 'F', phone: '010-1000-0009', parentPhone: '010-2000-0009', groupId: 'g01', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-05', status: 'confirmed', fee: 'partial', feeAmount: 30000, feeStage: 'pre', role: '학생' },
+  { id: 's010', name: '오준서', church: 'c03', grade: '중1', gender: 'M', phone: '010-1000-0010', parentPhone: '010-2000-0010', groupId: 'g02', roomId: 'r03', dietType: 'normal', registeredAt: '2026-06-05', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
+  { id: 's011', name: '박서영', church: 'c03', grade: '고1', gender: 'F', phone: '010-1000-0011', parentPhone: '010-2000-0011', groupId: 'g03', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-06', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 빛소금교회 (c04) — 3명
-  { id: 'p012', name: '윤하은', church: 'c04', grade: '고1', gender: 'F', phone: '010-1000-0012', parentPhone: '010-2000-0012', groupId: 'g04', roomId: 'r11', dietType: 'allergy', allergies: '유제품', registeredAt: '2026-06-07', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p013', name: '임현우', church: 'c04', grade: '고2', gender: 'M', phone: '010-1000-0013', parentPhone: '010-2000-0013', groupId: 'g05', roomId: 'r04', dietType: 'normal', registeredAt: '2026-06-07', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p014', name: '조민서', church: 'c04', grade: '중3', gender: 'F', phone: '010-1000-0014', parentPhone: '010-2000-0014', groupId: 'g06', roomId: 'r11', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's012', name: '윤하은', church: 'c04', grade: '고1', gender: 'F', phone: '010-1000-0012', parentPhone: '010-2000-0012', groupId: 'g04', roomId: 'r11', dietType: 'allergy', allergies: '유제품', registeredAt: '2026-06-07', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's013', name: '임현우', church: 'c04', grade: '고2', gender: 'M', phone: '010-1000-0013', parentPhone: '010-2000-0013', groupId: 'g05', roomId: 'r04', dietType: 'normal', registeredAt: '2026-06-07', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's014', name: '조민서', church: 'c04', grade: '중3', gender: 'F', phone: '010-1000-0014', parentPhone: '010-2000-0014', groupId: 'g06', roomId: 'r11', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 은혜의샘교회 (c05) — 3명
-  { id: 'p015', name: '백채원', church: 'c05', grade: '중3', gender: 'F', phone: '010-1000-0015', parentPhone: '010-2000-0015', groupId: 'g01', roomId: 'r12', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p016', name: '강태양', church: 'c05', grade: '고3', gender: 'M', phone: '010-1000-0016', parentPhone: '010-2000-0016', groupId: 'g02', roomId: 'r05', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
-  { id: 'p017', name: '서윤호', church: 'c05', grade: '고2', gender: 'M', phone: '010-1000-0017', parentPhone: '010-2000-0017', groupId: 'g03', roomId: 'r05', dietType: 'normal', registeredAt: '2026-06-09', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's015', name: '백채원', church: 'c05', grade: '중3', gender: 'F', phone: '010-1000-0015', parentPhone: '010-2000-0015', groupId: 'g01', roomId: 'r12', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's016', name: '강태양', church: 'c05', grade: '고3', gender: 'M', phone: '010-1000-0016', parentPhone: '010-2000-0016', groupId: 'g02', roomId: 'r05', dietType: 'normal', registeredAt: '2026-06-08', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
+  { id: 's017', name: '서윤호', church: 'c05', grade: '고2', gender: 'M', phone: '010-1000-0017', parentPhone: '010-2000-0017', groupId: 'g03', roomId: 'r05', dietType: 'normal', registeredAt: '2026-06-09', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 작은꽃밭교회 (c06) — 3명
-  { id: 'p018', name: '장서윤', church: 'c06', grade: '고1', gender: 'F', phone: '010-1000-0018', parentPhone: '010-2000-0018', groupId: 'g04', roomId: 'r12', dietType: 'normal', registeredAt: '2026-06-09', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p019', name: '노민재', church: 'c06', grade: '중2', gender: 'M', phone: '010-1000-0019', parentPhone: '010-2000-0019', groupId: 'g05', roomId: 'r06', dietType: 'allergy', allergies: '밀가루', registeredAt: '2026-06-09', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
-  { id: 'p020', name: '문지윤', church: 'c06', grade: '중1', gender: 'F', phone: '010-1000-0020', parentPhone: '010-2000-0020', groupId: 'g06', roomId: 'r13', dietType: 'normal', registeredAt: '2026-06-10', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's018', name: '장서윤', church: 'c06', grade: '고1', gender: 'F', phone: '010-1000-0018', parentPhone: '010-2000-0018', groupId: 'g04', roomId: 'r12', dietType: 'normal', registeredAt: '2026-06-09', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's019', name: '노민재', church: 'c06', grade: '중2', gender: 'M', phone: '010-1000-0019', parentPhone: '010-2000-0019', groupId: 'g05', roomId: 'r06', dietType: 'allergy', allergies: '밀가루', registeredAt: '2026-06-09', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
+  { id: 's020', name: '문지윤', church: 'c06', grade: '중1', gender: 'F', phone: '010-1000-0020', parentPhone: '010-2000-0020', groupId: 'g06', roomId: 'r13', dietType: 'normal', registeredAt: '2026-06-10', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
   // 한알밀교회 (c07) — 3명
-  { id: 'p021', name: '신유나', church: 'c07', grade: '고2', gender: 'F', phone: '010-1000-0021', parentPhone: '010-2000-0021', groupId: 'g01', roomId: 'r13', dietType: 'normal', registeredAt: '2026-06-10', status: 'confirmed', fee: 'partial', feeAmount: 30000, feeStage: 'pre', role: '학생' },
-  { id: 'p022', name: '안재현', church: 'c07', grade: '중3', gender: 'M', phone: '010-1000-0022', parentPhone: '010-2000-0022', groupId: 'g02', roomId: 'r06', dietType: 'normal', registeredAt: '2026-06-11', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p023', name: '권나연', church: 'c07', grade: '고1', gender: 'F', phone: '010-1000-0023', parentPhone: '010-2000-0023', groupId: 'g03', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-11', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
+  { id: 's021', name: '신유나', church: 'c07', grade: '고2', gender: 'F', phone: '010-1000-0021', parentPhone: '010-2000-0021', groupId: 'g01', roomId: 'r13', dietType: 'normal', registeredAt: '2026-06-10', status: 'confirmed', fee: 'partial', feeAmount: 30000, feeStage: 'pre', role: '학생' },
+  { id: 's022', name: '안재현', church: 'c07', grade: '중3', gender: 'M', phone: '010-1000-0022', parentPhone: '010-2000-0022', groupId: 'g02', roomId: 'r06', dietType: 'normal', registeredAt: '2026-06-11', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's023', name: '권나연', church: 'c07', grade: '고1', gender: 'F', phone: '010-1000-0023', parentPhone: '010-2000-0023', groupId: 'g03', roomId: 'r08', dietType: 'normal', registeredAt: '2026-06-11', status: 'pending', fee: 'unpaid', feeAmount: 0, feeStage: 'unpaid', role: '학생' },
   // 별빛교회 (c08) — 2명
-  { id: 'p024', name: '류준혁', church: 'c08', grade: '중1', gender: 'M', phone: '010-1000-0024', parentPhone: '010-2000-0024', groupId: 'g04', roomId: 'r07', dietType: 'normal', registeredAt: '2026-06-12', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
-  { id: 'p025', name: '황소민', church: 'c08', grade: '고3', gender: 'F', phone: '010-1000-0025', parentPhone: '010-2000-0025', groupId: 'g05', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-12', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
+  { id: 's024', name: '류준혁', church: 'c08', grade: '중1', gender: 'M', phone: '010-1000-0024', parentPhone: '010-2000-0024', groupId: 'g04', roomId: 'r07', dietType: 'normal', registeredAt: '2026-06-12', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '학생' },
+  { id: 's025', name: '황소민', church: 'c08', grade: '고3', gender: 'F', phone: '010-1000-0025', parentPhone: '010-2000-0025', groupId: 'g05', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-12', status: 'confirmed', fee: 'paid', feeAmount: 70000, feeStage: 'second', role: '학생' },
 
   // ── 교사 8명 (각 교회 1명, 진행위원 역할) ────────────────────────────────
-  { id: 't001', name: '김지영 교사', church: 'c01', grade: '교사', gender: 'F', phone: '010-0000-0001', parentPhone: '010-0000-0001', groupId: 'g01', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-25', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't002', name: '이서준 교사', church: 'c02', grade: '교사', gender: 'M', phone: '010-0000-0002', parentPhone: '010-0000-0002', groupId: 'g02', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-25', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't003', name: '박민수 교사', church: 'c03', grade: '교사', gender: 'M', phone: '010-0000-0003', parentPhone: '010-0000-0003', groupId: 'g03', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-26', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't004', name: '최예린 교사', church: 'c04', grade: '교사', gender: 'F', phone: '010-0000-0004', parentPhone: '010-0000-0004', groupId: 'g04', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-26', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't005', name: '정도윤 교사', church: 'c05', grade: '교사', gender: 'M', phone: '010-0000-0005', parentPhone: '010-0000-0005', groupId: 'g05', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-27', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't006', name: '한지민 교사', church: 'c06', grade: '교사', gender: 'F', phone: '010-0000-0006', parentPhone: '010-0000-0006', groupId: 'g06', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-27', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't007', name: '오태양 교사', church: 'c07', grade: '교사', gender: 'M', phone: '010-0000-0007', parentPhone: '010-0000-0007', groupId: 'g05', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-28', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
-  { id: 't008', name: '윤채원 교사', church: 'c08', grade: '교사', gender: 'F', phone: '010-0000-0008', parentPhone: '010-0000-0008', groupId: 'g06', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-28', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't101', name: '김지영 교사', church: 'c01', grade: '교사', gender: 'F', phone: '010-0000-0001', parentPhone: '010-0000-0001', groupId: 'g01', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-25', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't102', name: '이서준 교사', church: 'c02', grade: '교사', gender: 'M', phone: '010-0000-0002', parentPhone: '010-0000-0002', groupId: 'g02', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-25', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't103', name: '박민수 교사', church: 'c03', grade: '교사', gender: 'M', phone: '010-0000-0003', parentPhone: '010-0000-0003', groupId: 'g03', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-26', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't104', name: '최예린 교사', church: 'c04', grade: '교사', gender: 'F', phone: '010-0000-0004', parentPhone: '010-0000-0004', groupId: 'g04', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-26', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't105', name: '정도윤 교사', church: 'c05', grade: '교사', gender: 'M', phone: '010-0000-0005', parentPhone: '010-0000-0005', groupId: 'g05', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-27', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't106', name: '한지민 교사', church: 'c06', grade: '교사', gender: 'F', phone: '010-0000-0006', parentPhone: '010-0000-0006', groupId: 'g06', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-27', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't107', name: '오태양 교사', church: 'c07', grade: '교사', gender: 'M', phone: '010-0000-0007', parentPhone: '010-0000-0007', groupId: 'g05', roomId: 'r15', dietType: 'normal', registeredAt: '2026-05-28', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
+  { id: 't108', name: '윤채원 교사', church: 'c08', grade: '교사', gender: 'F', phone: '010-0000-0008', parentPhone: '010-0000-0008', groupId: 'g06', roomId: 'r14', dietType: 'normal', registeredAt: '2026-05-28', status: 'confirmed', fee: 'paid', feeAmount: 60000, feeStage: 'first', role: '교사' },
 
   // ── 진행팀 17명 (호스트 c01 가람 소속으로 표시, 참가비 면제) ──────────────
   // 목사 2명
@@ -117,34 +117,34 @@ export const participants: Participant[] = [
 
 // ─── 조 편성 (6조, 각 조 학생 4명 + 교사 1명 + 도우미 0~1명) ───────────────────
 export const groups: Group[] = [
-  { id: 'g01', name: '1조 빛의 자녀',     color: '#06b6d4', leaderName: '김지영 교사', members: ['p001', 'p003', 'p009', 'p015', 'p021', 't001', 'v001'] },
-  { id: 'g02', name: '2조 진리의 길',     color: '#3b82f6', leaderName: '이서준 교사', members: ['p002', 'p004', 'p010', 'p016', 'p022', 't002', 'v002'] },
-  { id: 'g03', name: '3조 생명의 말씀',   color: '#8b5cf6', leaderName: '박민수 교사', members: ['p005', 'p011', 'p017', 'p023',         't003', 'v003'] },
-  { id: 'g04', name: '4조 소망의 별',     color: '#10b981', leaderName: '최예린 교사', members: ['p006', 'p012', 'p018', 'p024',         't004', 'v004'] },
-  { id: 'g05', name: '5조 하나님의 사랑', color: '#f59e0b', leaderName: '정도윤 교사', members: ['p007', 'p013', 'p019', 'p025',         't005', 't007'] },
-  { id: 'g06', name: '6조 평화의 강',     color: '#ef4444', leaderName: '한지민 교사', members: ['p008', 'p014', 'p020',                  't006', 't008'] },
+  { id: 'g01', name: '1조 빛의 자녀',     color: '#06b6d4', leaderName: '김지영 교사', members: ['s001', 's003', 's009', 's015', 's021', 't101', 'v001'] },
+  { id: 'g02', name: '2조 진리의 길',     color: '#3b82f6', leaderName: '이서준 교사', members: ['s002', 's004', 's010', 's016', 's022', 't102', 'v002'] },
+  { id: 'g03', name: '3조 생명의 말씀',   color: '#8b5cf6', leaderName: '박민수 교사', members: ['s005', 's011', 's017', 's023',         't103', 'v003'] },
+  { id: 'g04', name: '4조 소망의 별',     color: '#10b981', leaderName: '최예린 교사', members: ['s006', 's012', 's018', 's024',         't104', 'v004'] },
+  { id: 'g05', name: '5조 하나님의 사랑', color: '#f59e0b', leaderName: '정도윤 교사', members: ['s007', 's013', 's019', 's025',         't105', 't107'] },
+  { id: 'g06', name: '6조 평화의 강',     color: '#ef4444', leaderName: '한지민 교사', members: ['s008', 's014', 's020',                  't106', 't108'] },
 ];
 
 // ─── 숙소 배정 (남학생 7방 + 여학생 6방 + 진행팀 4방 = 17방, 50명 수용) ─────────
 export const rooms: Room[] = [
   // 남학생 — A동 1~2층, 방당 4명
-  { id: 'r01', name: '101호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['p001', 'p003'] },
-  { id: 'r02', name: '102호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['p006', 'p007'] },
-  { id: 'r03', name: '103호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['p010'] },
-  { id: 'r04', name: '104호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['p013'] },
-  { id: 'r05', name: '201호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['p016', 'p017'] },
-  { id: 'r06', name: '202호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['p019', 'p022'] },
-  { id: 'r07', name: '203호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['p024'] },
+  { id: 'r01', name: '101호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['s001', 's003'] },
+  { id: 'r02', name: '102호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['s006', 's007'] },
+  { id: 'r03', name: '103호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['s010'] },
+  { id: 'r04', name: '104호', building: 'A동', floor: 1, capacity: 4, type: 'male', assignedIds: ['s013'] },
+  { id: 'r05', name: '201호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['s016', 's017'] },
+  { id: 'r06', name: '202호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['s019', 's022'] },
+  { id: 'r07', name: '203호', building: 'A동', floor: 2, capacity: 4, type: 'male', assignedIds: ['s024'] },
   // 여학생 — B동 1~2층, 방당 4명
-  { id: 'r08', name: '301호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['p002', 'p004', 'p023'] },
-  { id: 'r09', name: '302호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['p005', 'p008', 'p025'] },
-  { id: 'r10', name: '303호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['p009', 'p011'] },
-  { id: 'r11', name: '304호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['p012', 'p014'] },
-  { id: 'r12', name: '401호', building: 'B동', floor: 2, capacity: 4, type: 'female', assignedIds: ['p015', 'p018'] },
-  { id: 'r13', name: '402호', building: 'B동', floor: 2, capacity: 4, type: 'female', assignedIds: ['p020', 'p021'] },
+  { id: 'r08', name: '301호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['s002', 's004', 's023'] },
+  { id: 'r09', name: '302호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['s005', 's008', 's025'] },
+  { id: 'r10', name: '303호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['s009', 's011'] },
+  { id: 'r11', name: '304호', building: 'B동', floor: 1, capacity: 4, type: 'female', assignedIds: ['s012', 's014'] },
+  { id: 'r12', name: '401호', building: 'B동', floor: 2, capacity: 4, type: 'female', assignedIds: ['s015', 's018'] },
+  { id: 'r13', name: '402호', building: 'B동', floor: 2, capacity: 4, type: 'female', assignedIds: ['s020', 's021'] },
   // 진행팀 — C동 (교사·도우미·찬양팀·의료)
-  { id: 'r14', name: '501호 (여자 진행팀)', building: 'C동', floor: 1, capacity: 8, type: 'staff', assignedIds: ['t001', 't004', 't006', 't008', 'w002', 'w003', 'w005', 'v002', 'v004', 'med001'] },
-  { id: 'r15', name: '502호 (남자 진행팀)', building: 'C동', floor: 1, capacity: 8, type: 'staff', assignedIds: ['t002', 't003', 't005', 't007', 'w001', 'w004', 'v001', 'v003'] },
+  { id: 'r14', name: '501호 (여자 진행팀)', building: 'C동', floor: 1, capacity: 8, type: 'staff', assignedIds: ['t101', 't104', 't106', 't108', 'w002', 'w003', 'w005', 'v002', 'v004', 'med001'] },
+  { id: 'r15', name: '502호 (남자 진행팀)', building: 'C동', floor: 1, capacity: 8, type: 'staff', assignedIds: ['t102', 't103', 't105', 't107', 'w001', 'w004', 'v001', 'v003'] },
   { id: 'r16', name: '601호 (목사·강사)', building: 'C동', floor: 2, capacity: 4, type: 'staff', assignedIds: ['m001', 'm002', 'e003', 'l001'] },
   { id: 'r17', name: '602호 (전도사)',   building: 'C동', floor: 2, capacity: 4, type: 'staff', assignedIds: ['e001', 'e002', 'l002'] },
 ];

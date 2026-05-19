@@ -1,12 +1,15 @@
 import type { Participant } from '../types';
+import { participants as seedParticipants } from '../data/mockData';
 import { queueCloudSave } from '../services/cloudStore';
 import { logChange } from './changeLogStorage';
 import { publishStorageChange } from './storageEvents';
 
 export const PARTICIPANTS_STORAGE_KEY = 'eum-camp:participants:v1';
+const SEEDED_FLAG_KEY = 'eum-camp:participants:seeded:v2';
 
-// 초기 mockData 시드(샘플 17명)의 고정 ID. 실제 등록자는 generateParticipantId()로
-// `u{timestamp}_xxxxx` 또는 `app_...` 형태이므로 이 값들과 절대 충돌하지 않음.
+// 옛 17명 시드의 고정 ID (p001~p015, t001~t002) — self-heal로 청소.
+// 새 50명 시드(s001~s025, t101~t108, m001~, e001~, l001~, w001~, v001~, med001)는
+// 이 명단과 겹치지 않으므로 자동 청소 대상이 아님.
 const LEGACY_MOCK_IDS = new Set<string>([
   'p001', 'p002', 'p003', 'p004', 'p005', 'p006', 'p007', 'p008',
   'p009', 'p010', 'p011', 'p012', 'p013', 'p014', 'p015',
@@ -20,6 +23,23 @@ function purgeLegacyMockEntries(list: Participant[]): Participant[] {
 export function loadParticipants(): Participant[] {
   try {
     const raw = localStorage.getItem(PARTICIPANTS_STORAGE_KEY);
+
+    // 시드 조건: 한 번도 시드된 적이 없고(SEEDED_FLAG 없음),
+    // 사용자 데이터가 실질적으로 비어있음(raw null 또는 빈 배열).
+    // SEEDED_FLAG가 있으면 사용자가 의도적으로 비운 것 → 시드 안 함.
+    const neverSeeded = !localStorage.getItem(SEEDED_FLAG_KEY);
+    const isEmpty = raw === null || raw === '[]' || raw === '';
+    if (neverSeeded && isEmpty) {
+      const seeded = [...seedParticipants];
+      try {
+        localStorage.setItem(PARTICIPANTS_STORAGE_KEY, JSON.stringify(seeded));
+        localStorage.setItem(SEEDED_FLAG_KEY, '1');
+        publishStorageChange(PARTICIPANTS_STORAGE_KEY);
+      } catch { /* ignore */ }
+      queueCloudSave('participants', seeded);
+      return seeded;
+    }
+
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
