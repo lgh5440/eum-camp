@@ -638,7 +638,7 @@ export default function Churches() {
   function addChurch() {
     const id = nextChurchId(draft);
     const num = id.replace(/^c0*/, '');
-    setDraft(prev => [...prev, { id, name: `${num}번 교회`, quota: 10, district: '서울남' }]);
+    setDraft(prev => [...prev, { id, name: `${num}번 교회`, quota: 10, district: '예시지방회' }]);
   }
   function removeChurch(id: string) {
     const target = draft.find(c => c.id === id);

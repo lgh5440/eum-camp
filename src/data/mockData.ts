@@ -1,7 +1,16 @@
 import type { Participant, Church, Group, Room, Schedule, ChecklistItem, Notice, SafetyItem } from '../types';
 
-// 데모용 폴백 — 실제 행사 정보는 EventSettings에서 입력 (eventConfig.ts)
-// 여기 데이터는 GUI에서 행사 정보 입력 전 시연용·스크린샷용으로만 사용됨.
+// ─────────────────────────────────────────────────────────────────────────────
+// ⚠️  이 파일의 모든 데이터는 「가상 시연 데이터」입니다.
+//
+//   - 교회명·인명·전화번호는 실제와 무관한 가공 정보입니다.
+//   - 첫 사용자가 빈 화면을 보지 않도록 채워둔 폴백·스크린샷용 데이터.
+//   - 실제 운영 시작 시 EventSettings·「교회별 신청 현황」·참가자 페이지에서
+//     모두 삭제하고 본인 행사 데이터로 교체하세요.
+//   - 코드 레벨에서 즉시 비우려면 아래 churches/participants/groups/rooms
+//     배열을 `[]` 로 설정하면 됩니다.
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const RETREAT_INFO = {
   title: '○○○○ 수련회 (예시)',
   theme: '주제를 입력하세요',
@@ -16,18 +25,18 @@ export const RETREAT_INFO = {
   inquiry: { name: '담당자 미입력', phone: '', role: '문의' },
 };
 
-// ─── 교회 데이터 ───────────────────────────────────────────────────────────────
+// ─── 교회 데이터 (가상 — 실제 존재하지 않는 이름) ──────────────────────────────
 export const churches: Church[] = [
-  { id: 'c01', name: '영락교회', district: '서울남', contact: '02-1234-5678', teacherName: '김영수', teacherPhone: '010-1111-0001', quota: 25, appliedCount: 22, confirmedCount: 20, feeStatus: 'paid' },
-  { id: 'c02', name: '강남교회', district: '서울남', contact: '02-2345-6789', teacherName: '이미선', teacherPhone: '010-1111-0002', quota: 20, appliedCount: 18, confirmedCount: 18, feeStatus: 'paid' },
-  { id: 'c03', name: '서초교회', district: '서울남', contact: '02-3456-7890', teacherName: '박준호', teacherPhone: '010-1111-0003', quota: 15, appliedCount: 15, confirmedCount: 12, feeStatus: 'partial' },
-  { id: 'c04', name: '송파교회', district: '서울남', contact: '02-4567-8901', teacherName: '최지영', teacherPhone: '010-1111-0004', quota: 20, appliedCount: 17, confirmedCount: 15, feeStatus: 'paid' },
-  { id: 'c05', name: '광진교회', district: '서울남', contact: '02-5678-9012', teacherName: '정현우', teacherPhone: '010-1111-0005', quota: 15, appliedCount: 10, confirmedCount: 10, feeStatus: 'paid' },
-  { id: 'c06', name: '성동교회', district: '서울남', contact: '02-6789-0123', teacherName: '한소희', teacherPhone: '010-1111-0006', quota: 18, appliedCount: 14, confirmedCount: 13, feeStatus: 'partial' },
-  { id: 'c07', name: '관악교회', district: '서울남', contact: '02-7890-1234', teacherName: '오태양', teacherPhone: '010-1111-0007', quota: 15, appliedCount: 11, confirmedCount: 9, feeStatus: 'unpaid' },
-  { id: 'c08', name: '동작교회', district: '서울남', contact: '02-8901-2345', teacherName: '윤채원', teacherPhone: '010-1111-0008', quota: 12, appliedCount: 9, confirmedCount: 8, feeStatus: 'paid' },
-  { id: 'c09', name: '금천교회', district: '서울남', contact: '02-9012-3456', teacherName: '임도현', teacherPhone: '010-1111-0009', quota: 10, appliedCount: 8, confirmedCount: 7, feeStatus: 'partial' },
-  { id: 'c10', name: '구로교회', district: '서울남', contact: '02-0123-4567', teacherName: '백서연', teacherPhone: '010-1111-0010', quota: 12, appliedCount: 10, confirmedCount: 10, feeStatus: 'paid' },
+  { id: 'c01', name: '가람교회',       district: '예시지방회', contact: '02-0000-0001', teacherName: '김교사', teacherPhone: '010-0000-0001', quota: 25, appliedCount: 22, confirmedCount: 20, feeStatus: 'paid' },
+  { id: 'c02', name: '새벽이슬교회',   district: '예시지방회', contact: '02-0000-0002', teacherName: '이교사', teacherPhone: '010-0000-0002', quota: 20, appliedCount: 18, confirmedCount: 18, feeStatus: 'paid' },
+  { id: 'c03', name: '푸른초장교회',   district: '예시지방회', contact: '02-0000-0003', teacherName: '박교사', teacherPhone: '010-0000-0003', quota: 15, appliedCount: 15, confirmedCount: 12, feeStatus: 'partial' },
+  { id: 'c04', name: '빛소금교회',     district: '예시지방회', contact: '02-0000-0004', teacherName: '최교사', teacherPhone: '010-0000-0004', quota: 20, appliedCount: 17, confirmedCount: 15, feeStatus: 'paid' },
+  { id: 'c05', name: '은혜의샘교회',   district: '예시지방회', contact: '02-0000-0005', teacherName: '정교사', teacherPhone: '010-0000-0005', quota: 15, appliedCount: 10, confirmedCount: 10, feeStatus: 'paid' },
+  { id: 'c06', name: '작은꽃밭교회',   district: '예시지방회', contact: '02-0000-0006', teacherName: '한교사', teacherPhone: '010-0000-0006', quota: 18, appliedCount: 14, confirmedCount: 13, feeStatus: 'partial' },
+  { id: 'c07', name: '한알밀교회',     district: '예시지방회', contact: '02-0000-0007', teacherName: '오교사', teacherPhone: '010-0000-0007', quota: 15, appliedCount: 11, confirmedCount: 9,  feeStatus: 'unpaid' },
+  { id: 'c08', name: '별빛교회',       district: '예시지방회', contact: '02-0000-0008', teacherName: '윤교사', teacherPhone: '010-0000-0008', quota: 12, appliedCount: 9,  confirmedCount: 8,  feeStatus: 'paid' },
+  { id: 'c09', name: '새노래교회',     district: '예시지방회', contact: '02-0000-0009', teacherName: '임교사', teacherPhone: '010-0000-0009', quota: 10, appliedCount: 8,  confirmedCount: 7,  feeStatus: 'partial' },
+  { id: 'c10', name: '참포도교회',     district: '예시지방회', contact: '02-0000-0010', teacherName: '백교사', teacherPhone: '010-0000-0010', quota: 12, appliedCount: 10, confirmedCount: 10, feeStatus: 'paid' },
 ];
 
 // ─── 참가자 데이터 ─────────────────────────────────────────────────────────────
@@ -47,18 +56,18 @@ export const participants: Participant[] = [
   { id: 'p013', name: '노민재', church: 'c06', grade: '중2', gender: 'M', phone: '010-2006-0002', parentPhone: '010-3006-0002', groupId: 'g05', roomId: 'r03', dietType: 'allergy', allergies: '밀가루', registeredAt: '2026-06-09', status: 'pending', fee: 'unpaid', feeAmount: 0 },
   { id: 'p014', name: '신유나', church: 'c07', grade: '고2', gender: 'F', phone: '010-2007-0001', parentPhone: '010-3007-0001', groupId: 'g02', roomId: 'r05', dietType: 'normal', registeredAt: '2026-06-10', status: 'confirmed', fee: 'partial', feeAmount: 40000 },
   { id: 'p015', name: '류준혁', church: 'c08', grade: '중1', gender: 'M', phone: '010-2008-0001', parentPhone: '010-3008-0001', groupId: 'g03', roomId: 'r04', dietType: 'normal', registeredAt: '2026-06-12', status: 'confirmed', fee: 'paid', feeAmount: 80000 },
-  // 교사
-  { id: 't001', name: '김영수', church: 'c01', grade: '교사', gender: 'M', phone: '010-1111-0001', parentPhone: '010-1111-0001', groupId: 'g01', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 80000 },
-  { id: 't002', name: '이미선', church: 'c02', grade: '교사', gender: 'F', phone: '010-1111-0002', parentPhone: '010-1111-0002', groupId: 'g02', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 80000 },
+  // 교사 (가상)
+  { id: 't001', name: '김교사', church: 'c01', grade: '교사', gender: 'M', phone: '010-0000-0001', parentPhone: '010-0000-0001', groupId: 'g01', roomId: 'r09', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 80000 },
+  { id: 't002', name: '이교사', church: 'c02', grade: '교사', gender: 'F', phone: '010-0000-0002', parentPhone: '010-0000-0002', groupId: 'g02', roomId: 'r10', dietType: 'normal', registeredAt: '2026-06-01', status: 'confirmed', fee: 'paid', feeAmount: 80000 },
 ];
 
 // ─── 조 편성 ───────────────────────────────────────────────────────────────────
 export const groups: Group[] = [
-  { id: 'g01', name: '1조 빛의 자녀', color: '#06b6d4', leaderName: '김영수', members: ['p001', 'p003', 'p007', 'p012', 't001'] },
-  { id: 'g02', name: '2조 진리의 길', color: '#3b82f6', leaderName: '이미선', members: ['p002', 'p004', 'p009', 'p014', 't002'] },
-  { id: 'g03', name: '3조 생명의 말씀', color: '#8b5cf6', leaderName: '박준호', members: ['p005', 'p008', 'p015'] },
-  { id: 'g04', name: '4조 소망의 별', color: '#10b981', leaderName: '최지영', members: ['p006', 'p010'] },
-  { id: 'g05', name: '5조 하나님의 사랑', color: '#f59e0b', leaderName: '정현우', members: ['p011', 'p013'] },
+  { id: 'g01', name: '1조 빛의 자녀',     color: '#06b6d4', leaderName: '김교사', members: ['p001', 'p003', 'p007', 'p012', 't001'] },
+  { id: 'g02', name: '2조 진리의 길',     color: '#3b82f6', leaderName: '이교사', members: ['p002', 'p004', 'p009', 'p014', 't002'] },
+  { id: 'g03', name: '3조 생명의 말씀',   color: '#8b5cf6', leaderName: '박교사', members: ['p005', 'p008', 'p015'] },
+  { id: 'g04', name: '4조 소망의 별',     color: '#10b981', leaderName: '최교사', members: ['p006', 'p010'] },
+  { id: 'g05', name: '5조 하나님의 사랑', color: '#f59e0b', leaderName: '정교사', members: ['p011', 'p013'] },
 ];
 
 // ─── 숙소 배정 ─────────────────────────────────────────────────────────────────
@@ -146,7 +155,7 @@ export const notices: Notice[] = [
   {
     id: 'n02',
     title: '[필독] 수련회 준비 전체 회의 일정',
-    content: '7월 19일(주일) 오후 3시, 영락교회 소회의실에서 전체 준비위원 회의가 있습니다. 담당 파트 준비 현황을 보고해 주세요.',
+    content: '7월 19일(주일) 오후 3시, 가람교회 소회의실에서 전체 준비위원 회의가 있습니다. 담당 파트 준비 현황을 보고해 주세요.',
     author: '회장 최○○',
     createdAt: '2026-07-08',
     pinned: true,

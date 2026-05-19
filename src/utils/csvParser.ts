@@ -259,7 +259,7 @@ export interface CsvParseResult {
   unrecognizedHeaders: string[]; // 매핑 실패한 원본 헤더
 }
 
-// churchNameMap: 교회명 → ID  (예: '영락교회' → 'c01')
+// churchNameMap: 교회명 → ID  (예: '가람교회' → 'c01')
 export type ChurchNameMap = Record<string, string>;
 
 // ── 메인 파서 ─────────────────────────────────────────────────────────────────
