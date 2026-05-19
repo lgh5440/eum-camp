@@ -33,40 +33,75 @@
 
 ---
 
-## 1. Claude Code 데스크탑 앱 설치 (10분)
+## 1. AI 도구 설치 (10분) — 둘 중 하나 선택
 
-🆕 **2026년 4월부터 Claude Code 전용 데스크탑 앱이 출시**됐습니다. **VS Code 같은 다른 프로그램 없이** 이 앱 하나로 모든 게 끝나서 비기술자에게 가장 쉬워요.
+🆕 **2026년 4월부터 두 도구 모두 전용 데스크탑 앱이 출시**됐습니다. VS Code 같은 다른 프로그램 없이 이 앱 하나로 모든 게 끝나요.
 
-### 1-1. 다운로드 (3분)
+### 어떤 도구를 골라야 할까?
 
-1. 👉 **[claude.com/download](https://claude.com/download)** 접속
-2. 본인 OS(Windows / macOS) 자동 감지 → **Download** 버튼 클릭
-3. 다운로드 끝나면 설치 파일 실행 → 기본값 그대로 **다음 / Install**
+| 본인 상황 | 추천 |
+| :--- | :--- |
+| **이미 ChatGPT Plus($20/월) 구독 중** | 👉 **옵션 B (OpenAI Codex)** — 추가 비용 0원 |
+| **이미 Claude Pro($20/월) 구독 중** | 👉 **옵션 A (Claude Code)** — 추가 비용 0원 |
+| **둘 다 안 쓰는데 새로 가입할 예정** | 👉 **옵션 A (Claude Code)** — 한국 사용자 안내 문서가 더 풍부, 추천 ✅ |
+| **무료로 시도해보고 싶음** | 👉 **옵션 B (Codex)** — ChatGPT Free 등급으로 일부 가능 (사용량 제한 큼) |
 
-> ⚠️ **Windows 사용자 추가 1단계**: Claude Code가 잘 동작하려면 **Git for Windows**도 같이 깔아주세요 → [git-scm.com/downloads/win](https://git-scm.com/downloads/win) 에서 다운받아 기본값으로 설치. (Mac은 필요 없음)
-
-### 1-2. 로그인 + 결제 플랜 선택 (5분)
-
-1. 설치 끝난 Claude Code 앱 자동 실행 → **Sign in** 클릭
-2. Anthropic 계정으로 로그인 (없으면 자유 가입 — 카드 등록 X)
-3. 처음 사용 시 결제 플랜 선택 화면:
-   - **Pro $20/월** 선택 (비기술자 추천)
-   - 카드 등록 → 결제
-   - 또는 Console API 키 방식을 알면 **Use API key** 선택 후 [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) 에서 발급한 키 입력
-4. 메인 화면 열림 = 준비 끝 ✅
-
-### 1-3. 한국어 응답 확인 (1분)
-
-채팅창에 **"한국어로 답해줘"** 입력 → 한국어 답변 잘 나오면 OK.
-
-> 🆘 막히면? [code.claude.com/docs/en/setup](https://code.claude.com/docs/en/setup) 또는 [claude.ai](https://claude.ai) 에 한국어로 질문.
+> 💡 **둘 다 비기술자가 같은 마스터 프롬프트로 사용 가능합니다.** 어느 쪽을 골라도 3단계 이후는 동일.
 
 ---
 
-## 2. 작업 폴더 만들고 Claude Code로 열기 (1분)
+### 옵션 A — Claude Code (추천, 한국 가이드 풍부)
+
+#### A-1. 다운로드 (3분)
+1. 👉 **[claude.com/download](https://claude.com/download)** 접속
+2. 본인 OS(Windows / macOS) 자동 감지 → **Download** 버튼 클릭
+3. 설치 파일 실행 → 기본값 그대로 **다음 / Install**
+
+> ⚠️ **Windows 사용자 추가**: [git-scm.com/downloads/win](https://git-scm.com/downloads/win) 에서 **Git for Windows**도 같이 설치 (Claude Code가 Bash 명령에 사용). Mac은 불필요.
+
+#### A-2. 로그인 + 결제 플랜 (5분)
+1. 앱 실행 → **Sign in** → Anthropic 계정 로그인 (없으면 가입, 카드 등록 X)
+2. 플랜 선택:
+   - **Pro $20/월** (비기술자 추천 — 카드 등록 → 결제)
+   - 또는 **Use API key** → [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) 에서 키 발급해 입력
+3. 메인 화면 열림 = 준비 끝 ✅
+
+---
+
+### 옵션 B — OpenAI Codex (이미 ChatGPT 쓰는 분에게 유리)
+
+#### B-1. 다운로드 (3분)
+
+**Windows**:
+1. 시작 메뉴 → **Microsoft Store** 열기
+2. 검색창에 **「Codex」** 입력 → **OpenAI Codex** 앱 선택 → **설치(Install)**
+
+**macOS**:
+1. 👉 **[developers.openai.com/codex/app](https://developers.openai.com/codex/app)** 접속
+2. **Download for macOS** 클릭 → 설치 파일 실행
+
+#### B-2. 로그인 (3분)
+1. 앱 실행 → **Sign in with ChatGPT** 또는 **Use API key**
+2. ChatGPT 로그인 — 본인 구독 등급(Free / Plus $20 / Pro $100)에 따라 사용량 결정
+   - **Plus 이상 권장** — Free 등급은 이 설치 도중 사용량 한도에 걸릴 수 있음
+3. 메인 화면 열림 = 준비 끝 ✅
+
+---
+
+### 1-X. 한국어 응답 확인 (공통, 1분)
+
+채팅창에 **"한국어로 답해줘"** 입력 → 한국어 답변 잘 나오면 OK.
+
+> 🆘 막히면? Claude Code는 [code.claude.com/docs](https://code.claude.com/docs), Codex는 [developers.openai.com/codex/quickstart](https://developers.openai.com/codex/quickstart).
+
+---
+
+## 2. 작업 폴더 만들고 AI 도구로 열기 (1분)
 
 1. **바탕화면**에 **새 폴더** 생성 — 이름은 `우리교회-수련회` 같이 자유 (한글·영문 모두 OK)
-2. Claude Code 앱 좌측 상단 **「Open folder」** (또는 폴더 아이콘) → 방금 만든 폴더 선택
+2. AI 도구 앱 좌측 상단 **「Open folder」** (또는 폴더 아이콘) → 방금 만든 폴더 선택
+   - Claude Code: **Open folder**
+   - Codex: **Open folder** 또는 **Add workspace**
 
 ---
 
@@ -175,11 +210,11 @@ AI는 차례대로 이런 것을 물어볼 거예요:
 
 ### Q. Claude Pro $20을 꼭 결제해야 하나요?
 A. **아니요. 두 가지 대안:**
-1. **Anthropic Console** 가입 → API 키 발급 → Claude Code 데스크탑 앱에 입력. Console은 사용량 만큼만 청구되어 이 설치엔 약 $2~5 정도. 단, 카드 등록 필요.
-2. **무료 ChatGPT나 Gemini로는 불가**합니다. AI가 직접 컴퓨터 명령어를 실행하는 기능(파일 쓰기·터미널)은 Claude Code 같은 전용 도구에만 있어요.
+1. **OpenAI Codex 데스크탑 앱** 사용 (옵션 B) — 이미 ChatGPT Plus($20) 쓰는 분은 추가 비용 0원. ChatGPT Free 등급으로도 일부 가능(제한 큼).
+2. **Anthropic Console** 가입 → API 키 발급 → Claude Code 앱에 입력. 사용량만큼만 청구되어 이 설치엔 약 $2~5 정도. 단, 카드 등록 필요.
 
-### Q. 한 번 설치 끝나면 Claude Code 안 써도 되나요?
-A. 네. **설치 1회용**입니다. 끝나면 Claude Pro 해지하고, 운영은 브라우저에서 사이트 열어 클릭만 하면 됨.
+### Q. 한 번 설치 끝나면 AI 도구 안 써도 되나요?
+A. 네. **설치 1회용**입니다. 끝나면 Pro 구독 해지하고, 운영은 브라우저에서 사이트 열어 클릭만 하면 됨.
 
 ### Q. 진짜 시스템 운영 비용 0원인가요?
 A. **네.** Firebase Spark Plan(무료) 한도:
@@ -192,13 +227,12 @@ A. **네.** Firebase Spark Plan(무료) 한도:
 ### Q. AI가 중간에 헷갈려해요
 A. 채팅창에 **"다시 한국어로 쉽게 설명해줘"** 또는 **"이전 단계로 돌아가서 다시 해줘"** 입력. Claude Code는 대화 기억하니까 자연스럽게 이어감.
 
-### Q. 다른 AI 도구(Cursor·Codex·Copilot)로도 되나요?
+### Q. 다른 AI 도구(Cursor·Copilot 등)로도 되나요?
 A. 됩니다. 다만:
-- **Cursor**: 무료 등급 (월 50회 호출) 가능하지만 한국어 응답이 Claude Code보다 덜 매끄러움
-- **GitHub Copilot**: 채팅보다 코드 자동완성에 특화 — 이 설치 같은 대화형 작업엔 약함
-- **OpenAI Codex CLI**: 가능하지만 비기술자 안내 자료가 적음
-
-→ **비기술자한테는 Claude Code 데스크탑 앱이 압도적으로 매끄러움.**
+- **본 가이드는 Claude Code와 OpenAI Codex 두 도구 모두 지원** — 1단계에서 골라 진행.
+- **Cursor**: 무료 등급(월 50회 호출) 가능, 다만 한국어 자료가 두 메인 도구보다 적음
+- **GitHub Copilot**: 코드 자동완성 특화 — 이 같은 대화형 셋업엔 약함
+- **무료 ChatGPT/Gemini 웹**: 파일 쓰기·터미널 실행 기능이 없어 **이 설치엔 불가**
 
 ### Q. 우리 교회만 쓸 거라면 Firebase 없이도 되나요?
 A. 가능. AI에게 **"Firebase 건너뛰고 로컬에서만 쓰게 해줘"** 라고 부탁하면 됨. 단, 한 기기·한 브라우저에서만 데이터가 보임.
