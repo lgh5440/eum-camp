@@ -1,11 +1,12 @@
 # 🤖 AI로 30분 만에 설치하기 (가장 쉬움 · 비기술자용)
 
 > 이 가이드는 **코딩을 한 번도 안 해본 분**도 따라할 수 있도록 만들었습니다.
-> Firebase Console 클릭, 환경변수 복사, 명령어 입력 같은 어려운 부분을
+> Firebase Console 클릭·환경변수 복사·명령어 입력 같은 어려운 부분을
 > 전부 **AI(Claude Code)가 대신 해줍니다.** 여러분은 한국어로 물음에 답하기만 하면 끝.
+>
+> 📅 **본 가이드 기준일: 2026년 5월** — Claude Code 데스크탑 앱 v2.x·Node.js 24 LTS·Firebase CLI 최신 기준으로 작성됐습니다. 외부 도구 UI는 자주 바뀌니, 화면이 다르면 비슷한 메뉴를 찾으세요.
 
 소요 시간: **약 30~40분** (도구 설치 10분 + AI에게 설치 부탁 20~30분)
-비용: **0원** (필요한 모든 도구·서비스가 무료 등급)
 
 ---
 
@@ -13,53 +14,65 @@
 
 | 준비물 | 어디서 / 비용 |
 | :--- | :--- |
-| 노트북 (Windows·Mac) | 이미 있음 ✅ |
-| Google 계정 | [google.com](https://google.com) 무료 가입 (Firebase용) |
-| GitHub 계정 | [github.com/signup](https://github.com/signup) 무료 가입 (코드 받기용) |
-| Anthropic 계정 | [console.anthropic.com](https://console.anthropic.com) 무료 가입 (AI 사용용) |
+| 노트북 (Windows 10 1809+ 또는 macOS 13+) | 이미 있음 ✅ |
+| RAM 4GB 이상 | 일반 노트북이면 충분 ✅ |
+| Google 계정 | [google.com](https://google.com) 무료 (Firebase용) |
+| GitHub 계정 (선택) | [github.com/signup](https://github.com/signup) 무료 (코드 받기용 — 사실 AI가 알아서 받아주므로 없어도 됨) |
+| Anthropic 계정 | [claude.ai](https://claude.ai) 무료 가입 |
 
-> ⚠️ **카드 등록은 필요 없습니다.** Anthropic은 가입 시 첫 무료 크레딧을 자동으로 줍니다 (현재 약 $5 — 이 설치 1번 하기에 충분).
+### 💸 비용 안내 (가장 중요)
 
----
+이 시스템 자체는 **영구 무료**입니다(Firebase Spark Plan, 1,000명 규모까지). 다만 **AI에게 설치를 부탁하는 도구(Claude Code)는 유료**입니다. 두 가지 선택지:
 
-## 1. 무료 도구 2개 설치 (10분)
+| 옵션 | 비용 | 추천 대상 |
+| :--- | :--- | :--- |
+| **A. Claude Pro 구독** | **$20/월** (약 27,000원, 1개월만 결제하고 해지 가능) | 비기술자 (설명 듣기 쉬움) ✅ 추천 |
+| **B. Anthropic Console API** | 사용량만큼 (이 설치엔 약 $2~5 충당) | 카드 등록·API 키 발급에 익숙한 분 |
 
-### 1-1. VS Code 설치 (5분)
-
-VS Code는 마이크로소프트가 만든 **전 세계 1위 무료 코드 에디터**입니다.
-
-1. 👉 **[code.visualstudio.com](https://code.visualstudio.com)** 접속
-2. 큰 파란색 **Download** 버튼 클릭 → 본인 OS(Windows/Mac) 선택
-3. 다운받은 설치 파일 실행 → 기본값 그대로 **Next** 계속 → **Install**
-4. 설치 끝나면 VS Code 자동으로 열림
-
-### 1-2. Claude Code 설치 (5분)
-
-Claude Code는 Anthropic이 만든 **한국어로 자연스럽게 대화하는 AI 코딩 도우미**입니다.
-
-1. 👉 **[claude.com/claude-code](https://claude.com/claude-code)** 접속
-2. **Download** 또는 **Get Started** 버튼 클릭
-3. 본인 OS에 맞는 설치 파일 다운로드 → 실행 → 설치
-4. 설치 후 자동으로 로그인 화면이 열림 → **Sign in with Anthropic** 클릭
-5. 0단계에서 만든 Anthropic 계정으로 로그인 → 승인
-
-> 🆘 **막히면?**
-> - "Claude Code 어떻게 깔아요?" 라고 [claude.ai](https://claude.ai) 에 물어보세요 (이것도 무료).
-> - 또는 본 가이드 끝의 [도움 받는 법](#도움-받는-법) 참고.
+> Pro $20 한 번 결제하면 설치 + 시스템 실험 + 다른 교회 추가 셋업까지 한 달 안에 다 가능. 끝나면 [claude.ai/settings/billing](https://claude.ai/settings/billing) 에서 구독 해지하면 다음 달부터 청구 안 됨.
 
 ---
 
-## 2. 작업 폴더 만들고 VS Code로 열기 (1분)
+## 1. Claude Code 데스크탑 앱 설치 (10분)
 
-1. **바탕화면**(또는 어디든)에 **새 폴더** 만들기 — 이름은 `우리교회-수련회` 같이 자유
-2. VS Code 화면에서 **File → Open Folder** → 방금 만든 폴더 선택
+🆕 **2026년 4월부터 Claude Code 전용 데스크탑 앱이 출시**됐습니다. **VS Code 같은 다른 프로그램 없이** 이 앱 하나로 모든 게 끝나서 비기술자에게 가장 쉬워요.
+
+### 1-1. 다운로드 (3분)
+
+1. 👉 **[claude.com/download](https://claude.com/download)** 접속
+2. 본인 OS(Windows / macOS) 자동 감지 → **Download** 버튼 클릭
+3. 다운로드 끝나면 설치 파일 실행 → 기본값 그대로 **다음 / Install**
+
+> ⚠️ **Windows 사용자 추가 1단계**: Claude Code가 잘 동작하려면 **Git for Windows**도 같이 깔아주세요 → [git-scm.com/downloads/win](https://git-scm.com/downloads/win) 에서 다운받아 기본값으로 설치. (Mac은 필요 없음)
+
+### 1-2. 로그인 + 결제 플랜 선택 (5분)
+
+1. 설치 끝난 Claude Code 앱 자동 실행 → **Sign in** 클릭
+2. Anthropic 계정으로 로그인 (없으면 자유 가입 — 카드 등록 X)
+3. 처음 사용 시 결제 플랜 선택 화면:
+   - **Pro $20/월** 선택 (비기술자 추천)
+   - 카드 등록 → 결제
+   - 또는 Console API 키 방식을 알면 **Use API key** 선택 후 [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) 에서 발급한 키 입력
+4. 메인 화면 열림 = 준비 끝 ✅
+
+### 1-3. 한국어 응답 확인 (1분)
+
+채팅창에 **"한국어로 답해줘"** 입력 → 한국어 답변 잘 나오면 OK.
+
+> 🆘 막히면? [code.claude.com/docs/en/setup](https://code.claude.com/docs/en/setup) 또는 [claude.ai](https://claude.ai) 에 한국어로 질문.
 
 ---
 
-## 3. Claude Code 켜고 마스터 프롬프트 붙여넣기 (1분)
+## 2. 작업 폴더 만들고 Claude Code로 열기 (1분)
 
-1. VS Code 좌측 사이드바에서 **Claude Code 아이콘** 클릭 (또는 키보드 `Ctrl+L` / Mac은 `Cmd+L`)
-2. 채팅창이 열리면 **아래 프롬프트를 복사해서 그대로 붙여넣고 Enter**:
+1. **바탕화면**에 **새 폴더** 생성 — 이름은 `우리교회-수련회` 같이 자유 (한글·영문 모두 OK)
+2. Claude Code 앱 좌측 상단 **「Open folder」** (또는 폴더 아이콘) → 방금 만든 폴더 선택
+
+---
+
+## 3. 마스터 프롬프트 붙여넣기 (1분)
+
+채팅창에 **아래 프롬프트를 복사해서 그대로 붙여넣고 Enter**:
 
 ```text
 안녕! 우리 교회에서 청소년 수련회를 운영할 시스템을 설치하고 싶어.
@@ -70,7 +83,7 @@ Claude Code는 Anthropic이 만든 **한국어로 자연스럽게 대화하는 A
 
 다음 순서로 진행해줘:
 1. 코드 다운로드 (git clone https://github.com/lgh5440/eum-camp.git .)
-2. Node.js 설치 확인 — 없으면 https://nodejs.org LTS 다운로드 링크를 한국어로 알려주고 설치 끝날 때까지 기다려줘
+2. Node.js 설치 확인 — 없으면 https://nodejs.org 에서 LTS 버전 (24.x) 다운로드 안내, 설치 끝날 때까지 기다려줘
 3. 의존성 설치 (npm install)
    - "moderate severity vulnerability" 경고가 떠도 무시해도 된다고 안심시켜줘
 4. Firebase 무료 프로젝트 만들기
@@ -81,14 +94,14 @@ Claude Code는 Anthropic이 만든 **한국어로 자연스럽게 대화하는 A
 5. 환경변수(.env.local) 채우기
    - `.env.example`을 복사해서 `.env.local` 생성
    - Firebase Console에서 apiKey/projectId 등 값 복사해서 채우기
-   - `VITE_FIREBASE_EVENT_ID`는 본인 행사 고유 ID로 (예: hometown-church-2027) — **절대 'youth-retreat-2026' 같이 다른 행사 ID 사용 금지**
+   - `VITE_FIREBASE_EVENT_ID`는 본인 행사 고유 ID로 (예: hometown-church-2027)
 6. Firebase CLI 로그인 + 프로젝트 연결
    - npm install -g firebase-tools (이미 있으면 스킵)
    - firebase login (브라우저 자동 열림)
    - firebase use --add → 본인 프로젝트 선택 → alias는 'default'
    - ⚠️ 이 저장소는 firebase.json에 `"target": "camp"`가 설정돼 있어서 추가 명령 1개 필수:
-     `firebase target:apply hosting camp [본인 프로젝트 ID]`
-     예: 본인 Firebase 프로젝트가 'hometown-church-retreat'이면
+     `firebase target:apply hosting camp [본인 Firebase 프로젝트 ID]`
+     예: 'hometown-church-retreat'이면
      `firebase target:apply hosting camp hometown-church-retreat`
      이 명령 빠뜨리면 deploy 시 "Hosting target 'camp' not defined" 에러 발생
 7. 첫 배포 (npm run deploy:firebase)
@@ -110,44 +123,42 @@ Claude Code는 Anthropic이 만든 **한국어로 자연스럽게 대화하는 A
 
 ---
 
-## 4. AI가 묻는 것에 답하기만 하면 끝 (20~30분)
+## 4. AI가 묻는 것에 답하기 (20~30분)
 
-AI는 차례대로 이런 것을 물어볼 거예요. 당황하지 말고 차근차근 답하세요:
+AI는 차례대로 이런 것을 물어볼 거예요:
 
 ### Node.js가 안 깔려 있을 때
-> AI: "Node.js가 안 보입니다. [https://nodejs.org] 가서 LTS 버전 다운로드 후 설치해주세요. 끝나면 알려주세요."
+> AI: "Node.js가 안 보입니다. [https://nodejs.org](https://nodejs.org) 가서 **LTS 버전 (현재 24.x)** 다운로드 후 설치해주세요."
 
-→ 시키는 대로 설치 후 채팅창에 **"설치 끝났어"** 라고 답하면 됨.
+→ 시키는 대로 설치 후 **"설치 끝났어"** 답.
 
-### npm install 후 "moderate severity vulnerability" 경고가 떠요
-> 화면: `1 moderate severity vulnerability` 같은 빨간 글씨
+### npm install 후 vulnerability 경고
+> 빨간 글씨로 `1 moderate severity vulnerability` 같은 메시지
 
-→ **무시해도 됨.** 라이브러리 안의 작은 보안 패치 권고일 뿐, 우리 시스템에는 영향 없음. AI가 이걸 보고 "괜찮습니다, 계속 진행할게요" 라고 알아서 안심시켜줄 거예요.
+→ **무시해도 됨.** AI가 알아서 안심시켜주고 다음 단계로 넘어감.
 
 ### Firebase 프로젝트 만들 때
-> AI: "[console.firebase.google.com] 에 접속해서 「프로젝트 만들기」 클릭하세요. 프로젝트 이름은 「우리교회-수련회-2027」 같이 영문·숫자·하이픈으로 입력해주세요."
+> AI: "[console.firebase.google.com](https://console.firebase.google.com) 접속 → 「프로젝트 만들기」 클릭. 프로젝트 이름은 「우리교회-수련회-2027」 같이 영문·숫자·하이픈으로."
 
-→ 시키는 대로 Google 계정 로그인 → 프로젝트 만들기 → **"만들었어"** 답.
+→ Google 로그인 → 프로젝트 만들기 → **"만들었어"** 답.
 
-### Firebase 설정값 복사할 때
-> AI: "Firebase Console 우측 상단 「프로젝트 설정」(톱니바퀴) → 「내 앱」 섹션에서 `apiKey`, `projectId` 등을 복사해서 여기 채팅에 붙여넣어주세요."
+### Firebase 설정값 복사
+> AI: "Firebase Console 우측 상단 톱니바퀴 「프로젝트 설정」 → 페이지 하단 「내 앱」 섹션에서 `apiKey`, `projectId` 등 6개 값을 복사해서 여기 채팅에 붙여넣어주세요."
 
-→ 시키는 대로 복사 → 채팅에 붙여넣기 → AI가 알아서 `.env.local` 파일 작성.
+→ 복사 → 채팅에 붙여넣기 → AI가 `.env.local` 자동 작성.
 
-### 익명 로그인 활성화
-> AI: "마지막으로 한 가지만 더! Firebase Console 좌측 메뉴 「Authentication」 → 「로그인 방법」 → 「익명」 클릭 → 「사용 설정」 토글 켜기 → 저장. 끝나면 알려주세요."
+### ⚠️ 익명 로그인 활성화 (가장 중요!)
+> AI: "마지막 1단계! Firebase Console 좌측 「Authentication」 → 「시작하기」 → 「로그인 방법」 탭 → 「익명」 클릭 → 「사용 설정」 토글 켜기 → 저장."
 
-→ 이거 빠뜨리면 시스템 안 돌아감. **반드시 켜야 함.**
+→ **이거 빠뜨리면 사이트는 떴는데 데이터가 안 저장됨.** 반드시 켜야 함.
 
-### "Hosting target 'camp' not defined" 에러가 떠요
-> 화면: `Error: Hosting site or target "camp" not detected in firebase.json`
-
-→ `firebase target:apply` 명령을 빠뜨린 것. AI에게 **"firebase target:apply 명령 실행해줘. 내 Firebase 프로젝트 ID는 [본인 프로젝트 ID]야"** 라고 말하면 자동 처리.
+### "Hosting target 'camp' not defined" 에러
+→ AI에게 **"firebase target:apply 명령 실행해줘. 내 Firebase 프로젝트 ID는 [본인 프로젝트 ID]야"** 라고 말하면 자동 처리.
 
 ### 배포 끝!
-> AI: "배포 완료! 사이트 주소는 https://○○○○.web.app 입니다. 브라우저에서 열어보세요."
+> AI: "배포 완료! 사이트 주소는 https://○○○○.web.app 입니다."
 
-→ 그 주소 브라우저로 열기 → **진행위원 인증 설정** 화면 뜨면 본인 이름·비밀번호 입력 → 끝 🎉
+→ 그 주소를 브라우저로 열기 → **진행위원 인증 설정** 화면에서 본인 이름·관리자 비밀번호·조회용 PIN 입력 → 끝 🎉
 
 ---
 
@@ -155,44 +166,62 @@ AI는 차례대로 이런 것을 물어볼 거예요. 당황하지 말고 차근
 
 1. 본인 이름·관리자 비밀번호·조회용 PIN 설정 (한 번만)
 2. 좌측 메뉴 **「행사·운영 설정」** → 행사명·날짜·장소 입력
-3. **「교회별 신청 현황」** → 예시 교회 10곳(가람교회·새벽이슬교회…) 삭제 → 본인 지방회 교회 추가
-4. **「공개 신청서 링크 복사」** (`/apply`) → 카톡으로 공유
+3. **「교회별 신청 현황」** → 가상 교회 10곳(가람·새벽이슬·푸른초장…) 삭제 → 본인 지방회 교회 추가
+4. **「공개 신청서 링크 복사」** (`/apply`) → 카톡 단톡방에 공유
 
 ---
 
 ## 자주 묻는 질문
 
-### Q. 진짜 비용 0원인가요?
-A. 네. Anthropic 첫 무료 크레딧($5)으로 설치 1번 가능, Firebase Spark Plan은 영구 무료(1,000명 규모까지). 한 번 깔면 평생 무료로 운영.
+### Q. Claude Pro $20을 꼭 결제해야 하나요?
+A. **아니요. 두 가지 대안:**
+1. **Anthropic Console** 가입 → API 키 발급 → Claude Code 데스크탑 앱에 입력. Console은 사용량 만큼만 청구되어 이 설치엔 약 $2~5 정도. 단, 카드 등록 필요.
+2. **무료 ChatGPT나 Gemini로는 불가**합니다. AI가 직접 컴퓨터 명령어를 실행하는 기능(파일 쓰기·터미널)은 Claude Code 같은 전용 도구에만 있어요.
 
-### Q. Claude Code 무료 크레딧 다 쓰면 어떻게 되나요?
-A. 설치 끝나면 Claude Code 더 안 써도 됩니다. 운영은 브라우저에서 사이트 열어 클릭만 하면 됨. AI는 **설치 1회용**이라고 생각하세요.
+### Q. 한 번 설치 끝나면 Claude Code 안 써도 되나요?
+A. 네. **설치 1회용**입니다. 끝나면 Claude Pro 해지하고, 운영은 브라우저에서 사이트 열어 클릭만 하면 됨.
 
-### Q. Cursor 같은 다른 AI 도구도 되나요?
-A. 됩니다. Cursor도 무료 등급(월 ~50회 호출)으로 가능. 다만 한국 비기술자한테는 Claude Code 한 가지로 통일된 안내가 덜 헷갈려서 이 가이드는 Claude Code 기준으로 작성.
+### Q. 진짜 시스템 운영 비용 0원인가요?
+A. **네.** Firebase Spark Plan(무료) 한도:
+- Firestore: 일 50,000회 읽기 / 20,000회 쓰기 / 1GB 저장
+- Hosting: 월 10GB 전송
+- 익명 인증: 무제한
 
-### Q. AI가 중간에 답을 못 하거나 헷갈려요
-A. 채팅창에 **"다시 한국어로 쉽게 설명해줘"** 또는 **"이전 단계로 돌아가서 다시 해줘"** 입력. AI는 사람처럼 대화 가능.
+수련회 1회(200~500명)는 이 한도 안에 충분히 들어옵니다.
+
+### Q. AI가 중간에 헷갈려해요
+A. 채팅창에 **"다시 한국어로 쉽게 설명해줘"** 또는 **"이전 단계로 돌아가서 다시 해줘"** 입력. Claude Code는 대화 기억하니까 자연스럽게 이어감.
+
+### Q. 다른 AI 도구(Cursor·Codex·Copilot)로도 되나요?
+A. 됩니다. 다만:
+- **Cursor**: 무료 등급 (월 50회 호출) 가능하지만 한국어 응답이 Claude Code보다 덜 매끄러움
+- **GitHub Copilot**: 채팅보다 코드 자동완성에 특화 — 이 설치 같은 대화형 작업엔 약함
+- **OpenAI Codex CLI**: 가능하지만 비기술자 안내 자료가 적음
+
+→ **비기술자한테는 Claude Code 데스크탑 앱이 압도적으로 매끄러움.**
 
 ### Q. 우리 교회만 쓸 거라면 Firebase 없이도 되나요?
-A. 가능. AI에게 **"Firebase 건너뛰고 로컬에서만 쓸 수 있게 해줘"** 라고 부탁하면 됨. 단, 한 기기·한 브라우저에서만 데이터가 보입니다.
+A. 가능. AI에게 **"Firebase 건너뛰고 로컬에서만 쓰게 해줘"** 라고 부탁하면 됨. 단, 한 기기·한 브라우저에서만 데이터가 보임.
 
 ### Q. 셋업이 끝났는데 사이트가 빈 화면이에요
-A. 99% **Firebase 익명 로그인 활성화 빠뜨림** (4단계 마지막). Firebase Console → Authentication → 로그인 방법 → 익명 「사용 설정됨」 확인.
+A. 99% **Firebase 익명 로그인 활성화 빠뜨림** (4단계). Firebase Console → Authentication → 로그인 방법 → 익명 "사용 설정됨" 확인.
+
+### Q. 우리 학교/회사 보안 정책에 막혀 설치가 안 돼요
+A. 일부 기업·학교 네트워크는 `claude.ai` 또는 `downloads.claude.ai`를 차단합니다. 집에서 시도하거나 IT 담당자에게 화이트리스트 요청.
 
 ---
 
 ## 그래도 어려우면 — 기존 수동 가이드
 
-AI 도구 설치 자체가 부담스러우면 명령어 손으로 입력하는 기존 가이드로 가세요 (35단계, 35~45분):
+AI 도구 설치 자체가 부담스러우면 명령어를 직접 입력하는 기존 가이드로 가세요:
 
-👉 [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) — 비기술자용 수동 셋업 가이드
+👉 [`SETUP_GUIDE.md`](./SETUP_GUIDE.md) — 비기술자용 수동 셋업 가이드 (35~45분, IT 익숙한 분)
 
 ---
 
 ## 도움 받는 법
 
-- 본 시스템 자체 문의: GitHub Issues — [https://github.com/lgh5440/eum-camp/issues](https://github.com/lgh5440/eum-camp/issues)
-- Claude Code 사용법: [https://claude.com/claude-code](https://claude.com/claude-code) 또는 [claude.ai](https://claude.ai) 에 한국어로 질문
+- 본 시스템 자체 문의: [GitHub Issues](https://github.com/lgh5440/eum-camp/issues)
+- Claude Code 사용법: [code.claude.com/docs](https://code.claude.com/docs) (영문) 또는 [claude.ai](https://claude.ai) 에 한국어로 질문
 - Firebase 자체 문제: [Firebase 한국어 공식 문서](https://firebase.google.com/docs?hl=ko)
-- VS Code 사용법: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
+- Node.js: [nodejs.org](https://nodejs.org)
