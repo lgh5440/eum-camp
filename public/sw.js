@@ -13,7 +13,7 @@ const CACHE_NAME = 'eum-camp-shell-v5';
 const CORE_ASSETS = [
   '/',
   '/manifest.webmanifest',
-  '/favicon.svg',
+  '/app-icon.png',
   '/icons.svg',
 ];
 
