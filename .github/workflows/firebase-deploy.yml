@@ -17,7 +17,7 @@ jobs:
       VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
       VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
       VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
-      VITE_FIREBASE_EVENT_ID: ${{ vars.VITE_FIREBASE_EVENT_ID || 'youth-retreat-2026' }}
+      VITE_FIREBASE_EVENT_ID: youth-retreat-2026
       FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
       GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-service-account.json
 
@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22
           cache: npm
 
       - name: Install
@@ -39,6 +39,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Configure Firebase hosting target
+        run: npx firebase-tools target:apply hosting camp "$FIREBASE_PROJECT_ID" --project "$FIREBASE_PROJECT_ID"
 
       - name: Write Firebase service account
         run: printf '%s' '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$GOOGLE_APPLICATION_CREDENTIALS"
