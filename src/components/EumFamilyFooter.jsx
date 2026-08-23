@@ -96,7 +96,8 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
       <div className={`grid gap-2 ${items.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`} style={{ marginTop: 8 }}>
         {items.map((app) => {
           const isCurrent = app.key === currentApp
-          const href = isCurrent ? undefined : buildEumFamilyUrl(app, currentApp, variant)
+          const hasUrl = Boolean(app.url)
+          const href = !isCurrent && hasUrl ? buildEumFamilyUrl(app, currentApp, variant) : undefined
 
           const card = (
             <div
@@ -104,9 +105,11 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
               style={{
                 background: isCurrent
                   ? 'rgba(255,255,255,0.04)'
-                  : `linear-gradient(140deg, rgba(255,255,255,0.06), ${app.accent}1f)`,
-                border: `1px solid ${isCurrent ? 'rgba(255,255,255,0.08)' : `${app.accent}55`}`,
-                opacity: isCurrent ? 0.45 : 1,
+                  : hasUrl
+                    ? `linear-gradient(140deg, rgba(255,255,255,0.06), ${app.accent}1f)`
+                    : 'rgba(255,255,255,0.035)',
+                border: `1px solid ${isCurrent || !hasUrl ? 'rgba(255,255,255,0.08)' : `${app.accent}55`}`,
+                opacity: isCurrent || !hasUrl ? 0.45 : 1,
               }}
             >
               <span
@@ -122,13 +125,13 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
               </span>
               <p
                 className={s.name}
-                style={{ color: isCurrent ? 'rgba(255,255,255,0.6)' : '#fff' }}
+                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.6)' : '#fff' }}
               >
                 {app.name}
               </p>
               <p
                 className={s.tagline}
-                style={{ color: isCurrent ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.7)' }}
+                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.7)' }}
               >
                 {app.tagline}
               </p>
