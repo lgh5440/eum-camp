@@ -5,6 +5,20 @@ import { useId, useState } from 'react';
 import { ShieldCheck, Eye, EyeOff, KeyRound, UserCog } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
+import DemoNotice from '../demo/DemoNotice';
+import { DEMO_MODE } from '../demo/demoConfig';
+import { DEMO_CREDENTIALS } from '../demo/demoInfo';
+
+// 체험용 기본값은 데모 배포본에서만 채운다.
+// 이 저장소를 복사해 실제 운영에 쓰는 교회의 설정 화면에 'demo1234' 가 남아 있으면 안 된다.
+// (VITE_DEMO_MODE 기본 OFF → 아래는 전부 빈 문자열로 접힌다.)
+const PREFILL = DEMO_MODE
+  ? {
+      adminName: DEMO_CREDENTIALS.adminName,
+      adminPw: DEMO_CREDENTIALS.adminPassword,
+      pin: DEMO_CREDENTIALS.committeePin,
+    }
+  : { adminName: '', adminPw: '', pin: '' };
 
 export default function SetupScreen() {
   const { setup } = useAuth();
@@ -15,11 +29,11 @@ export default function SetupScreen() {
   const pin2Id      = useId();
   const errorId     = useId();
 
-  const [adminName, setAdminName]   = useState('체험용 관리자');
-  const [adminPw, setAdminPw]       = useState('demo1234');
-  const [adminPw2, setAdminPw2]     = useState('demo1234');
-  const [pin, setPin]               = useState('1234');
-  const [pin2, setPin2]             = useState('1234');
+  const [adminName, setAdminName]   = useState(PREFILL.adminName);
+  const [adminPw, setAdminPw]       = useState(PREFILL.adminPw);
+  const [adminPw2, setAdminPw2]     = useState(PREFILL.adminPw);
+  const [pin, setPin]               = useState(PREFILL.pin);
+  const [pin2, setPin2]             = useState(PREFILL.pin);
   const [showPw, setShowPw]         = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState<string | null>(null);
@@ -89,6 +103,9 @@ export default function SetupScreen() {
           <strong className="text-amber-100"> PIN만 </strong>
           공유하시고, 관리자 비밀번호는 절대 공유하지 마세요.
         </div>
+
+        {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
+        <DemoNotice variant="setup" />
 
         <form onSubmit={handleSubmit} aria-describedby={error ? errorId : undefined}>
           {/* 관리자 표시명 */}

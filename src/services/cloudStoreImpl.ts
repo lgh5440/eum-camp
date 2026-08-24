@@ -165,6 +165,19 @@ function savePendingCloudWrites(writes: PendingWrites): void {
   }
 }
 
+/**
+ * 미전송 쓰기 큐를 비운다.
+ * 데모 초기화처럼 클라우드 상태를 통째로 되돌린 직후, 남아 있던 큐가 flush 되어
+ * 옛 값이 되살아나는 것을 막기 위해 쓴다.
+ */
+export function clearPendingCloudWrites(): void {
+  try {
+    localStorage.removeItem(PENDING_CLOUD_WRITES_KEY);
+  } catch {
+    // 저장소를 못 써도 앱은 계속 돌아야 한다.
+  }
+}
+
 function savePendingCloudWrite<T>(key: CloudStateKey, value: T): void {
   if (!isCloudSyncEnabled()) return;
   const writes = loadPendingCloudWrites();

@@ -6,6 +6,7 @@ import { Lock, LogIn, Eye, EyeOff, Phone, MapPin } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
 import { EUM_BRAND } from '../data/eumBrand';
+import DemoNotice from '../demo/DemoNotice';
 
 function formatRemaining(ms: number): string {
   const s = Math.max(0, Math.ceil(ms / 1000));
@@ -102,6 +103,9 @@ export default function LoginScreen() {
               <div className="text-[11px] text-slate-400">진행위원 비밀번호(읽기·쓰기) 또는 조회용 PIN(읽기 전용)을 입력하세요</div>
             </div>
           </div>
+
+          {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
+          <DemoNotice variant="login" />
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-slate-300 mb-1.5">

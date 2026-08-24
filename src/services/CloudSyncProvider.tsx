@@ -38,6 +38,23 @@ import {
   type CloudStateKey,
 } from './cloudStoreImpl';
 import { ensureFirebaseAuth } from './firebase';
+import { DEMO_MODE } from '../demo/demoConfig';
+
+// 데모 배포본에서만 도는 새벽 4시(KST) 자동 초기화.
+// 구독을 걸기 전에 끝내야 첫 스냅샷이 초기화 후 값을 실어온다.
+// 다만 오프라인 등으로 응답이 없을 때 구독까지 막으면 안 되므로 상한을 둔다.
+const DEMO_RESET_TIMEOUT_MS = 8_000;
+
+function runDemoResetOnce(): Promise<void> {
+  if (!DEMO_MODE) return Promise.resolve();
+  const reset = import('../demo/demoReset')
+    .then(m => m.maybeRunDailyDemoReset())
+    .catch(error => {
+      console.warn('[cloud sync] demo reset skipped', error);
+    });
+  const timeout = new Promise<void>(resolve => setTimeout(resolve, DEMO_RESET_TIMEOUT_MS));
+  return Promise.race([reset, timeout]);
+}
 
 interface SyncBinding<T> {
   cloudKey: CloudStateKey;
@@ -216,6 +233,7 @@ export default function CloudSyncProvider({ children }: { children: ReactNode })
     let cleanup = () => {};
 
     void ensureFirebaseAuth()
+      .then(() => (stopped ? undefined : runDemoResetOnce()))
       .then(() => {
         if (stopped) return;
 
