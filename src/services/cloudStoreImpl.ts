@@ -123,6 +123,15 @@ export async function seedCloudState<T>(key: CloudStateKey, value: T): Promise<b
   return true;
 }
 
+/** 구독 없이 1회만 읽는다 — 게이트 판정처럼 "지금 클라우드에 뭐가 있나"만 필요할 때 쓴다. */
+export async function fetchCloudStateOnce<T>(key: CloudStateKey): Promise<T | undefined> {
+  if (!isCloudSyncEnabled()) return undefined;
+  const snapshot = await getDoc(getStateDoc(key));
+  if (!snapshot.exists()) return undefined;
+  const data = snapshot.data() as CloudStateDoc<T>;
+  return data.value;
+}
+
 export async function deleteCloudState(key: CloudStateKey): Promise<boolean> {
   if (!isCloudSyncEnabled()) return false;
   await deleteDoc(getStateDoc(key));

@@ -31,10 +31,13 @@ import { useAuth } from './auth/useAuth';
 import SetupScreen from './auth/SetupScreen';
 import LoginScreen from './auth/LoginScreen';
 import EventSetupWizard from './auth/EventSetupWizard';
-import { isEventConfigured } from './config/eventConfig';
-import { loadEventConfig } from './config/eventConfigStorage';
+import { isEventConfigured, mergeEventConfig, type EventConfig } from './config/eventConfig';
+import { loadEventConfig, EVENT_CONFIG_KEY } from './config/eventConfigStorage';
 const CloudSyncProvider = lazy(() => import('./services/CloudSyncProvider'));
 import ToastProvider, { useToast, registerToastBus } from './components/ToastProvider';
+import { DEMO_MODE } from './demo/demoConfig';
+import { ensureFirebaseAuth } from './services/firebase';
+import { fetchCloudStateOnce } from './services/cloudStoreImpl';
 import './index.css';
 
 const PAGE_TITLES: Record<PageKey, string> = {
@@ -274,9 +277,72 @@ function PageLoading() {
   );
 }
 
+// 데모 배포본 전용 — VITE_DEMO_MODE=true 일 때만 동작한다(꺼지면 이 훅은 즉시 no-op).
+// 새 브라우저가 처음 로그인했을 때 이 기기 localStorage에는 아직 행사 정보가 없지만
+// 클라우드(Firestore)에는 이미 샘플 데이터가 있는 경우, 마법사·대기화면으로 보내기 전에
+// 클라우드를 1회 확인해 있으면 받아와서 새로고침한다. 실제 교회 배포본(스위치 OFF)이나
+// 클라우드에도 아직 데이터가 없는 최초 배포는 기존 마법사/대기화면 흐름 그대로 유지된다.
+const DEMO_EVENT_CONFIG_TIMEOUT_MS = 8_000;
+const DEMO_BOOTSTRAP_ATTEMPTED_KEY = 'eum-camp:demo:eventConfigBootstrapped';
+
+function useDemoEventConfigBootstrap(active: boolean): boolean {
+  // sessionStorage 읽기는 렌더 중 순수 조회(부작용 없음) — 이미 이 세션에서 시도했으면
+  // (성공/실패 불문) 다시 켜지 않는다. effect 안에서 동기 setState를 하지 않기 위해
+  // "켜야 하나"는 렌더에서 바로 계산하고, effect는 오직 비동기 완료 시점에만 setState한다.
+  let attempted = false;
+  try {
+    attempted = sessionStorage.getItem(DEMO_BOOTSTRAP_ATTEMPTED_KEY) === '1';
+  } catch {
+    // sessionStorage 접근 불가 시 매번 재시도(최악의 경우도 8초 상한 안에서 끝남)
+  }
+  const effectiveActive = active && !attempted;
+
+  const [resolved, setResolved] = useState(false);
+
+  useEffect(() => {
+    if (!effectiveActive) return;
+
+    let cancelled = false;
+
+    const check = ensureFirebaseAuth()
+      .then(() => fetchCloudStateOnce<Partial<EventConfig>>('eventConfig'))
+      .then(value => {
+        if (cancelled || !value) return;
+        const merged = mergeEventConfig(value);
+        if (!isEventConfigured(merged)) return;
+        try {
+          sessionStorage.setItem(DEMO_BOOTSTRAP_ATTEMPTED_KEY, '1');
+        } catch {
+          // 저장 실패해도 계속 진행 — 최악의 경우 다음 탭에서 한 번 더 확인할 뿐
+        }
+        localStorage.setItem(EVENT_CONFIG_KEY, JSON.stringify(merged));
+        window.location.reload();
+      })
+      .catch(error => {
+        console.warn('[demo] event config bootstrap failed', error);
+      });
+
+    const timeout = new Promise<void>(resolve => setTimeout(resolve, DEMO_EVENT_CONFIG_TIMEOUT_MS));
+
+    void Promise.race([check, timeout]).then(() => {
+      if (!cancelled) setResolved(true);
+    });
+
+    return () => { cancelled = true; };
+  }, [effectiveActive]);
+
+  return effectiveActive && !resolved;
+}
+
 function AuthGate() {
   const { state } = useAuth();
-  if (getHashPage() === 'apply') {
+  const applyPage = getHashPage() === 'apply';
+  const loggedIn = Boolean(state.creds) && Boolean(state.session);
+  const configured = isEventConfigured(loadEventConfig());
+  const demoActive = DEMO_MODE && loggedIn && !applyPage && !configured;
+  const demoChecking = useDemoEventConfigBootstrap(demoActive);
+
+  if (applyPage) {
     return (
       <Suspense fallback={<PageLoading />}>
         <CloudSyncProvider>
@@ -288,7 +354,9 @@ function AuthGate() {
   if (!state.creds)   return <SetupScreen />;
   if (!state.session) return <LoginScreen />;
   // 첫 부팅 — 행사 정보가 비어있으면 admin에게 강제 마법사. committee는 admin이 채울 때까지 대기.
-  if (!isEventConfigured(loadEventConfig())) {
+  // (데모 배포본은 그 전에 클라우드 확인을 한 번 거친다 — 위 useDemoEventConfigBootstrap)
+  if (!configured) {
+    if (demoActive && demoChecking) return <DemoSyncCheckingScreen />;
     if (state.session.role === 'admin') return <EventSetupWizard />;
     return <PendingSetupScreen />;
   }
@@ -298,6 +366,33 @@ function AuthGate() {
         <MainShell />
       </CloudSyncProvider>
     </Suspense>
+  );
+}
+
+function DemoSyncCheckingScreen() {
+  return (
+    <div
+      className="min-h-screen flex items-center justify-center p-5"
+      style={{ background: 'linear-gradient(135deg,#020818 0%,#0a1628 60%,#0f2040 100%)' }}
+    >
+      <div
+        className="max-w-md w-full rounded-2xl p-7 text-center"
+        style={{
+          background: 'rgba(2,12,28,0.85)',
+          border: '1px solid rgba(252,211,77,0.22)',
+        }}
+      >
+        <img
+          src={EUM_BRAND.logoUrl}
+          alt=""
+          aria-hidden="true"
+          className="w-10 h-10 object-contain mx-auto mb-3 animate-pulse"
+          style={{ filter: 'drop-shadow(0 0 12px rgba(240,188,120,0.45))' }}
+        />
+        <h2 className="text-base font-bold text-white mb-2">체험용 데이터를 불러오는 중…</h2>
+        <p className="text-xs text-slate-400 leading-relaxed">잠시만 기다려 주세요.</p>
+      </div>
+    </div>
   );
 }
 
