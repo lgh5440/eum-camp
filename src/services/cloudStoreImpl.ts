@@ -37,7 +37,6 @@ export type CloudStateKey =
   | 'safetyItems'
   | 'scheduleCategories'
   | 'scheduleItems'
-  | 'authCreds'
   | 'applicationQueue'
   | 'changeLog'
   | 'dailyWord'

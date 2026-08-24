@@ -1,7 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import type { AuthCreds } from '../auth/types';
 import type { Participant } from '../types';
-import { CREDS_KEY } from '../auth/storage';
 import { CHECKIN_KEY, type CheckInMap } from '../utils/checkInStorage';
 import {
   CHECKLIST_FULL_KEY,
@@ -150,14 +148,6 @@ const bindings: Array<SyncBinding<unknown>> = [
     fallback: () => {
       const raw = readLocal(NOTICE_TARGET_CONFIG_KEY);
       return raw ? JSON.parse(raw) as NoticeTargetConfig[] : loadNoticeTargetConfig();
-    },
-  },
-  {
-    cloudKey: 'authCreds',
-    storageKey: CREDS_KEY,
-    fallback: () => {
-      const raw = readLocal(CREDS_KEY);
-      return raw ? JSON.parse(raw) as AuthCreds : null;
     },
   },
   {

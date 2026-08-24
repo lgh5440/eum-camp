@@ -1,9 +1,11 @@
 // localStorage 기반 인증 스토리지.
 // 비밀번호/PIN은 평문이 아닌 SHA-256 해시로 저장한다.
-// (※ 클라이언트 단독 인증은 본질적으로 약함 — 추후 Supabase 등 서버 인증으로 교체할 어댑터 자리)
+// ⚠ 인증 해시(authCreds)는 이 기기 localStorage 에만 보관하고 클라우드로 동기화하지 않는다.
+//   (익명 인증 환경에서 Firestore 에 올리면 외부인이 그대로 읽어 오프라인으로 PIN 을
+//    복원할 수 있으므로 — firestore.rules 도 authCreds 접근을 전면 차단한다.)
+// (※ 클라이언트 단독 인증은 본질적으로 약함 — 추후 서버 인증(custom claim)으로 교체할 어댑터 자리)
 
 import type { AuthCreds, Session } from './types';
-import { queueCloudSave } from '../services/cloudStore';
 import { publishStorageChange } from '../utils/storageEvents';
 
 export const CREDS_KEY   = 'eum-camp:auth:creds';
@@ -48,7 +50,6 @@ export async function saveCreds(args: {
   };
   localStorage.setItem(CREDS_KEY, JSON.stringify(creds));
   publishStorageChange(CREDS_KEY);
-  queueCloudSave('authCreds', creds);
   return creds;
 }
 
@@ -67,7 +68,6 @@ export async function rotateCreds(args: Partial<{
   };
   localStorage.setItem(CREDS_KEY, JSON.stringify(next));
   publishStorageChange(CREDS_KEY);
-  queueCloudSave('authCreds', next);
   return next;
 }
 
