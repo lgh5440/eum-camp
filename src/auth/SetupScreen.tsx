@@ -15,11 +15,11 @@ export default function SetupScreen() {
   const pin2Id      = useId();
   const errorId     = useId();
 
-  const [adminName, setAdminName]   = useState('');
-  const [adminPw, setAdminPw]       = useState('');
-  const [adminPw2, setAdminPw2]     = useState('');
-  const [pin, setPin]               = useState('');
-  const [pin2, setPin2]             = useState('');
+  const [adminName, setAdminName]   = useState('체험용 관리자');
+  const [adminPw, setAdminPw]       = useState('demo1234');
+  const [adminPw2, setAdminPw2]     = useState('demo1234');
+  const [pin, setPin]               = useState('1234');
+  const [pin2, setPin2]             = useState('1234');
   const [showPw, setShowPw]         = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState<string | null>(null);
