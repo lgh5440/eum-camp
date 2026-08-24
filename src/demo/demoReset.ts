@@ -6,7 +6,11 @@
 //      단일 문서 트랜잭션은 compare-and-set 이므로, 동시에 수십 명이 열어도 승자는 정확히 한 명이다.
 //   3) 승자만 18개 state 문서를 스냅샷 값으로 일괄(writeBatch) 교체한다. 배치는 원자적이라
 //      절반만 초기화된 상태가 남지 않는다.
-//   4) 되돌리는 값이 코드에 고정된 스냅샷이므로 초기화 자체가 멱등이다 —
+//   4) ★완료 표식(completedAt)도 그 배치 안에 함께 쓴다. 따라서
+//      "completedAt 존재 ⇔ 데이터 교체 완료" 가 예외 없이 성립한다.
+//      표식이 없다 = 교체가 확실히 일어나지 않았다 이므로, 중단된 클레임을 뒤늦게 이어받아도
+//      그 사이 입력된 데이터를 덮어쓸 일이 없다(경과 시간으로 추측할 필요 자체가 없다).
+//   5) 되돌리는 값이 코드에 고정된 스냅샷이므로 초기화 자체가 멱등이다 —
 //      만에 하나 두 접속자가 겹쳐 실행해도 수렴 결과가 같다(트랜잭션은 쓰기 폭증을 막는 최적화).
 //
 // ⚠ Cloud Functions / Blaze 를 쓰지 않는다. 무료(Spark) 범위의 클라이언트 트랜잭션 + 배치만 쓴다.
@@ -122,8 +126,24 @@ async function serverClockAgrees(cycleStart: number, previous: DocumentData | nu
   return false;
 }
 
-/** 18개 state 문서를 스냅샷 값으로 원자적으로 교체한다(merge 없음 = 전량 대체). */
-async function restoreSeed(): Promise<number> {
+/** Firestore writeBatch 1회의 최대 작업 수. */
+const BATCH_OP_LIMIT = 500;
+
+/**
+ * 18개 state 문서를 스냅샷 값으로 교체하고, **같은 배치 안에서** 완료 표식까지 쓴다.
+ *
+ * ★완료 표식이 배치 안에 있는 것이 이 모듈의 안전성의 핵심이다.
+ *   writeBatch 는 원자적이므로 "completedAt 존재 ⇔ 18개 문서 교체 완료" 가 항상 성립한다.
+ *   (표식을 커밋 뒤 별도 setDoc 으로 쓰면, 그 사이에 끊겼을 때 "데이터는 이미 교체됐는데
+ *    표식은 없는" 모호한 상태가 남는다. 그러면 뒤이은 접속자가 이어받아 교체를 한 번 더 해
+ *    그 사이 입력된 실사용 데이터를 날린다. 경과 시간으로 추측해 좁힐 수는 있어도 창 안에서는
+ *    같은 사고가 나므로, 애초에 모호한 상태를 만들지 않는 것이 근본 해결이다.)
+ *
+ *   작업 수는 18개 문서 + 표식 1개 = 19개로 500 한계에 한참 못 미친다.
+ *   스냅샷 키가 늘어 한계를 넘으면 배치를 쪼개야 하는데, 쪼개는 순간 원자성이 깨지므로
+ *   조용히 넘어가지 않고 여기서 실패시킨다(초기화를 건너뛸 뿐 데이터는 그대로다).
+ */
+async function restoreSeed(cycleStart: number, claimedAt: number): Promise<number> {
   const { DEMO_SEED } = await import('./demoSeed');
   const batch = writeBatch(firestoreDb!);
   let count = 0;
@@ -140,6 +160,18 @@ async function restoreSeed(): Promise<number> {
     }
     count += 1;
   }
+
+  if (count + 1 > BATCH_OP_LIMIT) {
+    throw new Error(
+      `데모 스냅샷이 ${count}개로 늘어 완료 표식과 한 배치에 담을 수 없습니다(한계 ${BATCH_OP_LIMIT}).`,
+    );
+  }
+
+  batch.set(resetDocRef(), {
+    value: { cycleStart, claimedAt, completedAt: Date.now() },
+    version: 1,
+    updatedAt: serverTimestamp(),
+  });
 
   await batch.commit();
   return count;
@@ -169,13 +201,8 @@ export async function maybeRunDailyDemoReset(): Promise<void> {
 
     if (!(await serverClockAgrees(cycleStart, claim.previous))) return;
 
-    const count = await restoreSeed();
-
-    await setDoc(resetDocRef(), {
-      value: { cycleStart, claimedAt: nowMs, completedAt: Date.now() },
-      version: 1,
-      updatedAt: serverTimestamp(),
-    });
+    // 데이터 교체와 완료 표식이 한 배치로 함께 커밋된다(둘 다 되거나 둘 다 안 된다).
+    const count = await restoreSeed(cycleStart, nowMs);
     console.info(`[demo reset] ${count}개 문서를 데모 기준 상태로 되돌렸습니다.`);
   } catch (error) {
     console.warn('[demo reset] 초기화 실패 — 앱은 계속 진행합니다.', error);

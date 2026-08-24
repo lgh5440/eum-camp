@@ -16,11 +16,12 @@ export const PALETTE = [
 // ── 기본값 ────────────────────────────────────────────────────────────────────
 
 const DEFAULT_CHURCHES: ChurchRow[] = [
-  { name: '은혜교회', count: 12, quota: 14, color: '#06b6d4' },
-  { name: '소망교회', count: 10, quota: 12, color: '#3b82f6' },
-  { name: '사랑교회', count:  8, quota: 10, color: '#8b5cf6' },
-  { name: '비전교회', count:  7, quota: 10, color: '#10b981' },
-  { name: '주향교회', count:  6, quota:  8, color: '#f59e0b' },
+  // 실재 교회명을 쓰지 않는다 — 이 저장소는 다른 교회가 복사해 가는 공개 템플릿이다.
+  { name: '샘플제일교회', count: 12, quota: 14, color: '#06b6d4' },
+  { name: '샘플중앙교회', count: 10, quota: 12, color: '#3b82f6' },
+  { name: '샘플동산교회', count:  8, quota: 10, color: '#8b5cf6' },
+  { name: '샘플은혜교회', count:  7, quota: 10, color: '#10b981' },
+  { name: '샘플소망교회', count:  6, quota:  8, color: '#f59e0b' },
 ];
 
 const DEFAULT_SCHEDULE: ScheduleDay[] = [

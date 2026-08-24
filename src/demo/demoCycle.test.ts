@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cycleStartOf, decideClaim, ABANDONED_CLAIM_MS, DAY_MS, STALE_CLAIM_MS } from './demoCycle';
+import { cycleStartOf, decideClaim, DAY_MS, STALE_CLAIM_MS } from './demoCycle';
 
 /** KST 벽시계 문자열을 UTC epoch 로 바꾼다. */
 function kst(iso: string): number {
@@ -73,54 +73,67 @@ describe('decideClaim', () => {
     expect(decideClaim({ cycleStart: today + DAY_MS, completedAt: null }, now)).toBe('skip');
   });
 
-  // ── 이어받기 창의 위쪽 끝 — "강의 중 데이터 손실" 방지 ──────────────────────
+  // ── 완료 표식은 절대적 정지 신호 ────────────────────────────────────────────
   //
-  // 완료 표시(setDoc)만 실패한 표식은 "데이터 교체 전 중단"과 구별되지 않는다.
-  // 몇 시간 묵은 표식을 이어받으면 새벽 4시 이후 입력된 내용을 전부 날린다.
+  // 완료 표식은 18개 문서 교체와 같은 writeBatch 로 쓰인다(demoReset.ts restoreSeed).
+  // 따라서 "completedAt 존재 ⇔ 데이터 교체 완료" 이고, 있으면 무조건 재실행하지 않는다.
+  // 재실행하면 새벽 4시 이후 실사용 중 입력된 내용을 전부 날린다.
 
-  it('미완료 표식이 ABANDONED 임계를 넘으면 이어받지 않는다', () => {
-    expect(
-      decideClaim(
-        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS, completedAt: null },
-        now,
-      ),
-    ).toBe('skip');
-  });
-
-  it('새벽 4시 클레임을 강의 중(09:00) 접속자가 이어받지 않는다', () => {
-    // 04:00:05 에 선점 → restoreSeed 는 끝났지만 완료 표시만 실패한 상태.
+  it('완료 표식이 있으면 얼마가 지났든 절대 재실행하지 않는다', () => {
     const claimedAt = kst('2026-08-24T04:00:05');
-    const duringLecture = kst('2026-08-24T09:00:00');
-    expect(cycleStartOf(duringLecture)).toBe(cycleStartOf(claimedAt)); // 같은 주기임을 확인
-    expect(decideClaim({ cycleStart: today, claimedAt, completedAt: null }, duringLecture))
-      .toBe('skip');
+    const completedAt = kst('2026-08-24T04:00:09');
+    for (const at of [
+      kst('2026-08-24T04:01:00'), // 직후
+      kst('2026-08-24T09:00:00'), // 강의 중
+      kst('2026-08-24T23:59:59'), // 같은 주기 끝
+      kst('2026-08-25T03:59:59'), // 주기 경계 직전
+    ]) {
+      expect(cycleStartOf(at)).toBe(today); // 같은 주기임을 확인
+      expect(decideClaim({ cycleStart: today, claimedAt, completedAt }, at)).toBe('skip');
+    }
   });
 
-  it('이어받기 창 안(STALE~ABANDONED)에서는 여전히 이어받는다', () => {
-    const claimedAt = now - (STALE_CLAIM_MS + ABANDONED_CLAIM_MS) / 2;
-    expect(decideClaim({ cycleStart: today, claimedAt, completedAt: null }, now)).toBe('claim');
-  });
-
-  it('임계 직전은 이어받고, 임계에 닿으면 포기한다', () => {
+  it('완료 표식이 있으면 클레임이 아무리 묵어도 건너뛴다', () => {
+    // 클레임 경과 시간은 판정에 아무 영향을 주지 않는다 — 완료 표식만 본다.
     expect(
       decideClaim(
-        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS + 1, completedAt: null },
-        now,
-      ),
-    ).toBe('claim');
-    expect(
-      decideClaim(
-        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS - 1, completedAt: null },
+        { cycleStart: today, claimedAt: today, completedAt: today + 1000 },
         now,
       ),
     ).toBe('skip');
   });
 
-  it('묵은 표식을 포기해도 다음 주기에는 정상 초기화된다', () => {
-    // 오늘 주기를 포기한 표식이 그대로 남아 있어도, 내일 주기에는 저장값이 과거가 되므로 claim.
+  // ── 미완료 표식 = 교체가 일어나지 않았음이 확정 → 언제든 안전하게 이어받는다 ──
+
+  it('중단된 클레임은 몇 시간이 지나도 이어받는다', () => {
+    // 04:00:05 에 선점하고 데이터 교체 전에 끊긴 상태. 표식이 없으므로 교체는 확실히 안 됐다.
+    const claimedAt = kst('2026-08-24T04:00:05');
+    const later = kst('2026-08-24T09:00:00');
+    expect(cycleStartOf(later)).toBe(cycleStartOf(claimedAt)); // 같은 주기임을 확인
+    expect(decideClaim({ cycleStart: today, claimedAt, completedAt: null }, later)).toBe('claim');
+  });
+
+  it('STALE 경계 — 직전은 기다리고 직후는 이어받는다', () => {
+    expect(
+      decideClaim(
+        { cycleStart: today, claimedAt: now - STALE_CLAIM_MS + 1, completedAt: null },
+        now,
+      ),
+    ).toBe('skip');
+    expect(
+      decideClaim({ cycleStart: today, claimedAt: now - STALE_CLAIM_MS, completedAt: null }, now),
+    ).toBe('claim');
+  });
+
+  it('completedAt 이 0/undefined 여도 완료로 오인하지 않는다', () => {
+    expect(decideClaim({ cycleStart: today, claimedAt: today }, now)).toBe('claim');
+    expect(decideClaim({ cycleStart: today, claimedAt: today, completedAt: 0 }, now)).toBe('claim');
+  });
+
+  it('중단된 표식이 남아 있어도 다음 주기에는 정상 초기화된다', () => {
     const tomorrow = now + DAY_MS;
     expect(
-      decideClaim({ cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS, completedAt: null }, tomorrow),
+      decideClaim({ cycleStart: today, claimedAt: now, completedAt: null }, tomorrow),
     ).toBe('claim');
   });
 });
