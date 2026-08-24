@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cycleStartOf, decideClaim, DAY_MS, STALE_CLAIM_MS } from './demoCycle';
+import { cycleStartOf, decideClaim, ABANDONED_CLAIM_MS, DAY_MS, STALE_CLAIM_MS } from './demoCycle';
 
 /** KST 벽시계 문자열을 UTC epoch 로 바꾼다. */
 function kst(iso: string): number {
@@ -71,5 +71,56 @@ describe('decideClaim', () => {
 
   it('저장된 주기가 미래면(다른 접속자 시계가 빠름) 건드리지 않는다', () => {
     expect(decideClaim({ cycleStart: today + DAY_MS, completedAt: null }, now)).toBe('skip');
+  });
+
+  // ── 이어받기 창의 위쪽 끝 — "강의 중 데이터 손실" 방지 ──────────────────────
+  //
+  // 완료 표시(setDoc)만 실패한 표식은 "데이터 교체 전 중단"과 구별되지 않는다.
+  // 몇 시간 묵은 표식을 이어받으면 새벽 4시 이후 입력된 내용을 전부 날린다.
+
+  it('미완료 표식이 ABANDONED 임계를 넘으면 이어받지 않는다', () => {
+    expect(
+      decideClaim(
+        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS, completedAt: null },
+        now,
+      ),
+    ).toBe('skip');
+  });
+
+  it('새벽 4시 클레임을 강의 중(09:00) 접속자가 이어받지 않는다', () => {
+    // 04:00:05 에 선점 → restoreSeed 는 끝났지만 완료 표시만 실패한 상태.
+    const claimedAt = kst('2026-08-24T04:00:05');
+    const duringLecture = kst('2026-08-24T09:00:00');
+    expect(cycleStartOf(duringLecture)).toBe(cycleStartOf(claimedAt)); // 같은 주기임을 확인
+    expect(decideClaim({ cycleStart: today, claimedAt, completedAt: null }, duringLecture))
+      .toBe('skip');
+  });
+
+  it('이어받기 창 안(STALE~ABANDONED)에서는 여전히 이어받는다', () => {
+    const claimedAt = now - (STALE_CLAIM_MS + ABANDONED_CLAIM_MS) / 2;
+    expect(decideClaim({ cycleStart: today, claimedAt, completedAt: null }, now)).toBe('claim');
+  });
+
+  it('임계 직전은 이어받고, 임계에 닿으면 포기한다', () => {
+    expect(
+      decideClaim(
+        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS + 1, completedAt: null },
+        now,
+      ),
+    ).toBe('claim');
+    expect(
+      decideClaim(
+        { cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS - 1, completedAt: null },
+        now,
+      ),
+    ).toBe('skip');
+  });
+
+  it('묵은 표식을 포기해도 다음 주기에는 정상 초기화된다', () => {
+    // 오늘 주기를 포기한 표식이 그대로 남아 있어도, 내일 주기에는 저장값이 과거가 되므로 claim.
+    const tomorrow = now + DAY_MS;
+    expect(
+      decideClaim({ cycleStart: today, claimedAt: now - ABANDONED_CLAIM_MS, completedAt: null }, tomorrow),
+    ).toBe('claim');
   });
 });

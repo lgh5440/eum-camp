@@ -4,12 +4,19 @@
 //   일반(교회 운영) 배포본의 번들에는 포함되지 않는다.
 //
 // 값의 출처: 2026-08-24 KST, 라이브 Firestore
-//   retreats/eum-camp-default/state/* 를 그대로 읽어 고정한 것이다.
+//   retreats/eum-camp-default/state/* 를 읽어 고정한 뒤 식별정보를 가명으로 치환한 것이다.
 //   (코드 기본값 DEFAULT_EVENT_CONFIG 는 title/날짜/장소가 전부 빈 문자열이라
 //    그것으로 되돌리면 App 의 isEventConfigured 게이트가 행사 설정 마법사로 떨어진다.
 //    그래서 "코드 기본값"이 아니라 "라이브 스냅샷"을 기준선으로 삼는다.)
 //
-// 기준선을 바꾸려면: 라이브에서 원하는 상태를 만든 뒤 이 파일을 다시 생성하고 재배포한다.
+// ⚠ 실명·실번호·실제 단체명을 이 파일에 넣지 마라.
+//   이 저장소는 다른 교회가 복사해 가는 공개 템플릿이고, 빌드하면 이 모듈이 별도 청크로
+//   떨어져 /assets/demoSeed-*.js 로 누구나 받아갈 수 있다(DEMO_MODE 가 꺼진 빌드에서도
+//   dynamic import 대상이면 청크는 생성된다). 담당자명·연락처·교회명·수양관명은
+//   "홍길동 (데모)" / "010-0000-0000" / "샘플교회" / "○○수양관" 처럼 명백한 가짜 값만 쓴다.
+//
+// 기준선을 바꾸려면: 라이브에서 원하는 상태를 만든 뒤 이 파일을 다시 생성하고,
+//   ★반드시 위 규칙대로 식별정보를 치환한 다음★ 재배포한다.
 
 /** null = 그 문서를 삭제한다(= 라이브에서도 문서가 없는 상태가 원본). */
 export type DemoSeedValue = unknown;
@@ -31,7 +38,7 @@ export const DEMO_SEED: Readonly<Record<string, DemoSeedValue | null>> = {
   applicationQueue: [],
   changeLog: [],
   dailyWord: {"title":"오늘의 말씀","reference":"시편 23:1","content":"\"여호와는 나의 목자시니 내게 부족함이 없으리로다\"","note":"말씀은 EventSettings에서 변경할 수 있습니다.","badge":"오늘의 말씀"},
-  eventConfig: {"startDate":"2026-11-23","venue":"천국수양관","appName":"이음 캠프 — 수련회·모임 운영 시스템","speakers":[],"subTheme":"","theme":"하나님과 사람을, 사람과 사람을 잇다.","version":2,"district":"예루살렘교회","venueAddress":"","title":"E:um camp","endDate":"2026-11-23","totalQuota":0,"feeAmount":0,"inquiry":{"name":"이성경","role":"문의","phone":"010-4430-5440"},"worshipTeam":{"name":"","role":"찬양과 경배"}},
+  eventConfig: {"startDate":"2026-11-23","venue":"○○수양관","appName":"이음 캠프 — 수련회·모임 운영 시스템","speakers":[],"subTheme":"","theme":"하나님과 사람을, 사람과 사람을 잇다.","version":2,"district":"○○지방회 / 샘플교회","venueAddress":"","title":"샘플 청소년 연합수련회","endDate":"2026-11-23","totalQuota":0,"feeAmount":0,"inquiry":{"name":"홍길동 (데모)","role":"문의","phone":"010-0000-0000"},"worshipTeam":{"name":"","role":"찬양과 경배"}},
   menuVisibility: null,
 };
 
