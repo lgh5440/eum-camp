@@ -22,13 +22,15 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
         color: '#3B4759',
       }}
     >
-      <div className="flex items-center gap-1.5 mb-2 font-bold text-[12px]" style={{ color: '#2563EB' }}>
+      <div className="flex items-center gap-1.5 mb-2 font-bold text-sm" style={{ color: '#1B3A5C' }}>
+        <span className="rounded-md bg-[#1B3A5C] px-2 py-0.5 text-xs font-black tracking-wider text-white">DEMO</span>
         <Info size={13} aria-hidden="true" />
         강의 체험용 데모 사이트입니다
       </div>
 
       {variant === 'login' ? (
         <ul className="space-y-1">
+          <li className="flex items-center gap-2"><span className="font-semibold">이름</span><code className="select-all rounded bg-white px-2 py-0.5 font-mono">{DEMO_CREDENTIALS.adminName}</code></li>
           <li>
             전체 편집 체험 — 진행위원 비밀번호{' '}
             <code className="px-1 py-0.5 rounded bg-white font-mono">{DEMO_CREDENTIALS.adminPassword}</code>

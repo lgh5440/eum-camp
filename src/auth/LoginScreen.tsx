@@ -85,9 +85,9 @@ export default function LoginScreen() {
           onSubmit={handleSubmit}
           className="rounded-2xl p-6"
           style={{
-            background: 'rgba(2,12,28,0.85)',
-            border: '1px solid rgba(240,188,120,0.22)',
-            boxShadow: '0 0 40px rgba(240,140,40,0.12)',
+            background: '#FFFFFF',
+            border: '1px solid rgba(201,150,43,0.32)',
+            boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
           }}
           aria-describedby={error ? errorId : undefined}
         >
@@ -105,7 +105,6 @@ export default function LoginScreen() {
           </div>
 
           {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
-          <DemoNotice variant="login" />
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-slate-300 mb-1.5">
@@ -171,7 +170,7 @@ export default function LoginScreen() {
               role="alert"
               aria-live="polite"
               className="rounded-lg p-3 mb-4 text-xs text-center"
-              style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', color: '#fde68a' }}
+              style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', color: '#7A550B' }}
             >
               5회 연속 실패로 잠금되었습니다. {formatRemaining(lockedMs)} 후 다시 시도하세요.
             </div>
@@ -190,6 +189,8 @@ export default function LoginScreen() {
             {submitting ? '확인 중…' : '로그인'}
           </button>
         </form>
+
+        <DemoNotice variant="login" />
 
         {/* 행사·문의 정보 */}
         <div className="mt-6 text-[11px] text-slate-400 leading-relaxed text-center space-y-1.5">
