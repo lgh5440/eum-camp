@@ -52,7 +52,7 @@ export default function SummaryCards({ stats, ckStats, churchCount, onNavigate }
         <DonutChart pct={ckStats.pct}/>
         <div className="min-w-0">
           <div className="text-[10px] text-slate-400">준비 진행률</div>
-          <div className="font-black text-white leading-tight" style={{ fontSize: '1.2rem' }}>
+          <div className="font-black text-[#1B3A5C] leading-tight" style={{ fontSize: '1.2rem' }}>
             {ckStats.doneCount}<span className="text-xs font-medium text-slate-400">/{ckStats.total}</span>
           </div>
           <div className="flex flex-wrap gap-x-2 mt-0.5">

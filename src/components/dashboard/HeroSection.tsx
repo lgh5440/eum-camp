@@ -29,7 +29,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
               {dday.text}
             </span>
           </div>
-          <h1 className="font-black text-white tracking-tight leading-none mb-2"
+          <h1 className="font-black text-[#1B3A5C] tracking-tight leading-none mb-2"
             style={{ fontSize: 'clamp(1.6rem, 5vw, 4rem)' }}>{EVENT.theme}</h1>
           <p className="font-bold" style={{ color: 'var(--eum-gold-l)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
             {EVENT.subTheme}

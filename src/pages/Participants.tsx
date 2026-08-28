@@ -134,7 +134,7 @@ export default function Participants() {
       {/* 헤더 */}
       <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
-          <h2 className="text-xl font-bold text-white">참가자 관리</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">참가자 관리</h2>
           <p className="text-sm text-slate-400 mt-0.5">총 {participantList.length}명 · 표시 {filtered.length}명</p>
         </div>
         <div className="flex items-center gap-2 flex-wrap justify-end">
@@ -215,10 +215,10 @@ export default function Participants() {
           {/* 참가자 추가 버튼 */}
           <button
             onClick={() => setShowForm(true)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold text-white transition-all active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-all active:scale-95"
             style={{
               background: 'linear-gradient(90deg, #0891b2, #0ea5e9)',
-              boxShadow: '0 4px 14px rgba(6,182,212,0.35)',
+              boxShadow: '0 4px 14px rgba(37, 99, 235,0.35)',
             }}
           >
             <UserPlus size={14} />
@@ -274,7 +274,7 @@ export default function Participants() {
             placeholder="이름 또는 교회 검색..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-transparent text-sm text-white placeholder-slate-500 outline-none w-full"
+            className="bg-transparent text-sm text-[#1B3A5C] placeholder-slate-500 outline-none w-full"
           />
         </div>
 
@@ -300,7 +300,7 @@ export default function Participants() {
             key={idx}
             value={filter.value}
             onChange={e => filter.onChange(e.target.value)}
-            className="px-3 py-2 rounded-xl text-sm text-white outline-none cursor-pointer"
+            className="px-3 py-2 rounded-xl text-sm text-[#1B3A5C] outline-none cursor-pointer"
             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
           >
             {filter.options.map(([val, label]) => (
@@ -351,7 +351,7 @@ export default function Participants() {
                       >
                         {p.name.charAt(0)}
                       </div>
-                      <span className="text-sm font-medium text-white whitespace-nowrap">{p.name}</span>
+                      <span className="text-sm font-medium text-[#1B3A5C] whitespace-nowrap">{p.name}</span>
                     </div>
                   </td>
                   <td className="hidden sm:table-cell px-3 sm:px-4 py-3 text-sm text-slate-300 whitespace-nowrap max-w-[160px] truncate">

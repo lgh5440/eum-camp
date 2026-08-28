@@ -156,7 +156,7 @@ export default function Rooms() {
       {/* 페이지 헤더 */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">숙소 / 방 배정</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">숙소 / 방 배정</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             총 {activeRooms.length}개 방 · 수용 {activeRooms.reduce((s, r) => s + r.capacity, 0)}명 · 학생·교사·운영진 모두 포함
           </p>
@@ -174,7 +174,7 @@ export default function Rooms() {
               </button>
               <button
                 onClick={saveEdit}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-white transition-all active:scale-95"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#1B3A5C] transition-all active:scale-95"
                 style={{ background: 'linear-gradient(90deg,#059669,#10b981)', boxShadow: '0 2px 8px rgba(16,185,129,0.3)' }}
               >
                 <Check size={13} /> 저장
@@ -184,15 +184,15 @@ export default function Rooms() {
             <>
               <button
                 onClick={() => setShowModal(true)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-white transition-all active:scale-95"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#1B3A5C] transition-all active:scale-95"
                 style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}
               >
                 <Wand2 size={13} /> 자동 배정
               </button>
               <button
                 onClick={enterEditMode}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-white transition-all active:scale-95"
-                style={{ background: 'linear-gradient(90deg,#0891b2,#0ea5e9)', boxShadow: '0 2px 8px rgba(6,182,212,0.25)' }}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#1B3A5C] transition-all active:scale-95"
+                style={{ background: 'linear-gradient(90deg,#0891b2,#0ea5e9)', boxShadow: '0 2px 8px rgba(37, 99, 235,0.25)' }}
               >
                 <Pencil size={13} /> 수동 배정
               </button>
@@ -211,7 +211,7 @@ export default function Rooms() {
           <button
             onClick={e => { e.stopPropagation(); addRoom(); }}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.28)', color: '#22d3ee' }}
+            style={{ background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.28)', color: '#22d3ee' }}
           >
             <Plus size={12} /> 호실 추가
           </button>
@@ -333,7 +333,7 @@ export default function Rooms() {
                               value={room.name}
                               onChange={e => updateRoom(room.id, { name: e.target.value })}
                               onClick={e => e.stopPropagation()}
-                              className="flex-1 min-w-0 text-sm font-bold bg-transparent border-b border-white/20 text-white outline-none focus:border-cyan-400 px-0.5"
+                              className="flex-1 min-w-0 text-sm font-bold bg-transparent border-b border-white/20 text-[#1B3A5C] outline-none focus:border-cyan-400 px-0.5"
                               placeholder="호실명"
                             />
                             <button
@@ -377,7 +377,7 @@ export default function Rooms() {
                                   })
                                 }
                                 onClick={e => e.stopPropagation()}
-                                className="w-10 text-xs text-center bg-transparent border-b border-white/15 text-white outline-none focus:border-cyan-400"
+                                className="w-10 text-xs text-center bg-transparent border-b border-white/15 text-[#1B3A5C] outline-none focus:border-cyan-400"
                               />
                             </div>
                           </div>
@@ -386,7 +386,7 @@ export default function Rooms() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <BedDouble size={15} style={{ color }} />
-                            <span className="font-bold text-white text-sm">{room.name}</span>
+                            <span className="font-bold text-[#1B3A5C] text-sm">{room.name}</span>
                             <span
                               className="text-[10px] px-2 py-0.5 rounded-full font-medium"
                               style={{ background: `${color}20`, color }}
@@ -489,7 +489,7 @@ export default function Rooms() {
                               <div
                                 className="mt-2 rounded-xl overflow-hidden"
                                 style={{
-                                  background: '#1e293b',
+                                  background: '#3B4759',
                                   border: '1px solid rgba(255,255,255,0.12)',
                                   boxShadow: '0 8px 24px rgba(0,0,0,0.32)',
                                   maxHeight: '220px',
@@ -517,7 +517,7 @@ export default function Rooms() {
                                       >
                                         {p.name.charAt(0)}
                                       </div>
-                                      <span className="text-xs text-white flex-1 min-w-0 truncate">{p.name}</span>
+                                      <span className="text-xs text-[#1B3A5C] flex-1 min-w-0 truncate">{p.name}</span>
                                       <span className="text-[10px] text-slate-500 flex-shrink-0">{p.grade}</span>
                                       <span className="text-[10px] text-slate-600 truncate max-w-[4rem]">
                                         {churchMap[p.church] ?? p.church}

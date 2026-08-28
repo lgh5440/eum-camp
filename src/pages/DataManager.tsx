@@ -159,7 +159,7 @@ const CARD = {
 
 const BTN_CYAN = {
   background: 'linear-gradient(135deg,#06b6d4,#2563eb)',
-  boxShadow:  '0 4px 14px rgba(6,182,212,0.3)',
+  boxShadow:  '0 4px 14px rgba(37, 99, 235,0.3)',
   color:      '#fff',
 } as const;
 
@@ -375,7 +375,7 @@ export default function DataManager() {
 
       {/* 페이지 제목 */}
       <div>
-        <h2 className="text-lg font-bold text-white mb-0.5">데이터 관리</h2>
+        <h2 className="text-lg font-bold text-[#1B3A5C] mb-0.5">데이터 관리</h2>
         <p className="text-xs text-slate-400">
           참가자 데이터와 체크리스트 상태를 JSON 파일로 백업하거나 복원합니다.
         </p>
@@ -396,7 +396,7 @@ export default function DataManager() {
               <History size={18} className="text-teal-300" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">변경 내역</h3>
+              <h3 className="text-sm font-bold text-[#1B3A5C]">변경 내역</h3>
               <p className="text-xs text-slate-400 mt-0.5">
                 참가자, 신청 대기함, 체크리스트, 교회 확인 변경을 최근 순으로 남깁니다.
               </p>
@@ -448,7 +448,7 @@ export default function DataManager() {
               <CreditCard size={18} className="text-sky-400" />
             </div>
             <div className="flex-1">
-              <h3 className="text-sm font-bold text-white">참가비 일괄 처리 (가등록 2만원)</h3>
+              <h3 className="text-sm font-bold text-[#1B3A5C]">참가비 일괄 처리 (가등록 2만원)</h3>
               <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
                 봉사자(운영진·자원봉사·찬양팀·진행위원)를 제외한 모든 신청자를 가등록(2만원)으로 일괄 변경합니다.
                 <br/>이미 6만원·7만원 입금하신 분의 데이터는 두 번째 옵션을 선택해야 변경됩니다.
@@ -541,11 +541,11 @@ export default function DataManager() {
         {/* 헤더 */}
         <div className="flex items-start gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: 'rgba(6,182,212,0.2)' }}>
+            style={{ background: 'rgba(37, 99, 235,0.2)' }}>
             <Download size={18} className="text-cyan-400" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-white">백업 파일 다운로드</h3>
+            <h3 className="text-sm font-bold text-[#1B3A5C]">백업 파일 다운로드</h3>
             <p className="text-xs text-slate-400 mt-0.5">현재 데이터를 JSON 파일로 저장합니다.</p>
           </div>
         </div>
@@ -553,7 +553,7 @@ export default function DataManager() {
         {/* 포함 항목 안내 */}
         <ul
           className="rounded-xl px-4 py-3 mb-4 space-y-1 text-xs text-slate-400 list-disc list-inside"
-          style={{ background: 'rgba(6,182,212,0.07)', border: '1px solid rgba(6,182,212,0.14)' }}
+          style={{ background: 'rgba(37, 99, 235,0.07)', border: '1px solid rgba(37, 99, 235,0.14)' }}
         >
           <li>참가자 목록 (이름, 교회, 조, 방, 차량, 참가비 등)</li>
           <li>체크리스트 완료 상태</li>
@@ -595,7 +595,7 @@ export default function DataManager() {
             <Upload size={18} className="text-amber-400" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-white">백업 복원</h3>
+            <h3 className="text-sm font-bold text-[#1B3A5C]">백업 복원</h3>
             <p className="text-xs text-slate-400 mt-0.5">JSON 백업 파일을 불러와 데이터를 복원합니다.</p>
           </div>
         </div>

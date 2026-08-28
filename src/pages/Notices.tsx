@@ -63,8 +63,8 @@ function NoticeCard({
         isSelected ? 'ring-1 ring-cyan-400' : 'hover:bg-white/[0.06]'
       }`}
       style={{
-        background: isSelected ? 'rgba(6,182,212,0.1)' : 'rgba(255,255,255,0.04)',
-        border: `1px solid ${isSelected ? 'rgba(6,182,212,0.4)' : 'rgba(255,255,255,0.08)'}`,
+        background: isSelected ? 'rgba(37, 99, 235,0.1)' : 'rgba(255,255,255,0.04)',
+        border: `1px solid ${isSelected ? 'rgba(37, 99, 235,0.4)' : 'rgba(255,255,255,0.08)'}`,
       }}
     >
       <div className="flex items-start justify-between gap-2">
@@ -72,7 +72,7 @@ function NoticeCard({
           {notice.pinned && (
             <Pin size={12} className="text-amber-400 flex-shrink-0 mt-0.5" />
           )}
-          <span className="text-sm font-medium text-white line-clamp-2 sm:line-clamp-1">
+          <span className="text-sm font-medium text-[#1B3A5C] line-clamp-2 sm:line-clamp-1">
             {notice.title}
           </span>
         </div>
@@ -130,7 +130,7 @@ function NoticeDetail({
         </span>
       </div>
 
-      <h3 className="text-base sm:text-lg font-bold text-white mb-4 leading-snug">
+      <h3 className="text-base sm:text-lg font-bold text-[#1B3A5C] mb-4 leading-snug">
         {notice.title}
       </h3>
 
@@ -292,7 +292,7 @@ export default function Notices() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">공지사항</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">공지사항</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             총 {items.length}건 · 고정 {items.filter(n => n.pinned).length}건
           </p>
@@ -305,7 +305,7 @@ export default function Notices() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingNotices
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingNotices ? <Check size={12} /> : <Pencil size={12} />}
@@ -317,7 +317,7 @@ export default function Notices() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingTargets
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingTargets ? <Check size={12} /> : <Pencil size={12} />}
@@ -348,32 +348,32 @@ export default function Notices() {
             <input
               value={wordDraft.badge}
               onChange={e => setWordDraft(prev => ({ ...prev, badge: e.target.value }))}
-              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-violet-300"
+              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-[#1B3A5C] outline-none focus:border-violet-300"
               placeholder="배지"
             />
             <input
               value={wordDraft.title}
               onChange={e => setWordDraft(prev => ({ ...prev, title: e.target.value }))}
-              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-violet-300"
+              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-[#1B3A5C] outline-none focus:border-violet-300"
               placeholder="제목"
             />
             <input
               value={wordDraft.reference}
               onChange={e => setWordDraft(prev => ({ ...prev, reference: e.target.value }))}
-              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-violet-300"
+              className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-[#1B3A5C] outline-none focus:border-violet-300"
               placeholder="성경 구절"
             />
           </div>
           <textarea
             value={wordDraft.content}
             onChange={e => setWordDraft(prev => ({ ...prev, content: e.target.value }))}
-            className="w-full min-h-24 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-violet-300 resize-y"
+            className="w-full min-h-24 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm text-[#1B3A5C] outline-none focus:border-violet-300 resize-y"
             placeholder="말씀 내용"
           />
           <input
             value={wordDraft.note}
             onChange={e => setWordDraft(prev => ({ ...prev, note: e.target.value }))}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-violet-300"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-[#1B3A5C] outline-none focus:border-violet-300"
             placeholder="하단 메모"
           />
         </div>
@@ -382,7 +382,7 @@ export default function Notices() {
       {editingTargets && (
         <div
           className="rounded-2xl p-4"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(6,182,212,0.22)' }}
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(37, 99, 235,0.22)' }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {targetDraft.map((target, index) => (
@@ -398,7 +398,7 @@ export default function Notices() {
                     next[index] = { ...target, label: e.target.value };
                     setTargetDraft(next);
                   }}
-                  className="flex-1 min-w-0 bg-transparent text-xs text-white outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                  className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                 />
                 <input
                   type="color"
@@ -425,7 +425,7 @@ export default function Notices() {
               key={target.key}
               onClick={() => { setFilterTarget(target.key); setSelected(null); }}
               className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                isActive ? 'text-[#1B3A5C]' : 'text-slate-400 hover:text-slate-200'
               }`}
               style={
                 isActive
@@ -444,8 +444,8 @@ export default function Notices() {
           <button
             type="button"
             onClick={addNotice}
-            className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-white transition-colors"
-            style={{ background: 'rgba(6,182,212,0.08)', border: '1px dashed rgba(6,182,212,0.35)' }}
+            className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#1B3A5C] transition-colors"
+            style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px dashed rgba(37, 99, 235,0.35)' }}
           >
             <Plus size={13} />
             공지 추가
@@ -461,7 +461,7 @@ export default function Notices() {
                 <input
                   value={notice.title}
                   onChange={e => updateNotice(notice.id, { title: e.target.value })}
-                  className="bg-transparent outline-none text-sm font-bold text-white border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
+                  className="bg-transparent outline-none text-sm font-bold text-[#1B3A5C] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
                   placeholder="공지 제목"
                 />
                 <select

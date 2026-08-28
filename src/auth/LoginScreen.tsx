@@ -75,7 +75,7 @@ export default function LoginScreen() {
             style={{ filter: 'drop-shadow(0 0 18px rgba(240,188,120,0.5))' }}
           />
           <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold-l)' }}>{EVENT.district}</div>
-          <h1 className="text-xl font-bold text-white mt-1 leading-tight">{EVENT.title}</h1>
+          <h1 className="text-xl font-bold text-[#1B3A5C] mt-1 leading-tight">{EVENT.title}</h1>
           <div className="text-xs text-slate-400 mt-1">
             {EVENT.theme} · {EVENT.dates}
           </div>
@@ -99,7 +99,7 @@ export default function LoginScreen() {
               <Lock size={16} style={{ color: 'var(--eum-gold-l)' }} aria-hidden="true" />
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">운영 시스템 접속</div>
+              <div className="text-sm font-semibold text-[#1B3A5C]">운영 시스템 접속</div>
               <div className="text-[11px] text-slate-400">진행위원 비밀번호(읽기·쓰기) 또는 조회용 PIN(읽기 전용)을 입력하세요</div>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function LoginScreen() {
             autoComplete="name"
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-white outline-none"
+            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#1B3A5C] outline-none"
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
             placeholder="예: 김교사"
             disabled={isLocked || submitting}
@@ -139,7 +139,7 @@ export default function LoginScreen() {
               inputMode="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-white tracking-widest"
+              className="flex-1 bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
               placeholder={isLocked ? '잠금 해제 후 시도' : '입력 후 Enter'}
               disabled={isLocked || submitting}
               autoFocus
@@ -180,7 +180,7 @@ export default function LoginScreen() {
           <button
             type="submit"
             disabled={isLocked || submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg,#F08C28,#C9962B)',
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',

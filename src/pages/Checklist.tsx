@@ -35,7 +35,7 @@ const statusConfig: Record<ChecklistItem['status'], {
   icon: ReactNode;
 }> = {
   done:       { label: '완료',   color: '#10b981', bg: 'rgba(16,185,129,0.08)',  icon: <CheckSquare size={14} /> },
-  inprogress: { label: '진행중', color: '#06b6d4', bg: 'rgba(6,182,212,0.08)',   icon: <Clock size={14} /> },
+  inprogress: { label: '진행중', color: '#06b6d4', bg: 'rgba(37, 99, 235,0.08)',   icon: <Clock size={14} /> },
   pending:    { label: '대기',   color: '#94a3b8', bg: 'rgba(148,163,184,0.06)', icon: <MinusCircle size={14} /> },
   blocked:    { label: '차단',   color: '#ef4444', bg: 'rgba(239,68,68,0.08)',   icon: <XCircle size={14} /> },
 };
@@ -72,7 +72,7 @@ function getDdayBadge(diff: number, isDone: boolean): DdayBadge | null {
   if (diff < 0) return { text: `D+${Math.abs(diff)}`, color: '#ef4444', bg: 'rgba(239,68,68,0.13)' };
   if (diff === 0) return { text: 'D-day', color: '#fb7185', bg: 'rgba(251,113,133,0.13)' };
   if (diff <= 3) return { text: `D-${diff}`, color: '#f59e0b', bg: 'rgba(245,158,11,0.13)' };
-  return { text: `D-${diff}`, color: '#06b6d4', bg: 'rgba(6,182,212,0.13)' };
+  return { text: `D-${diff}`, color: '#06b6d4', bg: 'rgba(37, 99, 235,0.13)' };
 }
 
 function getUrgencyScore(diff: number, status: ChecklistItem['status']): number {
@@ -289,7 +289,7 @@ export default function Checklist() {
 
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">운영 체크리스트</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">운영 체크리스트</h2>
           <p className="text-sm text-slate-400 mt-0.5 flex items-center gap-1.5">
             완료 {doneCount}/{total}건 · {pct}% 달성
             {hasCustomStatuses && (
@@ -307,7 +307,7 @@ export default function Checklist() {
                 className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
                 style={editingItems
                   ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                  : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                  : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
                 }
               >
                 {editingItems ? <Check size={12} /> : <Pencil size={12} />}
@@ -319,7 +319,7 @@ export default function Checklist() {
                 className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
                 style={editingCategories
                   ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                  : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                  : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
                 }
               >
                 {editingCategories ? <Check size={12} /> : <Pencil size={12} />}
@@ -355,7 +355,7 @@ export default function Checklist() {
       {editingCategories && (
         <div
           className="rounded-2xl p-4 space-y-2"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(6,182,212,0.22)' }}
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(37, 99, 235,0.22)' }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {categoryDraft.map((cat, index) => (
@@ -372,7 +372,7 @@ export default function Checklist() {
                     next[index] = { ...cat, name: e.target.value };
                     setCategoryDraft(next);
                   }}
-                  className="flex-1 min-w-0 bg-transparent text-xs text-white outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                  className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                 />
               </label>
             ))}
@@ -383,7 +383,7 @@ export default function Checklist() {
       <div className="p-4 sm:p-5 rounded-2xl"
         style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="flex items-center justify-between mb-2.5">
-          <span className="text-sm font-bold text-white">전체 진행률</span>
+          <span className="text-sm font-bold text-[#1B3A5C]">전체 진행률</span>
           <span className="text-xl font-black leading-none"
             style={{ color: pct === 100 ? '#10b981' : pct >= 50 ? '#06b6d4' : '#f59e0b' }}>
             {pct}%
@@ -461,11 +461,11 @@ export default function Checklist() {
                 key={cat}
                 onClick={() => setFilterCat(cat)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                  isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                  isActive ? 'text-[#1B3A5C]' : 'text-slate-400 hover:text-slate-200'
                 }`}
                 style={isActive ? {
-                  background: 'rgba(6,182,212,0.2)',
-                  border: '1px solid rgba(6,182,212,0.4)',
+                  background: 'rgba(37, 99, 235,0.2)',
+                  border: '1px solid rgba(37, 99, 235,0.4)',
                 } : {
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -492,12 +492,12 @@ export default function Checklist() {
                   isDisabled
                     ? 'opacity-25 cursor-not-allowed'
                     : isActive
-                    ? 'text-white'
+                    ? 'text-[#1B3A5C]'
                     : 'text-slate-500 hover:text-slate-300'
                 }`}
                 style={isActive && !isDisabled ? {
-                  background: sc ? `${sc.color}20` : 'rgba(6,182,212,0.2)',
-                  border: `1px solid ${sc ? sc.color + '45' : 'rgba(6,182,212,0.4)'}`,
+                  background: sc ? `${sc.color}20` : 'rgba(37, 99, 235,0.2)',
+                  border: `1px solid ${sc ? sc.color + '45' : 'rgba(37, 99, 235,0.4)'}`,
                 } : {
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.07)',
@@ -516,7 +516,7 @@ export default function Checklist() {
           <button
             onClick={toggleHideCompleted}
             className={`ml-auto px-3 py-1.5 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5 flex-shrink-0 ${
-              hideCompleted ? 'text-white' : 'text-slate-500 hover:text-slate-300'
+              hideCompleted ? 'text-[#1B3A5C]' : 'text-slate-500 hover:text-slate-300'
             }`}
             style={hideCompleted ? {
               background: 'rgba(16,185,129,0.15)',
@@ -536,7 +536,7 @@ export default function Checklist() {
           <select
             value={filterAssignee}
             onChange={e => setFilterAssignee(e.target.value)}
-            className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl text-xs text-white outline-none cursor-pointer"
+            className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl text-xs text-[#1B3A5C] outline-none cursor-pointer"
             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             {assignees.map(a => (
@@ -552,7 +552,7 @@ export default function Checklist() {
           <button
             onClick={() => setSortByUrgency(prev => !prev)}
             className={`ml-auto flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-              sortByUrgency ? 'text-white' : 'text-slate-500 hover:text-slate-300'
+              sortByUrgency ? 'text-[#1B3A5C]' : 'text-slate-500 hover:text-slate-300'
             }`}
             style={sortByUrgency ? {
               background: 'rgba(239,68,68,0.15)',
@@ -607,7 +607,7 @@ export default function Checklist() {
                           <input
                             value={item.title}
                             onChange={e => updateItem(item.id, { title: e.target.value })}
-                            className="bg-transparent outline-none text-sm font-bold text-white border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
+                            className="bg-transparent outline-none text-sm font-bold text-[#1B3A5C] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
                             placeholder="항목 제목"
                           />
                           <input
@@ -673,7 +673,7 @@ export default function Checklist() {
                       <>
                         <div className="flex items-start gap-2">
                           <span className={`text-sm font-semibold leading-snug flex-1 min-w-0 line-clamp-2 sm:line-clamp-1 ${
-                            isDone ? 'line-through text-slate-500' : 'text-white'
+                            isDone ? 'line-through text-slate-500' : 'text-[#1B3A5C]'
                           }`}>
                             {item.title}
                           </span>
@@ -768,8 +768,8 @@ export default function Checklist() {
         <button
           type="button"
           onClick={addItem}
-          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-white transition-colors"
-          style={{ background: 'rgba(6,182,212,0.08)', border: '1px dashed rgba(6,182,212,0.35)' }}
+          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#1B3A5C] transition-colors"
+          style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px dashed rgba(37, 99, 235,0.35)' }}
         >
           <Plus size={13} />
           체크 항목 추가

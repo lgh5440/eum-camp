@@ -79,7 +79,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+        className="fixed inset-0 z-50 bg-[#E4ECF7] backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -96,7 +96,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                      flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
-            border: '1px solid rgba(6,182,212,0.2)',
+            border: '1px solid rgba(37, 99, 235,0.2)',
             boxShadow: '0 32px 72px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)',
           }}
           onClick={e => e.stopPropagation()}
@@ -127,7 +127,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                   {p.name.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white leading-tight">{p.name}</h3>
+                  <h3 className="text-lg font-bold text-[#1B3A5C] leading-tight">{p.name}</h3>
                   <p className="text-xs text-slate-400 mt-0.5">
                     {church}
                     <span className="text-slate-600 mx-1">·</span>
@@ -290,10 +290,10 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
               </button>
               <button
                 onClick={() => onEdit(p)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all active:scale-95"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-all active:scale-95"
                 style={{
                   background: 'linear-gradient(90deg, #0891b2, #0ea5e9)',
-                  boxShadow: '0 4px 16px rgba(6,182,212,0.3)',
+                  boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
                 }}
               >
                 <Pencil size={14} />

@@ -78,10 +78,10 @@ export default function EventSetupWizard() {
               boxShadow: '0 0 16px rgba(252,211,77,0.45)',
             }}
           >
-            <Sparkles size={22} className="text-white" aria-hidden="true" />
+            <Sparkles size={22} className="text-[#1B3A5C]" aria-hidden="true" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white">행사 기본 정보 입력</h1>
+            <h1 className="text-lg font-bold text-[#1B3A5C]">행사 기본 정보 입력</h1>
             <p className="text-xs text-slate-400 mt-0.5">
               이음 캠프를 처음 사용하시는군요. 우선 우리 교회·행사 기본 정보를 입력해 주세요.
             </p>
@@ -92,7 +92,7 @@ export default function EventSetupWizard() {
           className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
           style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.3)', color: '#c7d2fe' }}
         >
-          입력한 내용은 <strong className="text-white">설정 → 행사 기본 정보</strong>에서 언제든 변경할 수 있습니다.
+          입력한 내용은 <strong className="text-[#1B3A5C]">설정 → 행사 기본 정보</strong>에서 언제든 변경할 수 있습니다.
           강사·찬양팀·정원·참가비 같은 세부 정보는 나중에 천천히 채우세요.
         </div>
 
@@ -103,7 +103,7 @@ export default function EventSetupWizard() {
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder="예: 2027 ○○교회 여름 수련회"
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
               autoFocus
             />
           </Field>
@@ -114,7 +114,7 @@ export default function EventSetupWizard() {
               value={theme}
               onChange={e => setTheme(e.target.value)}
               placeholder="예: GO! · 부흥 · LIGHT"
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
             />
           </Field>
 
@@ -124,7 +124,7 @@ export default function EventSetupWizard() {
                 type="date"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
-                className="w-full bg-transparent outline-none text-sm text-white"
+                className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
               />
             </Field>
             <Field label="종료일" icon={<CalendarDays size={14} />} required>
@@ -132,7 +132,7 @@ export default function EventSetupWizard() {
                 type="date"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
-                className="w-full bg-transparent outline-none text-sm text-white"
+                className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
               />
             </Field>
           </div>
@@ -143,7 +143,7 @@ export default function EventSetupWizard() {
               value={venue}
               onChange={e => setVenue(e.target.value)}
               placeholder="예: ○○ 수양관"
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
             />
           </Field>
 
@@ -153,7 +153,7 @@ export default function EventSetupWizard() {
               value={district}
               onChange={e => setDistrict(e.target.value)}
               placeholder="예: ○○교회 청년부, ○○지방회"
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
             />
           </Field>
 
@@ -164,7 +164,7 @@ export default function EventSetupWizard() {
                 value={inquiryName}
                 onChange={e => setInquiryName(e.target.value)}
                 placeholder="예: 김○○ 목사"
-                className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+                className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
               />
             </Field>
             <Field label="문의 연락처 (선택)" icon={<Phone size={14} />}>
@@ -173,7 +173,7 @@ export default function EventSetupWizard() {
                 value={inquiryPhone}
                 onChange={e => setInquiryPhone(e.target.value)}
                 placeholder="010-0000-0000"
-                className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+                className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
               />
             </Field>
           </div>
@@ -191,7 +191,7 @@ export default function EventSetupWizard() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg,#fcd34d,#a16207)',
               boxShadow: '0 0 16px rgba(252,211,77,0.45)',

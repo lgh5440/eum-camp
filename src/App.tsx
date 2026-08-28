@@ -147,7 +147,7 @@ function MainShell() {
       {/* 키보드 사용자용 스킵 링크 — 포커스되면 화면에 노출 */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:rounded-lg focus:bg-cyan-500 focus:text-white focus:font-semibold focus:text-sm"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:rounded-lg focus:bg-cyan-500 focus:text-[#1B3A5C] focus:font-semibold focus:text-sm"
       >
         본문으로 건너뛰기
       </a>
@@ -169,7 +169,7 @@ function MainShell() {
           style={{
             background: 'rgba(2,8,24,0.88)',
             backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(6,182,212,0.1)',
+            borderBottom: '1px solid rgba(37, 99, 235,0.1)',
           }}
         >
           {/* 좌측: 햄버거 + 브레드크럼 */}
@@ -198,7 +198,7 @@ function MainShell() {
                 {EVENT.appName}
               </span>
               <span className="text-slate-600 hidden sm:block" aria-hidden="true">/</span>
-              <span className="text-sm font-semibold text-white truncate" aria-current="page">
+              <span className="text-sm font-semibold text-[#1B3A5C] truncate" aria-current="page">
                 {PAGE_TITLES[currentPage]}
               </span>
             </nav>
@@ -210,8 +210,8 @@ function MainShell() {
             <div
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px]"
               style={{
-                background: isAdmin ? 'rgba(245,158,11,0.12)' : 'rgba(6,182,212,0.12)',
-                border: `1px solid ${isAdmin ? 'rgba(245,158,11,0.3)' : 'rgba(6,182,212,0.3)'}`,
+                background: isAdmin ? 'rgba(245,158,11,0.12)' : 'rgba(37, 99, 235,0.12)',
+                border: `1px solid ${isAdmin ? 'rgba(245,158,11,0.3)' : 'rgba(37, 99, 235,0.3)'}`,
                 color: isAdmin ? '#fde68a' : '#a5f3fc',
               }}
               title={isAdmin ? '진행위원 — 읽기·쓰기' : '조회 전용 — 읽기 가능'}
@@ -228,7 +228,7 @@ function MainShell() {
             <button
               type="button"
               onClick={logout}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-slate-300 hover:text-[#1B3A5C] hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors"
               aria-label="로그아웃 (잠금화면으로)"
               title="로그아웃"
             >
@@ -389,7 +389,7 @@ function DemoSyncCheckingScreen() {
           className="w-10 h-10 object-contain mx-auto mb-3 animate-pulse"
           style={{ filter: 'drop-shadow(0 0 12px rgba(240,188,120,0.45))' }}
         />
-        <h2 className="text-base font-bold text-white mb-2">체험용 데이터를 불러오는 중…</h2>
+        <h2 className="text-base font-bold text-[#1B3A5C] mb-2">체험용 데이터를 불러오는 중…</h2>
         <p className="text-xs text-slate-400 leading-relaxed">잠시만 기다려 주세요.</p>
       </div>
     </div>
@@ -409,7 +409,7 @@ function PendingSetupScreen() {
           border: '1px solid rgba(252,211,77,0.22)',
         }}
       >
-        <h2 className="text-base font-bold text-white mb-2">행사 정보 등록 대기 중</h2>
+        <h2 className="text-base font-bold text-[#1B3A5C] mb-2">행사 정보 등록 대기 중</h2>
         <p className="text-xs text-slate-400 leading-relaxed">
           관리자가 행사 기본 정보를 입력하면 운영 화면이 활성화됩니다.<br />
           잠시 후 다시 접속해 주세요.

@@ -404,15 +404,15 @@ export default function PrintCenter() {
         {/* 페이지 헤더 */}
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-white">출력 센터</h2>
+            <h2 className="text-xl font-bold text-[#1B3A5C]">출력 센터</h2>
             <p className="text-sm text-slate-400 mt-0.5">
               수련회 운영 명단을 브라우저 인쇄(Ctrl+P)로 출력합니다
             </p>
           </div>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(6,182,212,0.3)' }}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
+            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
           >
             <Printer size={16} />
             인쇄하기
@@ -428,7 +428,7 @@ export default function PrintCenter() {
               className="px-3.5 py-2 rounded-xl text-sm font-medium transition-all"
               style={
                 docType === tab.key
-                  ? { background: 'rgba(6,182,212,0.2)', border: '1px solid rgba(6,182,212,0.5)', color: '#22d3ee' }
+                  ? { background: 'rgba(37, 99, 235,0.2)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#22d3ee' }
                   : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8' }
               }
             >
@@ -453,7 +453,7 @@ export default function PrintCenter() {
                   className="px-3 py-1.5 text-xs font-medium transition-colors"
                   style={
                     orientation === o
-                      ? { background: 'rgba(6,182,212,0.25)', color: '#22d3ee' }
+                      ? { background: 'rgba(37, 99, 235,0.25)', color: '#22d3ee' }
                       : { background: 'transparent', color: '#64748b' }
                   }
                 >

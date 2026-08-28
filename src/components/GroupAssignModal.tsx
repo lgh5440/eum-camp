@@ -64,7 +64,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
 
   return (
     <>
-      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-50 bg-[#E4ECF7] backdrop-blur-sm" onClick={onClose} />
 
       <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 pointer-events-none">
         <div
@@ -74,7 +74,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
           className="pointer-events-auto w-full sm:max-w-3xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
-            border: '1px solid rgba(6,182,212,0.2)',
+            border: '1px solid rgba(37, 99, 235,0.2)',
             boxShadow: '0 32px 72px rgba(0,0,0,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -92,12 +92,12 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(6,182,212,0.15)', border: '1px solid rgba(6,182,212,0.25)' }}
+                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
                 >
                   <Wand2 size={15} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">자동 조 편성 미리보기</h3>
+                  <h3 className="text-base font-bold text-[#1B3A5C]">자동 조 편성 미리보기</h3>
                   <p className="text-xs text-slate-500 mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
                 className="flex-1 py-2 rounded-xl text-sm font-semibold transition-all"
                 style={
                   mode === 'unassigned'
-                    ? { background: 'rgba(6,182,212,0.18)', border: '1px solid rgba(6,182,212,0.5)', color: '#22d3ee' }
+                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#22d3ee' }
                     : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b' }
                 }
               >
@@ -282,7 +282,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
@@ -290,8 +290,8 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
             <div className="flex-1" />
             <button
               onClick={() => onApply(preview)}
-              className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
-              style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(6,182,212,0.3)' }}
+              className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
+              style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
             >
               적용 ({totalAssigned}명)
             </button>

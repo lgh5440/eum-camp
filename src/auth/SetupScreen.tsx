@@ -84,10 +84,10 @@ export default function SetupScreen() {
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',
             }}
           >
-            <ShieldCheck size={22} className="text-white" aria-hidden="true" />
+            <ShieldCheck size={22} className="text-[#1B3A5C]" aria-hidden="true" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white">초기 설정</h1>
+            <h1 className="text-lg font-bold text-[#1B3A5C]">초기 설정</h1>
             <p className="text-xs text-slate-400 mt-0.5">
               {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호와 운영위원 공유 PIN을 설정합니다
             </p>
@@ -116,7 +116,7 @@ export default function SetupScreen() {
               autoComplete="name"
               value={adminName}
               onChange={e => setAdminName(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
               placeholder="예: 김○○ 목사 / 운영팀장"
               required
             />
@@ -130,7 +130,7 @@ export default function SetupScreen() {
               autoComplete="new-password"
               value={adminPw}
               onChange={e => setAdminPw(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-white placeholder:text-slate-500"
+              className="flex-1 bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
               placeholder="알파벳·숫자·기호 조합 권장"
               required
               minLength={8}
@@ -152,7 +152,7 @@ export default function SetupScreen() {
               autoComplete="new-password"
               value={adminPw2}
               onChange={e => setAdminPw2(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-white"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
               required
               minLength={8}
             />
@@ -168,7 +168,7 @@ export default function SetupScreen() {
               autoComplete="off"
               value={pin}
               onChange={e => setPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-white tracking-widest"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
               placeholder="예: 0726"
               required
             />
@@ -183,7 +183,7 @@ export default function SetupScreen() {
               autoComplete="off"
               value={pin2}
               onChange={e => setPin2(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-white tracking-widest"
+              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
               required
             />
           </Field>
@@ -202,7 +202,7 @@ export default function SetupScreen() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-opacity disabled:opacity-50"
             style={{
               background: 'linear-gradient(135deg,#F08C28,#C9962B)',
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',

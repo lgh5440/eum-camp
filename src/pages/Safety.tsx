@@ -126,7 +126,7 @@ export default function Safety() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">안전 관리</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">안전 관리</h2>
           <p className="text-sm text-slate-400 mt-0.5">현장 안전 체크 및 응급 대응</p>
         </div>
         {isAdmin && (
@@ -137,7 +137,7 @@ export default function Safety() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingItems
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingItems ? <Check size={12} /> : <Pencil size={12} />}
@@ -149,7 +149,7 @@ export default function Safety() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingCategories
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingCategories ? <Check size={12} /> : <Pencil size={12} />}
@@ -162,7 +162,7 @@ export default function Safety() {
       {editingCategories && (
         <div
           className="rounded-2xl p-4"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(6,182,212,0.22)' }}
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(37, 99, 235,0.22)' }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {categoryDraft.map((category, index) => (
@@ -179,7 +179,7 @@ export default function Safety() {
                     next[index] = { ...category, name: e.target.value };
                     setCategoryDraft(next);
                   }}
-                  className="flex-1 min-w-0 bg-transparent text-xs text-white outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                  className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                 />
               </label>
             ))}
@@ -230,7 +230,7 @@ export default function Safety() {
                           <input
                             value={item.description}
                             onChange={e => updateItem(item.id, { description: e.target.value })}
-                            className="bg-transparent outline-none text-sm text-white border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
+                            className="bg-transparent outline-none text-sm text-[#1B3A5C] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
                             placeholder="점검 내용"
                           />
                           <select
@@ -276,7 +276,7 @@ export default function Safety() {
                       </div>
                     ) : (
                       <>
-                        <div className="text-sm text-white leading-snug">{item.description}</div>
+                        <div className="text-sm text-[#1B3A5C] leading-snug">{item.description}</div>
                         <div className="text-xs text-slate-400 mt-0.5 flex flex-wrap gap-x-2">
                           <span>담당: {item.responsible || '-'}</span>
                           <span>최종 확인: {item.lastChecked}</span>
@@ -301,8 +301,8 @@ export default function Safety() {
         <button
           type="button"
           onClick={addItem}
-          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-white transition-colors"
-          style={{ background: 'rgba(6,182,212,0.08)', border: '1px dashed rgba(6,182,212,0.35)' }}
+          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#1B3A5C] transition-colors"
+          style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px dashed rgba(37, 99, 235,0.35)' }}
         >
           <Plus size={13} />
           안전 점검 항목 추가
@@ -327,7 +327,7 @@ export default function Safety() {
                 {p.name.charAt(0)}
               </div>
               <div className="flex-1">
-                <span className="text-sm font-medium text-white">{p.name}</span>
+                <span className="text-sm font-medium text-[#1B3A5C]">{p.name}</span>
                 <span className="text-xs text-slate-400 ml-2">{p.grade}</span>
               </div>
               <span className="text-xs text-amber-300 font-medium">{p.allergies}</span>

@@ -91,7 +91,7 @@ function SectionDivider({ label }: { label: string }) {
       <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest whitespace-nowrap">
         {label}
       </span>
-      <div className="flex-1" style={{ borderTop: '1px solid rgba(6,182,212,0.15)' }} />
+      <div className="flex-1" style={{ borderTop: '1px solid rgba(37, 99, 235,0.15)' }} />
     </div>
   );
 }
@@ -218,7 +218,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-50 bg-[#E4ECF7] backdrop-blur-sm" onClick={onClose} />
 
       {/* Positioner: 모바일 바텀시트 / 데스크탑 중앙 모달 */}
       <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 pointer-events-none">
@@ -229,7 +229,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           className="pointer-events-auto w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[90vh]"
           style={{
             background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
-            border: '1px solid rgba(6,182,212,0.2)',
+            border: '1px solid rgba(37, 99, 235,0.2)',
             boxShadow: '0 32px 72px rgba(0,0,0,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -247,13 +247,13 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(6,182,212,0.15)', border: '1px solid rgba(6,182,212,0.25)' }}
+                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
                 >
                   {isEdit
                     ? <Pencil size={14} className="text-cyan-400" />
                     : <UserPlus size={15} className="text-cyan-400" />}
                 </div>
-                <h3 className="text-base font-bold text-white">
+                <h3 className="text-base font-bold text-[#1B3A5C]">
                   {isEdit ? '참가자 수정' : '참가자 추가'}
                 </h3>
               </div>
@@ -545,17 +545,17 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           >
             <button
               onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
             </button>
             <button
               onClick={handleSubmit}
-              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
+              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
               style={{
                 background: 'linear-gradient(90deg, #0891b2, #0ea5e9)',
-                boxShadow: '0 4px 16px rgba(6,182,212,0.3)',
+                boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
               }}
             >
               {isEdit ? '수정 저장' : '저장'}

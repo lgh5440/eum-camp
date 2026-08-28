@@ -36,7 +36,7 @@ const TONE: Record<ToastTone, { icon: typeof CheckCircle2; color: string; bg: st
   success: { icon: CheckCircle2,  color: '#10b981', bg: 'rgba(16,185,129,0.15)', border: 'rgba(16,185,129,0.4)' },
   warning: { icon: AlertTriangle, color: '#f59e0b', bg: 'rgba(245,158,11,0.15)', border: 'rgba(245,158,11,0.4)' },
   error:   { icon: XCircle,       color: '#ef4444', bg: 'rgba(239,68,68,0.15)',  border: 'rgba(239,68,68,0.4)'  },
-  info:    { icon: Info,          color: '#06b6d4', bg: 'rgba(6,182,212,0.15)',  border: 'rgba(6,182,212,0.4)'  },
+  info:    { icon: Info,          color: '#06b6d4', bg: 'rgba(37, 99, 235,0.15)',  border: 'rgba(37, 99, 235,0.4)'  },
 };
 
 export default function ToastProvider({ children }: { children: ReactNode }) {

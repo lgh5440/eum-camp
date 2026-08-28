@@ -125,7 +125,7 @@ export default function Groups() {
       {/* 페이지 헤더 */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">조 편성</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">조 편성</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             총 {activeGroups.length}개 조 · 학생 {students.length}명
           </p>
@@ -148,7 +148,7 @@ export default function Groups() {
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 flex-shrink-0"
               style={editingGroups
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingGroups ? <Check size={13} /> : <Pencil size={13} />}
@@ -157,8 +157,8 @@ export default function Groups() {
           )}
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(6,182,212,0.25)' }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
+            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
           >
             <Wand2 size={15} />
             자동 조 편성
@@ -169,7 +169,7 @@ export default function Groups() {
       {editingGroups && (
         <div
           className="rounded-2xl p-4 space-y-3"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(6,182,212,0.22)' }}
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(37, 99, 235,0.22)' }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
             {groupDraft.map((group, index) => {
@@ -191,7 +191,7 @@ export default function Groups() {
                       next[index] = { ...group, name: e.target.value };
                       setGroupDraft(next);
                     }}
-                    className="flex-1 min-w-0 bg-transparent text-xs text-white outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                    className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                     placeholder="조 이름"
                   />
                   <input
@@ -240,7 +240,7 @@ export default function Groups() {
               type="button"
               onClick={addGroup}
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95"
-              style={{ color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px dashed rgba(6,182,212,0.45)' }}
+              style={{ color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px dashed rgba(37, 99, 235,0.45)' }}
             >
               <Plus size={13} />
               조 추가
@@ -335,7 +335,7 @@ export default function Groups() {
                       {groupNum}
                     </div>
                     <div>
-                      <div className="font-bold text-white text-sm">{group.name}</div>
+                      <div className="font-bold text-[#1B3A5C] text-sm">{group.name}</div>
                       <div className="text-xs text-slate-400">
                         리더: {leaderName}
                         {teacher && <span className="text-slate-600"> (교사)</span>}
@@ -369,7 +369,7 @@ export default function Groups() {
                         {member.name.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-sm font-medium text-white">{member.name}</span>
+                        <span className="text-sm font-medium text-[#1B3A5C]">{member.name}</span>
                         <span className="text-xs text-slate-500 ml-2">{member.grade}</span>
                       </div>
                       <span className="text-xs text-slate-500 truncate max-w-[5rem] sm:max-w-24">

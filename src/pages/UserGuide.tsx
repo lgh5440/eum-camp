@@ -188,12 +188,12 @@ export default function UserGuide({ onNavigate }: Props) {
       <div className="flex items-start gap-4">
         <div
           className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg,#06b6d4,#2563eb)', boxShadow: '0 0 20px rgba(6,182,212,0.35)' }}
+          style={{ background: 'linear-gradient(135deg,#06b6d4,#2563eb)', boxShadow: '0 0 20px rgba(37, 99, 235,0.35)' }}
         >
-          <BookOpen size={22} className="text-white" />
+          <BookOpen size={22} className="text-[#1B3A5C]" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-white">운영자 사용 매뉴얼</h1>
+          <h1 className="text-xl font-bold text-[#1B3A5C]">운영자 사용 매뉴얼</h1>
           <p className="text-sm text-slate-400 mt-0.5">
             {EVENT.title} · {EVENT.dates} · {EVENT.venue}
           </p>
@@ -205,18 +205,18 @@ export default function UserGuide({ onNavigate }: Props) {
         {/* 조회용 PIN — 다른 교회 관리자 */}
         <div
           className="rounded-2xl p-4"
-          style={{ background: 'rgba(6,182,212,0.06)', border: '1px solid rgba(6,182,212,0.25)' }}
+          style={{ background: 'rgba(37, 99, 235,0.06)', border: '1px solid rgba(37, 99, 235,0.25)' }}
         >
           <div className="flex items-center gap-2 mb-3">
             <span
               className="w-8 h-8 rounded-xl flex items-center justify-center"
-              style={{ background: 'rgba(6,182,212,0.18)', color: '#67e8f9' }}
+              style={{ background: 'rgba(37, 99, 235,0.18)', color: '#2563EB' }}
             >
               <Eye size={15} />
             </span>
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-cyan-300">조회용 PIN을 받으셨다면</div>
-              <div className="text-sm font-bold text-white">다른 교회 관리자</div>
+              <div className="text-sm font-bold text-[#1B3A5C]">다른 교회 관리자</div>
             </div>
           </div>
           <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
@@ -247,7 +247,7 @@ export default function UserGuide({ onNavigate }: Props) {
             </span>
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: '#FFB870' }}>진행위원 비밀번호를 받으셨다면</div>
-              <div className="text-sm font-bold text-white">운영팀 (편집 권한)</div>
+              <div className="text-sm font-bold text-[#1B3A5C]">운영팀 (편집 권한)</div>
             </div>
           </div>
           <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
@@ -285,7 +285,7 @@ export default function UserGuide({ onNavigate }: Props) {
       {/* ── 빠른 이동 ───────────────────────────────── */}
       <div
         className="p-4 rounded-2xl"
-        style={{ background: 'rgba(6,182,212,0.06)', border: '1px solid rgba(6,182,212,0.18)' }}
+        style={{ background: 'rgba(37, 99, 235,0.06)', border: '1px solid rgba(37, 99, 235,0.18)' }}
       >
         <div className="flex items-center gap-2 mb-3">
           <Search size={15} className="text-cyan-400" />
@@ -317,7 +317,7 @@ export default function UserGuide({ onNavigate }: Props) {
       >
         <div className="flex items-center gap-2 mb-4">
           <Info size={16} className="text-cyan-400" />
-          <h2 className="text-sm font-bold text-white">권장 운영 순서</h2>
+          <h2 className="text-sm font-bold text-[#1B3A5C]">권장 운영 순서</h2>
         </div>
 
         {/* 모바일: 세로 / 데스크탑: 2열 그리드 */}
@@ -326,7 +326,7 @@ export default function UserGuide({ onNavigate }: Props) {
             <div
               key={s.step}
               className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl"
-              style={{ background: 'rgba(6,182,212,0.07)', border: '1px solid rgba(6,182,212,0.14)' }}
+              style={{ background: 'rgba(37, 99, 235,0.07)', border: '1px solid rgba(37, 99, 235,0.14)' }}
             >
               <span
                 className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold"
@@ -342,7 +342,7 @@ export default function UserGuide({ onNavigate }: Props) {
                 {s.step}
               </span>
               <div className="min-w-0">
-                <div className="text-xs font-semibold text-white leading-tight">{s.label}</div>
+                <div className="text-xs font-semibold text-[#1B3A5C] leading-tight">{s.label}</div>
                 <div className="text-[11px] text-slate-400 mt-0.5 leading-tight">{s.desc}</div>
               </div>
             </div>
@@ -373,7 +373,7 @@ export default function UserGuide({ onNavigate }: Props) {
                 <span className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: sec.color }}>
                   섹션 {sec.id}
                 </span>
-                <div className="text-sm font-bold text-white leading-tight">{sec.title}</div>
+                <div className="text-sm font-bold text-[#1B3A5C] leading-tight">{sec.title}</div>
               </div>
             </div>
 
@@ -407,7 +407,7 @@ export default function UserGuide({ onNavigate }: Props) {
       {/* ── 하단 안내 ───────────────────────────────── */}
       <div
         className="flex items-start gap-3 px-4 py-4 rounded-2xl"
-        style={{ background: 'rgba(6,182,212,0.07)', border: '1px solid rgba(6,182,212,0.2)' }}
+        style={{ background: 'rgba(37, 99, 235,0.07)', border: '1px solid rgba(37, 99, 235,0.2)' }}
       >
         <Info size={18} className="flex-shrink-0 mt-0.5 text-cyan-400" />
         <div className="text-sm text-slate-300 leading-relaxed">

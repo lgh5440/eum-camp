@@ -86,7 +86,7 @@ export default function Sidebar({
       {/* ── 모바일 오버레이 ───────────────────────────────────── */}
       <div
         className={`
-          fixed inset-0 z-40 bg-black/60 backdrop-blur-sm
+          fixed inset-0 z-40 bg-[#E4ECF7] backdrop-blur-sm
           lg:hidden transition-opacity duration-300
           ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}
@@ -258,7 +258,7 @@ export default function Sidebar({
               <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgba(240,188,120,0.9)' }}>
                 2026 THEME
               </div>
-              <div className="text-xs text-white font-bold mt-1 leading-tight">
+              <div className="text-xs text-[#1B3A5C] font-bold mt-1 leading-tight">
                 {EVENT.theme}
               </div>
               <div className="text-[10px] text-slate-400 mt-0.5">

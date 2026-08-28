@@ -43,7 +43,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-50 bg-[#E4ECF7] backdrop-blur-sm" onClick={onClose} />
 
       {/* 모바일 바텀시트 / 데스크탑 중앙 모달 */}
       <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 pointer-events-none">
@@ -54,7 +54,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
           className="pointer-events-auto w-full sm:max-w-3xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
-            border: '1px solid rgba(6,182,212,0.2)',
+            border: '1px solid rgba(37, 99, 235,0.2)',
             boxShadow: '0 32px 72px rgba(0,0,0,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -72,12 +72,12 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(6,182,212,0.15)', border: '1px solid rgba(6,182,212,0.25)' }}
+                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
                 >
                   <FileText size={15} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">CSV 가져오기 결과</h3>
+                  <h3 className="text-base font-bold text-[#1B3A5C]">CSV 가져오기 결과</h3>
                   <p className="text-xs text-slate-500 mt-0.5">내용을 확인하고 가져오기를 확정해 주세요</p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                           key={row.rowIndex}
                           style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                         >
-                          <td className="px-3 py-2.5 text-sm text-white whitespace-nowrap font-medium">
+                          <td className="px-3 py-2.5 text-sm text-[#1B3A5C] whitespace-nowrap font-medium">
                             {row.data.name}
                           </td>
                           <td className="px-3 py-2.5 text-sm text-slate-300 whitespace-nowrap">
@@ -249,7 +249,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
@@ -277,10 +277,10 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
               <button
                 onClick={() => onConfirm(validRows.map(r => r.data))}
                 disabled={validRows.length === 0}
-                className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={
                   validRows.length > 0
-                    ? { background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(6,182,212,0.3)' }
+                    ? { background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }
                     : { background: 'rgba(255,255,255,0.08)' }
                 }
               >

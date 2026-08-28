@@ -82,7 +82,7 @@ function ParticipantCard({ p, entry, onToggle }: CardProps) {
               className="w-2.5 h-2.5 rounded-full flex-shrink-0"
               style={{ background: isCheckedIn ? '#10b981' : '#475569' }}
             />
-            <span className="text-base font-bold text-white">{p.name}</span>
+            <span className="text-base font-bold text-[#1B3A5C]">{p.name}</span>
 
             {/* 구분 배지 */}
             <span
@@ -178,7 +178,7 @@ function ParticipantCard({ p, entry, onToggle }: CardProps) {
           ) : (
             <button
               onClick={() => onToggle(p.id)}
-              className="px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
+              className="px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
               style={{
                 background: 'linear-gradient(135deg,#10b981,#059669)',
                 boxShadow: '0 2px 10px rgba(16,185,129,0.35)',
@@ -342,10 +342,10 @@ export default function CheckIn() {
             className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{ background: 'linear-gradient(135deg,#10b981,#059669)', boxShadow: '0 0 14px rgba(16,185,129,0.35)' }}
           >
-            <UserCheck size={18} className="text-white" />
+            <UserCheck size={18} className="text-[#1B3A5C]" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white leading-tight">현장 체크인</h1>
+            <h1 className="text-lg font-bold text-[#1B3A5C] leading-tight">현장 체크인</h1>
             <p className="text-[11px] text-slate-400">참가자 도착 여부 확인 · 실시간 현황</p>
           </div>
         </div>
@@ -354,7 +354,7 @@ export default function CheckIn() {
         <div className="flex items-center gap-3">
           <div className="text-right">
             <div className="text-xs text-slate-400">체크인 진행률</div>
-            <div className="text-xl font-bold text-white">
+            <div className="text-xl font-bold text-[#1B3A5C]">
               {stats.checked}<span className="text-sm text-slate-400 font-normal"> / {stats.total}명</span>
             </div>
           </div>
@@ -384,10 +384,10 @@ export default function CheckIn() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           autoFocus
-          className="w-full pl-12 pr-12 py-4 rounded-2xl text-white placeholder-slate-500 outline-none transition-all"
+          className="w-full pl-12 pr-12 py-4 rounded-2xl text-[#1B3A5C] placeholder-slate-500 outline-none transition-all"
           style={{
             background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(6,182,212,0.3)',
+            border: '1px solid rgba(37, 99, 235,0.3)',
             fontSize: '16px',
             boxShadow: search ? '0 0 0 2px rgba(240,188,120,0.28)' : 'none',
           }}
@@ -395,7 +395,7 @@ export default function CheckIn() {
         {search && (
           <button
             onClick={() => setSearch('')}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#1B3A5C] transition-colors"
           >
             <XCircle size={18} />
           </button>
@@ -406,12 +406,12 @@ export default function CheckIn() {
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3">
 
         {/* 전체 인원 */}
-        <div className={STAT_BASE} style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(240,188,120,0.28)' }}>
+        <div className={STAT_BASE} style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px solid rgba(240,188,120,0.28)' }}>
           <div className="flex items-center gap-1.5">
             <Users size={13} className="text-[color:var(--eum-gold)]" />
             <span className="text-[11px] text-slate-400">전체 인원</span>
           </div>
-          <span className="text-2xl font-bold text-white">{stats.total}</span>
+          <span className="text-2xl font-bold text-[#1B3A5C]">{stats.total}</span>
           <span className="text-[10px] text-slate-500">취소 제외</span>
         </div>
 
@@ -449,7 +449,7 @@ export default function CheckIn() {
             <Users size={13} className="text-blue-400" />
             <span className="text-[11px] text-slate-400">학생</span>
           </div>
-          <span className="text-2xl font-bold text-white">
+          <span className="text-2xl font-bold text-[#1B3A5C]">
             {stats.stuChecked}<span className="text-sm text-slate-400 font-normal">/{stats.stuTotal}</span>
           </span>
           <span className="text-[10px] text-slate-500">체크인 완료</span>
@@ -461,7 +461,7 @@ export default function CheckIn() {
             <UserCheck size={13} className="text-violet-400" />
             <span className="text-[11px] text-slate-400">교사/운영진</span>
           </div>
-          <span className="text-2xl font-bold text-white">
+          <span className="text-2xl font-bold text-[#1B3A5C]">
             {stats.staffChecked}<span className="text-sm text-slate-400 font-normal">/{stats.staffTotal}</span>
           </span>
           <span className="text-[10px] text-slate-500">체크인 완료</span>
@@ -477,7 +477,7 @@ export default function CheckIn() {
         {stats.vehicleBreakdown.map(v => (
           <div key={v.label} className="flex items-center gap-2">
             <span className="text-[11px] text-slate-400">{v.label}</span>
-            <span className="text-[11px] font-bold text-white">{v.checked}</span>
+            <span className="text-[11px] font-bold text-[#1B3A5C]">{v.checked}</span>
             <span className="text-[10px] text-slate-600">/ {v.total}명</span>
             <div className="w-16 h-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
               <div
@@ -493,7 +493,7 @@ export default function CheckIn() {
         {stats.indTotal > 0 && (
           <div className="flex items-center gap-2">
             <span className="text-[11px] text-slate-400">개별이동</span>
-            <span className="text-[11px] font-bold text-white">{stats.indChecked}</span>
+            <span className="text-[11px] font-bold text-[#1B3A5C]">{stats.indChecked}</span>
             <span className="text-[10px] text-slate-600">/ {stats.indTotal}명</span>
           </div>
         )}

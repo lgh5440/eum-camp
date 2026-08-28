@@ -125,7 +125,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               <AlertTriangle size={22} className="text-red-300" aria-hidden="true" />
             </div>
             <div>
-              <div className="text-lg font-bold text-white">화면을 표시할 수 없습니다</div>
+              <div className="text-lg font-bold text-[#1B3A5C]">화면을 표시할 수 없습니다</div>
               <div className="text-xs text-red-200/70 mt-0.5">
                 {scope ? `영역: ${scope}` : '예상치 못한 오류'}
               </div>
@@ -156,7 +156,7 @@ export default class ErrorBoundary extends Component<Props, State> {
             <button
               type="button"
               onClick={this.handleReset}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-[#1B3A5C] transition-colors"
               style={{ background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)' }}
             >
               <RotateCcw size={14} aria-hidden="true" /> 이 화면만 다시 시도
@@ -164,8 +164,8 @@ export default class ErrorBoundary extends Component<Props, State> {
             <button
               type="button"
               onClick={this.handleReload}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-white transition-colors"
-              style={{ background: 'rgba(6,182,212,0.2)', border: '1px solid rgba(6,182,212,0.4)' }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-[#1B3A5C] transition-colors"
+              style={{ background: 'rgba(37, 99, 235,0.2)', border: '1px solid rgba(37, 99, 235,0.4)' }}
             >
               <Home size={14} aria-hidden="true" /> 전체 새로고침
             </button>

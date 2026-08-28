@@ -125,7 +125,7 @@ export default function Vehicles() {
       {/* 페이지 헤더 */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">차량 배정</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">차량 배정</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             총 {VEHICLE_CONFIG.length}대 · 수용 {VEHICLE_CONFIG.reduce((s, v) => s + v.capacity, 0)}명
           </p>
@@ -135,8 +135,8 @@ export default function Vehicles() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 flex-shrink-0"
-          style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(6,182,212,0.25)' }}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
+          style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
         >
           <Wand2 size={15} />
           자동 차량 배정
@@ -230,7 +230,7 @@ export default function Vehicles() {
                       <Bus size={18} style={{ color }} />
                     </div>
                     <div>
-                      <div className="font-bold text-white text-base">{vehicle.label}</div>
+                      <div className="font-bold text-[#1B3A5C] text-base">{vehicle.label}</div>
                       <div className="text-xs text-slate-400">최대 {vehicle.capacity}명</div>
                     </div>
                   </div>
@@ -247,7 +247,7 @@ export default function Vehicles() {
                 {/* 충원율 */}
                 <div>
                   <div className="flex justify-between items-center mb-1.5">
-                    <span className="text-sm font-bold text-white">
+                    <span className="text-sm font-bold text-[#1B3A5C]">
                       {members.length}명
                       <span className="text-xs font-normal text-slate-500 ml-1">/ {vehicle.capacity}석</span>
                     </span>
@@ -383,7 +383,7 @@ export default function Vehicles() {
       {individualList.length > 0 && (
         <div
           className="rounded-2xl p-5"
-          style={{ background: 'rgba(6,182,212,0.05)', border: '1px solid rgba(6,182,212,0.15)' }}
+          style={{ background: 'rgba(37, 99, 235,0.05)', border: '1px solid rgba(37, 99, 235,0.15)' }}
         >
           <div className="flex items-center gap-2 mb-4">
             <UserCheck size={16} className="text-cyan-400" />
@@ -394,9 +394,9 @@ export default function Vehicles() {
               <div
                 key={p.id}
                 className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl"
-                style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)' }}
+                style={{ background: 'rgba(37, 99, 235,0.1)', border: '1px solid rgba(37, 99, 235,0.2)' }}
               >
-                <span className="text-xs font-medium text-white">{p.name}</span>
+                <span className="text-xs font-medium text-[#1B3A5C]">{p.name}</span>
                 <span className="text-[10px] text-slate-400">
                   {getParticipantRole(p) === '학생' ? p.grade : getParticipantRole(p)}
                 </span>

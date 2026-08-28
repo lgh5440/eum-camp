@@ -9,9 +9,9 @@
   --eum-cream:    #FFF8EC;
   --eum-gold:     #C9962B;
   --eum-gold-l:   #F0BC78;
-  --eum-bg-0:     #020818;
-  --eum-bg-1:     #0a1628;
-  --eum-bg-2:     #0f2040;
+  --eum-bg-0:     #EAF3FF;
+  --eum-bg-1:     #F8FBFF;
+  --eum-bg-2:     #FFFFFF;
   --eum-mobile-tab-h: 64px;
   --eum-safe-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -27,7 +27,7 @@
     background: linear-gradient(135deg, var(--eum-bg-0) 0%, var(--eum-bg-1) 50%, var(--eum-bg-2) 100%);
     min-height: 100vh;
     font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #f1f5f9;
+    color: #3B4759;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
@@ -41,7 +41,7 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a1628;
+    background: #F8FBFF;
   }
   ::-webkit-scrollbar-thumb {
     background: var(--eum-navy);
@@ -87,7 +87,7 @@
   aside,
   header { display: none !important; }
   main   { margin-left: 0 !important; padding: 0 !important; }
-  body   { background: white !important; color: #1e293b !important; }
+  body   { background: white !important; color: #3B4759 !important; }
 
   /* 비인쇄 영역 */
   .no-print { display: none !important; }
@@ -133,18 +133,18 @@
 
 @layer utilities {
   .glow-cyan {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
   }
   .glow-blue {
     box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
   }
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: #FFFFFF;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #E6EEF9;
   }
   .nav-active {
-    background: linear-gradient(90deg, rgba(6, 182, 212, 0.15), rgba(37, 99, 235, 0.08));
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.15), rgba(37, 99, 235, 0.08));
     border-left: 3px solid #06b6d4;
     color: #22d3ee;
   }
@@ -155,8 +155,8 @@
     width: 100%;
     border-radius: 0.75rem;
     border: 1px solid rgba(148, 163, 184, 0.2);
-    background: rgba(15, 23, 42, 0.92);
-    color: #f8fafc;
+    background: #FFFFFF;
+    color: #3B4759;
     padding: 0.65rem 0.8rem;
     font-size: 0.875rem;
     outline: none;
@@ -169,7 +169,7 @@
     box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
   }
   .input option {
-    background: #0f172a;
-    color: #f8fafc;
+    background: #FFFFFF;
+    color: #3B4759;
   }
 }

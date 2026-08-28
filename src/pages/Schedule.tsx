@@ -99,7 +99,7 @@ export default function SchedulePage() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">일정 관리</h2>
+          <h2 className="text-xl font-bold text-[#1B3A5C]">일정 관리</h2>
           <p className="text-sm text-slate-400 mt-0.5">전체 3일 프로그램 일정</p>
         </div>
         {isAdmin && (
@@ -110,7 +110,7 @@ export default function SchedulePage() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingSchedule
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingSchedule ? <Check size={13} /> : <Pencil size={13} />}
@@ -122,7 +122,7 @@ export default function SchedulePage() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
               style={editingCategories
                 ? { color: '#6ee7b7', background: 'rgba(16,185,129,0.16)', border: '1px solid rgba(16,185,129,0.35)' }
-                : { color: '#67e8f9', background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.3)' }
+                : { color: '#2563EB', background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.3)' }
               }
             >
               {editingCategories ? <Check size={13} /> : <Pencil size={13} />}
@@ -135,7 +135,7 @@ export default function SchedulePage() {
       {editingCategories && (
         <div
           className="rounded-2xl p-4 space-y-2"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(6,182,212,0.22)' }}
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(37, 99, 235,0.22)' }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {categoryDraft.map((cat, index) => (
@@ -161,7 +161,7 @@ export default function SchedulePage() {
                     next[index] = { ...cat, label: e.target.value };
                     setCategoryDraft(next);
                   }}
-                  className="flex-1 min-w-0 bg-transparent text-xs text-white outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                  className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                   aria-label={`${cat.key} 라벨`}
                 />
                 <input
@@ -198,13 +198,13 @@ export default function SchedulePage() {
           <button key={day} onClick={() => setActiveDay(day)}
             className={`px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex-1 sm:flex-none min-w-0 ${
               activeDay === day
-                ? 'text-white'
+                ? 'text-[#1B3A5C]'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
             style={activeDay === day ? {
-              background: 'linear-gradient(90deg, rgba(6,182,212,0.25), rgba(37,99,235,0.2))',
-              border: '1px solid rgba(6,182,212,0.4)',
-              boxShadow: '0 0 12px rgba(6,182,212,0.2)',
+              background: 'linear-gradient(90deg, rgba(37, 99, 235,0.25), rgba(37,99,235,0.2))',
+              border: '1px solid rgba(37, 99, 235,0.4)',
+              boxShadow: '0 0 12px rgba(37, 99, 235,0.2)',
             } : {
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(255,255,255,0.08)',
@@ -218,7 +218,7 @@ export default function SchedulePage() {
       <div className="relative pl-2 sm:pl-4">
         {/* 세로선: 모바일 left-8, 데스크탑 left-10 */}
         <div className="absolute left-8 sm:left-10 top-0 bottom-0 w-px"
-          style={{ background: 'linear-gradient(180deg, rgba(6,182,212,0.5), rgba(37,99,235,0.2))' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(37, 99, 235,0.5), rgba(37,99,235,0.2))' }} />
 
         <div className="space-y-3">
           {filtered.map((item) => {
@@ -254,7 +254,7 @@ export default function SchedulePage() {
                         <input
                           value={item.title}
                           onChange={e => updateScheduleItem(item.id, { title: e.target.value })}
-                          className="bg-transparent outline-none text-sm font-bold text-white border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
+                          className="bg-transparent outline-none text-sm font-bold text-[#1B3A5C] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
                           placeholder="일정 제목"
                         />
                         <select
@@ -304,7 +304,7 @@ export default function SchedulePage() {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-start gap-2 min-w-0">
                           <span className="flex-shrink-0 text-sm">{style.icon}</span>
-                          <span className="text-sm font-bold text-white leading-snug">{item.title}</span>
+                          <span className="text-sm font-bold text-[#1B3A5C] leading-snug">{item.title}</span>
                         </div>
                         <span className="text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 whitespace-nowrap"
                           style={{ background: `${style.color}25`, color: style.color }}>
@@ -335,8 +335,8 @@ export default function SchedulePage() {
             <button
               type="button"
               onClick={addScheduleItem}
-              className="ml-16 sm:ml-[4.5rem] w-[calc(100%-4rem)] sm:w-[calc(100%-4.5rem)] flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-white transition-colors"
-              style={{ background: 'rgba(6,182,212,0.08)', border: '1px dashed rgba(6,182,212,0.35)' }}
+              className="ml-16 sm:ml-[4.5rem] w-[calc(100%-4rem)] sm:w-[calc(100%-4.5rem)] flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#1B3A5C] transition-colors"
+              style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px dashed rgba(37, 99, 235,0.35)' }}
             >
               <Plus size={13} />
               {dayLabels[activeDay]} 일정 추가
