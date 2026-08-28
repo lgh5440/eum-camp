@@ -17,12 +17,12 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
     <div
       className="rounded-xl p-3.5 mb-4 text-[11px] leading-relaxed"
       style={{
-        background: 'rgba(6,182,212,0.08)',
-        border: '1px solid rgba(6,182,212,0.30)',
-        color: '#cffafe',
+        background: '#EFF6FF',
+        border: '1px solid #BFDBFE',
+        color: '#3B4759',
       }}
     >
-      <div className="flex items-center gap-1.5 mb-2 font-bold text-[12px]" style={{ color: '#67e8f9' }}>
+      <div className="flex items-center gap-1.5 mb-2 font-bold text-[12px]" style={{ color: '#2563EB' }}>
         <Info size={13} aria-hidden="true" />
         강의 체험용 데모 사이트입니다
       </div>
@@ -31,26 +31,26 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
         <ul className="space-y-1">
           <li>
             전체 편집 체험 — 진행위원 비밀번호{' '}
-            <code className="px-1 py-0.5 rounded bg-black/30 font-mono">{DEMO_CREDENTIALS.adminPassword}</code>
+            <code className="px-1 py-0.5 rounded bg-white font-mono">{DEMO_CREDENTIALS.adminPassword}</code>
           </li>
           <li>
             둘러보기 전용 — 조회용 PIN{' '}
-            <code className="px-1 py-0.5 rounded bg-black/30 font-mono">{DEMO_CREDENTIALS.committeePin}</code>
+            <code className="px-1 py-0.5 rounded bg-white font-mono">{DEMO_CREDENTIALS.committeePin}</code>
           </li>
-          <li className="text-cyan-200/70">
+          <li className="text-[#3B4759]">
             접속 정보는 이 브라우저에서 처음 설정할 때 입력한 값입니다.
             기본값을 그대로 두셨다면 위와 같습니다.
           </li>
-          <li className="text-cyan-200/70">5회 연속 틀리면 5분간 잠깁니다.</li>
-          <li className="text-cyan-200/70">{DEMO_RESET_LABEL}</li>
+          <li className="text-[#3B4759]">5회 연속 틀리면 5분간 잠깁니다.</li>
+          <li className="text-[#3B4759]">{DEMO_RESET_LABEL}</li>
         </ul>
       ) : (
         <ul className="space-y-1">
           <li>아래 값은 체험용 기본값입니다. 그대로 두고 시작하셔도 됩니다.</li>
-          <li className="text-cyan-200/70">
+          <li className="text-[#3B4759]">
             여기서 정한 비밀번호·PIN 은 이 브라우저에만 저장됩니다.
           </li>
-          <li className="text-cyan-200/70">{DEMO_RESET_LABEL}</li>
+          <li className="text-[#3B4759]">{DEMO_RESET_LABEL}</li>
         </ul>
       )}
     </div>
