@@ -380,28 +380,28 @@ export default function EmergencyContacts() {
           <select style={selectStyle} value={church} onChange={e => setChurch(e.target.value)}>
             <option value="">교회 전체</option>
             {churchOptions.map(c => (
-              <option key={c.id} value={c.id} style={{ background: '#0a1628' }}>{c.name}</option>
+              <option key={c.id} value={c.id} style={{ background: '#F8FBFF' }}>{c.name}</option>
             ))}
           </select>
 
           <select style={selectStyle} value={group} onChange={e => setGroup(e.target.value)}>
             <option value="">조 전체</option>
             {groupOptions.map(g => (
-              <option key={g.id} value={g.id} style={{ background: '#0a1628' }}>{g.name}</option>
+              <option key={g.id} value={g.id} style={{ background: '#F8FBFF' }}>{g.name}</option>
             ))}
           </select>
 
           <select style={selectStyle} value={room} onChange={e => setRoom(e.target.value)}>
             <option value="">방 전체</option>
             {roomOptions.map(r => (
-              <option key={r.id} value={r.id} style={{ background: '#0a1628' }}>{r.name}</option>
+              <option key={r.id} value={r.id} style={{ background: '#F8FBFF' }}>{r.name}</option>
             ))}
           </select>
 
           <select style={selectStyle} value={vehicle} onChange={e => setVehicle(e.target.value)}>
             <option value="">차량 전체</option>
             {vehicleOptions.map(v => (
-              <option key={v} value={v} style={{ background: '#0a1628' }}>{v}</option>
+              <option key={v} value={v} style={{ background: '#F8FBFF' }}>{v}</option>
             ))}
           </select>
 

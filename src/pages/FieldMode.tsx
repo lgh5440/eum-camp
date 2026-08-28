@@ -25,7 +25,7 @@ interface FieldModeProps {
 const QUICK_NAV: { key: PageKey; label: string; icon: React.ReactNode; color: string }[] = [
   { key: 'checkin',     label: '현장 체크인', icon: <UserCheck size={20} />, color: '#10b981' },
   { key: 'emergency',   label: '비상연락망',  icon: <PhoneCall size={20} />, color: '#ef4444' },
-  { key: 'printcenter', label: '출력 센터',   icon: <Printer   size={20} />, color: '#06b6d4' },
+  { key: 'printcenter', label: '출력 센터',   icon: <Printer   size={20} />, color: '#3B82F6' },
   { key: 'vehicles',    label: '차량 배정',   icon: <Bus       size={20} />, color: '#f59e0b' },
   { key: 'rooms',       label: '방 배정',     icon: <BedDouble size={20} />, color: '#8b5cf6' },
   { key: 'datamanager', label: '데이터 백업', icon: <HardDrive size={20} />, color: '#3b82f6' },
@@ -62,7 +62,7 @@ function ckItemColor(item: ChecklistItem): string {
   const d = getDayDiff(item.dueDate);
   if (d < 0) return '#ef4444';                   // 마감 지남 — red
   if (d <= 3) return '#f59e0b';                   // 임박 — amber
-  if (item.status === 'inprogress') return '#06b6d4'; // 진행중 — cyan
+  if (item.status === 'inprogress') return '#3B82F6'; // 진행중 — cyan
   if (item.status === 'blocked')    return '#dc2626';  // 차단 — rose
   return '#64748b';                               // 대기 — slate
 }
@@ -171,7 +171,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
 
   // ── 상태 카드 색상 ────────────────────────────────────────────────────────────
   const pct = ckInStats.pct;
-  const checkinColor = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#06b6d4' : '#f59e0b';
+  const checkinColor = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b';
 
   // ── 렌더 ──────────────────────────────────────────────────────────────────────
   return (
@@ -190,7 +190,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <div className="flex items-center gap-3">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg,#06b6d4,#2563eb)', boxShadow: '0 0 18px rgba(37, 99, 235,0.4)' }}
+              style={{ background: 'linear-gradient(135deg,#3B82F6,#2563eb)', boxShadow: '0 0 18px rgba(37, 99, 235,0.4)' }}
             >
               <Activity size={22} className="text-[#1B3A5C]" />
             </div>
@@ -395,7 +395,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                       </div>
                       <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.07)' }}>
                         <div className="h-full rounded-full transition-all"
-                          style={{ width: `${v.pct}%`, background: v.pct === 100 ? '#10b981' : '#06b6d4' }} />
+                          style={{ width: `${v.pct}%`, background: v.pct === 100 ? '#10b981' : '#3B82F6' }} />
                       </div>
                     </div>
                   ))}

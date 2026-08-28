@@ -412,7 +412,7 @@ export default function PrintCenter() {
           <button
             onClick={() => window.print()}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
+            style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
           >
             <Printer size={16} />
             인쇄하기
@@ -428,7 +428,7 @@ export default function PrintCenter() {
               className="px-3.5 py-2 rounded-xl text-sm font-medium transition-all"
               style={
                 docType === tab.key
-                  ? { background: 'rgba(37, 99, 235,0.2)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#22d3ee' }
+                  ? { background: 'rgba(37, 99, 235,0.2)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#2563EB' }
                   : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8' }
               }
             >
@@ -453,7 +453,7 @@ export default function PrintCenter() {
                   className="px-3 py-1.5 text-xs font-medium transition-colors"
                   style={
                     orientation === o
-                      ? { background: 'rgba(37, 99, 235,0.25)', color: '#22d3ee' }
+                      ? { background: 'rgba(37, 99, 235,0.25)', color: '#2563EB' }
                       : { background: 'transparent', color: '#64748b' }
                   }
                 >

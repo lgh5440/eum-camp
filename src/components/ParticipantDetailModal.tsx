@@ -292,7 +292,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                 onClick={() => onEdit(p)}
                 className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-all active:scale-95"
                 style={{
-                  background: 'linear-gradient(90deg, #0891b2, #0ea5e9)',
+                  background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                   boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
                 }}
               >

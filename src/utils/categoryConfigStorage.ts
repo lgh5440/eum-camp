@@ -20,7 +20,7 @@ export const NOTICE_TARGET_CONFIG_KEY = 'eum-camp:notice-targets:v1';
 
 export const DEFAULT_SCHEDULE_CATEGORY_CONFIG: ScheduleCategoryConfig[] = [
   { key: 'worship', label: '예배/강의', color: '#8b5cf6', icon: '✝️' },
-  { key: 'program', label: '프로그램', color: '#06b6d4', icon: '🎯' },
+  { key: 'program', label: '프로그램', color: '#3B82F6', icon: '🎯' },
   { key: 'meal', label: '식사', color: '#10b981', icon: '🍽️' },
   { key: 'free', label: '자유시간', color: '#f59e0b', icon: '🌞' },
   { key: 'sleep', label: '취침', color: '#64748b', icon: '🌙' },
@@ -28,7 +28,7 @@ export const DEFAULT_SCHEDULE_CATEGORY_CONFIG: ScheduleCategoryConfig[] = [
 ];
 
 export const DEFAULT_NOTICE_TARGET_CONFIG: NoticeTargetConfig[] = [
-  { key: 'all', label: '전체', color: '#06b6d4' },
+  { key: 'all', label: '전체', color: '#3B82F6' },
   { key: 'staff', label: '운영진', color: '#8b5cf6' },
   { key: 'church', label: '교회 담당자', color: '#10b981' },
 ];

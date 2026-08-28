@@ -470,7 +470,7 @@ export default function Notices() {
                   className="bg-transparent outline-none text-xs text-slate-200 border-b border-white/10 focus:border-cyan-400 py-1"
                 >
                   {targetConfig.map(target => (
-                    <option key={target.key} value={target.key} style={{ background: '#0a1628' }}>
+                    <option key={target.key} value={target.key} style={{ background: '#F8FBFF' }}>
                       {target.label}
                     </option>
                   ))}

@@ -367,7 +367,7 @@ export default function CheckIn() {
           >
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ background: '#020818' }}
+              style={{ background: '#EAF3FF' }}
             >
               <span className="text-[11px] font-bold text-green-400">{pct}%</span>
             </div>
@@ -484,7 +484,7 @@ export default function CheckIn() {
                 className="h-1 rounded-full transition-all"
                 style={{
                   width: v.total > 0 ? `${Math.round(v.checked / v.total * 100)}%` : '0%',
-                  background: '#06b6d4',
+                  background: '#3B82F6',
                 }}
               />
             </div>
@@ -530,14 +530,14 @@ export default function CheckIn() {
           <select style={selectStyle} value={churchFilter} onChange={e => setChurchFilter(e.target.value)}>
             <option value="">교회 전체</option>
             {churchOptions.map(c => (
-              <option key={c.id} value={c.id} style={{ background: '#0a1628' }}>{c.name}</option>
+              <option key={c.id} value={c.id} style={{ background: '#F8FBFF' }}>{c.name}</option>
             ))}
           </select>
 
           <select style={selectStyle} value={vehicleFilter} onChange={e => setVehicleFilter(e.target.value)}>
             <option value="">차량 전체</option>
             {vehicleOptions.map(v => (
-              <option key={v} value={v} style={{ background: '#0a1628' }}>{v}</option>
+              <option key={v} value={v} style={{ background: '#F8FBFF' }}>{v}</option>
             ))}
           </select>
 

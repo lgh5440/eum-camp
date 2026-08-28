@@ -60,7 +60,7 @@ export default function EventSetupWizard() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ background: 'linear-gradient(135deg,#020818 0%,#0a1628 60%,#0f2040 100%)' }}
+      style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#F8FBFF 60%,#FFFFFF 100%)' }}
     >
       <div
         className="max-w-xl w-full rounded-2xl p-7"

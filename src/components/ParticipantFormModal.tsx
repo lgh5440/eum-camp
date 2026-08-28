@@ -52,7 +52,7 @@ const ERROR_INPUT: React.CSSProperties = {
   ...BASE_INPUT,
   border: '1px solid rgba(239,68,68,0.55)',
 };
-const OPT_BG = { background: '#0a1628' };
+const OPT_BG = { background: '#F8FBFF' };
 
 const INITIAL: FormData = {
   name: '', churchId: '', role: '학생', grade: '해당없음',
@@ -315,7 +315,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
                       type="button"
                       onClick={() => set('role', r)}
                       className="py-2 rounded-lg text-xs font-medium transition-all"
-                      style={toggleBtn(form.role === r, '#06b6d4')}
+                      style={toggleBtn(form.role === r, '#3B82F6')}
                     >
                       {r}
                     </button>
@@ -554,7 +554,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
               onClick={handleSubmit}
               className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
               style={{
-                background: 'linear-gradient(90deg, #0891b2, #0ea5e9)',
+                background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                 boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
               }}
             >

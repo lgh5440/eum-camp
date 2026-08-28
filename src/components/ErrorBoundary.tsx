@@ -107,7 +107,7 @@ export default class ErrorBoundary extends Component<Props, State> {
         role="alert"
         aria-live="assertive"
         className="min-h-screen flex items-center justify-center p-6"
-        style={{ background: 'linear-gradient(135deg,#020818 0%,#1a0a14 60%,#2a0a14 100%)' }}
+        style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#FFF8EC 60%,#FFF8EC 100%)' }}
       >
         <div
           className="max-w-2xl w-full rounded-2xl p-7"

@@ -10,14 +10,14 @@ export interface SafetyRow   { label: string; value: string; color: string; emoj
 const K = (s: string) => `eum-camp:dashboard:${s}`;
 
 export const PALETTE = [
-  '#06b6d4','#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#ec4899','#14b8a6',
+  '#3B82F6','#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#ec4899','#14b8a6',
 ];
 
 // ── 기본값 ────────────────────────────────────────────────────────────────────
 
 const DEFAULT_CHURCHES: ChurchRow[] = [
   // 실재 교회명을 쓰지 않는다 — 이 저장소는 다른 교회가 복사해 가는 공개 템플릿이다.
-  { name: '샘플제일교회', count: 12, quota: 14, color: '#06b6d4' },
+  { name: '샘플제일교회', count: 12, quota: 14, color: '#3B82F6' },
   { name: '샘플중앙교회', count: 10, quota: 12, color: '#3b82f6' },
   { name: '샘플동산교회', count:  8, quota: 10, color: '#8b5cf6' },
   { name: '샘플은혜교회', count:  7, quota: 10, color: '#10b981' },
@@ -35,7 +35,7 @@ const DEFAULT_SCHEDULE: ScheduleDay[] = [
     ],
   },
   {
-    day: '2일차', date: '07.27(월)', accent: '#06b6d4',
+    day: '2일차', date: '07.27(월)', accent: '#3B82F6',
     items: [
       { t: '09:30', v: '아침묵상' },
       { t: '11:00', v: 'Real ID 카드' },
@@ -55,7 +55,7 @@ const DEFAULT_SCHEDULE: ScheduleDay[] = [
 ];
 
 const DEFAULT_GROUPS: GroupRow[] = [
-  { name: '1조', count: 8, leader: '박진우 목사',   color: '#06b6d4' },
+  { name: '1조', count: 8, leader: '박진우 목사',   color: '#3B82F6' },
   { name: '2조', count: 8, leader: '최지수 목사',   color: '#3b82f6' },
   { name: '3조', count: 8, leader: '김지현 진도사', color: '#8b5cf6' },
   { name: '4조', count: 7, leader: '조이은 목사',   color: '#10b981' },
@@ -74,7 +74,7 @@ const DEFAULT_SAFETY: SafetyRow[] = [
   { label: '알레르기',      value: '3명',  color: '#ef4444', emoji: '🚨' },
   { label: '복용약',        value: '2명',  color: '#f59e0b', emoji: '💊' },
   { label: '응급연락망',    value: '완료', color: '#10b981', emoji: '📞' },
-  { label: '안전담당 배치', value: '완료', color: '#06b6d4', emoji: '🛡️' },
+  { label: '안전담당 배치', value: '완료', color: '#3B82F6', emoji: '🛡️' },
 ];
 
 // ── 유틸 ─────────────────────────────────────────────────────────────────────

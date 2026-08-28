@@ -14,7 +14,7 @@ const TYPE_LABEL: Record<string, string> = { male: '남자', female: '여자', s
 function getRoomStatus(count: number, capacity: number) {
   if (count > capacity)   return { label: '초과',     color: '#ef4444' };
   if (count === capacity) return { label: '배정완료',  color: '#10b981' };
-  if (count > 0)          return { label: '여유 있음', color: '#06b6d4' };
+  if (count > 0)          return { label: '여유 있음', color: '#3B82F6' };
   return                         { label: '미배정',    color: '#475569' };
 }
 
@@ -192,7 +192,7 @@ export default function Rooms() {
               <button
                 onClick={enterEditMode}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#1B3A5C] transition-all active:scale-95"
-                style={{ background: 'linear-gradient(90deg,#0891b2,#0ea5e9)', boxShadow: '0 2px 8px rgba(37, 99, 235,0.25)' }}
+                style={{ background: 'linear-gradient(90deg,#1B3A5C,#93C5FD)', boxShadow: '0 2px 8px rgba(37, 99, 235,0.25)' }}
               >
                 <Pencil size={13} /> 수동 배정
               </button>
@@ -211,7 +211,7 @@ export default function Rooms() {
           <button
             onClick={e => { e.stopPropagation(); addRoom(); }}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.28)', color: '#22d3ee' }}
+            style={{ background: 'rgba(37, 99, 235,0.12)', border: '1px solid rgba(37, 99, 235,0.28)', color: '#2563EB' }}
           >
             <Plus size={12} /> 호실 추가
           </button>
@@ -226,7 +226,7 @@ export default function Rooms() {
           { label: '미배정',     value: unassignedStudents.length, color: unassignedStudents.length > 0 ? '#f59e0b' : '#64748b' },
           { label: '남학생 방',  value: maleRooms.length,          color: '#3b82f6' },
           { label: '여학생 방',  value: femaleRooms.length,        color: '#ec4899' },
-          { label: '잔여 자리',  value: remainingSeats,            color: '#06b6d4' },
+          { label: '잔여 자리',  value: remainingSeats,            color: '#3B82F6' },
         ].map(s => (
           <div
             key={s.label}
@@ -282,7 +282,7 @@ export default function Rooms() {
                   className="h-full rounded-full"
                   style={{
                     width: `${bCapacity > 0 ? Math.min(100, (bAssigned / bCapacity) * 100) : 0}%`,
-                    background: '#06b6d4',
+                    background: '#3B82F6',
                   }}
                 />
               </div>

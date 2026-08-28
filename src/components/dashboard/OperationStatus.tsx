@@ -29,7 +29,7 @@ export default function OperationStatus({ stats, ckStats, warnings, onNavigate }
     { label: '방 배정',    current: stats.roomAssigned,    total: stats.roomTotal,    pct: stats.roomPct,    unit: '학생', color: '#10b981', page: 'rooms'        as PageKey },
     { label: '차량 배정',  current: stats.vehicleAssigned, total: stats.vehicleTotal, pct: stats.vehiclePct, unit: '인원', color: '#3b82f6', page: 'vehicles'     as PageKey },
     { label: '참가비 납부', current: stats.feePaid,         total: stats.feeTotal,     pct: stats.feePct,     unit: '인원', color: '#f59e0b', page: 'participants' as PageKey },
-    { label: '체크리스트', current: ckStats.doneCount,     total: ckStats.total,      pct: ckStats.pct,      unit: '건',   color: '#06b6d4', page: 'checklist'    as PageKey },
+    { label: '체크리스트', current: ckStats.doneCount,     total: ckStats.total,      pct: ckStats.pct,      unit: '건',   color: '#3B82F6', page: 'checklist'    as PageKey },
   ];
 
   return (

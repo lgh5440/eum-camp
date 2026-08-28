@@ -142,7 +142,7 @@ function MainShell() {
   return (
     <div
       className="flex min-h-screen"
-      style={{ background: 'linear-gradient(135deg, #020818 0%, #0a1628 60%, #0f2040 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #EAF3FF 0%, #F8FBFF 60%, #FFFFFF 100%)' }}
     >
       {/* 키보드 사용자용 스킵 링크 — 포커스되면 화면에 노출 */}
       <a
@@ -373,7 +373,7 @@ function DemoSyncCheckingScreen() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ background: 'linear-gradient(135deg,#020818 0%,#0a1628 60%,#0f2040 100%)' }}
+      style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#F8FBFF 60%,#FFFFFF 100%)' }}
     >
       <div
         className="max-w-md w-full rounded-2xl p-7 text-center"
@@ -400,7 +400,7 @@ function PendingSetupScreen() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ background: 'linear-gradient(135deg,#020818 0%,#0a1628 60%,#0f2040 100%)' }}
+      style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#F8FBFF 60%,#FFFFFF 100%)' }}
     >
       <div
         className="max-w-md w-full rounded-2xl p-7 text-center"

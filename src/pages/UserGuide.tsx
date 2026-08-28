@@ -26,7 +26,7 @@ const STEPS = [
 
 /* ── 빠른 이동 버튼 ──────────────────────────────────── */
 const QUICK_NAV: { label: string; page: PageKey; icon: React.ReactNode; color: string }[] = [
-  { label: '참가자 관리', page: 'participants', icon: <Users size={15} />,        color: '#06b6d4' },
+  { label: '참가자 관리', page: 'participants', icon: <Users size={15} />,        color: '#3B82F6' },
   { label: '조 편성',     page: 'groups',       icon: <Shuffle size={15} />,      color: '#8b5cf6' },
   { label: '방 배정',     page: 'rooms',        icon: <Database size={15} />,     color: '#f59e0b' },
   { label: '차량 배정',   page: 'vehicles',     icon: <ChevronRight size={15} />, color: '#10b981' },
@@ -49,7 +49,7 @@ const SECTIONS: Section[] = [
     id: 1,
     title: '처음 시작하기',
     icon: <Rocket size={18} />,
-    color: '#06b6d4',
+    color: '#3B82F6',
     items: [
       '참가자 신청은 구글폼으로 받습니다.',
       '구글시트에서 응답 데이터를 CSV 형식으로 다운로드합니다.',
@@ -116,7 +116,7 @@ const SECTIONS: Section[] = [
     id: 6,
     title: '교회별 확인',
     icon: <ClipboardCheck size={18} />,
-    color: '#06b6d4',
+    color: '#3B82F6',
     items: [
       '교회별로 참가자 명단과 배정 현황을 한눈에 확인합니다.',
       '참가비 미완료 인원은 붉은 배지로 표시됩니다.',
@@ -142,7 +142,7 @@ const SECTIONS: Section[] = [
     id: 8,
     title: '현장 체크인',
     icon: <UserCheck size={18} />,
-    color: '#06b6d4',
+    color: '#3B82F6',
     items: [
       '등록대에서 참가자 이름 또는 교회명으로 빠르게 검색합니다.',
       '대상자 카드의 "체크인" 버튼을 누르면 도착 처리됩니다.',
@@ -188,7 +188,7 @@ export default function UserGuide({ onNavigate }: Props) {
       <div className="flex items-start gap-4">
         <div
           className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg,#06b6d4,#2563eb)', boxShadow: '0 0 20px rgba(37, 99, 235,0.35)' }}
+          style={{ background: 'linear-gradient(135deg,#3B82F6,#2563eb)', boxShadow: '0 0 20px rgba(37, 99, 235,0.35)' }}
         >
           <BookOpen size={22} className="text-[#1B3A5C]" />
         </div>
@@ -332,10 +332,10 @@ export default function UserGuide({ onNavigate }: Props) {
                 className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold"
                 style={{
                   background: idx < 3
-                    ? 'linear-gradient(135deg,#06b6d4,#2563eb)'
+                    ? 'linear-gradient(135deg,#3B82F6,#2563eb)'
                     : idx < 7
                       ? 'linear-gradient(135deg,#8b5cf6,#3b82f6)'
-                      : 'linear-gradient(135deg,#10b981,#06b6d4)',
+                      : 'linear-gradient(135deg,#10b981,#3B82F6)',
                   color: '#fff',
                 }}
               >

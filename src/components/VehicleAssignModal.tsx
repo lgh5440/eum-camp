@@ -16,7 +16,7 @@ interface Props {
 
 const ROLE_COLOR: Record<string, string> = {
   '학생': '#64748b', '교사': '#8b5cf6', '학부모': '#f59e0b', '운영진': '#10b981',
-  '찬양팀': '#ec4899', '자원봉사': '#06b6d4', '진행위원': '#10b981',
+  '찬양팀': '#ec4899', '자원봉사': '#3B82F6', '진행위원': '#10b981',
 };
 
 export default function VehicleAssignModal({ participants, churchMap, onApply, onClose }: Props) {
@@ -119,7 +119,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                 className="flex-1 py-2 rounded-xl text-sm font-semibold transition-all"
                 style={
                   mode === 'unassigned'
-                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#22d3ee' }
+                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#2563EB' }
                     : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b' }
                 }
               >
@@ -160,7 +160,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
               {[
                 { label: '총 배정',   value: totalAssigned,         color: '#10b981' },
                 { label: '미배정',    value: unassignedList.length, color: unassignedList.length > 0 ? '#f59e0b' : '#64748b' },
-                { label: '잔여 좌석', value: remainingSeats,        color: '#06b6d4' },
+                { label: '잔여 좌석', value: remainingSeats,        color: '#3B82F6' },
               ].map(s => (
                 <div
                   key={s.label}
@@ -323,7 +323,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
             <button
               onClick={() => onApply(preview)}
               className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
-              style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
+              style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
             >
               적용 ({totalAssigned}명)
             </button>

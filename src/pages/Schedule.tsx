@@ -237,7 +237,7 @@ export default function SchedulePage() {
                 {/* 타임라인 점 */}
                 <div className="flex-shrink-0 w-4 flex items-start justify-center mt-1.5 relative z-10">
                   <div className="w-3 h-3 rounded-full border-2"
-                    style={{ borderColor: style.color, background: '#0a1628', boxShadow: `0 0 8px ${style.color}60` }} />
+                    style={{ borderColor: style.color, background: '#F8FBFF', boxShadow: `0 0 8px ${style.color}60` }} />
                 </div>
                 {/* 카드 */}
                 <div className="flex-1 min-w-0 p-3 sm:p-4 rounded-xl mb-1"
@@ -263,7 +263,7 @@ export default function SchedulePage() {
                           className="bg-transparent outline-none text-xs text-slate-200 border-b border-white/10 focus:border-cyan-400 py-1"
                         >
                           {categoryConfig.map(category => (
-                            <option key={category.key} value={category.key} style={{ background: '#0a1628' }}>
+                            <option key={category.key} value={category.key} style={{ background: '#F8FBFF' }}>
                               {category.label}
                             </option>
                           ))}

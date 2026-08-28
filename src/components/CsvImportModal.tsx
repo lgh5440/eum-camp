@@ -280,7 +280,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                 className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={
                   validRows.length > 0
-                    ? { background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }
+                    ? { background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }
                     : { background: 'rgba(255,255,255,0.08)' }
                 }
               >

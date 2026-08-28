@@ -35,7 +35,7 @@ const statusConfig: Record<ChecklistItem['status'], {
   icon: ReactNode;
 }> = {
   done:       { label: '완료',   color: '#10b981', bg: 'rgba(16,185,129,0.08)',  icon: <CheckSquare size={14} /> },
-  inprogress: { label: '진행중', color: '#06b6d4', bg: 'rgba(37, 99, 235,0.08)',   icon: <Clock size={14} /> },
+  inprogress: { label: '진행중', color: '#3B82F6', bg: 'rgba(37, 99, 235,0.08)',   icon: <Clock size={14} /> },
   pending:    { label: '대기',   color: '#94a3b8', bg: 'rgba(148,163,184,0.06)', icon: <MinusCircle size={14} /> },
   blocked:    { label: '차단',   color: '#ef4444', bg: 'rgba(239,68,68,0.08)',   icon: <XCircle size={14} /> },
 };
@@ -72,7 +72,7 @@ function getDdayBadge(diff: number, isDone: boolean): DdayBadge | null {
   if (diff < 0) return { text: `D+${Math.abs(diff)}`, color: '#ef4444', bg: 'rgba(239,68,68,0.13)' };
   if (diff === 0) return { text: 'D-day', color: '#fb7185', bg: 'rgba(251,113,133,0.13)' };
   if (diff <= 3) return { text: `D-${diff}`, color: '#f59e0b', bg: 'rgba(245,158,11,0.13)' };
-  return { text: `D-${diff}`, color: '#06b6d4', bg: 'rgba(37, 99, 235,0.13)' };
+  return { text: `D-${diff}`, color: '#3B82F6', bg: 'rgba(37, 99, 235,0.13)' };
 }
 
 function getUrgencyScore(diff: number, status: ChecklistItem['status']): number {
@@ -385,13 +385,13 @@ export default function Checklist() {
         <div className="flex items-center justify-between mb-2.5">
           <span className="text-sm font-bold text-[#1B3A5C]">전체 진행률</span>
           <span className="text-xl font-black leading-none"
-            style={{ color: pct === 100 ? '#10b981' : pct >= 50 ? '#06b6d4' : '#f59e0b' }}>
+            style={{ color: pct === 100 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b' }}>
             {pct}%
           </span>
         </div>
         <div className="h-2.5 rounded-full bg-white/10">
           <div className="h-full rounded-full transition-all duration-500"
-            style={{ width: `${pct}%`, background: 'linear-gradient(90deg, #06b6d4, #10b981)' }} />
+            style={{ width: `${pct}%`, background: 'linear-gradient(90deg, #3B82F6, #10b981)' }} />
         </div>
 
         <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-3">
@@ -428,7 +428,7 @@ export default function Checklist() {
         {catStats.map(({ cat, total: catTotal, done, hasBlocked }) => {
           const catPct = catTotal > 0 ? Math.round((done / catTotal) * 100) : 0;
           const isActive = filterCat === cat;
-          const accentColor = hasBlocked ? '#ef4444' : catPct === 100 ? '#10b981' : '#06b6d4';
+          const accentColor = hasBlocked ? '#ef4444' : catPct === 100 ? '#10b981' : '#3B82F6';
           return (
             <button
               key={cat}
@@ -540,7 +540,7 @@ export default function Checklist() {
             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             {assignees.map(a => (
-              <option key={a} value={a} style={{ background: '#0a1628' }}>{a}</option>
+              <option key={a} value={a} style={{ background: '#F8FBFF' }}>{a}</option>
             ))}
           </select>
           {filterAssignee !== ALL && (
@@ -644,7 +644,7 @@ export default function Checklist() {
                             className="bg-transparent outline-none text-xs text-slate-200 border-b border-white/10 focus:border-cyan-400 py-1"
                           >
                             {STATUS_OPTIONS.map(status => (
-                              <option key={status} value={status} style={{ background: '#0a1628' }}>
+                              <option key={status} value={status} style={{ background: '#F8FBFF' }}>
                                 {statusConfig[status].label}
                               </option>
                             ))}
@@ -655,7 +655,7 @@ export default function Checklist() {
                             className="bg-transparent outline-none text-xs text-slate-200 border-b border-white/10 focus:border-cyan-400 py-1"
                           >
                             {PRIORITY_OPTIONS.map(priority => (
-                              <option key={priority} value={priority} style={{ background: '#0a1628' }}>
+                              <option key={priority} value={priority} style={{ background: '#F8FBFF' }}>
                                 {priorityConfig[priority].label}
                               </option>
                             ))}

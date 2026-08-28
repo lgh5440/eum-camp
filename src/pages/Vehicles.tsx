@@ -53,7 +53,7 @@ function AssignmentSelect({
 function getVehicleStatus(count: number, capacity: number) {
   if (count > capacity)   return { label: '초과',     color: '#ef4444' };
   if (count === capacity) return { label: '배정완료',  color: '#10b981' };
-  if (count > 0)          return { label: '여유 있음', color: '#06b6d4' };
+  if (count > 0)          return { label: '여유 있음', color: '#3B82F6' };
   return                          { label: '미배정',   color: '#475569' };
 }
 
@@ -136,7 +136,7 @@ export default function Vehicles() {
         <button
           onClick={() => setShowModal(true)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
-          style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
+          style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
         >
           <Wand2 size={15} />
           자동 차량 배정
@@ -149,8 +149,8 @@ export default function Vehicles() {
           { label: '전체 인원',   value: participantList.length,                                              color: '#64748b' },
           { label: '배정 완료',   value: assignedList.length,                                                 color: '#10b981' },
           { label: '미배정',      value: unassignedList.length,  color: unassignedList.length  > 0 ? '#f59e0b' : '#64748b' },
-          { label: '개별이동',    value: individualList.length,  color: individualList.length  > 0 ? '#06b6d4' : '#64748b' },
-          { label: '1호차',       value: vehicleMemberMap['1호차']?.length ?? 0,                              color: '#06b6d4' },
+          { label: '개별이동',    value: individualList.length,  color: individualList.length  > 0 ? '#3B82F6' : '#64748b' },
+          { label: '1호차',       value: vehicleMemberMap['1호차']?.length ?? 0,                              color: '#3B82F6' },
           { label: '2호차',       value: vehicleMemberMap['2호차']?.length ?? 0,                              color: '#3b82f6' },
           { label: '잔여 좌석',   value: remainingSeats,                                                      color: '#8b5cf6' },
         ].map(s => (

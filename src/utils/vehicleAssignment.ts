@@ -3,7 +3,7 @@ import { isStudent } from './groupAssignment';
 
 // ── 차량 정적 설정 ───────────────────────────────────────────────────────────────
 export const VEHICLE_CONFIG = [
-  { id: '1호차', label: '1호차', capacity: 45, color: '#06b6d4' },
+  { id: '1호차', label: '1호차', capacity: 45, color: '#3B82F6' },
   { id: '2호차', label: '2호차', capacity: 45, color: '#3b82f6' },
 ] as const;
 

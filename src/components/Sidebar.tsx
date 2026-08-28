@@ -154,7 +154,7 @@ export default function Sidebar({
             onClick={() => onCollapsedChange(!collapsed)}
             className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 flex-shrink-0 w-6 h-6 rounded-full items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold-l)] transition-colors z-10"
             style={{
-              background: '#0a1628',
+              background: '#F8FBFF',
               border: '1px solid rgba(255,255,255,0.12)',
               boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
             }}

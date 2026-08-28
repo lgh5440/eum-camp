@@ -17,7 +17,7 @@ export interface FeeStageInfo {
 }
 
 export const FEE_STAGES: readonly FeeStageInfo[] = [
-  { value: 'pre',    label: '가등록 (2만원 입금)',          shortLabel: '가등록',  hint: '1차 마감 전 미리 입금하면 1차 등록(6만원) 혜택 적용', amount: 20000, bucket: 'partial', color: '#0ea5e9' },
+  { value: 'pre',    label: '가등록 (2만원 입금)',          shortLabel: '가등록',  hint: '1차 마감 전 미리 입금하면 1차 등록(6만원) 혜택 적용', amount: 20000, bucket: 'partial', color: '#93C5FD' },
   { value: 'first',  label: '1차 등록 (6만원 완납)',        shortLabel: '1차',     hint: '6월 30일까지 완납 — 가장 저렴한 등록',                amount: 60000, bucket: 'paid',    color: '#10b981' },
   { value: 'second', label: '2차 등록 (7만원 완납)',        shortLabel: '2차',     hint: '7월 26일까지 완납',                                   amount: 70000, bucket: 'paid',    color: '#22c55e' },
   { value: 'unpaid', label: '아직 입금 전',                   shortLabel: '미납',    hint: '신청만 먼저 — 입금은 나중에',                         amount: 0,     bucket: 'unpaid',  color: '#ef4444' },

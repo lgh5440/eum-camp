@@ -117,7 +117,7 @@ export const participants: Participant[] = [
 
 // ─── 조 편성 (6조, 각 조 학생 4명 + 교사 1명 + 도우미 0~1명) ───────────────────
 export const groups: Group[] = [
-  { id: 'g01', name: '1조 빛의 자녀',     color: '#06b6d4', leaderName: '김지영 교사', members: ['s001', 's003', 's009', 's015', 's021', 't101', 'v001'] },
+  { id: 'g01', name: '1조 빛의 자녀',     color: '#3B82F6', leaderName: '김지영 교사', members: ['s001', 's003', 's009', 's015', 's021', 't101', 'v001'] },
   { id: 'g02', name: '2조 진리의 길',     color: '#3b82f6', leaderName: '이서준 교사', members: ['s002', 's004', 's010', 's016', 's022', 't102', 'v002'] },
   { id: 'g03', name: '3조 생명의 말씀',   color: '#8b5cf6', leaderName: '박민수 교사', members: ['s005', 's011', 's017', 's023',         't103', 'v003'] },
   { id: 'g04', name: '4조 소망의 별',     color: '#10b981', leaderName: '최예린 교사', members: ['s006', 's012', 's018', 's024',         't104', 'v004'] },

@@ -16,7 +16,7 @@ import { consumeEditRequest } from '../utils/pageEditRequest';
 import { useAuth } from '../auth/useAuth';
 
 function colorOf(meta: GroupMeta): string {
-  return meta.color ?? GROUP_CONFIG.find(g => g.id === meta.id)?.color ?? '#06b6d4';
+  return meta.color ?? GROUP_CONFIG.find(g => g.id === meta.id)?.color ?? '#3B82F6';
 }
 
 export default function Groups() {
@@ -158,7 +158,7 @@ export default function Groups() {
           <button
             onClick={() => setShowModal(true)}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
+            style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
           >
             <Wand2 size={15} />
             자동 조 편성
@@ -266,7 +266,7 @@ export default function Groups() {
           { label: '전체 학생', value: students.length, color: '#64748b' },
           { label: '배정 완료', value: assigned.length, color: '#10b981' },
           { label: '미배정', value: unassigned.length, color: unassigned.length > 0 ? '#f59e0b' : '#64748b' },
-          { label: '조별 평균', value: avgPerGroup, color: '#06b6d4' },
+          { label: '조별 평균', value: avgPerGroup, color: '#3B82F6' },
         ].map(s => (
           <div
             key={s.label}

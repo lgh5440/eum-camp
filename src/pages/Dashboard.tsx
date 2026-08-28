@@ -14,13 +14,13 @@ import type { ChecklistItem, Schedule } from '../types';
 
 // ── 정적 데이터 ──────────────────────────────────────────────────────────────
 
-const CARD_PALETTE = ['#06b6d4', '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#84cc16'];
-const DAY_ACCENTS = ['#8b5cf6', '#06b6d4', '#3b82f6', '#10b981', '#f59e0b'];
+const CARD_PALETTE = ['#3B82F6', '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#84cc16'];
+const DAY_ACCENTS = ['#8b5cf6', '#3B82F6', '#3b82f6', '#10b981', '#f59e0b'];
 const DOW_KO = ['일', '월', '화', '수', '목', '금', '토'];
 
 const SC: Record<ChecklistItem['status'], { label: string; color: string; bg: string }> = {
   done:       { label: '완료',  color: '#10b981', bg: 'rgba(16,185,129,0.18)' },
-  inprogress: { label: '진행중', color: '#06b6d4', bg: 'rgba(37, 99, 235,0.18)' },
+  inprogress: { label: '진행중', color: '#3B82F6', bg: 'rgba(37, 99, 235,0.18)' },
   pending:    { label: '대기',  color: '#94a3b8', bg: 'rgba(148,163,184,0.12)' },
   blocked:    { label: '차단',  color: '#ef4444', bg: 'rgba(239,68,68,0.18)' },
 };
@@ -31,7 +31,7 @@ function DonutChart({ pct }: { pct: number }) {
   const r    = 26;
   const circ = 2 * Math.PI * r;
   const dash = (pct / 100) * circ;
-  const color = pct === 100 ? '#10b981' : pct >= 60 ? '#06b6d4' : '#f59e0b';
+  const color = pct === 100 ? '#10b981' : pct >= 60 ? '#3B82F6' : '#f59e0b';
   return (
     <div className="relative w-16 h-16 flex-shrink-0">
       <svg width={64} height={64} viewBox="0 0 64 64" className="absolute inset-0 -rotate-90">
@@ -49,19 +49,19 @@ function DonutChart({ pct }: { pct: number }) {
 function CircuitDecoration() {
   return (
     <svg width="210" height="170" viewBox="0 0 210 170" fill="none" className="opacity-40">
-      <line x1="0"   y1="28"  x2="210" y2="28"  stroke="#06b6d4" strokeWidth="1" strokeDasharray="5 5" />
+      <line x1="0"   y1="28"  x2="210" y2="28"  stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 5" />
       <line x1="0"   y1="72"  x2="160" y2="72"  stroke="#3b82f6" strokeWidth="1" strokeDasharray="5 5" />
-      <line x1="50"  y1="120" x2="210" y2="120" stroke="#06b6d4" strokeWidth="1" strokeDasharray="5 5" />
-      <line x1="50"  y1="0"   x2="50"  y2="170" stroke="#06b6d4" strokeWidth="1" strokeDasharray="5 5" />
+      <line x1="50"  y1="120" x2="210" y2="120" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 5" />
+      <line x1="50"  y1="0"   x2="50"  y2="170" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 5" />
       <line x1="130" y1="0"   x2="130" y2="90"  stroke="#3b82f6" strokeWidth="1" strokeDasharray="5 5" />
-      <line x1="170" y1="70"  x2="170" y2="170" stroke="#06b6d4" strokeWidth="1" strokeDasharray="5 5" />
+      <line x1="170" y1="70"  x2="170" y2="170" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 5" />
       {[[50, 28], [130, 72], [170, 120], [50, 120]].map(([cx, cy]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={3} fill="#06b6d4">
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={3} fill="#3B82F6">
           <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
         </circle>
       ))}
       <rect x="82" y="46" width="56" height="36" rx="5"
-        stroke="#06b6d4" strokeWidth="1.5" fill="rgba(37, 99, 235,0.08)" />
+        stroke="#3B82F6" strokeWidth="1.5" fill="rgba(37, 99, 235,0.08)" />
       <text x="110" y="68" textAnchor="middle" fill="#2563EB" fontSize="9" fontFamily="monospace" fontWeight="bold">AI</text>
       <rect x="18"  y="110" width="10" height="10" rx="2" stroke="#3b82f6" strokeWidth="1" fill="rgba(59,130,246,0.1)" />
       <rect x="185" y="40"  width="12" height="12" rx="2" stroke="#8b5cf6" strokeWidth="1" fill="rgba(139,92,246,0.1)" />
@@ -244,7 +244,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       { label: '응급연락망',  value: stats.total > 0 ? '완료' : '대기',
         color: stats.total > 0 ? '#10b981' : '#94a3b8', emoji: '📞' },
       { label: '안전점검',    value: safetyTotal > 0 ? `${safetyDone}/${safetyTotal}` : '대기',
-        color: safetyTotal > 0 && safetyDone === safetyTotal ? '#10b981' : '#06b6d4', emoji: '🛡️' },
+        color: safetyTotal > 0 && safetyDone === safetyTotal ? '#10b981' : '#3B82F6', emoji: '🛡️' },
     ];
   }, [stats.allergyCount, stats.total, participants, safetyItems]);
 
@@ -321,7 +321,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
 
         {[
-          { label: '전체 인원',    value: String(stats.total),        unit: '명',  color: '#06b6d4', emoji: '👥' },
+          { label: '전체 인원',    value: String(stats.total),        unit: '명',  color: '#3B82F6', emoji: '👥' },
           { label: '학생',         value: String(stats.studentCount),  unit: '명',  color: '#10b981', emoji: '🎓' },
           { label: '참여 교회',    value: String(stats.churchCount),   unit: '개',  color: '#3b82f6', emoji: '⛪' },
           { label: '교사/운영진',  value: String(stats.staffCount),    unit: '명',  color: '#f59e0b', emoji: '👤' },
@@ -426,7 +426,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             { label: '방 배정',    current: stats.roomAssigned,    total: stats.roomTotal,    pct: stats.roomPct,    unit: '학생', color: '#10b981', page: 'rooms' },
             { label: '차량 배정',  current: stats.vehicleAssigned, total: stats.vehicleTotal, pct: stats.vehiclePct, unit: '인원', color: '#3b82f6', page: 'vehicles' },
             { label: '참가비 납부', current: stats.feePaid,         total: stats.feeTotal,     pct: stats.feePct,     unit: '인원', color: '#f59e0b', page: 'participants' },
-            { label: '체크리스트', current: ckStats.doneCount,     total: ckStats.total,      pct: ckStats.pct,      unit: '건',   color: '#06b6d4', page: 'checklist' },
+            { label: '체크리스트', current: ckStats.doneCount,     total: ckStats.total,      pct: ckStats.pct,      unit: '건',   color: '#3B82F6', page: 'checklist' },
           ] as const).map(item => {
             const barColor = item.pct === 100 ? '#10b981' : item.pct >= 60 ? item.color : '#f59e0b';
             return (
@@ -463,7 +463,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       {(() => {
         const ci    = ckInStats;
         const pct   = ci.pct;
-        const barColor  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#06b6d4' : '#f59e0b';
+        const barColor  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b';
         const panelStyle = pct === 100
           ? { background: 'linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(16,185,129,0.35)', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }
           : CARD;
@@ -583,7 +583,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 <div className="text-[10px] text-slate-500 font-medium mb-2">차량별 도착 현황</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2">
                   {ci.vehicleBreakdown.map(v => {
-                    const vColor = v.pct === 100 ? '#10b981' : v.pct >= 60 ? '#06b6d4' : '#f59e0b';
+                    const vColor = v.pct === 100 ? '#10b981' : v.pct >= 60 ? '#3B82F6' : '#f59e0b';
                     return (
                       <div
                         key={v.label}
@@ -849,7 +849,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="flex items-center justify-between text-[10px] mb-1.5">
               <span className="text-slate-400">전체 완료율</span>
               <span className="font-bold"
-                style={{ color: ckStats.pct === 100 ? '#10b981' : ckStats.pct >= 60 ? '#06b6d4' : '#f59e0b' }}>
+                style={{ color: ckStats.pct === 100 ? '#10b981' : ckStats.pct >= 60 ? '#3B82F6' : '#f59e0b' }}>
                 {ckStats.pct}%
               </span>
             </div>
@@ -857,7 +857,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               <div className="h-full rounded-full transition-all duration-500"
                 style={{
                   width: `${ckStats.pct}%`,
-                  background: 'linear-gradient(90deg, #06b6d4, #10b981)',
+                  background: 'linear-gradient(90deg, #3B82F6, #10b981)',
                 }} />
             </div>
             {(ckStats.overdueCount > 0 || ckStats.urgentCount > 0) && (

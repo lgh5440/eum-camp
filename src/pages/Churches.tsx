@@ -235,7 +235,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
         style={{
           maxWidth: '960px',
           maxHeight: 'calc(100vh - 80px)',
-          background: '#0a1628',
+          background: '#F8FBFF',
           border:     '1px solid rgba(37, 99, 235,0.3)',
           boxShadow:  '0 20px 60px rgba(0,0,0,0.6)',
         }}
@@ -377,7 +377,7 @@ function ViewCard({
       {/* 인원 요약 3칸 */}
       <div className="grid grid-cols-3 gap-1.5">
         {[
-          { label: '전체',     value: stat.total,        color: '#06b6d4' },
+          { label: '전체',     value: stat.total,        color: '#3B82F6' },
           { label: '학생',     value: stat.studentCount,  color: '#10b981' },
           { label: '교사·운영', value: stat.staffCount,    color: '#f59e0b' },
         ].map(s => (
@@ -393,13 +393,13 @@ function ViewCard({
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[10px] text-slate-400">정원 대비</span>
-            <span className="text-[10px] font-bold tabular-nums" style={{ color: overQuota ? '#f59e0b' : '#06b6d4' }}>
+            <span className="text-[10px] font-bold tabular-nums" style={{ color: overQuota ? '#f59e0b' : '#3B82F6' }}>
               {stat.total}/{stat.quota}명{overQuota ? ' ⚠' : ''}
             </span>
           </div>
           <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
             <div className="h-full rounded-full transition-all duration-500"
-              style={{ width: `${fillRate}%`, background: overQuota ? '#f59e0b' : '#06b6d4' }}/>
+              style={{ width: `${fillRate}%`, background: overQuota ? '#f59e0b' : '#3B82F6' }}/>
           </div>
         </div>
       )}
@@ -709,7 +709,7 @@ export default function Churches() {
       {!editing && (
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3">
           {[
-            { label: '전체 교회',     value: allStats.length,                  unit: '개', color: '#06b6d4', emoji: '⛪' },
+            { label: '전체 교회',     value: allStats.length,                  unit: '개', color: '#3B82F6', emoji: '⛪' },
             { label: '확인 완료',     value: confirmedCount,                   unit: '개', color: '#10b981', emoji: '✅' },
             { label: '미확인',        value: allStats.length - confirmedCount, unit: '개', color: '#94a3b8', emoji: '○' },
             { label: '참가비 미완료', value: feeIncompleteCount,               unit: '개', color: '#f59e0b', emoji: '💰' },

@@ -16,7 +16,7 @@ export default function CheckInOverview({
   onNavigate?: (page: PageKey) => void;
 }) {
   const pct = ci.pct;
-  const bc  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#06b6d4' : '#f59e0b';
+  const bc  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b';
   const ps  = pct === 100
     ? { background: 'linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(16,185,129,0.35)', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }
     : CARD;
@@ -34,7 +34,7 @@ export default function CheckInOverview({
     { label: '미도착',      pct: pendingPct, current: ci.pending,      total: ci.total,      color: pendingColor },
     { label: '학생 체크인', pct: stuPct,     current: ci.stuChecked,   total: ci.stuTotal,   color: '#3b82f6' },
     { label: '교사·운영진', pct: staffPct,   current: ci.staffChecked, total: ci.staffTotal, color: '#8b5cf6' },
-    { label: '차량 도착',   pct: vPct,       current: vChecked,        total: vTotal,        color: '#06b6d4' },
+    { label: '차량 도착',   pct: vPct,       current: vChecked,        total: vTotal,        color: '#3B82F6' },
   ];
 
   return (

@@ -18,7 +18,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
     () => groupMeta.map(m => ({
       id: m.id,
       name: m.name,
-      color: m.color ?? GROUP_CONFIG.find(g => g.id === m.id)?.color ?? '#06b6d4',
+      color: m.color ?? GROUP_CONFIG.find(g => g.id === m.id)?.color ?? '#3B82F6',
     })),
     [groupMeta],
   );
@@ -117,7 +117,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
                 className="flex-1 py-2 rounded-xl text-sm font-semibold transition-all"
                 style={
                   mode === 'unassigned'
-                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#22d3ee' }
+                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#2563EB' }
                     : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b' }
                 }
               >
@@ -157,7 +157,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
             <div className="grid grid-cols-3 gap-3">
               {[
                 { label: '총 배정', value: totalAssigned, color: '#10b981' },
-                { label: '조별 평균', value: avgPerGroup, color: '#06b6d4' },
+                { label: '조별 평균', value: avgPerGroup, color: '#3B82F6' },
                 { label: '미배정', value: unassignedList.length, color: unassignedList.length > 0 ? '#f59e0b' : '#64748b' },
               ].map(s => (
                 <div
@@ -291,7 +291,7 @@ export default function GroupAssignModal({ participants, churchMap, onApply, onC
             <button
               onClick={() => onApply(preview)}
               className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
-              style={{ background: 'linear-gradient(90deg, #0891b2, #0ea5e9)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
+              style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
             >
               적용 ({totalAssigned}명)
             </button>

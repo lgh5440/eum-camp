@@ -158,7 +158,7 @@ const CARD = {
 } as const;
 
 const BTN_CYAN = {
-  background: 'linear-gradient(135deg,#06b6d4,#2563eb)',
+  background: 'linear-gradient(135deg,#3B82F6,#2563eb)',
   boxShadow:  '0 4px 14px rgba(37, 99, 235,0.3)',
   color:      '#fff',
 } as const;
@@ -461,9 +461,9 @@ export default function DataManager() {
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
             <div className="text-[11px] text-slate-400 mb-2 font-bold">현재 신청자 분포</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
-              <Stat label="전체 인원"            value={feeBulkPreview.totalActive} color="#06b6d4" />
+              <Stat label="전체 인원"            value={feeBulkPreview.totalActive} color="#3B82F6" />
               <Stat label="봉사자 (제외)"        value={feeBulkPreview.volunteers}  color="#8b5cf6" />
-              <Stat label="처리 대상"            value={feeBulkPreview.target}      color="#0ea5e9" highlight />
+              <Stat label="처리 대상"            value={feeBulkPreview.target}      color="#93C5FD" highlight />
               <Stat label="가등록 (2만)"         value={feeBulkPreview.breakdown.pre}    color={FEE_STAGES[0].color} />
               <Stat label="1차 등록 (6만)"       value={feeBulkPreview.breakdown.first}  color={FEE_STAGES[1].color} />
               <Stat label="2차 등록 (7만)"       value={feeBulkPreview.breakdown.second} color={FEE_STAGES[2].color} />
@@ -644,7 +644,7 @@ export default function DataManager() {
                 </div>
                 <div>
                   <div className="text-slate-500 mb-0.5">참가자 수</div>
-                  <div className="font-black text-lg leading-none" style={{ color: '#06b6d4' }}>
+                  <div className="font-black text-lg leading-none" style={{ color: '#3B82F6' }}>
                     {preview.participantCount}
                     <span className="text-xs font-semibold text-slate-400 ml-0.5">명</span>
                   </div>

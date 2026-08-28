@@ -302,7 +302,7 @@ function EventMetaEditor() {
           disabled={busy}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] disabled:opacity-50 transition-opacity"
           style={{
-            background: 'linear-gradient(135deg,#06b6d4,#2563eb)',
+            background: 'linear-gradient(135deg,#3B82F6,#2563eb)',
             boxShadow: '0 0 14px rgba(37, 99, 235,0.3)',
           }}
         >

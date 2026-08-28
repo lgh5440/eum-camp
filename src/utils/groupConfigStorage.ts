@@ -12,9 +12,9 @@ export interface GroupMeta {
 export const GROUP_META_KEY = 'eum-camp:group-meta:v1';
 
 export const GROUP_COLOR_PALETTE = [
-  '#06b6d4', '#3b82f6', '#8b5cf6', '#10b981',
+  '#3B82F6', '#3b82f6', '#8b5cf6', '#10b981',
   '#f59e0b', '#ec4899', '#ef4444', '#14b8a6',
-  '#a855f7', '#f97316', '#84cc16', '#0ea5e9',
+  '#a855f7', '#f97316', '#84cc16', '#93C5FD',
 ];
 
 function defaultMeta(): GroupMeta[] {

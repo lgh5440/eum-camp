@@ -3,7 +3,7 @@ import type { Participant } from '../types';
 // mockData groups(5개)를 확장한 6조 기준 정적 설정
 // mockData.ts 원본 미수정 — 이 파일이 권위 기준
 export const GROUP_CONFIG = [
-  { id: 'g01', name: '1조 빛의 자녀',    color: '#06b6d4', leaderName: '김영수' },
+  { id: 'g01', name: '1조 빛의 자녀',    color: '#3B82F6', leaderName: '김영수' },
   { id: 'g02', name: '2조 진리의 길',     color: '#3b82f6', leaderName: '이미선' },
   { id: 'g03', name: '3조 생명의 말씀',   color: '#8b5cf6', leaderName: '박준호' },
   { id: 'g04', name: '4조 소망의 별',     color: '#10b981', leaderName: '최지영' },

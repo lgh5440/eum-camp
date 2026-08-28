@@ -239,7 +239,7 @@ export default function Safety() {
                             className="bg-transparent outline-none text-xs text-slate-200 border-b border-white/10 focus:border-cyan-400 py-1"
                           >
                             {STATUS_OPTIONS.map(status => (
-                              <option key={status} value={status} style={{ background: '#0a1628' }}>
+                              <option key={status} value={status} style={{ background: '#F8FBFF' }}>
                                 {statusConfig[status].label}
                               </option>
                             ))}

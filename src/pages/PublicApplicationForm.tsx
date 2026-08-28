@@ -276,7 +276,7 @@ export default function PublicApplicationForm() {
   }
 
   return (
-    <main className="min-h-screen px-4 py-8" style={{ background: 'linear-gradient(135deg,#020818,#0a1628 60%,#0f2040)' }}>
+    <main className="min-h-screen px-4 py-8" style={{ background: 'linear-gradient(135deg,#EAF3FF,#F8FBFF 60%,#FFFFFF)' }}>
       <div className="mx-auto w-full max-w-3xl space-y-5">
         <header className="space-y-4">
           {/* E:um 브랜드 영역 */}
