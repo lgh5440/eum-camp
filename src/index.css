@@ -7,11 +7,16 @@
   --eum-navy:     #1B3A5C;
   --eum-navy-d:   #0F2540;
   --eum-cream:    #FFF8EC;
-  --eum-gold:     #C9962B;
-  --eum-gold-l:   #F0BC78;
+  --eum-gold:     #FFD98C;
+  --eum-gold-l:   #FFD98C;
   --eum-bg-0:     #EAF3FF;
   --eum-bg-1:     #F8FBFF;
   --eum-bg-2:     #FFFFFF;
+  --eum-page-background: linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%);
+  --eum-orb-background: radial-gradient(circle at 30% 26%, #ffffff, #EAF3FF 42%, #BFD9FF 76%, #8FB8FF 100%);
+  --eum-title:       #101A3D;
+  --eum-subtext:     #5C6A93;
+  --eum-body:        #3A4568;
   --eum-mobile-tab-h: 64px;
   --eum-safe-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -24,10 +29,10 @@
   }
 
   body {
-    background: linear-gradient(135deg, var(--eum-bg-0) 0%, var(--eum-bg-1) 50%, var(--eum-bg-2) 100%);
+    background: var(--eum-page-background);
     min-height: 100vh;
     font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #3B4759;
+    color: #3A4568;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
@@ -53,7 +58,7 @@
 
   /* 키보드 포커스 가시성 — 마우스 클릭 시에는 표시되지 않음 */
   :focus-visible {
-    outline: 2px solid var(--eum-gold-l);
+    outline: 2px solid var(--eum-gold);
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -87,7 +92,7 @@
   aside,
   header { display: none !important; }
   main   { margin-left: 0 !important; padding: 0 !important; }
-  body   { background: white !important; color: #3B4759 !important; }
+  body   { background: white !important; color: #3A4568 !important; }
 
   /* 비인쇄 영역 */
   .no-print { display: none !important; }
@@ -156,7 +161,7 @@
     border-radius: 0.75rem;
     border: 1px solid rgba(148, 163, 184, 0.2);
     background: #FFFFFF;
-    color: #3B4759;
+    color: #3A4568;
     padding: 0.65rem 0.8rem;
     font-size: 0.875rem;
     outline: none;
@@ -170,6 +175,6 @@
   }
   .input option {
     background: #FFFFFF;
-    color: #3B4759;
+    color: #3A4568;
   }
 }

@@ -97,7 +97,7 @@ function Inner() {
             type="text"
             value={adminName}
             onChange={e => setAdminName(e.target.value)}
-            className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
+            className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
             autoComplete="name"
           />
         </Field>
@@ -108,7 +108,7 @@ function Inner() {
             type="password"
             value={adminPw}
             onChange={e => setAdminPw(e.target.value)}
-            className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
+            className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
             placeholder="(미변경 시 빈칸)"
             minLength={8}
             autoComplete="new-password"
@@ -122,7 +122,7 @@ function Inner() {
             inputMode="numeric"
             value={pin}
             onChange={e => setPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
-            className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
+            className="w-full bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
             placeholder="(미변경 시 빈칸)"
             autoComplete="off"
           />
@@ -132,7 +132,7 @@ function Inner() {
           <button
             type="submit"
             disabled={busy}
-            className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] disabled:opacity-50"
+            className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50"
             style={{
               background: 'linear-gradient(135deg,#f59e0b,#d97706)',
               boxShadow: '0 0 14px rgba(245,158,11,0.3)',

@@ -99,7 +99,7 @@ export default function SchedulePage() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-[#1B3A5C]">일정 관리</h2>
+          <h2 className="text-xl font-bold text-[#101A3D]">일정 관리</h2>
           <p className="text-sm text-slate-400 mt-0.5">전체 3일 프로그램 일정</p>
         </div>
         {isAdmin && (
@@ -161,7 +161,7 @@ export default function SchedulePage() {
                     next[index] = { ...cat, label: e.target.value };
                     setCategoryDraft(next);
                   }}
-                  className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                  className="flex-1 min-w-0 bg-transparent text-xs text-[#101A3D] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                   aria-label={`${cat.key} 라벨`}
                 />
                 <input
@@ -198,7 +198,7 @@ export default function SchedulePage() {
           <button key={day} onClick={() => setActiveDay(day)}
             className={`px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex-1 sm:flex-none min-w-0 ${
               activeDay === day
-                ? 'text-[#1B3A5C]'
+                ? 'text-[#101A3D]'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
             style={activeDay === day ? {
@@ -254,7 +254,7 @@ export default function SchedulePage() {
                         <input
                           value={item.title}
                           onChange={e => updateScheduleItem(item.id, { title: e.target.value })}
-                          className="bg-transparent outline-none text-sm font-bold text-[#1B3A5C] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
+                          className="bg-transparent outline-none text-sm font-bold text-[#101A3D] border-b border-white/10 focus:border-cyan-400 py-1 min-w-0"
                           placeholder="일정 제목"
                         />
                         <select
@@ -304,7 +304,7 @@ export default function SchedulePage() {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-start gap-2 min-w-0">
                           <span className="flex-shrink-0 text-sm">{style.icon}</span>
-                          <span className="text-sm font-bold text-[#1B3A5C] leading-snug">{item.title}</span>
+                          <span className="text-sm font-bold text-[#101A3D] leading-snug">{item.title}</span>
                         </div>
                         <span className="text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 whitespace-nowrap"
                           style={{ background: `${style.color}25`, color: style.color }}>
@@ -335,7 +335,7 @@ export default function SchedulePage() {
             <button
               type="button"
               onClick={addScheduleItem}
-              className="ml-16 sm:ml-[4.5rem] w-[calc(100%-4rem)] sm:w-[calc(100%-4.5rem)] flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#1B3A5C] transition-colors"
+              className="ml-16 sm:ml-[4.5rem] w-[calc(100%-4rem)] sm:w-[calc(100%-4.5rem)] flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-cyan-200 hover:text-[#101A3D] transition-colors"
               style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px dashed rgba(37, 99, 235,0.35)' }}
             >
               <Plus size={13} />

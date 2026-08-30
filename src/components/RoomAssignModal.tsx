@@ -101,7 +101,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                   <BedDouble size={15} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#1B3A5C]">자동 방 배정 미리보기</h3>
+                  <h3 className="text-base font-bold text-[#101A3D]">자동 방 배정 미리보기</h3>
                   <p className="text-xs text-slate-500 mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                           {/* Name + count */}
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-sm font-bold text-[#1B3A5C]">{room.name}</span>
+                              <span className="text-sm font-bold text-[#101A3D]">{room.name}</span>
                               <span
                                 className="text-[10px] px-1.5 py-0.5 rounded-md font-medium"
                                 style={{ background: `${color}20`, color }}
@@ -321,7 +321,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
@@ -329,7 +329,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
             <div className="flex-1" />
             <button
               onClick={() => onApply(preview)}
-              className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
+              className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95"
               style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
             >
               적용 ({totalAssigned}명)

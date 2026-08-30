@@ -404,14 +404,14 @@ export default function PrintCenter() {
         {/* 페이지 헤더 */}
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-[#1B3A5C]">출력 센터</h2>
+            <h2 className="text-xl font-bold text-[#101A3D]">출력 센터</h2>
             <p className="text-sm text-slate-400 mt-0.5">
               수련회 운영 명단을 브라우저 인쇄(Ctrl+P)로 출력합니다
             </p>
           </div>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 flex-shrink-0"
             style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
           >
             <Printer size={16} />

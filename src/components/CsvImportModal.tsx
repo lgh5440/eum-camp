@@ -77,7 +77,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                   <FileText size={15} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#1B3A5C]">CSV 가져오기 결과</h3>
+                  <h3 className="text-base font-bold text-[#101A3D]">CSV 가져오기 결과</h3>
                   <p className="text-xs text-slate-500 mt-0.5">내용을 확인하고 가져오기를 확정해 주세요</p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                           key={row.rowIndex}
                           style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                         >
-                          <td className="px-3 py-2.5 text-sm text-[#1B3A5C] whitespace-nowrap font-medium">
+                          <td className="px-3 py-2.5 text-sm text-[#101A3D] whitespace-nowrap font-medium">
                             {row.data.name}
                           </td>
                           <td className="px-3 py-2.5 text-sm text-slate-300 whitespace-nowrap">
@@ -249,7 +249,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
@@ -277,7 +277,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
               <button
                 onClick={() => onConfirm(validRows.map(r => r.data))}
                 disabled={validRows.length === 0}
-                className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={
                   validRows.length > 0
                     ? { background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }

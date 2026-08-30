@@ -192,17 +192,17 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
               className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ background: 'linear-gradient(135deg,#3B82F6,#2563eb)', boxShadow: '0 0 18px rgba(37, 99, 235,0.4)' }}
             >
-              <Activity size={22} className="text-[#1B3A5C]" />
+              <Activity size={22} className="text-[#101A3D]" />
             </div>
             <div>
-              <h1 className="text-xl font-black text-[#1B3A5C] leading-tight">현장 운영 모드</h1>
+              <h1 className="text-xl font-black text-[#101A3D] leading-tight">현장 운영 모드</h1>
               <p className="text-[11px] text-[color:var(--eum-gold)] mt-0.5">수련회 현장 실시간 운영 현황</p>
             </div>
           </div>
 
           {/* 시계 */}
           <div className="text-right flex-shrink-0">
-            <div className="text-3xl font-black text-[#1B3A5C] tabular-nums">{formatClock(now)}</div>
+            <div className="text-3xl font-black text-[#101A3D] tabular-nums">{formatClock(now)}</div>
             <div className="text-[10px] text-slate-400 mt-0.5">
               {now.getFullYear()}.{String(now.getMonth()+1).padStart(2,'0')}.{String(now.getDate()).padStart(2,'0')}
             </div>
@@ -213,14 +213,14 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
         <div className="flex flex-wrap items-center gap-3 mt-3 pt-3"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
           <span className="text-[11px] text-slate-400">
-            마지막 갱신: <span className="text-[color:var(--eum-gold-l)] font-semibold">{formatShort(lastUpdated)}</span>
+            마지막 갱신: <span className="text-[color:var(--eum-gold)] font-semibold">{formatShort(lastUpdated)}</span>
           </span>
 
           {/* 수동 갱신 버튼 */}
           <button
             onClick={handleRefresh}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:opacity-80"
-            style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.3)', color: '#F0BC78' }}
+            style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.3)', color: '#FFD98C' }}
           >
             <RefreshCw size={12} />
             지금 갱신
@@ -259,7 +259,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
             <Users size={14} className="text-[color:var(--eum-gold)]" />
             <span className="text-[11px] text-slate-400">전체 인원</span>
           </div>
-          <div className="text-3xl font-black text-[#1B3A5C] tabular-nums">{ckInStats.total}</div>
+          <div className="text-3xl font-black text-[#101A3D] tabular-nums">{ckInStats.total}</div>
           <div className="text-[10px] text-slate-500 mt-0.5">취소 제외</div>
         </div>
 
@@ -341,7 +341,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <div className="rounded-2xl p-4" style={PANEL}>
             <div className={PANEL_HDR} style={PANEL_HDR_BORDER}>
               <CheckCircle2 size={16} className="text-green-400" />
-              <h3 className="text-sm font-bold text-[#1B3A5C]">등록 현황</h3>
+              <h3 className="text-sm font-bold text-[#101A3D]">등록 현황</h3>
               <span className="ml-auto text-lg font-black tabular-nums" style={{ color: checkinColor }}>
                 {pct}%
               </span>
@@ -351,7 +351,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
             <div className="mb-4">
               <div className="flex justify-between text-xs mb-1.5">
                 <span className="text-slate-400">전체 체크인</span>
-                <span className="font-semibold text-[#1B3A5C] tabular-nums">{ckInStats.checked} / {ckInStats.total}명</span>
+                <span className="font-semibold text-[#101A3D] tabular-nums">{ckInStats.checked} / {ckInStats.total}명</span>
               </div>
               <div className="h-3 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
                 <div
@@ -375,7 +375,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                       {g.total > 0 ? Math.round(g.checked / g.total * 100) : 0}%
                     </span>
                   </div>
-                  <div className="text-base font-black text-[#1B3A5C] tabular-nums">
+                  <div className="text-base font-black text-[#101A3D] tabular-nums">
                     {g.checked}<span className="text-slate-400 text-xs font-normal">/{g.total}명</span>
                   </div>
                 </div>
@@ -408,7 +408,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <div className="rounded-2xl p-4" style={PANEL}>
             <div className={PANEL_HDR} style={PANEL_HDR_BORDER}>
               <AlertTriangle size={16} className={pendingList.length > 0 ? 'text-amber-400' : 'text-green-400'} />
-              <h3 className="text-sm font-bold text-[#1B3A5C]">미도착 명단</h3>
+              <h3 className="text-sm font-bold text-[#101A3D]">미도착 명단</h3>
               <span
                 className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full"
                 style={pendingList.length > 0
@@ -444,7 +444,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-sm font-bold text-[#1B3A5C]">{p.name}</span>
+                            <span className="text-sm font-bold text-[#101A3D]">{p.name}</span>
                             <span className="text-[10px] px-1.5 py-0.5 rounded font-medium"
                               style={{
                                 background: isStud ? 'rgba(59,130,246,0.15)' : 'rgba(139,92,246,0.15)',
@@ -486,7 +486,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <div className="rounded-2xl p-4" style={PANEL}>
             <div className={PANEL_HDR} style={PANEL_HDR_BORDER}>
               <AlertTriangle size={16} className={safetyCount > 0 ? 'text-red-400' : 'text-slate-500'} />
-              <h3 className="text-sm font-bold text-[#1B3A5C]">안전 주의 명단</h3>
+              <h3 className="text-sm font-bold text-[#101A3D]">안전 주의 명단</h3>
               <span
                 className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full"
                 style={safetyCount > 0
@@ -513,7 +513,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                         <div key={p.id} className="rounded-xl px-3 py-2"
                           style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.2)' }}>
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-sm font-bold text-[#1B3A5C]">{p.name}</span>
+                            <span className="text-sm font-bold text-[#101A3D]">{p.name}</span>
                             <span className="text-[10px] text-slate-400">{CHURCH_MAP.get(p.church) ?? p.church}</span>
                           </div>
                           {p.dietType === 'allergy' && (
@@ -548,7 +548,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                           <div key={p.id} className="rounded-xl px-3 py-2"
                             style={{ background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)' }}>
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-sm font-bold text-[#1B3A5C]">{p.name}</span>
+                              <span className="text-sm font-bold text-[#101A3D]">{p.name}</span>
                               <span className="text-[10px] text-slate-400">{CHURCH_MAP.get(p.church) ?? p.church}</span>
                               <span className="text-[10px] px-1 py-0.5 rounded"
                                 style={{ background: 'rgba(239,68,68,0.15)', color: '#f87171' }}>
@@ -575,7 +575,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <div className="rounded-2xl p-4" style={PANEL}>
             <div className={PANEL_HDR} style={PANEL_HDR_BORDER}>
               <Users size={16} className={overdueCount > 0 ? 'text-red-400' : urgentCount > 0 ? 'text-amber-400' : 'text-slate-400'} />
-              <h3 className="text-sm font-bold text-[#1B3A5C]">체크리스트 미완료</h3>
+              <h3 className="text-sm font-bold text-[#101A3D]">체크리스트 미완료</h3>
               <span className="ml-auto text-xs text-slate-400 font-semibold tabular-nums">
                 {attentionItems.length}건
               </span>
@@ -601,7 +601,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
                         <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-sm font-semibold text-[#1B3A5C] truncate">{item.title}</span>
+                            <span className="text-sm font-semibold text-[#101A3D] truncate">{item.title}</span>
                             <span
                               className="text-[9px] px-1.5 py-0.5 rounded-full font-bold flex-shrink-0"
                               style={{ color, background: `${color}18`, border: `1px solid ${color}35` }}
@@ -630,7 +630,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
       <div className="rounded-2xl p-4" style={PANEL}>
         <div className={PANEL_HDR} style={PANEL_HDR_BORDER}>
           <Activity size={15} className="text-[color:var(--eum-gold)]" />
-          <h3 className="text-sm font-bold text-[#1B3A5C]">빠른 이동</h3>
+          <h3 className="text-sm font-bold text-[#101A3D]">빠른 이동</h3>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
           {QUICK_NAV.map(item => (

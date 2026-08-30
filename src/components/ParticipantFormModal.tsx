@@ -253,7 +253,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
                     ? <Pencil size={14} className="text-cyan-400" />
                     : <UserPlus size={15} className="text-cyan-400" />}
                 </div>
-                <h3 className="text-base font-bold text-[#1B3A5C]">
+                <h3 className="text-base font-bold text-[#101A3D]">
                   {isEdit ? '참가자 수정' : '참가자 추가'}
                 </h3>
               </div>
@@ -545,14 +545,14 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           >
             <button
               onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors"
+              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
             </button>
             <button
               onClick={handleSubmit}
-              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95"
+              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95"
               style={{
                 background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                 boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',

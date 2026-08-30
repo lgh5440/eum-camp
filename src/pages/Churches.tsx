@@ -193,7 +193,7 @@ function printChurchDetail(stat: ChurchStat) {
         #__cp_print, #__cp_print * { visibility: visible !important; }
         #__cp_print {
           position: fixed; top: 0; left: 0; width: 100%;
-          background: white; padding: 10mm; color: #3B4759;
+          background: white; padding: 10mm; color: #3A4568;
         }
         table { width:100%; border-collapse:collapse; font-size:8pt; }
         th { background:#e2e8f0 !important; print-color-adjust:exact;
@@ -244,7 +244,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
         <div className="flex items-center justify-between gap-3 px-5 py-4 flex-shrink-0"
           style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
           <div>
-            <h3 className="text-sm font-bold text-[#1B3A5C]">⛪ {stat.displayName}</h3>
+            <h3 className="text-sm font-bold text-[#101A3D]">⛪ {stat.displayName}</h3>
             <p className="text-[11px] text-slate-400 mt-0.5">
               전체 {stat.total}명 · 학생 {stat.studentCount} · 교사·운영진 {stat.staffCount}
             </p>
@@ -252,13 +252,13 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
           <div className="flex items-center gap-1.5 flex-shrink-0">
             <button
               onClick={() => printChurchDetail(stat)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-[#1B3A5C] hover:bg-white/5 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-[#101A3D] hover:bg-white/5 transition-colors"
               title="이 교회 명단 인쇄"
             >
               <Printer size={13} /> 인쇄
             </button>
             <button onClick={onClose}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-[#1B3A5C] hover:bg-white/10 transition-colors">
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors">
               <X size={16} />
             </button>
           </div>
@@ -283,7 +283,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
 
                 return (
                   <tr key={p.id} style={{ background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
-                    <td className={`${TD} font-semibold text-[#1B3A5C]`}>{p.name}</td>
+                    <td className={`${TD} font-semibold text-[#101A3D]`}>{p.name}</td>
                     <td className={TDc}>{getRoleLabel(p)}</td>
                     <td className={TDc}>{p.grade}</td>
                     <td className={TDc}>{p.gender === 'M' ? '남' : '여'}</td>
@@ -343,7 +343,7 @@ function ViewCard({
         <div className="flex items-center gap-2 min-w-0">
           <span className="text-xl flex-shrink-0">⛪</span>
           <div className="min-w-0">
-            <div className="text-sm font-bold text-[#1B3A5C] truncate">{stat.displayName}</div>
+            <div className="text-sm font-bold text-[#101A3D] truncate">{stat.displayName}</div>
             <div className="text-[10px] text-slate-500 truncate">
               {stat.isExtra ? '명단에서 발견' : (stat.district || '-')} · 총 {stat.total}명
             </div>
@@ -453,7 +453,7 @@ function ViewCard({
       {/* 버튼 */}
       <div className="flex items-center gap-2 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <button onClick={onDetail}
-          className="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-[#1B3A5C] hover:bg-white/5 transition-colors">
+          className="flex-1 flex items-center justify-center gap-1 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-[#101A3D] hover:bg-white/5 transition-colors">
           상세 보기 <ChevronRight size={12} />
         </button>
         <button onClick={onToggleConfirm}
@@ -500,7 +500,7 @@ function EditCard({
             <input
               value={draft.name}
               onChange={e => onUpdate({ name: e.target.value })}
-              className="w-full bg-transparent text-sm font-bold text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-0.5"
+              className="w-full bg-transparent text-sm font-bold text-[#101A3D] outline-none border-b border-white/10 focus:border-cyan-400 py-0.5"
               placeholder="교회 이름"
             />
             <input
@@ -541,7 +541,7 @@ function EditCard({
             min={0}
             value={draft.quota}
             onChange={e => onUpdate({ quota: Math.max(0, Number(e.target.value) || 0) })}
-            className="w-20 bg-white/5 border border-white/10 rounded px-2 py-1 text-[#1B3A5C] outline-none focus:border-cyan-400 text-right"
+            className="w-20 bg-white/5 border border-white/10 rounded px-2 py-1 text-[#101A3D] outline-none focus:border-cyan-400 text-right"
           />
           <span className="text-slate-500">명</span>
         </div>
@@ -678,7 +678,7 @@ export default function Churches() {
       {/* 헤더 */}
       <div className="flex items-start justify-between gap-3 flex-wrap">
         <div>
-          <h2 className="text-xl font-bold text-[#1B3A5C]">교회별 신청 현황</h2>
+          <h2 className="text-xl font-bold text-[#101A3D]">교회별 신청 현황</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             참여 교회 {allStats.length}개 · 총 {activeParticipants.length}명 신청
           </p>

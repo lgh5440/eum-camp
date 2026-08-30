@@ -45,7 +45,7 @@ export default function CheckInOverview({
           style={{ background: 'rgba(16,185,129,0.2)' }}>
           <UserCheck size={15} className="text-emerald-400"/>
         </div>
-        <h3 className="text-sm font-bold text-[#1B3A5C]">현장 체크인 현황</h3>
+        <h3 className="text-sm font-bold text-[#101A3D]">현장 체크인 현황</h3>
         {pct === 100
           ? <span className="text-[11px] font-bold ml-1" style={{ color: '#10b981' }}>🎉 전원 도착 완료!</span>
           : ci.pending > 0 && (

@@ -276,7 +276,7 @@ export default function PublicApplicationForm() {
   }
 
   return (
-    <main className="min-h-screen px-4 py-8" style={{ background: 'linear-gradient(135deg,#EAF3FF,#F8FBFF 60%,#FFFFFF)' }}>
+    <main className="min-h-screen px-4 py-8" style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}>
       <div className="mx-auto w-full max-w-3xl space-y-5">
         <header className="space-y-4">
           {/* E:um 브랜드 영역 */}
@@ -325,7 +325,7 @@ export default function PublicApplicationForm() {
               {EVENT.theme}
             </div>
           )}
-          <h1 className="text-2xl sm:text-3xl font-black text-[#1B3A5C]">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#101A3D]">
             {EVENT.title ? `${EVENT.title} 등록 신청서` : '등록 신청서'}
           </h1>
           {(EVENT.dates || EVENT.venue || EVENT.theme || EVENT.district) && (
@@ -441,7 +441,7 @@ export default function PublicApplicationForm() {
           <button
             type="submit"
             disabled={isComplete}
-            className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-black text-[#1B3A5C] transition-all"
+            className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-black text-[#101A3D] transition-all"
             style={isComplete
               ? { background: `${EUM_COLORS.orangeD}99`, cursor: 'not-allowed' }
               : {
@@ -468,7 +468,7 @@ export default function PublicApplicationForm() {
                   <button
                     type="button"
                     onClick={() => void navigator.clipboard?.writeText(doneUrl)}
-                    className="px-3 rounded-xl bg-white/10 border border-white/15 text-[#1B3A5C]"
+                    className="px-3 rounded-xl bg-white/10 border border-white/15 text-[#101A3D]"
                     title="수정 링크 복사"
                   >
                     <Clipboard size={15} />
@@ -525,7 +525,7 @@ function ConsentCheckbox({
         className="mt-1 w-4 h-4 accent-emerald-500"
       />
       <span className="space-y-1">
-        <span className="block text-sm font-bold text-[#1B3A5C]">
+        <span className="block text-sm font-bold text-[#101A3D]">
           {title}<span className="text-rose-300"> *</span>
         </span>
         <span className="block text-xs text-slate-400 leading-relaxed">{body}</span>

@@ -125,7 +125,7 @@ export default function Groups() {
       {/* 페이지 헤더 */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-[#1B3A5C]">조 편성</h2>
+          <h2 className="text-xl font-bold text-[#101A3D]">조 편성</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             총 {activeGroups.length}개 조 · 학생 {students.length}명
           </p>
@@ -157,7 +157,7 @@ export default function Groups() {
           )}
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] transition-all active:scale-95 flex-shrink-0"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 flex-shrink-0"
             style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
           >
             <Wand2 size={15} />
@@ -191,7 +191,7 @@ export default function Groups() {
                       next[index] = { ...group, name: e.target.value };
                       setGroupDraft(next);
                     }}
-                    className="flex-1 min-w-0 bg-transparent text-xs text-[#1B3A5C] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
+                    className="flex-1 min-w-0 bg-transparent text-xs text-[#101A3D] outline-none border-b border-white/10 focus:border-cyan-400 py-1"
                     placeholder="조 이름"
                   />
                   <input
@@ -335,7 +335,7 @@ export default function Groups() {
                       {groupNum}
                     </div>
                     <div>
-                      <div className="font-bold text-[#1B3A5C] text-sm">{group.name}</div>
+                      <div className="font-bold text-[#101A3D] text-sm">{group.name}</div>
                       <div className="text-xs text-slate-400">
                         리더: {leaderName}
                         {teacher && <span className="text-slate-600"> (교사)</span>}
@@ -369,7 +369,7 @@ export default function Groups() {
                         {member.name.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-sm font-medium text-[#1B3A5C]">{member.name}</span>
+                        <span className="text-sm font-medium text-[#101A3D]">{member.name}</span>
                         <span className="text-xs text-slate-500 ml-2">{member.grade}</span>
                       </div>
                       <span className="text-xs text-slate-500 truncate max-w-[5rem] sm:max-w-24">

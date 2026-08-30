@@ -51,7 +51,7 @@ export default function EventSettings() {
     <div className="space-y-5 max-w-3xl">
       {/* 페이지 제목 */}
       <div>
-        <h2 className="text-lg font-bold text-[#1B3A5C] mb-0.5 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-[#101A3D] mb-0.5 flex items-center gap-2">
           <SettingsIcon size={18} className="text-cyan-400" aria-hidden="true" />
           행사·운영 설정 (관리자 전용)
         </h2>
@@ -300,7 +300,7 @@ function EventMetaEditor() {
           type="button"
           onClick={handleSave}
           disabled={busy}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] disabled:opacity-50 transition-opacity"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50 transition-opacity"
           style={{
             background: 'linear-gradient(135deg,#3B82F6,#2563eb)',
             boxShadow: '0 0 14px rgba(37, 99, 235,0.3)',
@@ -312,7 +312,7 @@ function EventMetaEditor() {
         <button
           type="button"
           onClick={() => setDraft(loadEventConfig())}
-          className="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:text-[#1B3A5C] hover:bg-white/5 transition-colors"
+          className="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:text-[#101A3D] hover:bg-white/5 transition-colors"
         >
           변경사항 되돌리기
         </button>
@@ -407,7 +407,7 @@ function FullBackupSection() {
         type="button"
         onClick={handleDownload}
         disabled={busy}
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#1B3A5C] disabled:opacity-50"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50"
         style={{
           background: 'linear-gradient(135deg,#10b981,#059669)',
           boxShadow: '0 0 14px rgba(16,185,129,0.3)',
@@ -533,7 +533,7 @@ function Input({
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
+      className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
     />
   );
 }
@@ -654,7 +654,7 @@ function MenuVisibilitySection() {
               >
                 {it.icon}
               </span>
-              <span className={`text-xs font-semibold flex-1 ${visible ? 'text-[#1B3A5C]' : 'text-slate-500'}`}>
+              <span className={`text-xs font-semibold flex-1 ${visible ? 'text-[#101A3D]' : 'text-slate-500'}`}>
                 {it.label}
               </span>
               {locked ? (

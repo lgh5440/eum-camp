@@ -38,7 +38,7 @@ export default function OperationStatus({ stats, ckStats, warnings, onNavigate }
         style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
           style={{ background: 'rgba(37, 99, 235,0.2)' }}>📊</span>
-        <h3 className="text-sm font-bold text-[#1B3A5C]">운영 준비 현황</h3>
+        <h3 className="text-sm font-bold text-[#101A3D]">운영 준비 현황</h3>
         {warnings.length === 0
           ? <span className="ml-1 text-[10px] font-semibold" style={{ color: '#10b981' }}>✓ 모든 배정 완료</span>
           : <div className="ml-auto flex items-center gap-1.5 flex-wrap justify-end">

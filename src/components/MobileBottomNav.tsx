@@ -37,9 +37,9 @@ export default function MobileBottomNav({ currentPage, onNavigate, onOpenMenu }:
                 type="button"
                 onClick={() => tab.key === 'menu' ? onOpenMenu() : onNavigate(tab.key as PageKey)}
                 aria-current={isActive ? 'page' : undefined}
-                className="flex-1 flex flex-col items-center justify-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold-l)]/60"
+                className="flex-1 flex flex-col items-center justify-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold)]/60"
                 style={{
-                  color: isActive ? 'var(--eum-gold-l)' : '#94a3b8',
+                  color: isActive ? 'var(--eum-gold)' : '#94a3b8',
                   transition: 'color 0.15s ease',
                 }}
               >

@@ -190,10 +190,10 @@ export default function UserGuide({ onNavigate }: Props) {
           className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
           style={{ background: 'linear-gradient(135deg,#3B82F6,#2563eb)', boxShadow: '0 0 20px rgba(37, 99, 235,0.35)' }}
         >
-          <BookOpen size={22} className="text-[#1B3A5C]" />
+          <BookOpen size={22} className="text-[#101A3D]" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-[#1B3A5C]">운영자 사용 매뉴얼</h1>
+          <h1 className="text-xl font-bold text-[#101A3D]">운영자 사용 매뉴얼</h1>
           <p className="text-sm text-slate-400 mt-0.5">
             {EVENT.title} · {EVENT.dates} · {EVENT.venue}
           </p>
@@ -216,7 +216,7 @@ export default function UserGuide({ onNavigate }: Props) {
             </span>
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-cyan-300">조회용 PIN을 받으셨다면</div>
-              <div className="text-sm font-bold text-[#1B3A5C]">다른 교회 관리자</div>
+              <div className="text-sm font-bold text-[#101A3D]">다른 교회 관리자</div>
             </div>
           </div>
           <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
@@ -247,7 +247,7 @@ export default function UserGuide({ onNavigate }: Props) {
             </span>
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: '#FFB870' }}>진행위원 비밀번호를 받으셨다면</div>
-              <div className="text-sm font-bold text-[#1B3A5C]">운영팀 (편집 권한)</div>
+              <div className="text-sm font-bold text-[#101A3D]">운영팀 (편집 권한)</div>
             </div>
           </div>
           <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
@@ -317,7 +317,7 @@ export default function UserGuide({ onNavigate }: Props) {
       >
         <div className="flex items-center gap-2 mb-4">
           <Info size={16} className="text-cyan-400" />
-          <h2 className="text-sm font-bold text-[#1B3A5C]">권장 운영 순서</h2>
+          <h2 className="text-sm font-bold text-[#101A3D]">권장 운영 순서</h2>
         </div>
 
         {/* 모바일: 세로 / 데스크탑: 2열 그리드 */}
@@ -342,7 +342,7 @@ export default function UserGuide({ onNavigate }: Props) {
                 {s.step}
               </span>
               <div className="min-w-0">
-                <div className="text-xs font-semibold text-[#1B3A5C] leading-tight">{s.label}</div>
+                <div className="text-xs font-semibold text-[#101A3D] leading-tight">{s.label}</div>
                 <div className="text-[11px] text-slate-400 mt-0.5 leading-tight">{s.desc}</div>
               </div>
             </div>
@@ -373,7 +373,7 @@ export default function UserGuide({ onNavigate }: Props) {
                 <span className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: sec.color }}>
                   섹션 {sec.id}
                 </span>
-                <div className="text-sm font-bold text-[#1B3A5C] leading-tight">{sec.title}</div>
+                <div className="text-sm font-bold text-[#101A3D] leading-tight">{sec.title}</div>
               </div>
             </div>
 

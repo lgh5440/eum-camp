@@ -19,7 +19,7 @@ interface Props {
 
 export default function SummaryCards({ stats, ckStats, churchCount, onNavigate }: Props) {
   const items = [
-    { label: '전체 인원',   value: String(stats.total),        unit: '명', color: '#F0BC78', emoji: '👥', page: 'participants' as PageKey },
+    { label: '전체 인원',   value: String(stats.total),        unit: '명', color: '#FFD98C', emoji: '👥', page: 'participants' as PageKey },
     { label: '학생',        value: String(stats.studentCount),  unit: '명', color: '#10b981', emoji: '🎓', page: 'participants' as PageKey },
     { label: '참여 교회',   value: String(churchCount),         unit: '개', color: '#60a5fa', emoji: '⛪', page: 'churches'     as PageKey },
     { label: '교사/운영진', value: String(stats.staffCount),    unit: '명', color: '#F08C28', emoji: '👤', page: 'participants' as PageKey },
@@ -52,7 +52,7 @@ export default function SummaryCards({ stats, ckStats, churchCount, onNavigate }
         <DonutChart pct={ckStats.pct}/>
         <div className="min-w-0">
           <div className="text-[10px] text-slate-400">준비 진행률</div>
-          <div className="font-black text-[#1B3A5C] leading-tight" style={{ fontSize: '1.2rem' }}>
+          <div className="font-black text-[#101A3D] leading-tight" style={{ fontSize: '1.2rem' }}>
             {ckStats.doneCount}<span className="text-xs font-medium text-slate-400">/{ckStats.total}</span>
           </div>
           <div className="flex flex-wrap gap-x-2 mt-0.5">
@@ -70,7 +70,7 @@ function DonutChart({ pct }: { pct: number }) {
   const radius = 22;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (pct / 100) * circumference;
-  const color = pct >= 80 ? '#10b981' : pct >= 50 ? '#F0BC78' : '#F08C28';
+  const color = pct >= 80 ? '#10b981' : pct >= 50 ? '#FFD98C' : '#F08C28';
   return (
     <div className="relative w-14 h-14 flex-shrink-0">
       <svg width={64} height={64} viewBox="0 0 64 64" className="absolute inset-0 -rotate-90">

@@ -127,7 +127,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                   {p.name.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#1B3A5C] leading-tight">{p.name}</h3>
+                  <h3 className="text-lg font-bold text-[#101A3D] leading-tight">{p.name}</h3>
                   <p className="text-xs text-slate-400 mt-0.5">
                     {church}
                     <span className="text-slate-600 mx-1">·</span>
@@ -290,7 +290,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
               </button>
               <button
                 onClick={() => onEdit(p)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-all active:scale-95"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-[#101A3D] transition-all active:scale-95"
                 style={{
                   background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                   boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',

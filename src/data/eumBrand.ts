@@ -21,6 +21,6 @@ export const EUM_COLORS = {
   navyD:     '#0F2540',
   // Neutral
   cream:     '#FFF8EC',
-  gold:      '#C9962B',
-  goldL:     '#F0BC78',  // 슬로건 텍스트 등 다크 배경 위 강조용
+  gold:      '#FFD98C',
+  goldL:     '#FFD98C',  // 슬로건 텍스트 등 다크 배경 위 강조용
 } as const;

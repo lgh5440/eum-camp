@@ -66,7 +66,7 @@ export default function SetupScreen() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#F8FBFF 60%,#FFFFFF 100%)' }}
+      style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}
     >
       <div
         className="max-w-xl w-full rounded-2xl p-7"
@@ -80,14 +80,14 @@ export default function SetupScreen() {
           <div
             className="w-12 h-12 rounded-xl flex items-center justify-center"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#C9962B)',
+              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',
             }}
           >
-            <ShieldCheck size={22} className="text-[#1B3A5C]" aria-hidden="true" />
+            <ShieldCheck size={22} className="text-[#101A3D]" aria-hidden="true" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-[#1B3A5C]">초기 설정</h1>
+            <h1 className="text-lg font-bold text-[#101A3D]">초기 설정</h1>
             <p className="text-xs text-slate-400 mt-0.5">
               {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호와 운영위원 공유 PIN을 설정합니다
             </p>
@@ -116,7 +116,7 @@ export default function SetupScreen() {
               autoComplete="name"
               value={adminName}
               onChange={e => setAdminName(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
               placeholder="예: 김○○ 목사 / 운영팀장"
               required
             />
@@ -130,7 +130,7 @@ export default function SetupScreen() {
               autoComplete="new-password"
               value={adminPw}
               onChange={e => setAdminPw(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-[#1B3A5C] placeholder:text-slate-500"
+              className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
               placeholder="알파벳·숫자·기호 조합 권장"
               required
               minLength={8}
@@ -138,7 +138,7 @@ export default function SetupScreen() {
             <button
               type="button"
               onClick={() => setShowPw(v => !v)}
-              className="ml-2 text-slate-400 hover:text-[color:var(--eum-gold-l)]"
+              className="ml-2 text-slate-400 hover:text-[color:var(--eum-gold)]"
               aria-label={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
             >
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -152,7 +152,7 @@ export default function SetupScreen() {
               autoComplete="new-password"
               value={adminPw2}
               onChange={e => setAdminPw2(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C]"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
               required
               minLength={8}
             />
@@ -168,7 +168,7 @@ export default function SetupScreen() {
               autoComplete="off"
               value={pin}
               onChange={e => setPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
               placeholder="예: 0726"
               required
             />
@@ -183,7 +183,7 @@ export default function SetupScreen() {
               autoComplete="off"
               value={pin2}
               onChange={e => setPin2(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
               required
             />
           </Field>
@@ -202,9 +202,9 @@ export default function SetupScreen() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-opacity disabled:opacity-50"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-[#101A3D] transition-opacity disabled:opacity-50"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#C9962B)',
+              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',
             }}
           >
@@ -233,7 +233,7 @@ function Field({
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
         style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
       >
-        <span style={{ color: 'var(--eum-gold-l)' }} className="flex-shrink-0">{icon}</span>
+        <span style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0">{icon}</span>
         {children}
       </div>
     </div>

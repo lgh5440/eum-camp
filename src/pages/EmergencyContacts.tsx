@@ -249,10 +249,10 @@ export default function EmergencyContacts() {
               className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ background: 'linear-gradient(135deg,#ef4444,#dc2626)', boxShadow: '0 0 14px rgba(239,68,68,0.35)' }}
             >
-              <PhoneCall size={18} className="text-[#1B3A5C]" />
+              <PhoneCall size={18} className="text-[#101A3D]" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-[#1B3A5C] leading-tight">비상연락망</h1>
+              <h1 className="text-lg font-bold text-[#101A3D] leading-tight">비상연락망</h1>
               <p className="text-[11px] text-slate-400">응급 상황 시 즉시 확인 가능한 참가자 연락처 목록</p>
             </div>
           </div>
@@ -288,7 +288,7 @@ export default function EmergencyContacts() {
             <Users size={14} className="text-cyan-400" />
             <span className="text-[11px] text-slate-400">전체 연락 대상</span>
           </div>
-          <span className="text-2xl font-bold text-[#1B3A5C]">{stats.total}</span>
+          <span className="text-2xl font-bold text-[#101A3D]">{stats.total}</span>
           <span className="text-[10px] text-slate-500">취소 제외 전체</span>
         </div>
 
@@ -298,7 +298,7 @@ export default function EmergencyContacts() {
             <Users size={14} className="text-blue-400" />
             <span className="text-[11px] text-slate-400">학생</span>
           </div>
-          <span className="text-2xl font-bold text-[#1B3A5C]">{stats.students}</span>
+          <span className="text-2xl font-bold text-[#101A3D]">{stats.students}</span>
           <span className="text-[10px] text-slate-500">교사·운영진 제외</span>
         </div>
 
@@ -308,7 +308,7 @@ export default function EmergencyContacts() {
             <Phone size={14} className="text-emerald-400" />
             <span className="text-[11px] text-slate-400">보호자 연락처 등록</span>
           </div>
-          <span className="text-2xl font-bold text-[#1B3A5C]">{stats.parentPhoneOk}</span>
+          <span className="text-2xl font-bold text-[#101A3D]">{stats.parentPhoneOk}</span>
           <span className="text-[10px] text-slate-500">학생 중 등록된 인원</span>
         </div>
 
@@ -324,7 +324,7 @@ export default function EmergencyContacts() {
             <AlertTriangle size={14} className={stats.missingContact > 0 ? 'text-red-400' : 'text-slate-500'} />
             <span className="text-[11px] text-slate-400">연락처 누락</span>
           </div>
-          <span className={`text-2xl font-bold ${stats.missingContact > 0 ? 'text-red-400' : 'text-[#1B3A5C]'}`}>
+          <span className={`text-2xl font-bold ${stats.missingContact > 0 ? 'text-red-400' : 'text-[#101A3D]'}`}>
             {stats.missingContact}
           </span>
           <span className="text-[10px] text-slate-500">즉시 확인 필요</span>
@@ -342,7 +342,7 @@ export default function EmergencyContacts() {
             <AlertTriangle size={14} className={stats.special > 0 ? 'text-amber-400' : 'text-slate-500'} />
             <span className="text-[11px] text-slate-400">알레르기/복용약</span>
           </div>
-          <span className={`text-2xl font-bold ${stats.special > 0 ? 'text-amber-400' : 'text-[#1B3A5C]'}`}>
+          <span className={`text-2xl font-bold ${stats.special > 0 ? 'text-amber-400' : 'text-[#101A3D]'}`}>
             {stats.special}
           </span>
           <span className="text-[10px] text-slate-500">주의 인원</span>
@@ -479,7 +479,7 @@ export default function EmergencyContacts() {
                       <td className={`${TD} text-center text-slate-500`}>{i + 1}</td>
 
                       {/* 이름 */}
-                      <td className={`${TD} font-semibold text-[#1B3A5C]`}>{p.name}</td>
+                      <td className={`${TD} font-semibold text-[#101A3D]`}>{p.name}</td>
 
                       {/* 교회 */}
                       <td className={`${TD} text-slate-300`}>{church_name}</td>

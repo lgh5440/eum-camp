@@ -81,7 +81,7 @@ function ApplicationCard({
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-base font-bold text-[#1B3A5C]">{p.name}</h3>
+            <h3 className="text-base font-bold text-[#101A3D]">{p.name}</h3>
             <span
               className="text-[10px] px-2 py-0.5 rounded-full font-bold"
               style={{ color: duplicateTone, background: `${duplicateTone}18` }}
@@ -140,7 +140,7 @@ function ApplicationCard({
         ) : (
           <button
             onClick={() => onReopen(record)}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[color:var(--eum-gold-l)] bg-cyan-500/10 border border-cyan-500/25"
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[color:var(--eum-gold)] bg-cyan-500/10 border border-cyan-500/25"
           >
             다시 검토
           </button>
@@ -280,7 +280,7 @@ export default function Applications() {
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3 flex-wrap">
         <div>
-          <h2 className="text-xl font-bold text-[#1B3A5C]">온라인 신청 대기함</h2>
+          <h2 className="text-xl font-bold text-[#101A3D]">온라인 신청 대기함</h2>
           <p className="text-sm text-slate-400 mt-0.5">
             Google Forms·네이버폼·CSV 신청을 검토한 뒤 참가자 명단에 반영합니다.
           </p>
@@ -297,7 +297,7 @@ export default function Applications() {
       </div>
 
       <section className="rounded-2xl p-4 space-y-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="flex items-center gap-2 text-sm font-bold text-[#1B3A5C]">
+        <div className="flex items-center gap-2 text-sm font-bold text-[#101A3D]">
           <FileSpreadsheet size={16} className="text-emerald-400" />
           Google Forms 응답 시트 가져오기
         </div>
@@ -308,13 +308,13 @@ export default function Applications() {
               value={sheetUrl}
               onChange={e => setSheetUrl(e.target.value)}
               placeholder="Google Sheet 공유 URL 또는 CSV 게시 URL"
-              className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder-slate-500"
             />
           </div>
           <button
             onClick={() => void fetchSheet()}
             disabled={busy || !sheetUrl.trim()}
-            className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-[#1B3A5C] disabled:opacity-50"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50"
             style={{ background: 'linear-gradient(90deg,#059669,#0d9488)' }}
           >
             <RefreshCw size={14} className={busy ? 'animate-spin' : ''} />
@@ -336,7 +336,7 @@ export default function Applications() {
       </section>
 
       {message && (
-        <div className="rounded-xl px-4 py-3 text-xs text-[color:var(--eum-gold-l)] bg-cyan-500/10 border border-cyan-500/25">
+        <div className="rounded-xl px-4 py-3 text-xs text-[color:var(--eum-gold)] bg-cyan-500/10 border border-cyan-500/25">
           {message}
         </div>
       )}
@@ -365,7 +365,7 @@ export default function Applications() {
             <button
               key={key}
               onClick={() => setFilter(key as typeof filter)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold ${filter === key ? 'text-[color:var(--eum-gold-l)] bg-cyan-500/15 border border-cyan-500/35' : 'text-slate-400 bg-white/5 border border-white/10'}`}
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold ${filter === key ? 'text-[color:var(--eum-gold)] bg-cyan-500/15 border border-cyan-500/35' : 'text-slate-400 bg-white/5 border border-white/10'}`}
             >
               {label}
             </button>
@@ -377,7 +377,7 @@ export default function Applications() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="이름, 교회, 연락처 검색"
-            className="w-full bg-transparent outline-none text-sm text-[#1B3A5C] placeholder-slate-500"
+            className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder-slate-500"
           />
         </div>
       </div>

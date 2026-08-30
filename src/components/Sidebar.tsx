@@ -152,7 +152,7 @@ export default function Sidebar({
           <button
             type="button"
             onClick={() => onCollapsedChange(!collapsed)}
-            className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 flex-shrink-0 w-6 h-6 rounded-full items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold-l)] transition-colors z-10"
+            className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 flex-shrink-0 w-6 h-6 rounded-full items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold)] transition-colors z-10"
             style={{
               background: '#F8FBFF',
               border: '1px solid rgba(255,255,255,0.12)',
@@ -171,7 +171,7 @@ export default function Sidebar({
           <button
             type="button"
             onClick={onMobileClose}
-            className="lg:hidden flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold-l)] hover:bg-white/5 transition-colors"
+            className="lg:hidden flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold)] hover:bg-white/5 transition-colors"
             title="닫기"
             aria-label="메뉴 닫기"
           >
@@ -209,9 +209,9 @@ export default function Sidebar({
                     className={`
                       w-full flex items-center gap-3 px-3 py-2.5 rounded-xl mb-1
                       transition-all duration-150 text-left group min-h-[44px]
-                      focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold-l)]/60
+                      focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold)]/60
                       ${isActive
-                        ? 'text-[color:var(--eum-gold-l)]'
+                        ? 'text-[color:var(--eum-gold)]'
                         : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
                       }
                     `}
@@ -225,7 +225,7 @@ export default function Sidebar({
                     <span
                       aria-hidden="true"
                       className={`flex-shrink-0 ${
-                        isActive ? 'text-[color:var(--eum-gold-l)]' : 'text-slate-500 group-hover:text-slate-300'
+                        isActive ? 'text-[color:var(--eum-gold)]' : 'text-slate-500 group-hover:text-slate-300'
                       }`}
                     >
                       {item.icon}
@@ -258,7 +258,7 @@ export default function Sidebar({
               <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgba(240,188,120,0.9)' }}>
                 2026 THEME
               </div>
-              <div className="text-xs text-[#1B3A5C] font-bold mt-1 leading-tight">
+              <div className="text-xs text-[#101A3D] font-bold mt-1 leading-tight">
                 {EVENT.theme}
               </div>
               <div className="text-[10px] text-slate-400 mt-0.5">

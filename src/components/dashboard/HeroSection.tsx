@@ -29,17 +29,17 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
               {dday.text}
             </span>
           </div>
-          <h1 className="font-black text-[#1B3A5C] tracking-tight leading-none mb-2"
+          <h1 className="font-black text-[#101A3D] tracking-tight leading-none mb-2"
             style={{ fontSize: 'clamp(1.6rem, 5vw, 4rem)' }}>{EVENT.theme}</h1>
-          <p className="font-bold" style={{ color: 'var(--eum-gold-l)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
+          <p className="font-bold" style={{ color: 'var(--eum-gold)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
             {EVENT.subTheme}
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs sm:text-sm text-slate-300">
             <span className="flex items-center gap-1.5">
-              <MapPin size={13} style={{ color: 'var(--eum-gold-l)' }} className="flex-shrink-0"/>{EVENT.venue}
+              <MapPin size={13} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0"/>{EVENT.venue}
             </span>
             <span className="flex items-center gap-1.5">
-              <Calendar size={13} style={{ color: 'var(--eum-gold-l)' }} className="flex-shrink-0"/>{EVENT.dates}
+              <Calendar size={13} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0"/>{EVENT.dates}
             </span>
           </div>
         </div>

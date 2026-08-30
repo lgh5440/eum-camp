@@ -32,7 +32,7 @@ export default function ShareLinkCard({
             style={{ background: 'rgba(16,185,129,0.20)' }}>📝</div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-sm font-bold text-[#1B3A5C]">참가자용 신청서</span>
+              <span className="text-sm font-bold text-[#101A3D]">참가자용 신청서</span>
               <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded text-emerald-200 bg-emerald-500/15">학생·교사에게</span>
               {pendingAppCount > 0 && (
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
@@ -69,7 +69,7 @@ export default function ShareLinkCard({
             style={{ background: 'rgba(139,92,246,0.20)' }}>🛠️</div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-sm font-bold text-[#1B3A5C]">운영 시스템</span>
+              <span className="text-sm font-bold text-[#101A3D]">운영 시스템</span>
               <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded text-violet-200 bg-violet-500/15">운영진·담당교사에게</span>
             </div>
             <div className="text-[10px] text-violet-300/80 font-mono mt-0.5 truncate">{systemUrl}</div>

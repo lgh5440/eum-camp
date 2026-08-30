@@ -63,7 +63,7 @@ export default function LoginScreen() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#F8FBFF 60%,#FFFFFF 100%)' }}
+      style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}
     >
       <div className="max-w-md w-full">
         {/* E:UM 로고 + 행사 헤더 */}
@@ -74,8 +74,8 @@ export default function LoginScreen() {
             className="w-20 h-20 mx-auto mb-3 object-contain"
             style={{ filter: 'drop-shadow(0 0 18px rgba(240,188,120,0.5))' }}
           />
-          <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold-l)' }}>{EVENT.district}</div>
-          <h1 className="text-xl font-bold text-[#1B3A5C] mt-1 leading-tight">{EVENT.title}</h1>
+          <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold)' }}>{EVENT.district}</div>
+          <h1 className="text-xl font-bold text-[#101A3D] mt-1 leading-tight">{EVENT.title}</h1>
           <div className="text-xs text-slate-400 mt-1">
             {EVENT.theme} · {EVENT.dates}
           </div>
@@ -96,10 +96,10 @@ export default function LoginScreen() {
               className="w-9 h-9 rounded-xl flex items-center justify-center"
               style={{ background: 'rgba(240,140,40,0.15)', border: '1px solid rgba(240,188,120,0.32)' }}
             >
-              <Lock size={16} style={{ color: 'var(--eum-gold-l)' }} aria-hidden="true" />
+              <Lock size={16} style={{ color: 'var(--eum-gold)' }} aria-hidden="true" />
             </div>
             <div>
-              <div className="text-sm font-semibold text-[#1B3A5C]">운영 시스템 접속</div>
+              <div className="text-sm font-semibold text-[#101A3D]">운영 시스템 접속</div>
               <div className="text-[11px] text-slate-400">진행위원 비밀번호(읽기·쓰기) 또는 조회용 PIN(읽기 전용)을 입력하세요</div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function LoginScreen() {
             autoComplete="name"
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#1B3A5C] outline-none"
+            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none"
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
             placeholder="예: 김교사"
             disabled={isLocked || submitting}
@@ -130,7 +130,7 @@ export default function LoginScreen() {
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
-            <Lock size={14} style={{ color: 'var(--eum-gold-l)' }} className="flex-shrink-0" aria-hidden="true" />
+            <Lock size={14} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0" aria-hidden="true" />
             <input
               id={inputId}
               type={showPw ? 'text' : 'password'}
@@ -138,7 +138,7 @@ export default function LoginScreen() {
               inputMode="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-[#1B3A5C] tracking-widest"
+              className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
               placeholder={isLocked ? '잠금 해제 후 시도' : '입력 후 Enter'}
               disabled={isLocked || submitting}
               autoFocus
@@ -147,7 +147,7 @@ export default function LoginScreen() {
             <button
               type="button"
               onClick={() => setShowPw(v => !v)}
-              className="text-slate-400 hover:text-[color:var(--eum-gold-l)]"
+              className="text-slate-400 hover:text-[color:var(--eum-gold)]"
               aria-label={showPw ? '입력 숨기기' : '입력 보기'}
             >
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -179,9 +179,9 @@ export default function LoginScreen() {
           <button
             type="submit"
             disabled={isLocked || submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-[#1B3A5C] transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-[#101A3D] transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#C9962B)',
+              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
               boxShadow: '0 0 16px rgba(240,140,40,0.45)',
             }}
           >
@@ -204,7 +204,7 @@ export default function LoginScreen() {
               {EVENT.inquiry.role} {EVENT.inquiry.name}{' '}
               <a
                 href={`tel:${EVENT.inquiry.phone.replace(/-/g, '')}`}
-                className="text-[color:var(--eum-gold-l)] hover:brightness-125 underline"
+                className="text-[color:var(--eum-gold)] hover:brightness-125 underline"
               >
                 {EVENT.inquiry.phone}
               </a>
