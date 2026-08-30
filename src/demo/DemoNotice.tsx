@@ -33,17 +33,17 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
           <div className="grid gap-2 sm:grid-cols-2">
             <div className="rounded-lg border border-[#BFDBFE] bg-white p-2.5">
               <div className="font-bold text-[#1B3A5C]">전체 편집</div>
-              <div className="text-[10px] text-slate-400">진행위원 비밀번호</div>
+              <div className="text-[10px] text-[#5C6A93]">진행위원 비밀번호</div>
               <code className="mt-1 block select-all rounded bg-[#EFF6FF] px-2 py-1 text-center font-mono text-sm font-bold tracking-wide text-[#101A3D]">{DEMO_CREDENTIALS.adminPassword}</code>
             </div>
             <div className="rounded-lg border border-[#BFDBFE] bg-white p-2.5">
               <div className="font-bold text-[#1B3A5C]">둘러보기</div>
-              <div className="text-[10px] text-slate-400">조회용 PIN · 읽기 전용</div>
+              <div className="text-[10px] text-[#5C6A93]">조회용 PIN · 읽기 전용</div>
               <code className="mt-1 block select-all rounded bg-[#EFF6FF] px-2 py-1 text-center font-mono text-sm font-bold tracking-wide text-[#101A3D]">{DEMO_CREDENTIALS.committeePin}</code>
             </div>
           </div>
-          <div className="mt-2 text-slate-300">이름은 선택 입력입니다. 기본값을 그대로 두셨다면 위 값을 사용하세요.</div>
-          <details className="mt-2 text-slate-300">
+          <div className="mt-2 text-[#3A4568]">이름은 선택 입력입니다. 기본값을 그대로 두셨다면 위 값을 사용하세요.</div>
+          <details className="mt-2 text-[#3A4568]">
             <summary className="cursor-pointer font-semibold">추가 안내</summary>
             <ul className="mt-1 space-y-1 pl-4">
               <li>5회 연속 틀리면 5분간 잠깁니다.</li>
@@ -54,10 +54,10 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
       ) : (
         <ul className="space-y-1">
           <li>아래 값은 체험용 기본값입니다. 그대로 두고 시작하셔도 됩니다.</li>
-          <li className="text-slate-300">
+          <li className="text-[#3A4568]">
             여기서 정한 비밀번호·PIN 은 이 브라우저에만 저장됩니다.
           </li>
-          <li className="text-slate-300">{DEMO_RESET_LABEL}</li>
+          <li className="text-[#3A4568]">{DEMO_RESET_LABEL}</li>
         </ul>
       )}
     </div>

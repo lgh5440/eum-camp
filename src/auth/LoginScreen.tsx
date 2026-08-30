@@ -76,7 +76,7 @@ export default function LoginScreen() {
           />
           <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold)' }}>{EVENT.district}</div>
           <h1 className="text-xl font-bold text-[#101A3D] mt-1 leading-tight">{EVENT.title}</h1>
-          <div className="text-xs text-slate-400 mt-1">
+          <div className="text-xs text-[#5C6A93] mt-1">
             {EVENT.theme} · {EVENT.dates}
           </div>
         </div>
@@ -100,14 +100,14 @@ export default function LoginScreen() {
             </div>
             <div>
               <div className="text-sm font-semibold text-[#101A3D]">운영 시스템 접속</div>
-              <div className="text-[11px] text-slate-400">아래 안내에서 접속 방법을 고른 뒤 값을 입력하세요.</div>
+              <div className="text-[11px] text-[#5C6A93]">아래 안내에서 접속 방법을 고른 뒤 값을 입력하세요.</div>
             </div>
           </div>
 
           {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
-          <label htmlFor={nameId} className="block text-[11px] font-medium text-slate-300 mb-1.5">
+          <label htmlFor={nameId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
             본인 이름 (선택 — 활동 로그에 표시)
           </label>
           <input
@@ -123,7 +123,7 @@ export default function LoginScreen() {
           />
 
           {/* 비밀번호 / PIN */}
-          <label htmlFor={inputId} className="block text-[11px] font-medium text-slate-300 mb-1.5">
+          <label htmlFor={inputId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
             비밀번호 또는 PIN
           </label>
           <div
@@ -147,7 +147,7 @@ export default function LoginScreen() {
             <button
               type="button"
               onClick={() => setShowPw(v => !v)}
-              className="text-slate-400 hover:text-[color:var(--eum-gold)]"
+              className="text-[#5C6A93] hover:text-[color:var(--eum-gold)]"
               aria-label={showPw ? '입력 숨기기' : '입력 보기'}
             >
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -193,7 +193,7 @@ export default function LoginScreen() {
         <DemoNotice variant="login" />
 
         {/* 행사·문의 정보 */}
-        <div className="mt-6 text-[11px] text-slate-400 leading-relaxed text-center space-y-1.5">
+        <div className="mt-6 text-[11px] text-[#5C6A93] leading-relaxed text-center space-y-1.5">
           <div className="flex items-center justify-center gap-1.5">
             <MapPin size={11} aria-hidden="true" className="text-slate-500" />
             {EVENT.venue} · {EVENT.venueAddress}

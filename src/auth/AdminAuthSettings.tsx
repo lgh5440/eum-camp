@@ -81,10 +81,10 @@ function Inner() {
           <ShieldCheck size={18} className="text-amber-400" aria-hidden="true" />
         </div>
         <div>
-          <h3 id="admin-auth-heading" className="text-sm font-bold text-amber-300">
+          <h3 id="admin-auth-heading" className="text-sm font-bold text-[#92400E]">
             진행위원 인증 설정
           </h3>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-[#5C6A93] mt-0.5">
             진행위원(읽기·쓰기) 비밀번호와 일반 사용자(읽기 전용)용 PIN을 변경합니다. 변경하지 않을 항목은 비워두세요.
           </p>
         </div>
@@ -135,7 +135,7 @@ function Inner() {
             className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50"
             style={{
               background: 'linear-gradient(135deg,#f59e0b,#d97706)',
-              boxShadow: '0 0 14px rgba(245,158,11,0.3)',
+              boxShadow: '0 6px 16px rgba(31,95,217,0.18)',
             }}
           >
             {busy ? '변경 중…' : '인증 정보 변경'}
@@ -164,7 +164,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="block text-[11px] font-medium text-slate-300 mb-1.5">
+      <label htmlFor={htmlFor} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
         {label}
       </label>
       <div
