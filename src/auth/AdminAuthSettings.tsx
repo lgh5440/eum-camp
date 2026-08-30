@@ -169,7 +169,7 @@ function Field({
       </label>
       <div
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+        style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
       >
         <span className="text-amber-400 flex-shrink-0">{icon}</span>
         {children}

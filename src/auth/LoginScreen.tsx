@@ -100,7 +100,7 @@ export default function LoginScreen() {
             </div>
             <div>
               <div className="text-sm font-semibold text-[#101A3D]">운영 시스템 접속</div>
-              <div className="text-[11px] text-slate-400">진행위원 비밀번호(읽기·쓰기) 또는 조회용 PIN(읽기 전용)을 입력하세요</div>
+              <div className="text-[11px] text-slate-400">아래 안내에서 접속 방법을 고른 뒤 값을 입력하세요.</div>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ export default function LoginScreen() {
             value={name}
             onChange={e => setName(e.target.value)}
             className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none"
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
             placeholder="예: 김교사"
             disabled={isLocked || submitting}
           />
@@ -128,7 +128,7 @@ export default function LoginScreen() {
           </label>
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
-            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
           >
             <Lock size={14} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0" aria-hidden="true" />
             <input
@@ -154,12 +154,12 @@ export default function LoginScreen() {
             </button>
           </div>
 
-          {error && (
+          {!isLocked && error && (
             <div
               id={errorId}
               role="alert"
               className="rounded-lg p-3 mb-4 text-xs"
-              style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: '#fecaca' }}
+              style={{ background: '#FFF1F2', border: '1px solid #FDA4AF', color: '#9F1239' }}
             >
               {error}
             </div>
@@ -182,7 +182,7 @@ export default function LoginScreen() {
             className="w-full py-3 rounded-xl text-sm font-semibold text-[#101A3D] transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
-              boxShadow: '0 0 16px rgba(240,140,40,0.45)',
+              boxShadow: '0 6px 16px rgba(31,95,217,0.18)',
             }}
           >
             <LogIn size={14} aria-hidden="true" />
