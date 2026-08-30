@@ -17,8 +17,9 @@ jobs:
       VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
       VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
       VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
-      VITE_FIREBASE_EVENT_ID: youth-retreat-2026
-      FIREBASE_PROJECT_ID: eum-camp-template
+      VITE_FIREBASE_EVENT_ID: ${{ vars.VITE_FIREBASE_EVENT_ID || 'eum-camp-default' }}
+      FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID || secrets.VITE_FIREBASE_PROJECT_ID || 'eum-camp-template' }}
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-service-account.json
 
     steps:
       - name: Checkout
@@ -39,13 +40,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure Firebase hosting target
-        run: npx firebase-tools target:apply hosting camp "$FIREBASE_PROJECT_ID" --project "$FIREBASE_PROJECT_ID"
-
       - name: Write Firebase service account
-        run: printf '%s' '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$RUNNER_TEMP/firebase-service-account.json"
+        run: printf '%s' '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$GOOGLE_APPLICATION_CREDENTIALS"
 
       - name: Deploy Hosting and Firestore rules
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-service-account.json
         run: npx firebase-tools deploy --only hosting,firestore:rules --project "$FIREBASE_PROJECT_ID"
