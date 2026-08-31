@@ -65,115 +65,118 @@ export default function SetupScreen() {
       className="min-h-screen flex items-center justify-center p-5"
       style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}
     >
-      <div
-        className="max-w-xl w-full rounded-2xl p-7"
-        style={{
-          background: '#FFFFFF',
-          border: '1px solid rgba(31,95,217,0.24)',
-          boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
-        }}
-      >
-        <div className="flex items-center gap-3 mb-5">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center"
-            style={{
-              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
-              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
-            }}
-          >
-            <ShieldCheck size={22} className="text-white" aria-hidden="true" />
-          </div>
-          <div>
-            <h1 className="text-lg font-bold text-[#101A3D]">초기 설정</h1>
-            <p className="text-xs text-[#5C6A93] mt-0.5">
-              {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호를 설정합니다
-            </p>
-          </div>
-        </div>
-
+      <div className="max-w-xl w-full">
         <div
-          className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
-          style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#fde68a' }}
+          className="rounded-2xl p-7"
+          style={{
+            background: '#FFFFFF',
+            border: '1px solid rgba(31,95,217,0.24)',
+            boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
+          }}
         >
-          <div className="font-semibold text-amber-200 mb-1">한 번만 진행되는 설정입니다</div>
-          이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
-          로그인 후 <strong className="text-amber-100">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
-          있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
+          {/* 화면 정체성 — 가장 눈에 띄게: 큰 아이콘 + 큰 제목 + 1줄 부제 */}
+          <div className="flex items-center gap-4 mb-7">
+            <div
+              className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+              style={{
+                background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
+                boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
+              }}
+            >
+              <ShieldCheck size={26} className="text-white" aria-hidden="true" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-extrabold text-[#101A3D] leading-tight tracking-tight">초기 설정</h1>
+              <p className="text-sm text-[#5C6A93] mt-1">
+                {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호를 설정합니다
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
+            style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#fde68a' }}
+          >
+            <div className="font-semibold text-amber-200 mb-1">한 번만 진행되는 설정입니다</div>
+            이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
+            로그인 후 <strong className="text-amber-100">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
+            있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
+          </div>
+
+          <form onSubmit={handleSubmit} aria-describedby={error ? errorId : undefined}>
+            {/* 관리자 표시명 */}
+            <Field label="관리자 표시명" htmlFor={adminNameId} icon={<UserCog size={14} aria-hidden="true" />}>
+              <input
+                id={adminNameId}
+                type="text"
+                autoComplete="name"
+                value={adminName}
+                onChange={e => setAdminName(e.target.value)}
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                placeholder="예: 김○○ 목사 / 운영팀장"
+                required
+              />
+            </Field>
+
+            {/* 관리자 비밀번호 */}
+            <Field label="관리자 비밀번호 (최소 8자)" htmlFor={adminPwId} icon={<ShieldCheck size={14} aria-hidden="true" />}>
+              <input
+                id={adminPwId}
+                type={showPw ? 'text' : 'password'}
+                autoComplete="new-password"
+                value={adminPw}
+                onChange={e => setAdminPw(e.target.value)}
+                className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                placeholder="알파벳·숫자·기호 조합 권장"
+                required
+                minLength={8}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPw(v => !v)}
+                className="ml-2 text-slate-400 hover:text-[color:var(--eum-gold)]"
+                aria-label={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
+              >
+                {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
+              </button>
+            </Field>
+
+            {error && (
+              <div
+                id={errorId}
+                role="alert"
+                className="rounded-lg p-3 mb-4 text-xs"
+                style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: '#fecaca' }}
+              >
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50"
+              style={{
+                background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
+                boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
+              }}
+            >
+              {submitting ? '설정 저장 중…' : '설정 완료'}
+            </button>
+
+            <a
+              href="https://github.com/lgh5440/eum-camp/blob/main/docs/AI_SETUP_GUIDE.md"
+              target="_blank"
+              rel="noopener"
+              className="block text-center mt-3 text-[11px] text-slate-400 hover:text-[color:var(--eum-gold)] underline underline-offset-2"
+            >
+              이 시스템을 다른 교회와 공유하는 방법 보기
+            </a>
+          </form>
         </div>
 
-        {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
+        {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) — 본문 카드 밖, 접이식으로 축소 */}
         <DemoNotice variant="setup" />
-
-        <form onSubmit={handleSubmit} aria-describedby={error ? errorId : undefined}>
-          {/* 관리자 표시명 */}
-          <Field label="관리자 표시명" htmlFor={adminNameId} icon={<UserCog size={14} aria-hidden="true" />}>
-            <input
-              id={adminNameId}
-              type="text"
-              autoComplete="name"
-              value={adminName}
-              onChange={e => setAdminName(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
-              placeholder="예: 김○○ 목사 / 운영팀장"
-              required
-            />
-          </Field>
-
-          {/* 관리자 비밀번호 */}
-          <Field label="관리자 비밀번호 (최소 8자)" htmlFor={adminPwId} icon={<ShieldCheck size={14} aria-hidden="true" />}>
-            <input
-              id={adminPwId}
-              type={showPw ? 'text' : 'password'}
-              autoComplete="new-password"
-              value={adminPw}
-              onChange={e => setAdminPw(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
-              placeholder="알파벳·숫자·기호 조합 권장"
-              required
-              minLength={8}
-            />
-            <button
-              type="button"
-              onClick={() => setShowPw(v => !v)}
-              className="ml-2 text-slate-400 hover:text-[color:var(--eum-gold)]"
-              aria-label={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
-            >
-              {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
-            </button>
-          </Field>
-
-          {error && (
-            <div
-              id={errorId}
-              role="alert"
-              className="rounded-lg p-3 mb-4 text-xs"
-              style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: '#fecaca' }}
-            >
-              {error}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50"
-            style={{
-              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
-              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
-            }}
-          >
-            {submitting ? '설정 저장 중…' : '설정 완료 후 로그인 화면으로 이동'}
-          </button>
-
-          <a
-            href="https://github.com/lgh5440/eum-camp/blob/main/docs/AI_SETUP_GUIDE.md"
-            target="_blank"
-            rel="noopener"
-            className="block text-center mt-3 text-[11px] text-slate-400 hover:text-[color:var(--eum-gold)] underline underline-offset-2"
-          >
-            이 시스템을 다른 교회와 공유하는 방법 보기
-          </a>
-        </form>
       </div>
     </div>
   );
