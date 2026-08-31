@@ -164,6 +164,15 @@ export default function SetupScreen() {
           >
             {submitting ? '설정 저장 중…' : '설정 완료 후 로그인 화면으로 이동'}
           </button>
+
+          <a
+            href="https://github.com/lgh5440/eum-camp/blob/main/docs/AI_SETUP_GUIDE.md"
+            target="_blank"
+            rel="noopener"
+            className="block text-center mt-3 text-[11px] text-slate-400 hover:text-[color:var(--eum-gold)] underline underline-offset-2"
+          >
+            이 시스템을 다른 교회와 공유하는 방법 보기
+          </a>
         </form>
       </div>
     </div>
