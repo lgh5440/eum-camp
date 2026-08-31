@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --eum-orange:   #F08C28;
-  --eum-orange-d: #D87515;
-  --eum-orange-l: #FFB870;
-  --eum-navy:     #1B3A5C;
-  --eum-navy-d:   #0F2540;
-  --eum-cream:    #FFF8EC;
-  --eum-gold:     #FFD98C;
-  --eum-gold-l:   #FFD98C;
+  --eum-orange:   #1F5FD9;
+  --eum-orange-d: #17439C;
+  --eum-orange-l: #2F73F2;
+  --eum-navy:     #101A3D;
+  --eum-navy-d:   #0B142E;
+  --eum-cream:    #F8FBFF;
+  --eum-gold:     #1F5FD9;
+  --eum-gold-l:   #2F73F2;
   --eum-bg-0:     #EAF3FF;
   --eum-bg-1:     #F8FBFF;
   --eum-bg-2:     #FFFFFF;
