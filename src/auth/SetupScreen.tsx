@@ -66,6 +66,10 @@ export default function SetupScreen() {
       style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}
     >
       <div className="max-w-xl w-full">
+        {/* 체험판 배지 — 처음 들어올 때 바로 보이도록 카드 위 최상단에 항상 노출(숨기지 않음).
+            상세 설명(새벽 4시 초기화 등) 3줄만 접이식으로 감춘다. */}
+        <DemoNotice variant="setup" />
+
         <div
           className="rounded-2xl p-7"
           style={{
@@ -174,9 +178,6 @@ export default function SetupScreen() {
             </a>
           </form>
         </div>
-
-        {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) — 본문 카드 밖, 접이식으로 축소 */}
-        <DemoNotice variant="setup" />
       </div>
     </div>
   );

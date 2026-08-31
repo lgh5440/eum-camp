@@ -13,13 +13,13 @@ import { DEMO_CREDENTIALS, DEMO_RESET_LABEL } from './demoInfo';
 export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) {
   if (!DEMO_MODE) return null;
 
-  // 초기 설정 화면: 입력칸이 이미 체험용 기본값으로 채워져 있어 이 안내를 안 읽어도 진행할 수
-  // 있다. 그래서 본문과 같은 비중을 주지 않고 작은 배지(접힌 상태)로 화면 하단에만 둔다 —
-  // 제목·입력·버튼이라는 실제 해야 할 일이 이 안내에 덮이지 않게 하기 위함.
+  // 초기 설정 화면: '지금 체험판'이라는 사실 자체는 처음 들어오자마자 항상 보여야 하므로
+  // 카드 위 최상단에 작은 배지로 항상 노출한다(숨기지 않음). 새벽 4시 초기화 같은 상세
+  // 설명 3줄만 접이식으로 감춰 제목·입력·버튼을 가리지 않게 한다.
   if (variant === 'setup') {
     return (
       <details
-        className="mt-4 rounded-xl text-[11px] leading-relaxed [&::-webkit-details-marker]:hidden"
+        className="mb-4 rounded-xl text-[11px] leading-relaxed [&::-webkit-details-marker]:hidden"
         style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', color: '#3A4568' }}
       >
         <summary
@@ -28,7 +28,7 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
         >
           <span className="rounded-md bg-[#1B3A5C] px-2 py-0.5 text-[10px] font-black tracking-wider text-white">DEMO</span>
           <Info size={12} aria-hidden="true" />
-          체험용 데모 사이트 안내
+          지금 체험판입니다 — 자세히
         </summary>
         <ul className="space-y-1 px-3 pb-3 pt-0.5">
           <li>아래 값은 체험용 기본값입니다. 그대로 두고 시작하셔도 됩니다.</li>
