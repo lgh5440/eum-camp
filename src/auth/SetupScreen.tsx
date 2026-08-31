@@ -95,11 +95,11 @@ export default function SetupScreen() {
 
           <div
             className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
-            style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#fde68a' }}
+            style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#8A5300' }}
           >
-            <div className="font-semibold text-amber-200 mb-1">한 번만 진행되는 설정입니다</div>
+            <div className="font-semibold text-[#8A5300] mb-1">한 번만 진행되는 설정입니다</div>
             이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
-            로그인 후 <strong className="text-amber-100">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
+            로그인 후 <strong className="text-[#8A5300]">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
             있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
           </div>
 
