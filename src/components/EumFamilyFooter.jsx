@@ -130,7 +130,7 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
               </p>
               <p
                 className={s.tagline}
-                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.7)' }}
+                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.7)' }}
               >
                 {app.tagline}
               </p>
