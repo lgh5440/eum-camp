@@ -378,8 +378,9 @@ function DemoSyncCheckingScreen() {
       <div
         className="max-w-md w-full rounded-2xl p-7 text-center"
         style={{
-          background: 'rgba(2,12,28,0.85)',
-          border: '1px solid rgba(252,211,77,0.22)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(31,95,217,0.24)',
+          boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
         }}
       >
         <img
@@ -387,10 +388,10 @@ function DemoSyncCheckingScreen() {
           alt=""
           aria-hidden="true"
           className="w-10 h-10 object-contain mx-auto mb-3 animate-pulse"
-          style={{ filter: 'drop-shadow(0 0 12px rgba(240,188,120,0.45))' }}
+          style={{ filter: 'drop-shadow(0 0 12px rgba(31,95,217,0.35))' }}
         />
         <h2 className="text-base font-bold text-[#101A3D] mb-2">체험용 데이터를 불러오는 중…</h2>
-        <p className="text-xs text-slate-400 leading-relaxed">잠시만 기다려 주세요.</p>
+        <p className="text-xs text-[#5C6A93] leading-relaxed">잠시만 기다려 주세요.</p>
       </div>
     </div>
   );
@@ -405,12 +406,13 @@ function PendingSetupScreen() {
       <div
         className="max-w-md w-full rounded-2xl p-7 text-center"
         style={{
-          background: 'rgba(2,12,28,0.85)',
-          border: '1px solid rgba(252,211,77,0.22)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(31,95,217,0.24)',
+          boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
         }}
       >
         <h2 className="text-base font-bold text-[#101A3D] mb-2">행사 정보 등록 대기 중</h2>
-        <p className="text-xs text-slate-400 leading-relaxed">
+        <p className="text-xs text-[#5C6A93] leading-relaxed">
           관리자가 행사 기본 정보를 입력하면 운영 화면이 활성화됩니다.<br />
           잠시 후 다시 접속해 주세요.
         </p>

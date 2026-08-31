@@ -72,7 +72,7 @@ export default function LoginScreen() {
             src={EUM_BRAND.logoUrl}
             alt={EUM_BRAND.name}
             className="w-20 h-20 mx-auto mb-3 object-contain"
-            style={{ filter: 'drop-shadow(0 0 18px rgba(240,188,120,0.5))' }}
+            style={{ filter: 'hue-rotate(165deg) saturate(1.4) drop-shadow(0 0 18px rgba(31,95,217,0.35))' }}
           />
           <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold)' }}>{EVENT.district}</div>
           <h1 className="text-xl font-bold text-[#101A3D] mt-1 leading-tight">{EVENT.title}</h1>
@@ -86,7 +86,7 @@ export default function LoginScreen() {
           className="rounded-2xl p-6"
           style={{
             background: '#FFFFFF',
-            border: '1px solid rgba(201,150,43,0.32)',
+            border: '1px solid rgba(31,95,217,0.24)',
             boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
           }}
           aria-describedby={error ? errorId : undefined}
@@ -94,7 +94,7 @@ export default function LoginScreen() {
           <div className="flex items-center gap-2 mb-5">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: 'rgba(240,140,40,0.15)', border: '1px solid rgba(240,188,120,0.32)' }}
+              style={{ background: 'rgba(31,95,217,0.12)', border: '1px solid rgba(31,95,217,0.32)' }}
             >
               <Lock size={16} style={{ color: 'var(--eum-gold)' }} aria-hidden="true" />
             </div>
@@ -179,10 +179,10 @@ export default function LoginScreen() {
           <button
             type="submit"
             disabled={isLocked || submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-[#101A3D] transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
-              boxShadow: '0 6px 16px rgba(31,95,217,0.18)',
+              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
+              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
             }}
           >
             <LogIn size={14} aria-hidden="true" />

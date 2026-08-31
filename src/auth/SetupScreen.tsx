@@ -68,24 +68,24 @@ export default function SetupScreen() {
       <div
         className="max-w-xl w-full rounded-2xl p-7"
         style={{
-          background: 'rgba(2,12,28,0.85)',
-          border: '1px solid rgba(240,188,120,0.22)',
-          boxShadow: '0 0 40px rgba(240,140,40,0.12)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(31,95,217,0.24)',
+          boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
         }}
       >
         <div className="flex items-center gap-3 mb-5">
           <div
             className="w-12 h-12 rounded-xl flex items-center justify-center"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
-              boxShadow: '0 0 16px rgba(240,140,40,0.45)',
+              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
+              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
             }}
           >
-            <ShieldCheck size={22} className="text-[#101A3D]" aria-hidden="true" />
+            <ShieldCheck size={22} className="text-white" aria-hidden="true" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-[#101A3D]">초기 설정</h1>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-[#5C6A93] mt-0.5">
               {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호를 설정합니다
             </p>
           </div>
@@ -156,10 +156,10 @@ export default function SetupScreen() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-[#101A3D] transition-opacity disabled:opacity-50"
+            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50"
             style={{
-              background: 'linear-gradient(135deg,#F08C28,#FFD98C)',
-              boxShadow: '0 0 16px rgba(240,140,40,0.45)',
+              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
+              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
             }}
           >
             {submitting ? '설정 저장 중…' : '설정 완료 후 로그인 화면으로 이동'}
@@ -189,12 +189,12 @@ function Field({
 }) {
   return (
     <div className="mb-3">
-      <label htmlFor={htmlFor} className="block text-[11px] font-medium text-slate-300 mb-1.5">
+      <label htmlFor={htmlFor} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
         {label}
       </label>
       <div
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+        style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
       >
         <span style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0">{icon}</span>
         {children}
