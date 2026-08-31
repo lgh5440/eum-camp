@@ -236,25 +236,25 @@ export default function UserGuide({ onNavigate }: Props) {
         {/* 진행위원 비밀번호 — 운영팀 */}
         <div
           className="rounded-2xl p-4"
-          style={{ background: 'rgba(240,140,40,0.08)', border: '1px solid rgba(240,188,120,0.3)' }}
+          style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(47,115,242,0.3)' }}
         >
           <div className="flex items-center gap-2 mb-3">
             <span
               className="w-8 h-8 rounded-xl flex items-center justify-center"
-              style={{ background: 'rgba(240,140,40,0.18)', color: '#FFB870' }}
+              style={{ background: 'rgba(31,95,217,0.18)', color: '#2F73F2' }}
             >
               <KeyRound size={15} />
             </span>
             <div>
-              <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: '#FFB870' }}>진행위원 비밀번호를 받으셨다면</div>
+              <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: '#2F73F2' }}>진행위원 비밀번호를 받으셨다면</div>
               <div className="text-sm font-bold text-[#101A3D]">운영팀 (편집 권한)</div>
             </div>
           </div>
           <ul className="space-y-1.5 text-xs text-slate-300 leading-relaxed">
-            <li className="flex gap-2"><span className="font-bold" style={{ color: '#FFB870' }}>1.</span><span>아래 <strong style={{ color: '#FFB870' }}>권장 운영 순서</strong> 1~10단계대로 진행</span></li>
-            <li className="flex gap-2"><span className="font-bold" style={{ color: '#FFB870' }}>2.</span><span>작업 시작 전 <strong style={{ color: '#FFB870' }}>데이터 관리 → 백업 다운로드</strong> 필수</span></li>
-            <li className="flex gap-2"><span className="font-bold" style={{ color: '#FFB870' }}>3.</span><span>여러 명이 동시에 편집하면 마지막 저장이 덮어씁니다 — 한 번에 한 명씩</span></li>
-            <li className="flex gap-2"><span className="font-bold" style={{ color: '#FFB870' }}>4.</span><span>모든 변경은 클라우드에 자동 저장 — 다른 기기에서도 즉시 보임</span></li>
+            <li className="flex gap-2"><span className="font-bold" style={{ color: '#2F73F2' }}>1.</span><span>아래 <strong style={{ color: '#2F73F2' }}>권장 운영 순서</strong> 1~10단계대로 진행</span></li>
+            <li className="flex gap-2"><span className="font-bold" style={{ color: '#2F73F2' }}>2.</span><span>작업 시작 전 <strong style={{ color: '#2F73F2' }}>데이터 관리 → 백업 다운로드</strong> 필수</span></li>
+            <li className="flex gap-2"><span className="font-bold" style={{ color: '#2F73F2' }}>3.</span><span>여러 명이 동시에 편집하면 마지막 저장이 덮어씁니다 — 한 번에 한 명씩</span></li>
+            <li className="flex gap-2"><span className="font-bold" style={{ color: '#2F73F2' }}>4.</span><span>모든 변경은 클라우드에 자동 저장 — 다른 기기에서도 즉시 보임</span></li>
           </ul>
           <div
             className="mt-3 px-3 py-2 rounded-lg text-[11px] text-slate-400"

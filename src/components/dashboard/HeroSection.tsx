@@ -9,14 +9,14 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
   return (
     <div className="relative rounded-3xl overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, rgba(240,140,40,0.16) 0%, rgba(27,58,92,0.45) 50%, rgba(15,37,64,0.55) 100%)',
-        border: '1px solid rgba(240,188,120,0.25)',
-        boxShadow: '0 0 80px rgba(240,140,40,0.08)',
+        background: 'linear-gradient(135deg, rgba(31,95,217,0.16) 0%, rgba(27,58,92,0.45) 50%, rgba(15,37,64,0.55) 100%)',
+        border: '1px solid rgba(47,115,242,0.25)',
+        boxShadow: '0 0 80px rgba(31,95,217,0.08)',
       }}>
       <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(240,140,40,0.14) 0%, transparent 65%)' }}/>
+        style={{ background: 'radial-gradient(circle, rgba(31,95,217,0.14) 0%, transparent 65%)' }}/>
       <div className="absolute -bottom-20 -left-12 w-64 h-64 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(201,150,43,0.10) 0%, transparent 60%)' }}/>
+        style={{ background: 'radial-gradient(circle, rgba(47,115,242,0.10) 0%, transparent 60%)' }}/>
       <div className="relative z-10 flex items-center justify-between gap-4 sm:gap-6 px-5 sm:px-10 py-6 sm:py-10">
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -51,7 +51,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
               backgroundImage: `url(${EVENT.heroImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              border: '1px solid rgba(240,188,120,0.18)',
+              border: '1px solid rgba(47,115,242,0.18)',
               boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
             }}
             aria-label="행사 메인 이미지"
@@ -71,7 +71,7 @@ function EumLogoBadge() {
         src={EUM_BRAND.logoUrl}
         alt={EUM_BRAND.name}
         className="w-32 h-32 lg:w-40 lg:h-40 object-contain opacity-90"
-        style={{ filter: 'drop-shadow(0 0 24px rgba(240,188,120,0.45))' }}
+        style={{ filter: 'drop-shadow(0 0 24px rgba(47,115,242,0.45))' }}
       />
     </div>
   );

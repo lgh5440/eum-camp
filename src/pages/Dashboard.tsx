@@ -90,13 +90,13 @@ function HeroDecoration() {
         style={{
           background: 'rgba(255,255,255,0.07)',
           border: '1px solid rgba(37, 99, 235,0.4)',
-          boxShadow: '0 0 28px rgba(240,188,120,0.28), inset 0 0 20px rgba(37, 99, 235,0.05)',
+          boxShadow: '0 0 28px rgba(47,115,242,0.28), inset 0 0 20px rgba(37, 99, 235,0.05)',
         }}
       >
         <div className="absolute top-0 left-0 right-0 h-0.5"
           style={{ background: 'linear-gradient(to right, transparent, rgba(37, 99, 235,0.6), transparent)' }} />
         <div className="w-10 h-10 rounded-full flex items-center justify-center text-lg"
-          style={{ background: 'rgba(240,188,120,0.28)', border: '1px solid rgba(37, 99, 235,0.4)' }}>
+          style={{ background: 'rgba(47,115,242,0.28)', border: '1px solid rgba(37, 99, 235,0.4)' }}>
           👤
         </div>
         <div className="space-y-1 w-full px-4">
@@ -270,7 +270,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         }}
       >
         <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(240,140,40,0.10) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(47,115,242,0.10) 0%, transparent 65%)' }} />
         <div className="absolute -bottom-20 -left-12 w-64 h-64 rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)' }} />
 
@@ -295,7 +295,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
               {EVENT.theme}
             </h1>
-            <p className="font-bold" style={{ color: '#FFD98C', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
+            <p className="font-bold" style={{ color: 'var(--eum-gold)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
               {EVENT.subTheme}
             </p>
 
@@ -394,7 +394,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="flex flex-wrap items-center gap-2 mb-4 pb-2.5"
           style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
           <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
-            style={{ background: 'rgba(240,188,120,0.28)' }}>📊</span>
+            style={{ background: 'rgba(47,115,242,0.28)' }}>📊</span>
           <h3 className="text-sm font-bold text-[#101A3D]">운영 준비 현황</h3>
 
           {warnings.length === 0 ? (
@@ -676,7 +676,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         >
           <div className={CARD_HEADER} style={CARD_HEADER_STYLE}>
             <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
-              style={{ background: 'rgba(240,188,120,0.28)' }}>📅</span>
+              style={{ background: 'rgba(47,115,242,0.28)' }}>📅</span>
             <h3 className="text-sm font-bold text-[#101A3D]">프로그램 일정</h3>
             <span className="ml-auto text-[10px] text-slate-500">편집 ›</span>
           </div>
@@ -838,7 +838,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           aria-label="운영 체크리스트 페이지로 이동">
           <div className={CARD_HEADER} style={CARD_HEADER_STYLE}>
             <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
-              style={{ background: 'rgba(240,188,120,0.28)' }}>☑️</span>
+              style={{ background: 'rgba(47,115,242,0.28)' }}>☑️</span>
             <h3 className="text-sm font-bold text-[#101A3D]">운영 체크리스트</h3>
             <span className="ml-auto text-xs text-slate-500 flex-shrink-0">
               {ckStats.doneCount}/{ckStats.total}

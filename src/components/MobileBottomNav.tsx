@@ -25,7 +25,7 @@ export default function MobileBottomNav({ currentPage, onNavigate, onOpenMenu }:
         paddingBottom: 'var(--eum-safe-bottom)',
         background: 'rgba(2,8,24,0.92)',
         backdropFilter: 'blur(14px)',
-        borderTop: '1px solid rgba(201,150,43,0.18)',
+        borderTop: '1px solid rgba(31,95,217,0.18)',
       }}
     >
       <ul className="grid grid-cols-5 h-16 m-0 p-0 list-none">
@@ -44,7 +44,7 @@ export default function MobileBottomNav({ currentPage, onNavigate, onOpenMenu }:
                 }}
               >
                 <span style={{
-                  filter: isActive ? 'drop-shadow(0 0 6px rgba(240,188,120,0.55))' : 'none',
+                  filter: isActive ? 'drop-shadow(0 0 6px rgba(47,115,242,0.55))' : 'none',
                 }}>
                   {tab.icon}
                 </span>

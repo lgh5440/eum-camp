@@ -320,7 +320,7 @@ export default function CheckIn() {
 
   const selectStyle: React.CSSProperties = {
     background: 'rgba(255,255,255,0.05)',
-    border: '1px solid rgba(240,188,120,0.28)',
+    border: '1px solid rgba(47,115,242,0.28)',
     borderRadius: '10px',
     color: '#94a3b8',
     padding: '6px 10px',
@@ -389,7 +389,7 @@ export default function CheckIn() {
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(37, 99, 235,0.3)',
             fontSize: '16px',
-            boxShadow: search ? '0 0 0 2px rgba(240,188,120,0.28)' : 'none',
+            boxShadow: search ? '0 0 0 2px rgba(47,115,242,0.28)' : 'none',
           }}
         />
         {search && (
@@ -406,7 +406,7 @@ export default function CheckIn() {
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3">
 
         {/* 전체 인원 */}
-        <div className={STAT_BASE} style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px solid rgba(240,188,120,0.28)' }}>
+        <div className={STAT_BASE} style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px solid rgba(47,115,242,0.28)' }}>
           <div className="flex items-center gap-1.5">
             <Users size={13} className="text-[color:var(--eum-gold)]" />
             <span className="text-[11px] text-slate-400">전체 인원</span>

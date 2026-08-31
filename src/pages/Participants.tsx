@@ -140,7 +140,7 @@ export default function Participants() {
         <div className="flex items-center gap-2 flex-wrap justify-end">
           <div
             className="flex items-center gap-2 px-3 py-2 rounded-xl"
-            style={{ background: 'rgba(240,140,40,0.10)', border: '1px solid rgba(240,188,120,0.28)' }}
+            style={{ background: 'rgba(31,95,217,0.10)', border: '1px solid rgba(47,115,242,0.28)' }}
           >
             <Users size={14} className="text-[color:var(--eum-gold)]" />
             <span className="text-sm text-[color:var(--eum-gold)] font-bold">

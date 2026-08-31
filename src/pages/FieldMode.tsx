@@ -220,7 +220,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
           <button
             onClick={handleRefresh}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:opacity-80"
-            style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.3)', color: '#FFD98C' }}
+            style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.3)', color: 'var(--eum-gold)' }}
           >
             <RefreshCw size={12} />
             지금 갱신
@@ -254,7 +254,7 @@ export default function FieldMode({ onNavigate }: FieldModeProps) {
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3">
 
         {/* 전체 인원 */}
-        <div className="rounded-2xl p-4" style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px solid rgba(240,188,120,0.28)' }}>
+        <div className="rounded-2xl p-4" style={{ background: 'rgba(37, 99, 235,0.08)', border: '1px solid rgba(47,115,242,0.28)' }}>
           <div className="flex items-center gap-2 mb-1">
             <Users size={14} className="text-[color:var(--eum-gold)]" />
             <span className="text-[11px] text-slate-400">전체 인원</span>

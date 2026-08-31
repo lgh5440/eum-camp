@@ -193,7 +193,7 @@ function MainShell() {
                 src={EUM_BRAND.logoUrl}
                 alt={EUM_BRAND.name}
                 className="lg:hidden flex-shrink-0 w-7 h-7 object-contain"
-                style={{ filter: 'drop-shadow(0 0 6px rgba(240,188,120,0.4))' }}
+                style={{ filter: 'drop-shadow(0 0 6px rgba(47,115,242,0.4))' }}
                 aria-hidden="true"
               />
               <span className="text-[11px] text-slate-500 whitespace-nowrap hidden sm:block">
@@ -289,7 +289,7 @@ function PageLoading() {
         alt=""
         aria-hidden="true"
         className="w-12 h-12 object-contain animate-pulse"
-        style={{ filter: 'drop-shadow(0 0 12px rgba(240,188,120,0.45))' }}
+        style={{ filter: 'drop-shadow(0 0 12px rgba(47,115,242,0.45))' }}
       />
       <span>로딩 중…</span>
     </div>

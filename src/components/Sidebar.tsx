@@ -7,7 +7,7 @@ import { EVENT, computeDdayLabel } from '../data/eventInfo';
 import { useAuth } from '../auth/useAuth';
 import { useMenuVisibility } from '../hooks/useSharedData';
 import { isMenuVisible } from '../utils/menuVisibilityStorage';
-import { EUM_BRAND, EUM_COLORS } from '../data/eumBrand';
+import { EUM_BRAND } from '../data/eumBrand';
 
 export type PageKey =
   | 'dashboard' | 'participants' | 'applications' | 'churches' | 'groups'
@@ -107,15 +107,15 @@ export default function Sidebar({
         `}
         style={{
           background: 'linear-gradient(180deg, #020c1e 0%, #071a36 60%, #0a2040 100%)',
-          borderRight: '1px solid rgba(201,150,43,0.18)',
+          borderRight: '1px solid rgba(31,95,217,0.18)',
         }}
       >
         {/* E:um 브랜드 영역 (모든 페이지 공통 고정) */}
         <div
           className="flex items-center gap-3 px-4 py-4 flex-shrink-0 relative"
           style={{
-            borderBottom: `1px solid ${EUM_COLORS.orangeL}33`,
-            background: `linear-gradient(135deg, ${EUM_COLORS.orange}0F 0%, rgba(15,37,64,0.4) 100%)`,
+            borderBottom: '1px solid #2F73F233',
+            background: 'linear-gradient(135deg, #1F5FD90F 0%, rgba(15,37,64,0.4) 100%)',
           }}
         >
           {/* E:um 로고 — 좌측 */}
@@ -124,7 +124,7 @@ export default function Sidebar({
             style={{
               width: collapsed ? 36 : 64,
               height: collapsed ? 36 : 64,
-              filter: `drop-shadow(0 0 10px ${EUM_COLORS.goldL}40)`,
+              filter: 'drop-shadow(0 0 10px #2F73F240)',
               transition: 'all 0.3s ease',
             }}
           >
@@ -184,11 +184,11 @@ export default function Sidebar({
           <div
             className="mx-3 mt-3 mb-1 px-3 py-2 rounded-xl text-center flex-shrink-0"
             style={{
-              background: 'linear-gradient(135deg, rgba(240,140,40,0.12) 0%, rgba(201,150,43,0.08) 100%)',
-              border: '1px solid rgba(240,188,120,0.28)',
+              background: 'linear-gradient(135deg, rgba(31,95,217,0.12) 0%, rgba(47,115,242,0.08) 100%)',
+              border: '1px solid rgba(47,115,242,0.28)',
             }}
           >
-            <div className="text-[10px] font-medium" style={{ color: 'rgba(240,188,120,0.9)' }}>{EVENT.dateBadge}</div>
+            <div className="text-[10px] font-medium" style={{ color: 'rgba(111,167,255,0.9)' }}>{EVENT.dateBadge}</div>
             <div className="text-[11px] font-bold mt-0.5" style={{ color: '#fff' }}>{computeDdayLabel()}</div>
           </div>
         )}
@@ -218,7 +218,7 @@ export default function Sidebar({
                     style={isActive
                       ? {
                           boxShadow: 'inset 3px 0 0 var(--eum-gold)',
-                          background: 'linear-gradient(90deg, rgba(240,140,40,0.16) 0%, rgba(201,150,43,0.06) 100%)',
+                          background: 'linear-gradient(90deg, rgba(31,95,217,0.16) 0%, rgba(47,115,242,0.06) 100%)',
                         }
                       : {}}
                   >
@@ -251,11 +251,11 @@ export default function Sidebar({
             <div
               className="mt-3 px-3 py-2.5 rounded-xl"
               style={{
-                background: 'linear-gradient(135deg, rgba(240,140,40,0.10) 0%, rgba(15,37,64,0.5) 100%)',
-                border: '1px solid rgba(240,188,120,0.22)',
+                background: 'linear-gradient(135deg, rgba(31,95,217,0.10) 0%, rgba(15,37,64,0.5) 100%)',
+                border: '1px solid rgba(47,115,242,0.22)',
               }}
             >
-              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgba(240,188,120,0.9)' }}>
+              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgba(111,167,255,0.9)' }}>
                 2026 THEME
               </div>
               <div className="text-xs text-[#101A3D] font-bold mt-1 leading-tight">
@@ -270,7 +270,7 @@ export default function Sidebar({
             <div className="mt-3 flex items-center justify-center gap-1.5 opacity-60">
               <img src="/eum-logo.png" alt="E:UM" className="w-3.5 h-3.5 object-contain" />
               <span className="text-[9px] text-slate-500">
-                Built by <span style={{ color: 'rgba(240,188,120,0.8)' }}>E:UM</span> · 이음
+                Built by <span style={{ color: 'rgba(111,167,255,0.8)' }}>E:UM</span> · 이음
               </span>
             </div>
           </div>
