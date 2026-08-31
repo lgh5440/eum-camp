@@ -36,6 +36,8 @@ import { loadEventConfig, EVENT_CONFIG_KEY } from './config/eventConfigStorage';
 const CloudSyncProvider = lazy(() => import('./services/CloudSyncProvider'));
 import ToastProvider, { useToast, registerToastBus } from './components/ToastProvider';
 import { DEMO_MODE } from './demo/demoConfig';
+import { DEMO_CREDENTIALS } from './demo/demoInfo';
+import { saveCreds, saveSession } from './auth/storage';
 import { ensureFirebaseAuth } from './services/firebase';
 import { fetchCloudStateOnce } from './services/cloudStoreImpl';
 import './index.css';
@@ -108,7 +110,7 @@ function MainShell() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed]   = useState(false);
 
-  const { state, logout } = useAuth();
+  const { state, logout, resetInstallation } = useAuth();
   const session = state.session!; // MainShell은 session이 있을 때만 렌더됨
 
   // 페이지 변경 → URL hash + localStorage 동기화
@@ -225,6 +227,23 @@ function MainShell() {
             <span className="text-xs text-slate-500 hidden lg:block whitespace-nowrap">
               {EVENT.dateShort} · {EVENT.venue}
             </span>
+            {/* 체험판 → 설치 전환 — 항상 보이는 위치(헤더)에 상시 노출, 데모 배포본에서만 */}
+            {DEMO_MODE && (
+              <button
+                type="button"
+                onClick={() => {
+                  try { localStorage.setItem(DEMO_INSTALL_CHOSEN_KEY, '1'); } catch { /* 저장 실패해도 진행 */ }
+                  resetInstallation();
+                }}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-opacity"
+                style={{ background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)' }}
+                aria-label="내 교회로 설정하기 — 지금은 체험판입니다"
+                title="지금은 체험판입니다. 눌러서 우리 교회 계정으로 설정하세요."
+              >
+                <UserCog size={13} aria-hidden="true" />
+                <span className="hidden sm:inline">내 교회로 설정하기</span>
+              </button>
+            )}
             <button
               type="button"
               onClick={logout}
@@ -334,6 +353,51 @@ function useDemoEventConfigBootstrap(active: boolean): boolean {
   return effectiveActive && !resolved;
 }
 
+// 데모 배포본 전용 — 신규 방문자(이 브라우저에 creds가 없는 상태)를 SetupScreen/LoginScreen
+// 없이 곧장 체험판(대시보드, 데모 데이터 채워진 상태)으로 자동 진입시킨다.
+// 오너 피드백: "들어가면 그냥 체험부터 하고 괜찮으면 설치해서 사용하는건데 무슨 설정이고
+// 지랄이고야?" — 설정 화면이 먼저 뜨는 순서 자체가 문제라 판단해 여기서 바로잡는다.
+//
+// setup()/login() React 콜백 대신 그 아래의 storage.ts 함수(saveCreds/saveSession)를 직접
+// 호출한다 — login 콜백은 state.creds 를 closure로 캡처하므로, 방금 저장한 creds가 아직
+// 리렌더에 반영되지 않은 시점에 부르면 "creds 없음"으로 오판해 실패할 수 있다(레이스).
+// saveCreds/saveSession은 이미 publishStorageChange를 호출해 AuthProvider의
+// listenStorageChange 구독이 같은 탭에서도 즉시 state.creds/state.session을 갱신하므로,
+// 그 뒤로는 기존 useDemoEventConfigBootstrap이 평소와 똑같이 이어받아 클라우드 데모
+// seed(eventConfig)를 채운다 — 새 로직을 만들지 않고 기존 두 훅을 그대로 잇기만 한다.
+//
+// '내 교회로 설정하기'를 눌러 설치를 선택한 브라우저는(DEMO_INSTALL_CHOSEN_KEY) 다시
+// 자동 진입시키지 않는다 — 그래야 재설정 중 SetupScreen 입력이 이 훅에 덮이지 않는다.
+const DEMO_INSTALL_CHOSEN_KEY = 'eum-camp:demo:installChosen';
+
+function useDemoAutoEnter(active: boolean, hasCreds: boolean, hasSession: boolean): boolean {
+  const shouldStart = active && !hasCreds;
+
+  useEffect(() => {
+    if (!shouldStart) return;
+    void (async () => {
+      try {
+        await saveCreds({
+          adminPassword: DEMO_CREDENTIALS.adminPassword,
+          adminName: DEMO_CREDENTIALS.adminName,
+          committeePin: DEMO_CREDENTIALS.committeePin,
+        });
+        saveSession({
+          role: 'admin',
+          displayName: DEMO_CREDENTIALS.adminName,
+          loginAt: new Date().toISOString(),
+        });
+      } catch (error) {
+        console.warn('[demo] 자동 체험 진입 실패 — 수동 설정 화면으로 진행합니다.', error);
+      }
+    })();
+  }, [shouldStart]);
+
+  // creds/session 둘 중 하나라도 아직 없으면(진행 중) 로딩 화면을 유지해
+  // SetupScreen/LoginScreen이 한 프레임이라도 스치듯 보이는 걸 막는다.
+  return active && !(hasCreds && hasSession);
+}
+
 function AuthGate() {
   const { state } = useAuth();
   const applyPage = getHashPage() === 'apply';
@@ -341,6 +405,15 @@ function AuthGate() {
   const configured = isEventConfigured(loadEventConfig());
   const demoActive = DEMO_MODE && loggedIn && !applyPage && !configured;
   const demoChecking = useDemoEventConfigBootstrap(demoActive);
+
+  let installChosen = false;
+  try {
+    installChosen = localStorage.getItem(DEMO_INSTALL_CHOSEN_KEY) === '1';
+  } catch {
+    // 저장소를 못 읽으면 안전한 쪽(자동체험 계속 시도)으로 둔다.
+  }
+  const autoEnterActive = DEMO_MODE && !applyPage && !installChosen;
+  const autoEntering = useDemoAutoEnter(autoEnterActive, Boolean(state.creds), Boolean(state.session));
 
   if (applyPage) {
     return (
@@ -351,6 +424,7 @@ function AuthGate() {
       </Suspense>
     );
   }
+  if (autoEntering) return <DemoSyncCheckingScreen />;
   if (!state.creds)   return <SetupScreen />;
   if (!state.session) return <LoginScreen />;
   // 첫 부팅 — 행사 정보가 비어있으면 admin에게 강제 마법사. committee는 admin이 채울 때까지 대기.

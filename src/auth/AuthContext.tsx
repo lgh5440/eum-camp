@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { AuthState, Role, Session } from './types';
 import {
-  clearSession, CREDS_KEY, loadAttempts, loadCreds, loadSession, resetAttempts, SESSION_KEY,
+  clearCreds, clearSession, CREDS_KEY, loadAttempts, loadCreds, loadSession, resetAttempts, SESSION_KEY,
   rotateCreds, saveAttempts, saveCreds, saveSession, hash,
 } from './storage';
 import { AuthContext, type AuthContextValue } from './authContextValue';
@@ -88,6 +88,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setState(s => ({ ...s, session: null }));
   }, []);
 
+  // 데모 체험(자동 설정+로그인)에서 '내 교회로 설정하기'로 전환할 때 씀 — creds까지 지워
+  // AuthGate가 SetupScreen부터 다시 보여주게 한다.
+  const resetInstallation = useCallback(() => {
+    clearCreds();
+    setState(s => ({ ...s, creds: null, session: null, failedAttempts: 0, lockedUntil: null }));
+  }, []);
+
   const rotate = useCallback(async (args: Partial<{ adminPassword: string; committeePin: string; adminName: string }>): Promise<boolean> => {
     if (state.session?.role !== 'admin') return false;
     const next = await rotateCreds(args);
@@ -106,8 +113,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [state.session?.role]);
 
   const value = useMemo<AuthContextValue>(() => ({
-    state, setup, login, logout, rotate, isAdmin, can,
-  }), [state, setup, login, logout, rotate, isAdmin, can]);
+    state, setup, login, logout, rotate, resetInstallation, isAdmin, can,
+  }), [state, setup, login, logout, rotate, resetInstallation, isAdmin, can]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
