@@ -75,7 +75,7 @@ export default function LoginScreen() {
             style={{ filter: 'hue-rotate(165deg) saturate(1.4) drop-shadow(0 0 18px rgba(31,95,217,0.35))' }}
           />
           <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold)' }}>{EVENT.district}</div>
-          <h1 className="text-xl font-bold text-[#101A3D] mt-1 leading-tight">{EVENT.title}</h1>
+          <h1 className="text-[26px] font-extrabold text-[#101A3D] mt-1 leading-tight tracking-[-0.01em]">{EVENT.title}</h1>
           <div className="text-xs text-[#5C6A93] mt-1">
             {EVENT.theme} · {EVENT.dates}
           </div>
@@ -83,7 +83,7 @@ export default function LoginScreen() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl p-6"
+          className="rounded-[29px] pt-[38px] px-[28px] pb-[28px]"
           style={{
             background: '#FFFFFF',
             border: '1px solid rgba(31,95,217,0.24)',
@@ -104,7 +104,8 @@ export default function LoginScreen() {
             </div>
           </div>
 
-          {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
+          {/* 구분선 — 이음카드 .rule 기준(1px #E5EEFB, margin 24px 0 20px) */}
+          <div style={{ height: 1, background: '#E5EEFB', margin: '24px 0 20px' }} />
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
@@ -117,7 +118,7 @@ export default function LoginScreen() {
             value={name}
             onChange={e => setName(e.target.value)}
             className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none"
-            style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
+            style={{ background: '#FFFFFF', border: '1px solid rgba(31,95,217,0.24)' }}
             placeholder="예: 김교사"
             disabled={isLocked || submitting}
           />
@@ -128,7 +129,7 @@ export default function LoginScreen() {
           </label>
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
-            style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
+            style={{ background: '#FFFFFF', border: '1px solid rgba(31,95,217,0.24)' }}
           >
             <Lock size={14} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0" aria-hidden="true" />
             <input
@@ -179,10 +180,10 @@ export default function LoginScreen() {
           <button
             type="submit"
             disabled={isLocked || submitting}
-            className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
+            className="w-full py-4 px-[18px] rounded-2xl text-[15px] font-bold text-white transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
-              boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
+              boxShadow: '0 14px 26px -12px rgba(47,115,242,0.5)',
             }}
           >
             <LogIn size={14} aria-hidden="true" />
