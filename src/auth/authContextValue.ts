@@ -7,7 +7,7 @@ import type { AuthAction } from './useAuth';
 
 export interface AuthContextValue {
   state: AuthState;
-  setup: (args: { adminPassword: string; committeePin: string; adminName: string }) => Promise<void>;
+  setup: (args: { adminPassword: string; committeePin?: string; adminName: string }) => Promise<void>;
   login: (input: string, displayName: string) => Promise<Role | null>;
   logout: () => void;
   rotate: (args: Partial<{ adminPassword: string; committeePin: string; adminName: string }>) => Promise<boolean>;

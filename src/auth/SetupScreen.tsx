@@ -2,7 +2,7 @@
 // 이후에는 LoginScreen이 표시된다.
 
 import { useId, useState } from 'react';
-import { ShieldCheck, Eye, EyeOff, KeyRound, UserCog } from 'lucide-react';
+import { ShieldCheck, Eye, EyeOff, UserCog } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
 import DemoNotice from '../demo/DemoNotice';
@@ -24,16 +24,10 @@ export default function SetupScreen() {
   const { setup } = useAuth();
   const adminNameId = useId();
   const adminPwId   = useId();
-  const adminPw2Id  = useId();
-  const pinId       = useId();
-  const pin2Id      = useId();
   const errorId     = useId();
 
   const [adminName, setAdminName]   = useState(PREFILL.adminName);
   const [adminPw, setAdminPw]       = useState(PREFILL.adminPw);
-  const [adminPw2, setAdminPw2]     = useState(PREFILL.adminPw);
-  const [pin, setPin]               = useState(PREFILL.pin);
-  const [pin2, setPin2]             = useState(PREFILL.pin);
   const [showPw, setShowPw]         = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState<string | null>(null);
@@ -41,10 +35,6 @@ export default function SetupScreen() {
   function validate(): string | null {
     if (!adminName.trim())                            return '관리자 표시명을 입력해 주세요.';
     if (adminPw.length < 8)                            return '관리자 비밀번호는 최소 8자 이상이어야 합니다.';
-    if (adminPw !== adminPw2)                          return '관리자 비밀번호 확인이 일치하지 않습니다.';
-    if (!/^\d{4,6}$/.test(pin))                        return '운영위원 PIN은 숫자 4~6자리로 입력해 주세요.';
-    if (pin !== pin2)                                  return '운영위원 PIN 확인이 일치하지 않습니다.';
-    if (adminPw === pin)                               return '관리자 비밀번호와 운영위원 PIN은 서로 달라야 합니다.';
     return null;
   }
 
@@ -55,7 +45,14 @@ export default function SetupScreen() {
     setError(null);
     setSubmitting(true);
     try {
-      await setup({ adminPassword: adminPw, committeePin: pin, adminName });
+      // 운영위원 PIN은 여기서 받지 않는다 — 나중에 관리자가 '진행위원 인증 설정'(AdminAuthSettings)의
+      // rotate()로 추가한다. 단, 데모 배포본은 기존처럼 PIN 체험(조회 전용 로그인)이 바로 되어야
+      // 하므로 DEMO_MODE에서만 프리필된 데모 PIN을 조용히 함께 전달한다(화면에는 입력칸 없음).
+      await setup({
+        adminPassword: adminPw,
+        adminName,
+        ...(DEMO_MODE ? { committeePin: PREFILL.pin } : {}),
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : '설정 중 오류가 발생했습니다.');
     } finally {
@@ -89,7 +86,7 @@ export default function SetupScreen() {
           <div>
             <h1 className="text-lg font-bold text-[#101A3D]">초기 설정</h1>
             <p className="text-xs text-slate-400 mt-0.5">
-              {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호와 운영위원 공유 PIN을 설정합니다
+              {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호를 설정합니다
             </p>
           </div>
         </div>
@@ -99,9 +96,9 @@ export default function SetupScreen() {
           style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#fde68a' }}
         >
           <div className="font-semibold text-amber-200 mb-1">한 번만 진행되는 설정입니다</div>
-          이 비밀번호와 PIN은 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원에게는
-          <strong className="text-amber-100"> PIN만 </strong>
-          공유하시고, 관리자 비밀번호는 절대 공유하지 마세요.
+          이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
+          로그인 후 <strong className="text-amber-100">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
+          있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
         </div>
 
         {/* 데모 배포본에서만 노출되는 체험 안내 (VITE_DEMO_MODE) */}
@@ -143,49 +140,6 @@ export default function SetupScreen() {
             >
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
             </button>
-          </Field>
-
-          <Field label="관리자 비밀번호 확인" htmlFor={adminPw2Id} icon={<ShieldCheck size={14} aria-hidden="true" />}>
-            <input
-              id={adminPw2Id}
-              type={showPw ? 'text' : 'password'}
-              autoComplete="new-password"
-              value={adminPw2}
-              onChange={e => setAdminPw2(e.target.value)}
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
-              required
-              minLength={8}
-            />
-          </Field>
-
-          {/* 운영위원 PIN */}
-          <Field label="운영위원 공유 PIN (숫자 4~6자리)" htmlFor={pinId} icon={<KeyRound size={14} aria-hidden="true" />}>
-            <input
-              id={pinId}
-              type="text"
-              inputMode="numeric"
-              pattern="[0-9]{4,6}"
-              autoComplete="off"
-              value={pin}
-              onChange={e => setPin(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
-              placeholder="예: 0726"
-              required
-            />
-          </Field>
-
-          <Field label="운영위원 PIN 확인" htmlFor={pin2Id} icon={<KeyRound size={14} aria-hidden="true" />}>
-            <input
-              id={pin2Id}
-              type="text"
-              inputMode="numeric"
-              pattern="[0-9]{4,6}"
-              autoComplete="off"
-              value={pin2}
-              onChange={e => setPin2(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
-              required
-            />
           </Field>
 
           {error && (

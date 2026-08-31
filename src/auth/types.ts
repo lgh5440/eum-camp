@@ -9,8 +9,8 @@ export type Role = 'admin' | 'committee';
 export interface AuthCreds {
   /** 관리자 비밀번호 SHA-256 해시 (hex) */
   adminHash: string;
-  /** 운영위원 공유 PIN SHA-256 해시 (hex) */
-  committeeHash: string;
+  /** 운영위원 공유 PIN SHA-256 해시 (hex) — 미설정이면 null (설정 화면 이후 관리자가 나중에 추가 가능) */
+  committeeHash: string | null;
   /** 관리자 표시명 (헤더에 표시) */
   adminName: string;
   /** 첫 설정 시각 (ISO) */

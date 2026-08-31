@@ -49,7 +49,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const setup = useCallback(async (args: { adminPassword: string; committeePin: string; adminName: string }) => {
+  const setup = useCallback(async (args: { adminPassword: string; committeePin?: string; adminName: string }) => {
     const creds = await saveCreds(args);
     setState(s => ({ ...s, creds }));
   }, []);
@@ -61,8 +61,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const h = await hash(input);
     let role: Role | null = null;
-    if (h === creds.adminHash)          role = 'admin';
-    else if (h === creds.committeeHash) role = 'committee';
+    if (h === creds.adminHash)                              role = 'admin';
+    else if (creds.committeeHash && h === creds.committeeHash) role = 'committee';
 
     if (!role) {
       const next = state.failedAttempts + 1;

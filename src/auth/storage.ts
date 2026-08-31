@@ -29,7 +29,7 @@ export function loadCreds(): AuthCreds | null {
     const raw = localStorage.getItem(CREDS_KEY);
     if (!raw) return null;
     const obj = JSON.parse(raw) as AuthCreds;
-    if (!obj.adminHash || !obj.committeeHash) return null;
+    if (!obj.adminHash) return null;
     return obj;
   } catch {
     return null;
@@ -38,12 +38,12 @@ export function loadCreds(): AuthCreds | null {
 
 export async function saveCreds(args: {
   adminPassword: string;
-  committeePin: string;
+  committeePin?: string;
   adminName: string;
 }): Promise<AuthCreds> {
   const creds: AuthCreds = {
     adminHash:     await hash(args.adminPassword),
-    committeeHash: await hash(args.committeePin),
+    committeeHash: args.committeePin ? await hash(args.committeePin) : null,
     adminName:     args.adminName.trim() || '관리자',
     setupAt:       new Date().toISOString(),
     version:       CRED_VERSION,
