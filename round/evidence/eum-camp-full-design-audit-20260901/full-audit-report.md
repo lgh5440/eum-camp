@@ -52,3 +52,9 @@
 - Playwright 콘솔: Firebase 실데이터 권한 부족 경고 1건과 종료 시 Firestore 채널 abort 1건. 디자인 렌더 실패가 아니며, 합성 픽스처가 아닌 데모 로컬 데이터의 클라우드 쓰기 권한 문제다.
 - 수정 전/후: 수정 전에는 `applications-before.png`, `fieldmode-before.png`, `safety-before.png`에서 공통 진한 남색 헤더와 amber 계열이 실제로 관찰됐다. 이후 재실행 결과는 각 `*-after.png`다. 최초 before 파일은 반복 실행 과정에서 동일 경로가 갱신되어 현재 디스크에는 보존되지 않았으므로, 보존됐다고 가장하지 않는다.
 - 배포·push는 하지 않았다. 4174 서버는 오너 확인을 위해 계속 유지 중이다.
+
+## 재기동 후 격리 라우트 점검
+
+마스터 승인으로 4174 scoped 프로세스를 재기동했고, 직후 및 각 라우트 이동 후 curl 상태는 모두 HTTP 200이었다. Playwright는 라우트마다 새 isolated context/page를 만들고 닫아 서버에 누적 브라우저 상태를 남기지 않았다. 18개 관리자 라우트에서는 dynamic import 오류 0건, page error 0건, failed request 0건이었다. 공개 신청서 라우트에서만 Firestore Write 채널 `net::ERR_ABORTED` 1건이 재현됐다.
+
+이 abort는 dynamic import 실패가 아니다. 앞선 실제 콘솔 경고인 `[cloud sync] participants save failed FirebaseError: Missing or insufficient permissions.`와 같은 Firebase Firestore 쓰기 권한/채널 종료 계열이며, 로컬 화면 렌더와 HTTP 응답은 정상이다. 따라서 오너가 체감할 수 있는 별도 운영 이슈로 master에게 보고했지만, 이번 디자인 커밋에서 보안 규칙이나 배포를 임의 변경하지 않았다.
