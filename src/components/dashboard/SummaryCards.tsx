@@ -65,7 +65,7 @@ export default function SummaryCards({ stats, ckStats, churchCount, onNavigate }
           </div>
           <div className="flex flex-wrap gap-x-2 mt-0.5">
             {ckStats.overdueCount > 0 && <span className="text-[9px] font-semibold" style={{ color: '#ef4444' }}>지남 {ckStats.overdueCount}건</span>}
-            {ckStats.urgentCount > 0  && <span className="text-[9px] font-semibold" style={{ color: '#F08C28' }}>임박 {ckStats.urgentCount}건</span>}
+            {ckStats.urgentCount > 0  && <span className="text-[9px] font-semibold" style={{ color: BRAND_BLUE }}>임박 {ckStats.urgentCount}건</span>}
             {ckStats.overdueCount === 0 && ckStats.urgentCount === 0 && <span className="text-[9px] text-slate-500">마감 여유</span>}
           </div>
         </div>
@@ -78,7 +78,7 @@ function DonutChart({ pct }: { pct: number }) {
   const radius = 22;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (pct / 100) * circumference;
-  const color = pct >= 80 ? '#10b981' : pct >= 50 ? '#FFD98C' : '#F08C28';
+  const color = pct >= 80 ? '#10b981' : BRAND_BLUE;
   return (
     <div className="relative w-14 h-14 flex-shrink-0">
       <svg width={64} height={64} viewBox="0 0 64 64" className="absolute inset-0 -rotate-90">
