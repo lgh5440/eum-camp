@@ -135,8 +135,7 @@ export default function Vehicles() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 flex-shrink-0"
-          style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
+          className="eum-primary-action flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95 flex-shrink-0"
         >
           <Wand2 size={15} />
           자동 차량 배정

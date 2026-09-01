@@ -215,11 +215,7 @@ export default function Participants() {
           {/* 참가자 추가 버튼 */}
           <button
             onClick={() => setShowForm(true)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold text-[#101A3D] transition-all active:scale-95"
-            style={{
-              background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
-              boxShadow: '0 4px 14px rgba(37, 99, 235,0.35)',
-            }}
+            className="eum-primary-action flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition-all active:scale-95"
           >
             <UserPlus size={14} />
             <span className="hidden sm:inline">참가자 추가</span>

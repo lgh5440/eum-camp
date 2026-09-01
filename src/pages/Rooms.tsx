@@ -191,8 +191,7 @@ export default function Rooms() {
               </button>
               <button
                 onClick={enterEditMode}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#101A3D] transition-all active:scale-95"
-                style={{ background: 'linear-gradient(90deg,#1B3A5C,#93C5FD)', boxShadow: '0 2px 8px rgba(37, 99, 235,0.25)' }}
+                className="eum-primary-action flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95"
               >
                 <Pencil size={13} /> 수동 배정
               </button>

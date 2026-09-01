@@ -240,4 +240,12 @@
     background-color: rgba(31,95,217,0.08) !important;
     border-color: rgba(31,95,217,0.28) !important;
   }
+
+  /* 공통 주요 작업 버튼 — 반복되던 진한 남색 그라데이션 필을 단일 토큰으로 통일 */
+  .eum-primary-action {
+    color: #FFFFFF !important;
+    background: linear-gradient(135deg, #2F73F2, #1F5FD9) !important;
+    box-shadow: 0 6px 16px rgba(31,95,217,0.24) !important;
+  }
+  .eum-primary-action:hover { filter: brightness(1.04); }
 }

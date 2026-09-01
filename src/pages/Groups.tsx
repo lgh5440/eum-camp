@@ -157,8 +157,7 @@ export default function Groups() {
           )}
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.25)' }}
+            className="eum-primary-action flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95 flex-shrink-0"
           >
             <Wand2 size={15} />
             자동 조 편성
@@ -296,7 +295,6 @@ export default function Groups() {
       {/* 조별 카드 */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {activeGroups.map(group => {
-          const color = colorOf(group);
           const members = groupMembers[group.id] ?? [];
           const mCount = members.filter(p => p.gender === 'M').length;
           const fCount = members.filter(p => p.gender === 'F').length;
@@ -319,18 +317,18 @@ export default function Groups() {
             <div
               key={group.id}
               className="rounded-2xl overflow-hidden"
-              style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}30` }}
+              style={{ background: '#FFFFFF', border: '1px solid rgba(47,115,242,0.24)', boxShadow: '0 8px 22px rgba(31,95,217,0.08)' }}
             >
               {/* 조 헤더 */}
               <div
                 className="px-5 py-4"
-                style={{ background: `${color}15`, borderBottom: `1px solid ${color}25` }}
+                style={{ background: '#EAF3FF', borderBottom: '1px solid rgba(47,115,242,0.18)' }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg flex-shrink-0"
-                      style={{ background: `${color}30`, color }}
+                      style={{ background: 'rgba(47,115,242,0.14)', color: '#1F5FD9' }}
                     >
                       {groupNum}
                     </div>
@@ -343,7 +341,7 @@ export default function Groups() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-black" style={{ color }}>{members.length}명</div>
+                    <div className="text-xl font-black" style={{ color: '#1F5FD9' }}>{members.length}명</div>
                     <div className="text-[10px] text-slate-400">남{mCount}/여{fCount}</div>
                   </div>
                 </div>

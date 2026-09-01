@@ -411,8 +411,7 @@ export default function PrintCenter() {
           </div>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95 flex-shrink-0"
-            style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
+            className="eum-primary-action flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95 flex-shrink-0"
           >
             <Printer size={16} />
             인쇄하기

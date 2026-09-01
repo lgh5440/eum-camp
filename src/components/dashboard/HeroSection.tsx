@@ -17,7 +17,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
         style={{ background: 'radial-gradient(circle, rgba(31,95,217,0.14) 0%, transparent 65%)' }}/>
       <div className="absolute -bottom-20 -left-12 w-64 h-64 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(47,115,242,0.10) 0%, transparent 60%)' }}/>
-      <div className="relative z-10 flex items-center justify-between gap-4 sm:gap-6 px-5 sm:px-10 py-6 sm:py-10">
+      <div className="relative z-10 flex items-center justify-between gap-4 sm:gap-6 px-5 sm:px-8 py-3 sm:py-4">
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="px-3 py-1 rounded-full text-[11px] font-bold"
@@ -30,7 +30,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
             </span>
           </div>
           <h1 className="font-black text-[#101A3D] tracking-tight leading-none mb-2"
-            style={{ fontSize: 'clamp(1.6rem, 5vw, 4rem)' }}>{EVENT.theme}</h1>
+            style={{ fontSize: 'clamp(1.35rem, 3vw, 2.25rem)' }}>{EVENT.theme}</h1>
           <p className="font-bold" style={{ color: 'var(--eum-gold)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
             {EVENT.subTheme}
           </p>
@@ -47,7 +47,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
           <div
             className="hidden md:block flex-shrink-0 rounded-2xl overflow-hidden"
             style={{
-              width: 280, height: 180,
+              width: 220, height: 140,
               backgroundImage: `url(${EVENT.heroImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -70,11 +70,9 @@ function EumLogoBadge() {
       <img
         src={EUM_BRAND.logoUrl}
         alt={EUM_BRAND.name}
-        className="w-32 h-32 lg:w-40 lg:h-40 object-contain opacity-90"
+        className="w-24 h-24 lg:w-28 lg:h-28 object-contain opacity-90"
         style={{ filter: 'drop-shadow(0 0 24px rgba(47,115,242,0.45))' }}
       />
     </div>
   );
 }
-
-

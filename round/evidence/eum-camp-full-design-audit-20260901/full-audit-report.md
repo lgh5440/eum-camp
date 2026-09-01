@@ -58,3 +58,18 @@
 마스터 승인으로 4174 scoped 프로세스를 재기동했고, 직후 및 각 라우트 이동 후 curl 상태는 모두 HTTP 200이었다. Playwright는 라우트마다 새 isolated context/page를 만들고 닫아 서버에 누적 브라우저 상태를 남기지 않았다. 18개 관리자 라우트에서는 dynamic import 오류 0건, page error 0건, failed request 0건이었다. 공개 신청서 라우트에서만 Firestore Write 채널 `net::ERR_ABORTED` 1건이 재현됐다.
 
 이 abort는 dynamic import 실패가 아니다. 앞선 실제 콘솔 경고인 `[cloud sync] participants save failed FirebaseError: Missing or insufficient permissions.`와 같은 Firebase Firestore 쓰기 권한/채널 종료 계열이며, 로컬 화면 렌더와 HTTP 응답은 정상이다. 따라서 오너가 체감할 수 있는 별도 운영 이슈로 master에게 보고했지만, 이번 디자인 커밋에서 보안 규칙이나 배포를 임의 변경하지 않았다.
+
+## 추가 오너 피드백 재검증
+
+공통 버튼 검색에서 동일한 `linear-gradient(90deg, #1B3A5C, #93C5FD)` 인라인 패턴이 페이지별로 반복되고 공용 Button 컴포넌트는 없음을 확인했다. 따라서 `.eum-primary-action` 공통 클래스를 만들고 참가자 추가·자동 조 편성·수동 배정·자동 차량 배정·인쇄하기를 단일 블루 토큰으로 수렴했다. Groups의 6개 조 카드도 모두 흰 표면 + 동일한 `#EAF3FF` 헤더 + 블루 테두리/강조 규칙으로 통일했다.
+
+Dashboard 히어로는 실제 렌더 후 높이와 제목 크기를 줄였다. 데스크톱 패딩은 `py-8 sm:py-10`에서 `py-4 sm:py-5`, 제목 최대 크기는 `4rem`에서 `2.25rem`, 장식 높이는 16/24에서 compact 12/20으로 줄어들었다.
+
+추가 Playwright 캡처:
+
+- [feedback-dashboard-after.png](feedback-dashboard-after.png)
+- [feedback-participants-after.png](feedback-participants-after.png)
+- [feedback-groups-after.png](feedback-groups-after.png)
+- [feedback-rooms-after.png](feedback-rooms-after.png)
+- [feedback-vehicles-after.png](feedback-vehicles-after.png)
+- [feedback-printcenter-after.png](feedback-printcenter-after.png)

@@ -69,10 +69,10 @@ function CircuitDecoration() {
   );
 }
 
-function HeroDecoration() {
+function HeroDecoration({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
-      <div className="relative w-12 h-16">
+    <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+      <div className={`relative w-10 ${compact ? 'h-12' : 'h-16'}`}>
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-2.5 h-full rounded-full"
           style={{
             background: '#3B82F6',
@@ -86,7 +86,7 @@ function HeroDecoration() {
       </div>
 
       <div
-        className="w-36 h-24 rounded-2xl flex flex-col items-center justify-center gap-2 relative overflow-hidden"
+        className={`w-32 ${compact ? 'h-20' : 'h-24'} rounded-2xl flex flex-col items-center justify-center gap-2 relative overflow-hidden`}
         style={{
           background: '#FFFFFF',
           border: '1px solid #DDEEFF',
@@ -274,7 +274,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="absolute -bottom-20 -left-12 w-64 h-64 rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, #F5F8FC 0%, #FFFFFF 60%)' }} />
 
-        <div className="relative z-10 flex items-center justify-between gap-6 px-7 sm:px-10 py-8 sm:py-10">
+        <div className="relative z-10 flex items-center justify-between gap-6 px-6 sm:px-8 py-4 sm:py-5">
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span
@@ -292,7 +292,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </div>
 
             <h1 className="font-black text-[#101A3D] tracking-tight leading-none mb-2"
-              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
+              style={{ fontSize: 'clamp(1.35rem, 3vw, 2.25rem)' }}>
               {EVENT.theme}
             </h1>
             <p className="font-bold" style={{ color: 'var(--eum-gold)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
@@ -311,7 +311,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </div>
           </div>
 
-          <HeroDecoration />
+          <HeroDecoration compact />
         </div>
       </div>
 
