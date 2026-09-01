@@ -63,11 +63,11 @@ export default function EventSetupWizard() {
       style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}
     >
       <div
-        className="max-w-xl w-full rounded-2xl p-7"
+        className="max-w-xl w-full rounded-[29px] p-7"
         style={{
           background: '#FFFFFF',
           border: '1px solid rgba(31,95,217,0.24)',
-          boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
+          boxShadow: '0 20px 44px rgba(27,58,92,0.14), 0 3px 8px rgba(31,95,217,0.08)',
         }}
       >
         <header className="flex items-center gap-3 mb-5">
@@ -103,7 +103,7 @@ export default function EventSetupWizard() {
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder="예: 2027 ○○교회 여름 수련회"
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
               autoFocus
             />
           </Field>
@@ -114,7 +114,7 @@ export default function EventSetupWizard() {
               value={theme}
               onChange={e => setTheme(e.target.value)}
               placeholder="예: GO! · 부흥 · LIGHT"
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
             />
           </Field>
 
@@ -124,7 +124,7 @@ export default function EventSetupWizard() {
                 type="date"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
-                className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] focus-visible:ring-2 focus-visible:ring-blue-300"
               />
             </Field>
             <Field label="종료일" icon={<CalendarDays size={14} />} required>
@@ -132,7 +132,7 @@ export default function EventSetupWizard() {
                 type="date"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
-                className="w-full bg-transparent outline-none text-sm text-[#101A3D]"
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] focus-visible:ring-2 focus-visible:ring-blue-300"
               />
             </Field>
           </div>
@@ -143,7 +143,7 @@ export default function EventSetupWizard() {
               value={venue}
               onChange={e => setVenue(e.target.value)}
               placeholder="예: ○○ 수양관"
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
             />
           </Field>
 
@@ -153,7 +153,7 @@ export default function EventSetupWizard() {
               value={district}
               onChange={e => setDistrict(e.target.value)}
               placeholder="예: ○○교회 청년부, ○○지방회"
-              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+              className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
             />
           </Field>
 
@@ -164,7 +164,7 @@ export default function EventSetupWizard() {
                 value={inquiryName}
                 onChange={e => setInquiryName(e.target.value)}
                 placeholder="예: 김○○ 목사"
-                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
               />
             </Field>
             <Field label="문의 연락처 (선택)" icon={<Phone size={14} />}>
@@ -173,7 +173,7 @@ export default function EventSetupWizard() {
                 value={inquiryPhone}
                 onChange={e => setInquiryPhone(e.target.value)}
                 placeholder="010-0000-0000"
-                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
               />
             </Field>
           </div>
@@ -220,9 +220,9 @@ function Field({
       </label>
       <div
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-        style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
+        style={{ background: '#F8FBFF', border: '1px solid rgba(31,95,217,0.24)', boxShadow: 'inset 0 1px 2px rgba(31,95,217,0.04)' }}
       >
-        <span style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0">{icon}</span>
+        <span className="text-[#1F5FD9] flex-shrink-0">{icon}</span>
         {children}
       </div>
     </div>

@@ -2,7 +2,7 @@
 // 이후에는 LoginScreen이 표시된다.
 
 import { useId, useState } from 'react';
-import { ShieldCheck, Eye, EyeOff, UserCog } from 'lucide-react';
+import { ShieldCheck, Eye, EyeOff, UserCog, KeyRound } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
 import DemoNotice from '../demo/DemoNotice';
@@ -71,11 +71,11 @@ export default function SetupScreen() {
         <DemoNotice variant="setup" />
 
         <div
-          className="rounded-2xl p-7"
+          className="rounded-[29px] p-7"
           style={{
             background: '#FFFFFF',
             border: '1px solid rgba(31,95,217,0.24)',
-            boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
+            boxShadow: '0 20px 44px rgba(27,58,92,0.14), 0 3px 8px rgba(31,95,217,0.08)',
           }}
         >
           {/* 화면 정체성 — 가장 눈에 띄게: 큰 아이콘 + 큰 제목 + 1줄 부제 */}
@@ -99,11 +99,11 @@ export default function SetupScreen() {
 
           <div
             className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
-            style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)', color: '#8A5300' }}
+            style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(31,95,217,0.28)', color: '#17439C' }}
           >
-            <div className="font-semibold text-[#8A5300] mb-1">한 번만 진행되는 설정입니다</div>
+            <div className="flex items-center gap-2 font-semibold text-[#17439C] mb-1"><KeyRound size={14} aria-hidden="true" />한 번만 진행되는 설정입니다</div>
             이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
-            로그인 후 <strong className="text-[#8A5300]">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
+            로그인 후 <strong className="text-[#17439C]">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
             있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
           </div>
 
@@ -116,7 +116,7 @@ export default function SetupScreen() {
                 autoComplete="name"
                 value={adminName}
                 onChange={e => setAdminName(e.target.value)}
-                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                className="w-full bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
                 placeholder="예: 김○○ 목사 / 운영팀장"
                 required
               />
@@ -130,7 +130,7 @@ export default function SetupScreen() {
                 autoComplete="new-password"
                 value={adminPw}
                 onChange={e => setAdminPw(e.target.value)}
-                className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500"
+                className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] placeholder:text-slate-500 focus-visible:ring-2 focus-visible:ring-blue-300"
                 placeholder="알파벳·숫자·기호 조합 권장"
                 required
                 minLength={8}
@@ -138,7 +138,7 @@ export default function SetupScreen() {
               <button
                 type="button"
                 onClick={() => setShowPw(v => !v)}
-                className="ml-2 text-slate-400 hover:text-[color:var(--eum-gold)]"
+                className="ml-2 text-slate-400 hover:text-[#1F5FD9]"
                 aria-label={showPw ? '비밀번호 숨기기' : '비밀번호 보기'}
               >
                 {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -172,7 +172,7 @@ export default function SetupScreen() {
               href="https://github.com/lgh5440/eum-camp/blob/main/docs/AI_SETUP_GUIDE.md"
               target="_blank"
               rel="noopener"
-              className="block text-center mt-3 text-[11px] text-slate-400 hover:text-[color:var(--eum-gold)] underline underline-offset-2"
+              className="block text-center mt-3 text-[11px] text-slate-400 hover:text-[#1F5FD9] underline underline-offset-2"
             >
               이 시스템을 다른 교회와 공유하는 방법 보기
             </a>
@@ -198,9 +198,9 @@ function Field({
       </label>
       <div
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-        style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
+        style={{ background: '#F8FBFF', border: '1px solid rgba(31,95,217,0.24)', boxShadow: 'inset 0 1px 2px rgba(31,95,217,0.04)' }}
       >
-        <span style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0">{icon}</span>
+        <span className="text-[#1F5FD9] flex-shrink-0">{icon}</span>
         {children}
       </div>
     </div>

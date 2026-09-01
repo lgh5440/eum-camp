@@ -2,10 +2,9 @@
 // 비밀번호와 PIN을 같은 입력 필드에서 받고 서버 측에서 hash 비교한다.
 
 import { useEffect, useId, useState } from 'react';
-import { Lock, LogIn, Eye, EyeOff, Phone, MapPin } from 'lucide-react';
+import { Lock, LogIn, Eye, EyeOff, Phone, MapPin, ShieldCheck, UserRound } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
-import { EUM_BRAND } from '../data/eumBrand';
 import DemoNotice from '../demo/DemoNotice';
 
 function formatRemaining(ms: number): string {
@@ -68,13 +67,16 @@ export default function LoginScreen() {
       <div className="max-w-md w-full">
         {/* E:UM 로고 + 행사 헤더 */}
         <div className="text-center mb-6">
-          <img
-            src={EUM_BRAND.logoUrl}
-            alt={EUM_BRAND.name}
-            className="w-20 h-20 mx-auto mb-3 object-contain"
-            style={{ filter: 'hue-rotate(165deg) saturate(1.4) drop-shadow(0 0 18px rgba(31,95,217,0.35))' }}
-          />
-          <div className="text-[11px] font-bold tracking-wider" style={{ color: 'var(--eum-gold)' }}>{EVENT.district}</div>
+          <div className="inline-flex items-center gap-3 rounded-2xl px-4 py-3 bg-white/80 border border-blue-200/80 shadow-[0_10px_24px_rgba(31,95,217,0.12)]">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#2F73F2] to-[#1F5FD9] shadow-[0_8px_18px_rgba(31,95,217,0.32)]">
+              <UserRound size={24} className="text-white" aria-hidden="true" />
+            </div>
+            <div className="text-left">
+              <div className="text-[11px] font-extrabold tracking-[0.18em] text-[#1F5FD9]">E:UM CAMP</div>
+              <div className="text-[10px] font-medium text-[#5C6A93]">안전한 운영 공간</div>
+            </div>
+          </div>
+          <div className="text-[11px] font-bold tracking-wider mt-4 text-[#1F5FD9]">{EVENT.district}</div>
           <h1 className="text-[26px] font-extrabold text-[#101A3D] mt-1 leading-tight tracking-[-0.01em]">{EVENT.title}</h1>
           <div className="text-xs text-[#5C6A93] mt-1">
             {EVENT.theme} · {EVENT.dates}
@@ -83,11 +85,11 @@ export default function LoginScreen() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-[29px] pt-[38px] px-[28px] pb-[28px]"
+          className="rounded-[29px] pt-[30px] px-[28px] pb-[28px]"
           style={{
             background: '#FFFFFF',
             border: '1px solid rgba(31,95,217,0.24)',
-            boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
+            boxShadow: '0 20px 44px rgba(27,58,92,0.14), 0 3px 8px rgba(31,95,217,0.08)',
           }}
           aria-describedby={error ? errorId : undefined}
         >
@@ -96,7 +98,7 @@ export default function LoginScreen() {
               className="w-9 h-9 rounded-xl flex items-center justify-center"
               style={{ background: 'rgba(31,95,217,0.12)', border: '1px solid rgba(31,95,217,0.32)' }}
             >
-              <Lock size={16} style={{ color: 'var(--eum-gold)' }} aria-hidden="true" />
+              <ShieldCheck size={17} className="text-[#1F5FD9]" aria-hidden="true" />
             </div>
             <div>
               <div className="text-sm font-semibold text-[#101A3D]">운영 시스템 접속</div>
@@ -105,7 +107,11 @@ export default function LoginScreen() {
           </div>
 
           {/* 구분선 — 이음카드 .rule 기준(1px #E5EEFB, margin 24px 0 20px) */}
-          <div style={{ height: 1, background: '#E5EEFB', margin: '24px 0 20px' }} />
+          <div className="flex items-center gap-2 mb-5" aria-hidden="true">
+            <div className="h-px flex-1 bg-blue-100" />
+            <span className="text-[10px] font-bold tracking-[0.16em] text-[#6FA7FF]">ACCESS</span>
+            <div className="h-px flex-1 bg-blue-100" />
+          </div>
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
@@ -117,8 +123,8 @@ export default function LoginScreen() {
             autoComplete="name"
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none"
-            style={{ background: '#FFFFFF', border: '1px solid rgba(31,95,217,0.24)' }}
+            className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:border-[#1F5FD9]"
+            style={{ background: '#F8FBFF', border: '1px solid rgba(31,95,217,0.24)', boxShadow: 'inset 0 1px 2px rgba(31,95,217,0.04)' }}
             placeholder="예: 김교사"
             disabled={isLocked || submitting}
           />
@@ -129,9 +135,9 @@ export default function LoginScreen() {
           </label>
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
-            style={{ background: '#FFFFFF', border: '1px solid rgba(31,95,217,0.24)' }}
+            style={{ background: '#F8FBFF', border: '1px solid rgba(31,95,217,0.24)', boxShadow: 'inset 0 1px 2px rgba(31,95,217,0.04)' }}
           >
-            <Lock size={14} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0" aria-hidden="true" />
+            <Lock size={14} className="text-[#1F5FD9] flex-shrink-0" aria-hidden="true" />
             <input
               id={inputId}
               type={showPw ? 'text' : 'password'}
@@ -139,7 +145,7 @@ export default function LoginScreen() {
               inputMode="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] tracking-widest"
+              className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] tracking-widest focus-visible:ring-2 focus-visible:ring-blue-300"
               placeholder={isLocked ? '잠금 해제 후 시도' : '입력 후 Enter'}
               disabled={isLocked || submitting}
               autoFocus
@@ -148,7 +154,7 @@ export default function LoginScreen() {
             <button
               type="button"
               onClick={() => setShowPw(v => !v)}
-              className="text-[#5C6A93] hover:text-[color:var(--eum-gold)]"
+              className="text-[#5C6A93] hover:text-[#1F5FD9]"
               aria-label={showPw ? '입력 숨기기' : '입력 보기'}
             >
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
@@ -171,7 +177,7 @@ export default function LoginScreen() {
               role="alert"
               aria-live="polite"
               className="rounded-lg p-3 mb-4 text-xs text-center"
-              style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', color: '#7A550B' }}
+              style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(31,95,217,0.28)', color: '#17439C' }}
             >
               5회 연속 실패로 잠금되었습니다. {formatRemaining(lockedMs)} 후 다시 시도하세요.
             </div>
@@ -205,7 +211,7 @@ export default function LoginScreen() {
               {EVENT.inquiry.role} {EVENT.inquiry.name}{' '}
               <a
                 href={`tel:${EVENT.inquiry.phone.replace(/-/g, '')}`}
-                className="text-[color:var(--eum-gold)] hover:brightness-125 underline"
+                className="text-[#1F5FD9] hover:text-[#17439C] underline underline-offset-2"
               >
                 {EVENT.inquiry.phone}
               </a>
