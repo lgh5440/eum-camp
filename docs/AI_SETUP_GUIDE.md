@@ -2,6 +2,8 @@
 
 아래 마스터 프롬프트를 **Claude Code** 또는 **OpenAI Codex** 데스크탑 앱에 붙여넣고 실행하면, 이 시스템이 자동으로 다운로드·설정·배포됩니다.
 
+> 👀 **셋업 전에 먼저 체험해보세요**: [eum-camp-template.web.app](https://eum-camp-template.web.app) — 가상 50명(학생·교사·진행팀)으로 실제 운영 화면 그대로 둘러볼 수 있어요.
+
 ## 사용법
 
 1. Claude Code([claude.com/download](https://claude.com/download)) 또는 OpenAI Codex([developers.openai.com/codex/app](https://developers.openai.com/codex/app)) 실행
