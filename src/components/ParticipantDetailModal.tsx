@@ -24,10 +24,10 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div
       className="flex items-start gap-3 py-2.5"
-      style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+      style={{ borderBottom: '1px solid rgba(31,95,217,0.10)' }}
     >
-      <span className="text-xs text-white/60 w-28 flex-shrink-0 pt-0.5">{label}</span>
-      <span className="text-sm text-slate-200 flex-1 min-w-0">{value}</span>
+      <span className="text-xs text-[#5C6A93] w-28 flex-shrink-0 pt-0.5">{label}</span>
+      <span className="text-sm text-[#101A3D] flex-1 min-w-0">{value}</span>
     </div>
   );
 }
@@ -35,8 +35,8 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
 function SectionHeader({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center gap-2 mt-5 mb-1">
-      <span className="text-cyan-400 flex-shrink-0">{icon}</span>
-      <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">{label}</span>
+      <span className="text-[#1F5FD9] flex-shrink-0">{icon}</span>
+      <span className="text-[10px] font-bold text-[#1F5FD9] uppercase tracking-widest">{label}</span>
     </div>
   );
 }
@@ -96,8 +96,8 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                      flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'var(--eum-modal-background)',
-            border: '1px solid rgba(37, 99, 235,0.2)',
-            boxShadow: '0 32px 72px rgba(31,95,217,0.7), 0 0 0 1px rgba(255,255,255,0.04)',
+            border: '1px solid rgba(31,95,217,0.2)',
+            boxShadow: '0 32px 72px rgba(31,95,217,0.7), 0 0 0 1px rgba(31,95,217,0.10)',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -107,11 +107,11 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
               background: 'var(--eum-modal-background)',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
+              borderBottom: '1px solid rgba(31,95,217,0.14)',
             }}
           >
             {/* Mobile drag handle */}
-            <div className="sm:hidden w-10 h-1 rounded-full bg-white/20 mx-auto mb-4" />
+            <div className="sm:hidden w-10 h-1 rounded-full bg-slate-300 mx-auto mb-4" />
 
             <div className="flex items-start justify-between gap-3">
               {/* Avatar + name */}
@@ -127,8 +127,8 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                   {p.name.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white leading-tight">{p.name}</h3>
-                  <p className="text-xs text-white/50 mt-0.5">
+                  <h3 className="text-lg font-bold text-[#101A3D] leading-tight">{p.name}</h3>
+                  <p className="text-xs text-[#5C6A93] mt-0.5">
                     {church}
                     <span className="text-slate-600 mx-1">·</span>
                     <span style={{ color: genderColor }}>{p.grade}</span>
@@ -141,7 +141,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                 onClick={onClose}
                 aria-label="모달 닫기"
                 className="w-8 h-8 rounded-xl flex items-center justify-center
-                           text-white/60 hover:text-slate-200 hover:bg-white/10
+                           text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF]
                            transition-colors flex-shrink-0"
               >
                 <X size={16} />
@@ -272,7 +272,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
             <div
               className="sticky bottom-0 px-5 py-4 flex gap-3 flex-shrink-0"
               style={{
-                borderTop: '1px solid rgba(255,255,255,0.07)',
+                borderTop: '1px solid rgba(31,95,217,0.14)',
                 background: 'var(--eum-modal-background)',
               }}
             >
@@ -292,8 +292,8 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                 onClick={() => onEdit(p)}
                 className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all active:scale-95"
                 style={{
-                  background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
-                  boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
+                  background: 'linear-gradient(90deg, #2F73F2, #1F5FD9)',
+                  boxShadow: '0 4px 16px rgba(31,95,217,0.3)',
                 }}
               >
                 <Pencil size={14} />
@@ -302,9 +302,9 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
             </div>
           ) : (
             <div
-              className="sticky bottom-0 px-5 py-3 flex items-center justify-center gap-1.5 text-[11px] text-white/60 flex-shrink-0"
+              className="sticky bottom-0 px-5 py-3 flex items-center justify-center gap-1.5 text-[11px] text-[#5C6A93] flex-shrink-0"
               style={{
-                borderTop: '1px solid rgba(255,255,255,0.07)',
+                borderTop: '1px solid rgba(31,95,217,0.14)',
                 background: 'var(--eum-modal-background)',
               }}
             >

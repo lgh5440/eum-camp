@@ -698,8 +698,8 @@ export default function Checklist() {
                                 className="absolute right-0 top-full mt-1.5 z-50 rounded-xl overflow-hidden py-1"
                                 style={{
                                   background: 'var(--eum-modal-background)',
-                                  border: '1px solid rgba(255,255,255,0.12)',
-                                  boxShadow: '0 8px 28px rgba(31,95,217,0.65)',
+                                  border: '1px solid rgba(31,95,217,0.16)',
+                                  boxShadow: '0 8px 28px rgba(31,95,217,0.18)',
                                   minWidth: '108px',
                                 }}
                               >
@@ -712,7 +712,7 @@ export default function Checklist() {
                                       role="option"
                                       aria-selected={isCurrent}
                                       onClick={e => { e.stopPropagation(); changeStatus(item.id, s); }}
-                                      className={`w-full text-left px-3 py-2 text-xs flex items-center gap-2 transition-colors hover:bg-white/10 ${isCurrent ? 'font-bold' : ''}`}
+                                      className={`w-full text-left px-3 py-2 text-xs flex items-center gap-2 transition-colors hover:bg-[#EAF3FF] ${isCurrent ? 'font-bold' : ''}`}
                                       style={{ color: isCurrent ? opt.color : '#94a3b8' }}
                                     >
                                       <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: opt.color }} />

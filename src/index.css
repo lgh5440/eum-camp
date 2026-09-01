@@ -19,7 +19,12 @@
   --eum-bg-panel: #DDEEFF;
   --eum-page-background: linear-gradient(180deg,#DDEEFF 0%,#EAF3FF 45%,#FFFFFF 100%);
   --eum-orb-background: radial-gradient(circle at 30% 26%, #ffffff, #EAF3FF 42%, #6FA7FF 76%, #2F73F2 100%);
-  --eum-modal-background: linear-gradient(160deg, #2F73F2 0%, #1F5FD9 100%);
+  /* ★2026-09-01 오너 직접 피드백으로 재조정: "블루+화이트 대비"는 큰 배경을 진한 블루로 칠하라는
+     뜻이 아니었다 — eum-card 기준(배경은 흰색/옅은 블루, 진한 블루는 테두리·버튼·라벨 포인트에만)
+     을 따른다. 모달/카드 표면은 흰색으로, 진한 블루는 이 표면을 쓰는 각 파일에서 테두리·헤더
+     포인트로만 남긴다(각 파일에서 개별 조정). */
+  --eum-modal-background: #FFFFFF;
+  --eum-modal-border: rgba(31,95,217,0.18);
   --eum-shadow-blue-soft: rgba(31,95,217,0.25);
   --eum-title:       #101A3D;
   --eum-subtext:     #5C6A93;

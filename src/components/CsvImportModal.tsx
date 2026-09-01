@@ -54,7 +54,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
           className="pointer-events-auto w-full sm:max-w-3xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'var(--eum-modal-background)',
-            border: '1px solid rgba(37, 99, 235,0.2)',
+            border: '1px solid rgba(31,95,217,0.2)',
             boxShadow: '0 32px 72px rgba(31,95,217,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -64,26 +64,26 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
               background: 'var(--eum-modal-background)',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
+              borderBottom: '1px solid rgba(31,95,217,0.14)',
             }}
           >
-            <div className="sm:hidden w-10 h-1 rounded-full bg-white/20 mx-auto mb-4" />
+            <div className="sm:hidden w-10 h-1 rounded-full bg-slate-300 mx-auto mb-4" />
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
+                  style={{ background: 'rgba(31,95,217,0.15)', border: '1px solid rgba(31,95,217,0.25)' }}
                 >
-                  <FileText size={15} className="text-cyan-400" />
+                  <FileText size={15} className="text-[#1F5FD9]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">CSV 가져오기 결과</h3>
-                  <p className="text-xs text-white/60 mt-0.5">내용을 확인하고 가져오기를 확정해 주세요</p>
+                  <h3 className="text-base font-bold text-[#101A3D]">CSV 가져오기 결과</h3>
+                  <p className="text-xs text-[#5C6A93] mt-0.5">내용을 확인하고 가져오기를 확정해 주세요</p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-white/60 hover:text-slate-200 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
                 aria-label="닫기"
               >
                 <X size={16} />
@@ -103,7 +103,7 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                   style={{ background: `${s.color}18`, border: `1px solid ${s.color}35` }}
                 >
                   <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
-                  <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+                  <div className="text-xs text-[#5C6A93] mt-0.5">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -124,20 +124,20 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
 
             {/* 미리보기 테이블 */}
             {result.rows.length === 0 && result.errorRows.length === 0 ? (
-              <div className="py-10 text-center text-white/60 text-sm">
+              <div className="py-10 text-center text-[#5C6A93] text-sm">
                 가져올 수 있는 데이터가 없습니다.
               </div>
             ) : (
               <div
                 className="rounded-xl overflow-hidden"
-                style={{ border: '1px solid rgba(255,255,255,0.07)' }}
+                style={{ border: '1px solid rgba(31,95,217,0.14)' }}
               >
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr style={{ background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                      <tr style={{ background: 'rgba(31,95,217,0.10)', borderBottom: '1px solid rgba(31,95,217,0.14)' }}>
                         {['이름', '교회', '구분', '학년', '성별', '참가비', '등록상태', '구분'].map((h, i) => (
-                          <th key={i} className="px-3 py-2.5 text-left text-xs font-medium text-white/50 whitespace-nowrap">
+                          <th key={i} className="px-3 py-2.5 text-left text-xs font-medium text-[#5C6A93] whitespace-nowrap">
                             {h}
                           </th>
                         ))}
@@ -148,18 +148,18 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                       {result.rows.map(row => (
                         <tr
                           key={row.rowIndex}
-                          style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+                          style={{ borderBottom: '1px solid rgba(31,95,217,0.10)' }}
                         >
-                          <td className="px-3 py-2.5 text-sm text-white whitespace-nowrap font-medium">
+                          <td className="px-3 py-2.5 text-sm text-[#101A3D] whitespace-nowrap font-medium">
                             {row.data.name}
                           </td>
-                          <td className="px-3 py-2.5 text-sm text-slate-300 whitespace-nowrap">
+                          <td className="px-3 py-2.5 text-sm text-[#5C6A93] whitespace-nowrap">
                             {churchMap[row.data.church] || row.data.church}
                           </td>
-                          <td className="px-3 py-2.5 text-sm text-slate-300 whitespace-nowrap">
+                          <td className="px-3 py-2.5 text-sm text-[#5C6A93] whitespace-nowrap">
                             {row.data.role ?? '학생'}
                           </td>
-                          <td className="px-3 py-2.5 text-sm text-slate-300 whitespace-nowrap">
+                          <td className="px-3 py-2.5 text-sm text-[#5C6A93] whitespace-nowrap">
                             {row.data.grade}
                           </td>
                           <td className="px-3 py-2.5 whitespace-nowrap">
@@ -208,9 +208,9 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                       {result.errorRows.map(row => (
                         <tr
                           key={`err-${row.rowIndex}`}
-                          style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+                          style={{ borderBottom: '1px solid rgba(31,95,217,0.10)' }}
                         >
-                          <td className="px-3 py-2.5 text-sm text-white/60 whitespace-nowrap">
+                          <td className="px-3 py-2.5 text-sm text-[#5C6A93] whitespace-nowrap">
                             {row.data.name || `행 ${row.rowIndex}`}
                           </td>
                           <td colSpan={6} className="px-3 py-2.5">
@@ -243,14 +243,14 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
           <div
             className="sticky bottom-0 px-5 py-4 flex flex-wrap items-center gap-2 flex-shrink-0"
             style={{
-              borderTop: '1px solid rgba(255,255,255,0.07)',
+              borderTop: '1px solid rgba(31,95,217,0.14)',
               background: 'var(--eum-modal-background)',
             }}
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors"
-              style={{ border: '1px solid rgba(255,255,255,0.10)' }}
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
+              style={{ border: '1px solid rgba(31,95,217,0.16)' }}
             >
               취소
             </button>
@@ -280,8 +280,8 @@ export default function CsvImportModal({ result, churchMap, onConfirm, onClose }
                 className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={
                   validRows.length > 0
-                    ? { background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }
-                    : { background: 'rgba(255,255,255,0.08)' }
+                    ? { background: 'linear-gradient(90deg, #2F73F2, #1F5FD9)', boxShadow: '0 4px 16px rgba(31,95,217,0.3)' }
+                    : { background: 'rgba(31,95,217,0.14)' }
                 }
               >
                 {hasDups

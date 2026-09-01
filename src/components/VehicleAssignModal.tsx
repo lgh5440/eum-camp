@@ -76,7 +76,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
           className="pointer-events-auto w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
             background: 'var(--eum-modal-background)',
-            border: '1px solid rgba(37, 99, 235,0.2)',
+            border: '1px solid rgba(31,95,217,0.2)',
             boxShadow: '0 32px 72px rgba(31,95,217,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -86,26 +86,26 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
               background: 'var(--eum-modal-background)',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
+              borderBottom: '1px solid rgba(31,95,217,0.14)',
             }}
           >
-            <div className="sm:hidden w-10 h-1 rounded-full bg-white/20 mx-auto mb-4" />
+            <div className="sm:hidden w-10 h-1 rounded-full bg-slate-300 mx-auto mb-4" />
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
+                  style={{ background: 'rgba(31,95,217,0.15)', border: '1px solid rgba(31,95,217,0.25)' }}
                 >
-                  <Bus size={15} className="text-cyan-400" />
+                  <Bus size={15} className="text-[#1F5FD9]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">자동 차량 배정 미리보기</h3>
-                  <p className="text-xs text-white/60 mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
+                  <h3 className="text-base font-bold text-[#101A3D]">자동 차량 배정 미리보기</h3>
+                  <p className="text-xs text-[#5C6A93] mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-white/60 hover:text-slate-200 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
                 aria-label="닫기"
               >
                 <X size={16} />
@@ -119,8 +119,8 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                 className="flex-1 py-2 rounded-xl text-sm font-semibold transition-all"
                 style={
                   mode === 'unassigned'
-                    ? { background: 'rgba(37, 99, 235,0.18)', border: '1px solid rgba(37, 99, 235,0.5)', color: '#2563EB' }
-                    : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b' }
+                    ? { background: 'rgba(31,95,217,0.18)', border: '1px solid rgba(31,95,217,0.5)', color: '#2563EB' }
+                    : { background: 'rgba(31,95,217,0.10)', border: '1px solid rgba(31,95,217,0.16)', color: '#64748b' }
                 }
               >
                 미배정만 채우기
@@ -131,7 +131,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                 style={
                   mode === 'all'
                     ? { background: 'rgba(245,158,11,0.18)', border: '1px solid rgba(245,158,11,0.5)', color: '#fbbf24' }
-                    : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b' }
+                    : { background: 'rgba(31,95,217,0.10)', border: '1px solid rgba(31,95,217,0.16)', color: '#64748b' }
                 }
               >
                 전체 재배정
@@ -168,7 +168,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                   style={{ background: `${s.color}18`, border: `1px solid ${s.color}35` }}
                 >
                   <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
-                  <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+                  <div className="text-xs text-[#5C6A93] mt-0.5">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -212,11 +212,11 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Bus size={14} style={{ color }} />
-                        <span className="font-bold text-white">{vehicle.label}</span>
+                        <span className="font-bold text-[#101A3D]">{vehicle.label}</span>
                       </div>
                       <span className="text-lg font-black" style={{ color }}>
                         {members.length}
-                        <span className="text-xs font-normal text-white/60">/{vehicle.capacity}</span>
+                        <span className="text-xs font-normal text-[#5C6A93]">/{vehicle.capacity}</span>
                       </span>
                     </div>
 
@@ -243,7 +243,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
                             <span
                               key={cName}
                               className="text-[10px] px-1.5 py-0.5 rounded-md"
-                              style={{ background: 'rgba(255,255,255,0.07)', color: '#94a3b8' }}
+                              style={{ background: 'rgba(31,95,217,0.14)', color: '#94a3b8' }}
                             >
                               {cName} {cnt}
                             </span>
@@ -308,14 +308,14 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
           <div
             className="sticky bottom-0 px-5 py-4 flex items-center gap-2 flex-shrink-0"
             style={{
-              borderTop: '1px solid rgba(255,255,255,0.07)',
+              borderTop: '1px solid rgba(31,95,217,0.14)',
               background: 'var(--eum-modal-background)',
             }}
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors"
-              style={{ border: '1px solid rgba(255,255,255,0.10)' }}
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
+              style={{ border: '1px solid rgba(31,95,217,0.16)' }}
             >
               취소
             </button>
@@ -323,7 +323,7 @@ export default function VehicleAssignModal({ participants, churchMap, onApply, o
             <button
               onClick={() => onApply(preview)}
               className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
-              style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
+              style={{ background: 'linear-gradient(90deg, #2F73F2, #1F5FD9)', boxShadow: '0 4px 16px rgba(31,95,217,0.3)' }}
             >
               적용 ({totalAssigned}명)
             </button>

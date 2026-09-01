@@ -283,30 +283,27 @@ export default function PublicApplicationForm() {
           <div
             className="rounded-2xl px-5 py-5 flex items-center gap-4"
             style={{
-              background: `linear-gradient(135deg, ${EUM_COLORS.orange}1A 0%, ${EUM_COLORS.navy}80 100%)`,
-              border: `1px solid ${EUM_COLORS.orangeL}33`,
+              background: '#FFFFFF',
+              border: `1px solid ${EUM_COLORS.orangeL}55`,
             }}
           >
             <img
               src={EUM_BRAND.logoUrl}
               alt={EUM_BRAND.name}
               className="flex-shrink-0"
-              style={{
-                width: 72, height: 72,
-                filter: `drop-shadow(0 0 12px ${EUM_COLORS.goldL}45)`,
-              }}
+              style={{ width: 72, height: 72 }}
             />
             <div className="min-w-0">
               <div
                 className="text-sm font-bold leading-snug"
-                style={{ color: 'rgba(255,255,255,0.92)', letterSpacing: '0.3px' }}
+                style={{ color: '#101A3D', letterSpacing: '0.3px' }}
               >
                 {EUM_BRAND.sloganLine1}<br/>
                 {EUM_BRAND.sloganLine2}
               </div>
               <div
                 className="text-[10px] mt-1 font-semibold tracking-wider"
-                style={{ color: EUM_COLORS.orangeL }}
+                style={{ color: EUM_COLORS.orangeD }}
               >
                 GOD TO PEOPLE · PEOPLE TO PEOPLE
               </div>
@@ -317,9 +314,9 @@ export default function PublicApplicationForm() {
             <div
               className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold"
               style={{
-                color: EUM_COLORS.orangeL,
-                background: `${EUM_COLORS.orange}15`,
-                border: `1px solid ${EUM_COLORS.orangeL}40`,
+                color: EUM_COLORS.orangeD,
+                background: `${EUM_COLORS.orange}12`,
+                border: `1px solid ${EUM_COLORS.orangeL}55`,
               }}
             >
               {EVENT.theme}
@@ -329,13 +326,13 @@ export default function PublicApplicationForm() {
             {EVENT.title ? `${EVENT.title} 등록 신청서` : '등록 신청서'}
           </h1>
           {(EVENT.dates || EVENT.venue || EVENT.theme || EVENT.district) && (
-            <div className="rounded-2xl p-4 text-sm text-slate-200 space-y-1.5" style={{ background: 'rgba(31,95,217,0.75)', border: '1px solid rgba(255,255,255,0.18)' }}>
+            <div className="rounded-2xl p-4 text-sm space-y-1.5" style={{ background: 'var(--eum-bg-panel)', color: '#3A4568', border: '1px solid rgba(31,95,217,0.18)' }}>
               {EVENT.dates && <p>📅 {EVENT.dates}</p>}
               {EVENT.venue && (
                 <p>📍 장소: {EVENT.venue}{EVENT.venueAddress ? ` (${EVENT.venueAddress})` : ''}</p>
               )}
               {EVENT.theme && (
-                <p>🎙️ 주제: <span className="font-bold text-cyan-200">{EVENT.theme}</span>{EVENT.subTheme ? ` — ${EVENT.subTheme}` : ''}</p>
+                <p>🎙️ 주제: <span className="font-bold" style={{ color: EUM_COLORS.orangeD }}>{EVENT.theme}</span>{EVENT.subTheme ? ` — ${EVENT.subTheme}` : ''}</p>
               )}
               {EVENT.district && <p>⛪ 주관: {EVENT.district}</p>}
             </div>
@@ -343,7 +340,7 @@ export default function PublicApplicationForm() {
           <p className="text-xs text-slate-500">✏️ 아래 항목을 차근차근 작성해 주세요. 약 2분이면 완료됩니다.</p>
         </header>
 
-        <form onSubmit={submit} className="rounded-2xl p-5 sm:p-6 space-y-5" style={{ background: 'var(--eum-modal-background)', border: '1px solid rgba(255,255,255,0.18)' }}>
+        <form onSubmit={submit} className="rounded-2xl p-5 sm:p-6 space-y-5" style={{ background: 'var(--eum-modal-background)', border: '1px solid var(--eum-modal-border)' }}>
           <div className="grid sm:grid-cols-2 gap-4">
             <Field label="이름" required>
               <input value={form.name} onChange={e => set('name', e.target.value)} className="input" />
@@ -423,7 +420,7 @@ export default function PublicApplicationForm() {
             <textarea value={form.notes} onChange={e => set('notes', e.target.value)} className="input min-h-24 resize-y" />
           </Field>
 
-          <div className="space-y-3 pt-2 border-t border-white/10">
+          <div className="space-y-3 pt-2 border-t" style={{ borderColor: 'var(--eum-bg-panel)' }}>
             <ConsentCheckbox
               checked={form.insuranceConfirmed}
               onChange={v => set('insuranceConfirmed', v)}
@@ -455,20 +452,20 @@ export default function PublicApplicationForm() {
         </form>
 
         {message && (
-          <section className="rounded-2xl p-4 space-y-3 bg-emerald-500/10 border border-emerald-500/25 text-emerald-100">
+          <section className="rounded-2xl p-4 space-y-3 bg-emerald-50 border border-emerald-300 text-emerald-800">
             <div className="flex items-center gap-2 text-sm font-bold">
               <CheckCircle2 size={16} />
               {message}
             </div>
             {doneUrl && (
               <div className="space-y-2">
-                <p className="text-xs text-emerald-200/80">수정할 때 쓸 링크입니다.</p>
+                <p className="text-xs text-emerald-700">수정할 때 쓸 링크입니다.</p>
                 <div className="flex gap-2">
                   <input readOnly value={doneUrl} className="input flex-1 text-xs" />
                   <button
                     type="button"
                     onClick={() => void navigator.clipboard?.writeText(doneUrl)}
-                    className="px-3 rounded-xl bg-white/10 border border-white/15 text-[#101A3D]"
+                    className="px-3 rounded-xl bg-white border border-emerald-300 text-[#101A3D]"
                     title="수정 링크 복사"
                   >
                     <Clipboard size={15} />
@@ -499,11 +496,11 @@ function Field({
 }) {
   return (
     <label className="block space-y-1.5">
-      <span className="text-xs font-bold text-slate-300">
-        {label}{required && <span className="text-rose-300"> *</span>}
+      <span className="text-xs font-bold" style={{ color: '#3A4568' }}>
+        {label}{required && <span className="text-rose-600"> *</span>}
       </span>
       {children}
-      {hint && <span className="block text-[11px] text-white/60 leading-relaxed">{hint}</span>}
+      {hint && <span className="block text-[11px] leading-relaxed" style={{ color: '#5C6A93' }}>{hint}</span>}
     </label>
   );
 }
@@ -517,7 +514,7 @@ function ConsentCheckbox({
   body: string;
 }) {
   return (
-    <label className="flex items-start gap-3 cursor-pointer rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+    <label className="flex items-start gap-3 cursor-pointer rounded-xl p-3" style={{ background: 'var(--eum-bg-panel)', border: '1px solid rgba(31,95,217,0.15)' }}>
       <input
         type="checkbox"
         checked={checked}
@@ -525,10 +522,10 @@ function ConsentCheckbox({
         className="mt-1 w-4 h-4 accent-emerald-500"
       />
       <span className="space-y-1">
-        <span className="block text-sm font-bold text-white">
-          {title}<span className="text-rose-300"> *</span>
+        <span className="block text-sm font-bold" style={{ color: '#101A3D' }}>
+          {title}<span className="text-rose-600"> *</span>
         </span>
-        <span className="block text-xs text-white/50 leading-relaxed">{body}</span>
+        <span className="block text-xs leading-relaxed" style={{ color: '#5C6A93' }}>{body}</span>
       </span>
     </label>
   );

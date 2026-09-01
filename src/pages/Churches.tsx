@@ -219,8 +219,8 @@ function printChurchDetail(stat: ChurchStat) {
 
 // ── 상세 모달 ─────────────────────────────────────────────────────────────────
 function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void }) {
-  const TH  = 'px-3 py-2 text-left text-[10px] font-bold text-white/70 whitespace-nowrap sticky top-0';
-  const TD  = 'px-3 py-1.5 text-[11px] text-slate-300 whitespace-nowrap';
+  const TH  = 'px-3 py-2 text-left text-[10px] font-bold text-[#1F5FD9] whitespace-nowrap sticky top-0';
+  const TD  = 'px-3 py-1.5 text-[11px] text-[#3A4568] whitespace-nowrap';
   const TDc = `${TD} text-center`;
   const COL_HEADERS = ['이름','구분','학년','성별','참가비','조','방','차량','연락처','보호자연락처','특이사항'];
 
@@ -258,7 +258,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
               <Printer size={13} /> 인쇄
             </button>
             <button onClick={onClose}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors">
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors">
               <X size={16} />
             </button>
           </div>
@@ -269,7 +269,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
             <thead style={{ background: 'var(--eum-modal-background)' }}>
               <tr>
                 {COL_HEADERS.map(h => (
-                  <th key={h} className={TH} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>{h}</th>
+                  <th key={h} className={TH} style={{ borderBottom: '1px solid rgba(31,95,217,0.16)' }}>{h}</th>
                 ))}
               </tr>
             </thead>
@@ -282,7 +282,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
                 const feeColorVal = feeColor(p);
 
                 return (
-                  <tr key={p.id} style={{ background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
+                  <tr key={p.id} style={{ background: i % 2 === 0 ? '#F5F7FA' : 'transparent' }}>
                     <td className={`${TD} font-semibold text-[#101A3D]`}>{p.name}</td>
                     <td className={TDc}>{getRoleLabel(p)}</td>
                     <td className={TDc}>{p.grade}</td>

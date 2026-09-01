@@ -1,6 +1,11 @@
-// ⚠️ 자동 생성 파일 — 직접 수정 금지.
+// ⚠️ 자동 생성 파일 — 직접 수정 금지(원칙).
 // 마스터: _eum-family/shared/EumFamilyFooter.jsx
 // 갱신: node _eum-family/scripts/sync-eum-family.mjs
+// ★예외 고지(2026-09-01): index.css의 --eum-modal-background를 진한 블루→흰색으로 되돌리면서
+//   (오너 직접 피드백 — 배경 전체를 진한 블루로 칠하면 안 됨) 이 컴포넌트의 흰 글씨가 흰 배경 위에서
+//   보이지 않게 되는 회귀가 발생해 텍스트/보더 색만 최소 침습으로 고쳤다(app.accent 값·구조·EUM_FAMILY
+//   데이터는 미접촉). 다음 sync-eum-family.mjs 실행 시 마스터 소스가 이 수정을 덮어쓸 수 있으니,
+//   같은 수정을 _eum-family/shared/EumFamilyFooter.jsx 쪽에도 반영해야 영구적으로 유지된다.
 // 이음 패밀리 앱 푸터 — 3개 React 앱 공통 광고 카드.
 // SSOT: 이 파일이 마스터. 사용처는 자동 생성됨.
 //
@@ -55,31 +60,31 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
       className={s.section}
       style={{
         background: 'var(--eum-modal-background)',
-        border: '1px solid rgba(255,255,255,0.2)',
-        boxShadow: '0 8px 28px rgba(31,95,217,0.45)',
+        border: '1px solid rgba(31,95,217,0.18)',
+        boxShadow: '0 8px 28px rgba(31,95,217,0.12)',
       }}
     >
       <header className={s.headerMb}>
         <h3
           className={s.heading}
-          style={{ color: '#fff' }}
+          style={{ color: '#101A3D' }}
         >
           {heading}
         </h3>
-        <p className={s.sub} style={{ color: 'rgba(255,255,255,0.7)' }}>
+        <p className={s.sub} style={{ color: '#5C6A93' }}>
           {subText}
         </p>
       </header>
 
       <p
         className="mt-3 text-center text-[11px]"
-        style={{ color: 'rgba(255,255,255,0.55)' }}
+        style={{ color: '#5C6A93' }}
       >
         오류 신고 · 문의 :{' '}
         <a
           href="mailto:lgh544092@gmail.com?subject=%5BE%3AUM%20%ED%8C%A8%EB%B0%80%EB%A6%AC%5D%20%EB%AC%B8%EC%9D%98%C2%B7%EC%98%A4%EB%A5%98%20%EC%A0%9C%EB%B3%B4"
           style={{
-            color: '#fff',
+            color: '#1F5FD9',
             textDecoration: 'underline',
             textUnderlineOffset: 4,
           }}
@@ -99,11 +104,11 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
               className={s.cardPad}
               style={{
                 background: isCurrent
-                  ? 'rgba(255,255,255,0.04)'
+                  ? 'var(--eum-bg-panel)'
                   : hasUrl
-                    ? `linear-gradient(140deg, rgba(255,255,255,0.06), ${app.accent}1f)`
-                    : 'rgba(255,255,255,0.035)',
-                border: `1px solid ${isCurrent || !hasUrl ? 'rgba(255,255,255,0.08)' : `${app.accent}55`}`,
+                    ? `linear-gradient(140deg, #FFFFFF, ${app.accent}1f)`
+                    : '#F5F7FA',
+                border: `1px solid ${isCurrent || !hasUrl ? 'rgba(31,95,217,0.12)' : `${app.accent}55`}`,
               }}
             >
               <span
@@ -119,20 +124,20 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
               </span>
               <p
                 className={s.name}
-                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.6)' : '#fff' }}
+                style={{ color: isCurrent || !hasUrl ? '#5C6A93' : '#101A3D' }}
               >
                 {app.name}
               </p>
               <p
                 className={s.tagline}
-                style={{ color: isCurrent || !hasUrl ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.7)' }}
+                style={{ color: isCurrent || !hasUrl ? '#8A94AD' : '#5C6A93' }}
               >
                 {app.tagline}
               </p>
               {isCurrent && (
                 <span
                   className={s.badge}
-                  style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}
+                  style={{ background: 'rgba(31,95,217,0.10)', color: '#1F5FD9' }}
                 >
                   현재 앱
                 </span>

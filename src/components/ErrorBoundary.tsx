@@ -75,22 +75,22 @@ export default class ErrorBoundary extends Component<Props, State> {
           style={{
             background: 'rgba(239,68,68,0.08)',
             border: '1px solid rgba(239,68,68,0.35)',
-            color: '#fecaca',
+            color: '#991B1B',
           }}
         >
           <div className="flex items-start gap-2">
             <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" aria-hidden="true" />
             <div className="flex-1 min-w-0">
-              <div className="font-semibold text-red-200">
+              <div className="font-semibold text-red-800">
                 이 영역을 표시하는 중 오류가 발생했습니다{scope ? ` — ${scope}` : ''}
               </div>
-              <div className="mt-1 text-xs text-red-300/80 break-words">
+              <div className="mt-1 text-xs text-red-700 break-words">
                 {error.message}
               </div>
               <button
                 type="button"
                 onClick={this.handleReset}
-                className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-red-100 hover:bg-red-500/20 transition-colors"
+                className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-red-800 hover:bg-red-100 transition-colors"
                 style={{ border: '1px solid rgba(239,68,68,0.4)' }}
               >
                 <RotateCcw size={12} aria-hidden="true" /> 다시 시도
@@ -125,8 +125,8 @@ export default class ErrorBoundary extends Component<Props, State> {
               <AlertTriangle size={22} className="text-red-300" aria-hidden="true" />
             </div>
             <div>
-              <div className="text-lg font-bold text-white">화면을 표시할 수 없습니다</div>
-              <div className="text-xs text-red-200/70 mt-0.5">
+              <div className="text-lg font-bold text-[#101A3D]">화면을 표시할 수 없습니다</div>
+              <div className="text-xs text-red-700 mt-0.5">
                 {scope ? `영역: ${scope}` : '예상치 못한 오류'}
               </div>
             </div>
@@ -134,18 +134,18 @@ export default class ErrorBoundary extends Component<Props, State> {
 
           <div
             className="rounded-lg p-3 mb-4 text-xs font-mono break-words"
-            style={{ background: 'rgba(31,95,217,0.4)', border: '1px solid rgba(239,68,68,0.2)', color: '#fca5a5' }}
+            style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', color: '#B91C1C' }}
           >
             {error.message || '알 수 없는 오류'}
           </div>
 
-          <details className="mb-4 text-xs text-red-200/70">
-            <summary className="cursor-pointer hover:text-red-200 select-none">
+          <details className="mb-4 text-xs text-red-700">
+            <summary className="cursor-pointer hover:text-red-800 select-none">
               기술 세부정보 보기 (운영진/개발자용)
             </summary>
             <pre
-              className="mt-2 p-3 rounded-lg overflow-x-auto text-[10px] leading-relaxed"
-              style={{ background: 'rgba(31,95,217,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}
+              className="mt-2 p-3 rounded-lg overflow-x-auto text-[10px] leading-relaxed text-[#3A4568]"
+              style={{ background: 'var(--eum-bg-panel)', border: '1px solid rgba(31,95,217,0.12)' }}
             >
               {error.stack}
               {info?.componentStack && '\n— Component Stack —' + info.componentStack}
@@ -165,18 +165,18 @@ export default class ErrorBoundary extends Component<Props, State> {
               type="button"
               onClick={this.handleReload}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-[#101A3D] transition-colors"
-              style={{ background: 'rgba(37, 99, 235,0.2)', border: '1px solid rgba(37, 99, 235,0.4)' }}
+              style={{ background: 'rgba(31,95,217,0.12)', border: '1px solid rgba(31,95,217,0.35)' }}
             >
               <Home size={14} aria-hidden="true" /> 전체 새로고침
             </button>
           </div>
 
-          <div className="mt-5 text-[11px] text-slate-400 leading-relaxed">
-            오류가 반복되면 <strong className="text-slate-200">{EVENT.inquiry.name}</strong>
+          <div className="mt-5 text-[11px] text-[#5C6A93] leading-relaxed">
+            오류가 반복되면 <strong className="text-[#101A3D]">{EVENT.inquiry.name}</strong>
             {EVENT.inquiry.phone && (
               <>
                 {' ('}
-                <a href={`tel:${EVENT.inquiry.phone.replace(/-/g, '')}`} className="text-cyan-300 underline">
+                <a href={`tel:${EVENT.inquiry.phone.replace(/-/g, '')}`} className="text-[#1F5FD9] underline">
                   {EVENT.inquiry.phone}
                 </a>
                 {')'}

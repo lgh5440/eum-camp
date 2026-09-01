@@ -44,9 +44,9 @@ const BUSES = [
 ];
 
 const BASE_INPUT: React.CSSProperties = {
-  background: 'rgba(255,255,255,0.06)',
-  border: '1px solid rgba(255,255,255,0.12)',
-  color: 'white',
+  background: '#FFFFFF',
+  border: '1px solid rgba(148, 163, 184, 0.35)',
+  color: '#3A4568',
 };
 const ERROR_INPUT: React.CSSProperties = {
   ...BASE_INPUT,
@@ -88,17 +88,17 @@ function participantToFormData(p: Participant): FormData {
 function SectionDivider({ label }: { label: string }) {
   return (
     <div className="col-span-1 sm:col-span-2 flex items-center gap-2.5 mt-1">
-      <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest whitespace-nowrap">
+      <span className="text-[10px] font-bold text-[#1F5FD9] uppercase tracking-widest whitespace-nowrap">
         {label}
       </span>
-      <div className="flex-1" style={{ borderTop: '1px solid rgba(37, 99, 235,0.15)' }} />
+      <div className="flex-1" style={{ borderTop: '1px solid rgba(31,95,217,0.15)' }} />
     </div>
   );
 }
 
 function FieldLabel({ required, children }: { required?: boolean; children: string }) {
   return (
-    <p className="text-xs font-medium text-white/50 mb-1.5">
+    <p className="text-xs font-medium text-[#5C6A93] mb-1.5">
       {children}{required && <span className="text-red-400 ml-0.5">*</span>}
     </p>
   );
@@ -204,7 +204,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
   const toggleBtn = (active: boolean, accentColor: string): React.CSSProperties =>
     active
       ? { background: `${accentColor}26`, border: `1px solid ${accentColor}55`, color: accentColor }
-      : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)', color: '#94a3b8' };
+      : { background: 'rgba(31,95,217,0.10)', border: '1px solid rgba(31,95,217,0.16)', color: '#94a3b8' };
 
   const isEdit = mode === 'edit';
   const churchOptions = useMemo(() => {
@@ -229,7 +229,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           className="pointer-events-auto w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[90vh]"
           style={{
             background: 'var(--eum-modal-background)',
-            border: '1px solid rgba(37, 99, 235,0.2)',
+            border: '1px solid rgba(31,95,217,0.2)',
             boxShadow: '0 32px 72px rgba(31,95,217,0.75)',
           }}
           onClick={e => e.stopPropagation()}
@@ -239,27 +239,27 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
               background: 'var(--eum-modal-background)',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
+              borderBottom: '1px solid rgba(31,95,217,0.14)',
             }}
           >
-            <div className="sm:hidden w-10 h-1 rounded-full bg-white/20 mx-auto mb-4" />
+            <div className="sm:hidden w-10 h-1 rounded-full bg-slate-300 mx-auto mb-4" />
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(37, 99, 235,0.15)', border: '1px solid rgba(37, 99, 235,0.25)' }}
+                  style={{ background: 'rgba(31,95,217,0.15)', border: '1px solid rgba(31,95,217,0.25)' }}
                 >
                   {isEdit
-                    ? <Pencil size={14} className="text-cyan-400" />
-                    : <UserPlus size={15} className="text-cyan-400" />}
+                    ? <Pencil size={14} className="text-[#1F5FD9]" />
+                    : <UserPlus size={15} className="text-[#1F5FD9]" />}
                 </div>
-                <h3 className="text-base font-bold text-white">
+                <h3 className="text-base font-bold text-[#101A3D]">
                   {isEdit ? '참가자 수정' : '참가자 추가'}
                 </h3>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-white/60 hover:text-slate-200 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
                 aria-label="닫기"
               >
                 <X size={16} />
@@ -475,7 +475,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
                     </button>
                   ))}
                 </div>
-                <p className="text-[10px] text-white/60 mt-1.5">
+                <p className="text-[10px] text-[#5C6A93] mt-1.5">
                   단계 선택 시 fee 상태와 금액이 자동 책정됩니다.
                 </p>
               </div>
@@ -539,14 +539,14 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           <div
             className="sticky bottom-0 px-5 py-4 flex gap-3 flex-shrink-0"
             style={{
-              borderTop: '1px solid rgba(255,255,255,0.07)',
+              borderTop: '1px solid rgba(31,95,217,0.14)',
               background: 'var(--eum-modal-background)',
             }}
           >
             <button
               onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors"
-              style={{ border: '1px solid rgba(255,255,255,0.10)' }}
+              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] transition-colors"
+              style={{ border: '1px solid rgba(31,95,217,0.16)' }}
             >
               취소
             </button>
@@ -554,8 +554,8 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
               onClick={handleSubmit}
               className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
               style={{
-                background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
-                boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
+                background: 'linear-gradient(90deg, #2F73F2, #1F5FD9)',
+                boxShadow: '0 4px 16px rgba(31,95,217,0.3)',
               }}
             >
               {isEdit ? '수정 저장' : '저장'}
