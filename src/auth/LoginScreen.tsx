@@ -5,7 +5,6 @@ import { useEffect, useId, useState } from 'react';
 import { Lock, LogIn, Eye, EyeOff, Phone, MapPin, ShieldCheck, UserRound } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
-import DemoNotice from '../demo/DemoNotice';
 
 function formatRemaining(ms: number): string {
   const s = Math.max(0, Math.ceil(ms / 1000));
@@ -25,6 +24,7 @@ export default function LoginScreen() {
   const [showPw, setShowPw]         = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState<string | null>(null);
+  const isFirstRun = !state.creds;
 
   // 잠금 카운트다운 표시
   const [now, setNow] = useState(() => Date.now());
@@ -40,7 +40,9 @@ export default function LoginScreen() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (isLocked) return;
-    if (!input) { setError('비밀번호 또는 PIN을 입력해 주세요.'); return; }
+    if (!name.trim() && isFirstRun) { setError('처음 로그인하는 관리자 이름을 입력해 주세요.'); return; }
+    if (!input) { setError(isFirstRun ? '관리자 비밀번호를 입력해 주세요.' : '비밀번호 또는 PIN을 입력해 주세요.'); return; }
+    if (isFirstRun && input.length < 8) { setError('관리자 비밀번호는 8자 이상이어야 합니다.'); return; }
     setSubmitting(true);
     setError(null);
     try {
@@ -115,7 +117,7 @@ export default function LoginScreen() {
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
-            본인 이름 (선택 — 활동 로그에 표시)
+              {isFirstRun ? '관리자 이름' : '본인 이름 (선택 — 활동 로그에 표시)'}
           </label>
           <input
             id={nameId}
@@ -125,13 +127,13 @@ export default function LoginScreen() {
             onChange={e => setName(e.target.value)}
             className="w-full mb-4 px-3 py-2.5 rounded-xl text-sm text-[#101A3D] outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:border-[#1F5FD9]"
             style={{ background: '#F8FBFF', border: '1px solid rgba(31,95,217,0.24)', boxShadow: 'inset 0 1px 2px rgba(31,95,217,0.04)' }}
-            placeholder="예: 김교사"
+            placeholder={isFirstRun ? '예: 홍길동 목사' : '예: 김교사'}
             disabled={isLocked || submitting}
           />
 
           {/* 비밀번호 / PIN */}
           <label htmlFor={inputId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
-            비밀번호 또는 PIN
+            {isFirstRun ? '관리자 비밀번호 (8자 이상)' : '비밀번호 또는 PIN'}
           </label>
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
@@ -146,7 +148,7 @@ export default function LoginScreen() {
               value={input}
               onChange={e => setInput(e.target.value)}
               className="flex-1 bg-transparent outline-none text-sm text-[#101A3D] tracking-widest focus-visible:ring-2 focus-visible:ring-blue-300"
-              placeholder={isLocked ? '잠금 해제 후 시도' : '입력 후 Enter'}
+              placeholder={isLocked ? '잠금 해제 후 시도' : (isFirstRun ? '이 브라우저의 관리자 비밀번호' : '입력 후 Enter')}
               disabled={isLocked || submitting}
               autoFocus
               required
@@ -197,7 +199,6 @@ export default function LoginScreen() {
           </button>
         </form>
 
-        <DemoNotice variant="login" />
 
         {/* 행사·문의 정보 */}
         <div className="mt-6 text-[11px] text-[#5C6A93] leading-relaxed text-center space-y-1.5">

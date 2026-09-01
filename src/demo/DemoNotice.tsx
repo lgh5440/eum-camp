@@ -10,8 +10,25 @@ import { Info } from 'lucide-react';
 import { DEMO_MODE } from './demoConfig';
 import { DEMO_CREDENTIALS, DEMO_RESET_LABEL } from './demoInfo';
 
-export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) {
+export default function DemoNotice({ variant }: { variant: 'login' | 'setup' | 'dashboard' }) {
   if (!DEMO_MODE) return null;
+
+  if (variant === 'dashboard') {
+    return (
+      <span className="rounded-md bg-[#2F73F2] px-2 py-0.5 text-[10px] font-black tracking-wider text-white" aria-label="데모 버전">
+        DEMO
+      </span>
+    );
+  }
+
+  // 데모 설명은 최초 진입에서만 길게 보여주고, 로그인 화면에는 상태를 알리는 작은 배지만 남긴다.
+  if (variant === 'login') {
+    return (
+      <div className="mb-4 flex justify-center" aria-label="데모 버전">
+        <span className="rounded-md bg-[#2F73F2] px-2 py-0.5 text-[10px] font-black tracking-wider text-white">DEMO</span>
+      </div>
+    );
+  }
 
   // 초기 설정 화면: '지금 체험판'이라는 사실 자체는 처음 들어오자마자 항상 보여야 하므로
   // 카드 위 최상단에 작은 배지로 항상 노출한다(숨기지 않음). 새벽 4시 초기화 같은 상세
@@ -24,9 +41,9 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
       >
         <summary
           className="flex cursor-pointer list-none items-center gap-1.5 px-3 py-2 font-bold"
-          style={{ color: '#1B3A5C' }}
+          style={{ color: '#1F5FD9' }}
         >
-          <span className="rounded-md bg-[#1B3A5C] px-2 py-0.5 text-[10px] font-black tracking-wider text-white">DEMO</span>
+          <span className="rounded-md bg-[#2F73F2] px-2 py-0.5 text-[10px] font-black tracking-wider text-white">DEMO</span>
           <Info size={12} aria-hidden="true" />
           지금 체험판입니다 — 자세히
         </summary>
@@ -48,20 +65,20 @@ export default function DemoNotice({ variant }: { variant: 'login' | 'setup' }) 
         color: '#3A4568',
       }}
     >
-      <div className="flex items-center gap-1.5 mb-2 font-bold text-sm" style={{ color: '#1B3A5C' }}>
-        <span className="rounded-md bg-[#1B3A5C] px-2 py-0.5 text-xs font-black tracking-wider text-white">DEMO</span>
+      <div className="flex items-center gap-1.5 mb-2 font-bold text-sm" style={{ color: '#1F5FD9' }}>
+        <span className="rounded-md bg-[#2F73F2] px-2 py-0.5 text-xs font-black tracking-wider text-white">DEMO</span>
         <Info size={13} aria-hidden="true" />
         강의 체험용 데모 사이트입니다
       </div>
 
       <div className="grid gap-2 sm:grid-cols-2">
         <div className="rounded-lg border border-[#BFDBFE] bg-white p-2.5">
-          <div className="font-bold text-[#1B3A5C]">전체 편집</div>
+          <div className="font-bold text-[#1F5FD9]">전체 편집</div>
           <div className="text-[10px] text-[#5C6A93]">진행위원 비밀번호</div>
           <code className="mt-1 block select-all rounded bg-[#EFF6FF] px-2 py-1 text-center font-mono text-sm font-bold tracking-wide text-[#101A3D]">{DEMO_CREDENTIALS.adminPassword}</code>
         </div>
         <div className="rounded-lg border border-[#BFDBFE] bg-white p-2.5">
-          <div className="font-bold text-[#1B3A5C]">둘러보기</div>
+          <div className="font-bold text-[#1F5FD9]">둘러보기</div>
           <div className="text-[10px] text-[#5C6A93]">조회용 PIN · 읽기 전용</div>
           <code className="mt-1 block select-all rounded bg-[#EFF6FF] px-2 py-1 text-center font-mono text-sm font-bold tracking-wide text-[#101A3D]">{DEMO_CREDENTIALS.committeePin}</code>
         </div>

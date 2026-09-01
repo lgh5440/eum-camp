@@ -73,3 +73,22 @@ Dashboard 히어로는 실제 렌더 후 높이와 제목 크기를 줄였다. �
 - [feedback-rooms-after.png](feedback-rooms-after.png)
 - [feedback-vehicles-after.png](feedback-vehicles-after.png)
 - [feedback-printcenter-after.png](feedback-printcenter-after.png)
+
+## DEMO_MODE auth-gate verification (2026-09-02)
+
+Worker(92)의 미커밋 인증 우회 변경을 실제 브라우저로 검증했다. 4174는 기존 오너 테스트 서버를 재사용했고, 실제 배포 모드 검증은 `.env.local`의 `VITE_DEMO_MODE=true`가 덮어쓰지 않도록 프로세스 환경변수로 `false`를 주입한 별도 4181에서 수행했다.
+
+| 모드/단계 | 실측 결과 | 증거 |
+|---|---|---|
+| DEMO_MODE=true, 4174 초기 진입 | 로그인·설정 화면 없이 대시보드 진입, DEMO 배지 표시, HTTP 200, dynamic import/page error 0건 | [demo true](eum-camp-demo-mode-true-20260902.png) |
+| DEMO_MODE=false, 4181 초기 진입 | 로그인 화면 표시, HTTP 200, 오류/실패 요청 0건 | [false login](eum-camp-demo-mode-false-20260902.png) |
+| false 관리자 로그인 | 관리자 이름과 8자 이상 비밀번호 입력 후 행사 설정 마법사 진입 | [false login success](eum-camp-demo-mode-false-login-20260902.png) |
+| false 행사 설정 완료 | 행사명·기간 입력 후 대시보드 진입, HTTP 200, 오류/실패 요청 0건 | [false setup success](eum-camp-demo-mode-false-setup-20260902.png) |
+
+### 확인된 원인과 수정
+
+DEMO_MODE=true에서 최초 구현은 `useDemoAutoEnter`/이벤트 설정 bootstrap이 끝나기 전에 `MainShell`을 렌더링하여 대시보드 날짜가 `D-NaN`으로 보이는 경쟁 상태가 있었다. `src/App.tsx`의 우회 분기에 `!autoEntering && !demoChecking` 조건을 추가하고 재실행한 결과 `D-NaN`이 사라졌다. 이는 로그인 실패와 별개의 초기 렌더링 문제였다.
+
+브라우저 콘솔에서 관찰된 Firestore Write 채널 `net::ERR_ABORTED`와 `[cloud sync] participants save failed FirebaseError: Missing or insufficient permissions.`는 Firestore 권한/채널 종료 문제이며 dynamic import 실패가 아니다. 이번 true/false 인증 흐름에서는 dynamic import 오류나 page error는 재현되지 않았다.
+
+첫 false 검증을 4180에서 시도했으나 `.env.local`의 `VITE_DEMO_MODE=true`가 우선되어 false 검증으로 채택하지 않았다. 이 결과를 폐기하고 4181에서 변환된 `src/demo/demoConfig.ts`의 `VITE_DEMO_MODE:"false"`를 확인한 뒤 재검증했다.

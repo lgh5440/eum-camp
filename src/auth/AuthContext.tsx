@@ -56,7 +56,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(async (input: string, displayName: string): Promise<Role | null> => {
     const creds = state.creds;
-    if (!creds) return null;
+    // 첫 실행은 별도 설정 화면 없이, 이 브라우저의 첫 로그인 입력을 관리자 자격으로 봉인한다.
+    // 인증 저장소가 localStorage 기반인 현재 제품 모델을 유지하므로 다른 브라우저의 권한에는 영향을 주지 않는다.
+    if (!creds) {
+      const adminName = displayName.trim();
+      if (!adminName || input.length < 8) return null;
+      const firstCreds = await saveCreds({ adminPassword: input, adminName });
+      const firstSession: Session = {
+        role: 'admin',
+        displayName: firstCreds.adminName,
+        loginAt: new Date().toISOString(),
+      };
+      saveSession(firstSession);
+      resetAttempts();
+      setState(s => ({ ...s, creds: firstCreds, session: firstSession, failedAttempts: 0, lockedUntil: null }));
+      return 'admin';
+    }
     if (state.lockedUntil && state.lockedUntil > Date.now()) return null;
 
     const h = await hash(input);

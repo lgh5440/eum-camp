@@ -28,7 +28,7 @@ const PublicApplicationForm = lazy(() => import('./pages/PublicApplicationForm')
 import ConnectionStatus from './components/ConnectionStatus';
 import { AuthProvider } from './auth/AuthContext';
 import { useAuth } from './auth/useAuth';
-import SetupScreen from './auth/SetupScreen';
+import type { Session } from './auth/types';
 import LoginScreen from './auth/LoginScreen';
 import EventSetupWizard from './auth/EventSetupWizard';
 import { isEventConfigured, mergeEventConfig, type EventConfig } from './config/eventConfig';
@@ -40,6 +40,8 @@ import { DEMO_CREDENTIALS } from './demo/demoInfo';
 import { saveCreds, saveSession } from './auth/storage';
 import { ensureFirebaseAuth } from './services/firebase';
 import { fetchCloudStateOnce } from './services/cloudStoreImpl';
+import { shouldBypassAuthGate } from './auth/authGatePolicy';
+import DemoNotice from './demo/DemoNotice';
 import './index.css';
 
 const PAGE_TITLES: Record<PageKey, string> = {
@@ -98,7 +100,13 @@ function PageContent({ page, onNavigate }: { page: PageKey; onNavigate: (p: Page
   }
 }
 
-function MainShell() {
+const DEMO_SESSION: Session = {
+  role: 'admin' as const,
+  displayName: DEMO_CREDENTIALS.adminName,
+  loginAt: 'demo',
+};
+
+function MainShell({ sessionOverride }: { sessionOverride?: Session } = {}) {
   // 새로고침 후 페이지 복원: URL hash → localStorage → dashboard
   const [currentPage, setCurrentPage] = useState<PageKey>(() => {
     const fromHash = getHashPage();
@@ -111,7 +119,7 @@ function MainShell() {
   const [collapsed, setCollapsed]   = useState(false);
 
   const { state, logout, resetInstallation } = useAuth();
-  const session = state.session!; // MainShell은 session이 있을 때만 렌더됨
+  const session = state.session ?? sessionOverride!; // 데모는 백그라운드 세션 저장 전에도 바로 진입한다.
 
   // 페이지 변경 → URL hash + localStorage 동기화
   useEffect(() => {
@@ -204,6 +212,7 @@ function MainShell() {
               <span className="text-sm font-semibold text-[#101A3D] truncate" aria-current="page">
                 {PAGE_TITLES[currentPage]}
               </span>
+              <DemoNotice variant="dashboard" />
             </nav>
           </div>
 
@@ -418,6 +427,16 @@ function AuthGate() {
   const autoEnterActive = DEMO_MODE && !applyPage && !installChosen;
   const autoEntering = useDemoAutoEnter(autoEnterActive, Boolean(state.creds), Boolean(state.session));
 
+  if (shouldBypassAuthGate(DEMO_MODE, applyPage) && !autoEntering && !demoChecking) {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <CloudSyncProvider>
+          <MainShell sessionOverride={state.session ?? DEMO_SESSION} />
+        </CloudSyncProvider>
+      </Suspense>
+    );
+  }
+
   if (applyPage) {
     return (
       <Suspense fallback={<PageLoading />}>
@@ -428,7 +447,7 @@ function AuthGate() {
     );
   }
   if (autoEntering) return <DemoSyncCheckingScreen />;
-  if (!state.creds)   return <SetupScreen />;
+  if (!state.creds)   return <LoginScreen />;
   if (!state.session) return <LoginScreen />;
   // 첫 부팅 — 행사 정보가 비어있으면 admin에게 강제 마법사. committee는 admin이 채울 때까지 대기.
   // (데모 배포본은 그 전에 클라우드 확인을 한 번 거친다 — 위 useDemoEventConfigBootstrap)

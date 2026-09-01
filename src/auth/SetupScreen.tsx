@@ -5,29 +5,18 @@ import { useId, useState } from 'react';
 import { ShieldCheck, Eye, EyeOff, UserCog, KeyRound } from 'lucide-react';
 import { useAuth } from './useAuth';
 import { EVENT } from '../data/eventInfo';
-import DemoNotice from '../demo/DemoNotice';
-import { DEMO_MODE } from '../demo/demoConfig';
-import { DEMO_CREDENTIALS } from '../demo/demoInfo';
 
 // 체험용 기본값은 데모 배포본에서만 채운다.
 // 이 저장소를 복사해 실제 운영에 쓰는 교회의 설정 화면에 'demo1234' 가 남아 있으면 안 된다.
 // (VITE_DEMO_MODE 기본 OFF → 아래는 전부 빈 문자열로 접힌다.)
-const PREFILL = DEMO_MODE
-  ? {
-      adminName: DEMO_CREDENTIALS.adminName,
-      adminPw: DEMO_CREDENTIALS.adminPassword,
-      pin: DEMO_CREDENTIALS.committeePin,
-    }
-  : { adminName: '', adminPw: '', pin: '' };
-
 export default function SetupScreen() {
   const { setup } = useAuth();
   const adminNameId = useId();
   const adminPwId   = useId();
   const errorId     = useId();
 
-  const [adminName, setAdminName]   = useState(PREFILL.adminName);
-  const [adminPw, setAdminPw]       = useState(PREFILL.adminPw);
+  const [adminName, setAdminName]   = useState('');
+  const [adminPw, setAdminPw]       = useState('');
   const [showPw, setShowPw]         = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState<string | null>(null);
@@ -51,7 +40,6 @@ export default function SetupScreen() {
       await setup({
         adminPassword: adminPw,
         adminName,
-        ...(DEMO_MODE ? { committeePin: PREFILL.pin } : {}),
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : '설정 중 오류가 발생했습니다.');
@@ -68,7 +56,6 @@ export default function SetupScreen() {
       <div className="max-w-xl w-full">
         {/* 체험판 배지 — 처음 들어올 때 바로 보이도록 카드 위 최상단에 항상 노출(숨기지 않음).
             상세 설명(새벽 4시 초기화 등) 3줄만 접이식으로 감춘다. */}
-        <DemoNotice variant="setup" />
 
         <div
           className="rounded-[29px] p-7"
