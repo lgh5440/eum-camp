@@ -149,7 +149,7 @@ function MainShell() {
       {/* 키보드 사용자용 스킵 링크 — 포커스되면 화면에 노출 */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:rounded-lg focus:bg-cyan-500 focus:text-[#101A3D] focus:font-semibold focus:text-sm"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:rounded-lg focus:bg-[#2F73F2] focus:text-white focus:font-semibold focus:text-sm"
       >
         본문으로 건너뛰기
       </a>
@@ -169,9 +169,10 @@ function MainShell() {
         <header
           className="sticky top-0 z-40 px-4 lg:px-6 py-3 flex items-center justify-between gap-3"
           style={{
-            background: 'rgba(2,8,24,0.88)',
+            background: 'rgba(255,255,255,0.94)',
             backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(37, 99, 235,0.1)',
+            borderBottom: '1px solid #DDEEFF',
+            boxShadow: '0 4px 18px rgba(31,95,217,0.06)',
           }}
         >
           {/* 좌측: 햄버거 + 브레드크럼 */}
@@ -179,7 +180,7 @@ function MainShell() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors"
+              className="lg:hidden flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-[#5C6A93] hover:text-[#1F5FD9] hover:bg-[#EAF3FF] focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors"
               aria-label="메뉴 열기"
               aria-expanded={mobileOpen}
               aria-controls="primary-sidebar"
@@ -196,10 +197,10 @@ function MainShell() {
                 style={{ filter: 'drop-shadow(0 0 6px rgba(47,115,242,0.4))' }}
                 aria-hidden="true"
               />
-              <span className="text-[11px] text-slate-500 whitespace-nowrap hidden sm:block">
+              <span className="text-[11px] text-[#5C6A93] whitespace-nowrap hidden sm:block">
                 {EVENT.appName}
               </span>
-              <span className="text-slate-600 hidden sm:block" aria-hidden="true">/</span>
+              <span className="text-[#A7B2CE] hidden sm:block" aria-hidden="true">/</span>
               <span className="text-sm font-semibold text-[#101A3D] truncate" aria-current="page">
                 {PAGE_TITLES[currentPage]}
               </span>
@@ -212,9 +213,9 @@ function MainShell() {
             <div
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px]"
               style={{
-                background: isAdmin ? 'rgba(245,158,11,0.12)' : 'rgba(37, 99, 235,0.12)',
-                border: `1px solid ${isAdmin ? 'rgba(245,158,11,0.3)' : 'rgba(37, 99, 235,0.3)'}`,
-                color: isAdmin ? '#fde68a' : '#a5f3fc',
+                background: 'rgba(31,95,217,0.08)',
+                border: '1px solid rgba(31,95,217,0.24)',
+                color: '#1F5FD9',
               }}
               title={isAdmin ? '진행위원 — 읽기·쓰기' : '조회 전용 — 읽기 가능'}
             >
@@ -222,7 +223,7 @@ function MainShell() {
                 ? <ShieldCheck size={11} aria-hidden="true" />
                 : <UserCog size={11} aria-hidden="true" />}
               <span className="font-semibold">{isAdmin ? '진행위원' : '조회 전용'}</span>
-              <span className="text-slate-300">· {session.displayName}</span>
+              <span className="text-[#5C6A93]">· {session.displayName}</span>
             </div>
             <span className="text-xs text-slate-500 hidden lg:block whitespace-nowrap">
               {EVENT.dateShort} · {EVENT.venue}
@@ -235,7 +236,7 @@ function MainShell() {
                   try { localStorage.setItem(DEMO_INSTALL_CHOSEN_KEY, '1'); } catch { /* 저장 실패해도 진행 */ }
                   resetInstallation();
                 }}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-opacity"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-opacity"
                 style={{ background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)' }}
                 aria-label="내 교회로 설정하기 — 지금은 체험판입니다"
                 title="지금은 체험판입니다. 눌러서 우리 교회 계정으로 설정하세요."
@@ -247,7 +248,7 @@ function MainShell() {
             <button
               type="button"
               onClick={logout}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-slate-300 hover:text-[#101A3D] hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs text-[#5C6A93] hover:text-[#101A3D] hover:bg-[#EAF3FF] focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors"
               aria-label="로그아웃 (잠금화면으로)"
               title="로그아웃"
             >
@@ -265,7 +266,9 @@ function MainShell() {
         >
           <ErrorBoundary scope={PAGE_TITLES[currentPage]} variant="inline" onReset={() => setCurrentPage('dashboard')}>
             <Suspense fallback={<PageLoading />}>
-              <PageContent page={currentPage} onNavigate={setCurrentPage} />
+              <div className="eum-page-frame">
+                <PageContent page={currentPage} onNavigate={setCurrentPage} />
+              </div>
             </Suspense>
           </ErrorBoundary>
         </main>

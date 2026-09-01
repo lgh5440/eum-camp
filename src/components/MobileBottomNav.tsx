@@ -23,9 +23,10 @@ export default function MobileBottomNav({ currentPage, onNavigate, onOpenMenu }:
       style={{
         height: 'calc(var(--eum-mobile-tab-h) + var(--eum-safe-bottom))',
         paddingBottom: 'var(--eum-safe-bottom)',
-        background: 'rgba(2,8,24,0.92)',
+        background: 'rgba(255,255,255,0.96)',
         backdropFilter: 'blur(14px)',
-        borderTop: '1px solid rgba(31,95,217,0.18)',
+        borderTop: '1px solid #DDEEFF',
+        boxShadow: '0 -8px 24px rgba(31,95,217,0.12)',
       }}
     >
       <ul className="grid grid-cols-5 h-16 m-0 p-0 list-none">
@@ -37,9 +38,9 @@ export default function MobileBottomNav({ currentPage, onNavigate, onOpenMenu }:
                 type="button"
                 onClick={() => tab.key === 'menu' ? onOpenMenu() : onNavigate(tab.key as PageKey)}
                 aria-current={isActive ? 'page' : undefined}
-                className="flex-1 flex flex-col items-center justify-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold)]/60"
+                className="flex-1 flex flex-col items-center justify-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2F73F2]/60"
                 style={{
-                  color: isActive ? 'var(--eum-gold)' : '#94a3b8',
+                  color: isActive ? '#1F5FD9' : '#5C6A93',
                   transition: 'color 0.15s ease',
                 }}
               >

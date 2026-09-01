@@ -67,8 +67,8 @@ function Inner() {
     <section
       className="rounded-2xl p-5"
       style={{
-        background: 'rgba(245,158,11,0.05)',
-        border: '1px solid rgba(245,158,11,0.2)',
+        background: '#FFFFFF',
+        border: '1px solid #DDEEFF',
         boxShadow: '0 4px 24px rgba(31,95,217,0.25)',
       }}
       aria-labelledby="admin-auth-heading"
@@ -76,12 +76,12 @@ function Inner() {
       <div className="flex items-start gap-3 mb-4">
         <div
           className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-          style={{ background: 'rgba(245,158,11,0.2)' }}
+          style={{ background: '#EAF3FF' }}
         >
-          <ShieldCheck size={18} className="text-amber-400" aria-hidden="true" />
+          <ShieldCheck size={18} className="text-[#1F5FD9]" aria-hidden="true" />
         </div>
         <div>
-          <h3 id="admin-auth-heading" className="text-sm font-bold text-[#92400E]">
+          <h3 id="admin-auth-heading" className="text-sm font-bold text-[#101A3D]">
             진행위원 인증 설정
           </h3>
           <p className="text-xs text-[#5C6A93] mt-0.5">
@@ -134,7 +134,7 @@ function Inner() {
             disabled={busy}
             className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] disabled:opacity-50"
             style={{
-              background: 'linear-gradient(135deg,#f59e0b,#d97706)',
+              background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)',
               boxShadow: '0 6px 16px rgba(31,95,217,0.18)',
             }}
           >
@@ -171,7 +171,7 @@ function Field({
         className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
         style={{ background: '#FFFFFF', border: '1px solid #64748B' }}
       >
-        <span className="text-amber-400 flex-shrink-0">{icon}</span>
+        <span className="text-[#1F5FD9] flex-shrink-0">{icon}</span>
         {children}
       </div>
     </div>

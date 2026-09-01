@@ -1,0 +1,262 @@
+{
+  "results": [
+    {
+      "name": "Applications",
+      "route": "applications",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/applications-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n7월 20~23일 (화~금)\nD-322\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n함께 자라는 공동체\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n온라인 신청 대기함\n온라인 동기화\n진행위원\n· 체험용 관리자\n07.20~07.23 · 이음 수양관\n내 교회로 설정하기\n로그아웃\n온라인 신청 대기함\n\nGoogle Forms·네이버폼·CSV 신청을 검토한 뒤 참가자 명단에 반영합니다.\n\nCSV 가져오기\nGoogle Forms 응",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 8,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "CheckIn",
+      "route": "checkin",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/checkin-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n현장 체크인\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n현장 체크인\n\n참가자 도착 여부 확인 · 실시간 현황\n\n체크인 진행률\n0 / 50명\n0%\n전체 인원\n50\n취소 제외\n체크인 완료\n0\n미도착",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 9,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Checklist",
+      "route": "checklist",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/checklist-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n운영 체크리스트\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n운영 체크리스트\n\n완료 5/16건 · 31% 달성\n\n항목 편집\n카테고리 편집\n저장 상태 초기화\n전체 진행률\n31%\n완료 5\n진행중 6\n",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 9,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Churches",
+      "route": "churches",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/churches-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n교회별 신청 현황\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n교회별 신청 현황\n\n참여 교회 10개 · 총 50명 신청\n\n교회 편집\n⛪\n전체 교회\n10개\n✅\n확인 완료\n0개\n○\n미확인\n10개\n💰",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 9,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "DataManager",
+      "route": "datamanager",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/datamanager-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n데이터 관리\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n데이터 관리\n\n참가자 데이터와 체크리스트 상태를 JSON 파일로 백업하거나 복원합니다.\n\n진행위원 인증 설정\n\n진행위원(읽기·쓰기) 비밀번",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 9,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "EmergencyContacts",
+      "route": "emergency",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/emergencycontacts-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n비상연락망\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n비상연락망\n\n응급 상황 시 즉시 확인 가능한 참가자 연락처 목록\n\n비상연락망 인쇄\n\n운영진 전용 문서 — 본 문서는 수련회 안전 관리를 위한",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 11,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "EventSettings",
+      "route": "eventsettings",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/eventsettings-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n행사·운영 설정\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n행사·운영 설정 (관리자 전용)\n\n관리자 인증·행사 메타정보·전체 데이터 백업 등 시스템 설정을 한 곳에서 관리합니다.\n\n진행위원 인증",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 10,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "FieldMode",
+      "route": "fieldmode",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/fieldmode-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n현장 운영 모드\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n현장 운영 모드\n\n수련회 현장 실시간 운영 현황\n\n23:50:24\n2026.09.01\n마지막 갱신: 23:50\n지금 갱신\n30초 자동갱",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 13,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Groups",
+      "route": "groups",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/groups-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n조 편성\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n조 편성\n\n총 6개 조 · 학생 25명\n\n조 정보 편집\n자동 조 편성\n25\n전체 학생\n25\n배정 완료\n0\n미배정\n4.2\n조별 평균\n1\n1조 빛",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 9,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Notices",
+      "route": "notices",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/notices-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n공지사항\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n공지사항\n\n총 5건 · 고정 2건\n\n공지 편집\n카테고리 편집\n오늘의 말씀 편집\n전체\n운영진\n교회 담당자\n[필독] 최종 참가자 명단 제출 안내\n",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 10,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Participants",
+      "route": "participants",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/participants-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n참가자 관리\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n참가자 관리\n\n총 50명 · 표시 50명\n\n47명 확정\nCSV 내보내기\nCSV 가져오기\n참가자 추가\n⚠️\n알레르기\n3명\n🌿\n채식\n1명\n\ud83d",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 11,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "PrintCenter",
+      "route": "printcenter",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/printcenter-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n출력 센터\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n출력 센터\n\n수련회 운영 명단을 브라우저 인쇄(Ctrl+P)로 출력합니다\n\n인쇄하기\n전체 참가자 명단\n조 편성표\n방 배정표\n차량 탑승표\n교회",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 12,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "PublicApplicationForm",
+      "route": "apply",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/publicapplicationform-after.png",
+      "metrics": {
+        "bodyText": "하나님과 사람을\n사람과 사람을\nGOD TO PEOPLE · PEOPLE TO PEOPLE\n하나님과 사람을, 사람과 사람을 잇다.\n샘플 청소년 연합수련회 등록 신청서\n\n📅 2026.11.23(월) - 11.23(월)\n\n📍 장소: ○○수양관\n\n🎙️ 주제: 하나님과 사람을, 사람과 사람을 잇다.\n\n⛪ 주관: ○○지방회 / 샘플교회\n\n✏️ 아래 항목을 차근차근 작성해 주세요. 약 2분이면 완료됩니다.\n\n이름 *\n성별 *\n남\n여\n교회 *\n선택\n샘플제일교회\n샘플중앙교회\n샘플동산교회\n샘플은혜교회\n샘플소망교회\n샘플사랑교회\n샘플기쁨교회\n샘플새싹교회\n샘플푸른교회\n샘플햇살교회\n직접 입력\n구분 *\n학생\n교사\n학부모\n찬양팀\n자원봉사\n진행위원\n학년 *\n초등4\n초등5\n초등6\n중1\n중2\n중3\n고1\n고2\n고3\n청년\n장년\n연락처 *\n",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 6,
+        "hasBlueAccent": true,
+        "hasRainbow": false,
+        "legacyColor": false,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Rooms",
+      "route": "rooms",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/rooms-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n숙소/방 배정\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n숙소 / 방 배정\n\n총 10개 방 · 수용 72명 · 학생·교사·운영진 모두 포함\n\n자동 배정\n수동 배정\n50\n전체 인원\n14\n배정 완료",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 14,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Safety",
+      "route": "safety",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/safety-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n안전 관리\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n안전 관리\n\n현장 안전 체크 및 응급 대응\n\n항목 편집\n카테고리 편집\n6\n정상\n2\n주의\n0\n위험\n응급 대응\n응급처치 키트 비치 및 담당자 지",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 12,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Schedule",
+      "route": "schedule",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/schedule-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n일정 관리\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n일정 관리\n\n전체 3일 프로그램 일정\n\n일정 편집\n카테고리 편집\n✝️\n예배/강의\n🎯\n프로그램\n🍽️\n식사\n🌞\n자유시간\n🌙\n취침\n🚌\n이",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 10,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "UserGuide",
+      "route": "userguide",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/userguide-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n사용 매뉴얼\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n운영자 사용 매뉴얼\n\n샘플 청소년 연합수련회 · 2026.11.23(월) - 11.23(월) · ○○수양관\n\n조회용 PIN을 받으셨다면\n다",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 10,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    },
+    {
+      "name": "Vehicles",
+      "route": "vehicles",
+      "screenshot": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/vehicles-after.png",
+      "metrics": {
+        "bodyText": "본문으로 건너뛰기\n하나님과 사람을\n사람과 사람을\n11월 23~23일 (월~월)\nD-83\n메인 대시보드\n참가자 관리\n온라인 신청 대기함\n교회별 신청 현황\n조 편성\n일정 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n하나님과 사람을, 사람과 사람을 잇다.\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n차량 배정\n온라인 동기화\n진행위원\n· 체험용 관리자\n11.23~11.23 · ○○수양관\n내 교회로 설정하기\n로그아웃\n차량 배정\n\n총 2대 · 수용 90명\n\n참가자 줄의 선택 박스로 차량을 직접 변경할 수 있습니다.\n\n자동 차량 배정\n50\n전체 인원\n4\n배정",
+        "bodyBg": "rgb(245, 247, 250)",
+        "darkLarge": 11,
+        "hasBlueAccent": true,
+        "hasRainbow": true,
+        "legacyColor": true,
+        "title": "[DEV·캠프] 이음 캠프"
+      }
+    }
+  ],
+  "consoleLines": [
+    "warning: [cloud sync] participants save failed FirebaseError: Missing or insufficient permissions."
+  ],
+  "failedRequests": [
+    "GET https://firestore.googleapis.com/google.firestore.v1.Firestore/Write/channel?gsessionid=YImTuKcBM0ekLYagjFBUyNgQ6R0wGjwlC0JWX94YepDT2S06MxIwgA&VER=8&database=projects%2Feum-camp-template%2Fdatabases%2F(default)&RID=rpc&SID=hewh7kIHbAYg5AnNGw6riQ&AID=0&CI=0&TYPE=xmlhttp&zx=2o6vetsnjijb&t=1 net::ERR_ABORTED"
+  ]
+}

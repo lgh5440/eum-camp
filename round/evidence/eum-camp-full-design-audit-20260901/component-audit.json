@@ -1,0 +1,67 @@
+{
+  "shots": [
+    {
+      "name": "connection-status",
+      "route": "applications",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-connection-status.png",
+      "body": "리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n2026 THEME\n함께 자라는 공동체\nBuilt by E:UM · 이음\n이음 캠프 — 수련회·모임 운영 시스템\n/\n온라인 신청 대기함\n온라인 동기화\n진행위원\n· 체험용 관리자\n07.20~07.23 · 이음 수양관\n내 교회로 설정하기\n로그아웃\n온라인 신청 대기함\n\nGoogle Forms·네이버폼·CSV 신청을 검토한 뒤 참가자 명단에 반영합니다.\n\nCSV 가져오기\nGoogle Forms 응답 시트 가져오기\n동기화\n2분마다 자동으로 Google Sheet 새 신청 가져오기\n\nGoogle Forms는 응답을 Google Sheet로 연결한 뒤, 시트를 CSV로 게시하면 이 대기함에서 바로 가져올 수 있습니다.\n\n0\n검토 대기\n0\n중복 의심\n0\n명단 추가\n0\n보류/반려\n검토 대기\n중복 의심\n전체\n\n현재 조건에 맞는 신청이 없습니다.\n\n클라우드 저장 실패 — 변경 사항은 이 기기에 보관되며, 연결되면 자동 재전송합니다."
+    },
+    {
+      "name": "csv-import-modal",
+      "route": "participants",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-csv-import-modal.png",
+      "body": ")\n\t샘플제일교회\t찬양팀\t남\t010-9000-0008\t일반\t확정\t완납\n42\t\n임\n임수빈 (보컬)\n\t샘플제일교회\t찬양팀\t여\t010-9000-0009\t일반\t확정\t완납\n43\t\n윤\n윤지원 (건반)\n\t샘플제일교회\t찬양팀\t여\t010-9000-0010\t일반\t확정\t완납\n44\t\n노\n노태우 (드럼)\n\t샘플제일교회\t찬양팀\t남\t010-9000-0011\t일반\t확정\t완납\n45\t\n백\n백설아 (기타)\n\t샘플제일교회\t찬양팀\t여\t010-9000-0012\t일반\t확정\t완납\n46\t\n서\n서지훈 도우미\n\t샘플제일교회\t도우미\t남\t010-9000-0013\t일반\t확정\t완납\n47\t\n박\n박하늘 도우미\n\t샘플제일교회\t도우미\t여\t010-9000-0014\t일반\t확정\t완납\n48\t\n김\n김도윤 도우미\n\t샘플제일교회\t도우미\t남\t010-9000-0015\t일반\t확정\t완납\n49\t\n이\n이서아 도우미\n\t샘플제일교회\t도우미\t여\t010-9000-0016\t일반\t확정\t완납\n50\t\n박\n박미경 간호사\n\t샘플제일교회\t의료\t여\t010-9000-0017\t일반\t확정\t완납"
+    },
+    {
+      "name": "group-assign-modal",
+      "route": "groups",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-group-assign-modal.png",
+      "body": " 1\n샘플새싹교회 1\n6\n6조 은혜의 강\n리더: 한지민 교사 (교사)\n3명\n남0/여3\n이\n이채원중3\n샘플중앙교회\n조\n조민서중3\n샘플은혜교회\n문\n문지윤중1\n샘플사랑교회\n샘플중앙교회 1\n샘플은혜교회 1\n샘플사랑교회 1\n자동 조 편성 미리보기\n\n배정 결과를 확인 후 적용해 주세요\n\n미배정만 채우기\n전체 재배정\n25\n총 배정\n4.2\n조별 평균\n0\n미배정\n1조 빛의 자녀\n5\n남 2\n여 3\n샘플제일교회 2\n샘플동산교회 1\n샘플소망교회 1\n+1\n2조 진리의 길\n5\n남 3\n여 2\n샘플제일교회 2\n샘플동산교회 1\n샘플소망교회 1\n+1\n3조 생명의 말씀\n4\n남 1\n여 3\n샘플중앙교회 1\n샘플동산교회 1\n샘플소망교회 1\n+1\n4조 소망의 별\n4\n남 2\n여 2\n샘플중앙교회 1\n샘플은혜교회 1\n샘플사랑교회 1\n+1\n5조 하나님의 사랑\n4\n남 3\n여 1\n샘플중앙교회 1\n샘플은혜교회 1\n샘플사랑교회 1\n+1\n6조 은혜의 강\n3\n남 0\n여 3\n샘플중앙교회 1\n샘플은혜교회 1\n샘플사랑교회 1\n취소\n적용 (25명)"
+    },
+    {
+      "name": "participant-form-modal",
+      "route": "participants",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-participant-form-modal.png",
+      "body": "산교회\n샘플은혜교회\n샘플소망교회\n샘플사랑교회\n샘플기쁨교회\n샘플새싹교회\n샘플푸른교회\n샘플햇살교회\n\n구분*\n\n학생\n교사\n학부모\n운영진\n찬양팀\n자원봉사\n진행위원\n\n학년\n\n초등4\n초등5\n초등6\n중1\n중2\n중3\n고1\n고2\n고3\n청년\n장년\n해당없음\n\n성별*\n\n남\n여\n\n등록 상태\n\n신청\n확인완료\n취소\n배정 정보\n\n조\n\n미배정\n1조 빛의 자녀\n2조 진리의 길\n3조 생명의 말씀\n4조 소망의 별\n5조 하나님의 사랑\n6조 은혜의 강\n\n방\n\n미배정\nA동 101호\nA동 102호\nA동 103호\nA동 104호\nB동 201호\nB동 202호\nB동 203호\nB동 204호\nC동 301호\nC동 302호\n\n차량\n\n미배정\n1호차\n2호차\n개별이동\n연락처\n\n연락처\n\n보호자 연락처\n\n참가비\n\n참가비 납부 단계\n\n가등록\n2만원\n1차\n6만원\n2차\n7만원\n미납\n면제·미입금\n면제\n면제·미입금\n\n단계 선택 시 fee 상태와 금액이 자동 책정됩니다.\n\n건강 / 특이사항\n\n식단\n\n일반식\n채식\n알레르기\n\n알레르기 상세\n\n특이사항\n\n취소\n저장"
+    },
+    {
+      "name": "participant-detail-modal",
+      "route": "participants",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-participant-detail-modal.png",
+      "body": "\t\n서\n서지훈 도우미\n\t샘플제일교회\t도우미\t남\t010-9000-0013\t일반\t확정\t완납\n47\t\n박\n박하늘 도우미\n\t샘플제일교회\t도우미\t여\t010-9000-0014\t일반\t확정\t완납\n48\t\n김\n김도윤 도우미\n\t샘플제일교회\t도우미\t남\t010-9000-0015\t일반\t확정\t완납\n49\t\n이\n이서아 도우미\n\t샘플제일교회\t도우미\t여\t010-9000-0016\t일반\t확정\t완납\n50\t\n박\n박미경 간호사\n\t샘플제일교회\t의료\t여\t010-9000-0017\t일반\t확정\t완납\n김\n김민준\n\n샘플제일교회·고2\n\n확정\n참가비 1차\n기본 정보\n교회\n샘플제일교회\n학년\n고2\n성별\n남성\n구분\n학생\n등록일\n2026-06-01\n등록 상태\n확정\n배정 정보\n조\n1조 빛의 자녀\n방\nA동 101호\n차량\n미등록\n연락처\n본인 연락처\n010-1000-0001\n전화\n문자\n보호자 연락처\n010-2000-0001\n전화\n문자\n참가비\n납부 단계\n1차 등록 (6만원 완납)\n납부 금액\n60,000원\n건강 / 특이사항\n식단\n일반식\n특이사항\n없음\n삭제\n수정"
+    },
+    {
+      "name": "room-assign-modal",
+      "route": "rooms",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-room-assign-modal.png",
+      "body": "석)\n남자\n여자\n교사/스탭\n정원\n1/8명\n13%\n오\n오준서\n중1\n참가자 배정\n(빈 자리 7석)\n남자\n여자\n교사/스탭\n정원\n1/8명\n13%\n임\n임현우\n고2\n참가자 배정\n(빈 자리 7석)\nB동\n8/32명 (25%)\n남자\n여자\n교사/스탭\n정원\n2/8명\n25%\n강\n강태양\n고3\n서\n서윤호\n고2\n참가자 배정\n(빈 자리 6석)\n남자\n여자\n교사/스탭\n정원\n2/8명\n25%\n노\n노민재\n중2\n안\n안재현\n중3\n참가자 배정\n(빈 자리 6석)\n남자\n여자\n교사/스탭\n정원\n1/8명\n13%\n류\n류준혁\n중1\n참가자 배정\n(빈 자리 7석)\n남자\n여자\n교사/스탭\n정원\n3/8명\n38%\n이\n이서연\n고1\n강\n강수아\n중2\n권\n권나연\n고1\n참가자 배정\n(빈 자리 5석)\nC동\n교사/스탭\n5/8명 (63%)\n남자\n여자\n교사/스탭\n정원\n3/4명\n75%\n최\n최수아\n고2\n이\n이채원\n중3\n황\n황소민\n고3\n참가자 배정\n(빈 자리 1석)\n남자\n여자\n교사/스탭\n정원\n2/4명\n50%\n한\n한지민\n중2\n박\n박서영\n고1\n참가자 배정\n(빈 자리 2석)"
+    },
+    {
+      "name": "vehicle-assign-modal",
+      "route": "vehicles",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-vehicle-assign-modal.png",
+      "body": "사\n진행위원\n미배정\n1호차\n2호차\n개별이동\n김성호 목사\n진행위원\n미배정\n1호차\n2호차\n개별이동\n이지원 전도사\n진행위원\n미배정\n1호차\n2호차\n개별이동\n송민서 전도사\n진행위원\n미배정\n1호차\n2호차\n개별이동\n정유진 전도사\n진행위원\n미배정\n1호차\n2호차\n개별이동\n최진영 강사\n운영진\n미배정\n1호차\n2호차\n개별이동\n한세영 강사\n운영진\n미배정\n1호차\n2호차\n개별이동\n강민호 (찬양 인도)\n찬양팀\n미배정\n1호차\n2호차\n개별이동\n임수빈 (보컬)\n찬양팀\n미배정\n1호차\n2호차\n개별이동\n윤지원 (건반)\n찬양팀\n미배정\n1호차\n2호차\n개별이동\n노태우 (드럼)\n찬양팀\n미배정\n1호차\n2호차\n개별이동\n백설아 (기타)\n찬양팀\n미배정\n1호차\n2호차\n개별이동\n서지훈 도우미\n자원봉사\n미배정\n1호차\n2호차\n개별이동\n박하늘 도우미\n자원봉사\n미배정\n1호차\n2호차\n개별이동\n김도윤 도우미\n자원봉사\n미배정\n1호차\n2호차\n개별이동\n이서아 도우미\n자원봉사\n미배정\n1호차\n2호차\n개별이동\n박미경 간호사\n운영진\n미배정\n1호차\n2호차\n개별이동"
+    },
+    {
+      "name": "admin-auth-settings",
+      "route": "eventsettings",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-admin-auth-settings.png",
+      "body": " 관리\n숙소/방 배정\n차량 배정\n운영 체크리스트\n안전 관리\n공지사항\n출력 센터\n데이터 관리\n비상연락망\n현장 체크인\n현장 운영 모드\n사용 매뉴얼\n행사·운영 설정\n메뉴 설정 저장\n전체 데이터 백업\n\n현재 브라우저에 저장된 모든 데이터(참가자·신청·체크인·체크리스트·교회·조·방·일정·공지·안전·행사 설정 등)를 하나의 JSON 파일로 다운로드합니다.\n\n참가자·교회·조·방·차량·일정·공지·체크리스트·체크인 등 모든 운영 데이터\n행사 메타정보 (제목·주제·날짜·장소·강사·문의)\n온라인 신청 대기열·교회별 확인 상태\n관리자 인증 해시 (비밀번호 평문은 포함되지 않음)\n※ 인증 시도 횟수 등 일시 데이터는 제외\n전체 데이터 백업 다운로드\n💡 권장: 행사 전(D-7), 행사 첫째 날 저녁, 행사 종료 직후 — 최소 3회 백업하시고 USB·이메일 등 별도 위치에 보관하세요.\n행사 정보 기본값으로 복원\n\n관리자가 변경한 행사 메타정보를 코드 기본값()으로 되돌립니다.\n\n메타정보를 기본값으로 되돌리기"
+    },
+    {
+      "name": "mobile-bottom-nav",
+      "route": "participants",
+      "found": true,
+      "path": "D:/HONG/09_이음/02_제품/Web/eum-camp/round/evidence/eum-camp-full-design-audit-20260901/component-mobile-bottom-nav.png",
+      "body": "호 목사\n\t확정\n36\t\n이\n이지원 전도사\n\t확정\n37\t\n송\n송민서 전도사\n\t확정\n38\t\n정\n정유진 전도사\n\t확정\n39\t\n최\n최진영 강사\n\t확정\n40\t\n한\n한세영 강사\n\t확정\n41\t\n강\n강민호 (찬양 인도)\n\t확정\n42\t\n임\n임수빈 (보컬)\n\t확정\n43\t\n윤\n윤지원 (건반)\n\t확정\n44\t\n노\n노태우 (드럼)\n\t확정\n45\t\n백\n백설아 (기타)\n\t확정\n46\t\n서\n서지훈 도우미\n\t확정\n47\t\n박\n박하늘 도우미\n\t확정\n48\t\n김\n김도윤 도우미\n\t확정\n49\t\n이\n이서아 도우미\n\t확정\n50\t\n박\n박미경 간호사\n\t확정\n홈\n참가자\n체크인\n현장\n전체"
+    }
+  ]
+}

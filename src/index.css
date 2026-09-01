@@ -17,7 +17,7 @@
   --eum-bg-1:     #F8FBFF;
   --eum-bg-2:     #FFFFFF;
   --eum-bg-panel: #DDEEFF;
-  --eum-page-background: linear-gradient(180deg,#DDEEFF 0%,#EAF3FF 45%,#FFFFFF 100%);
+  --eum-page-background: #F5F7FA;
   --eum-orb-background: radial-gradient(circle at 30% 26%, #ffffff, #EAF3FF 42%, #6FA7FF 76%, #2F73F2 100%);
   /* ★2026-09-01 오너 직접 피드백으로 재조정: "블루+화이트 대비"는 큰 배경을 진한 블루로 칠하라는
      뜻이 아니었다 — eum-card 기준(배경은 흰색/옅은 블루, 진한 블루는 테두리·버튼·라벨 포인트에만)
@@ -188,5 +188,56 @@
   .input option {
     background: #FFFFFF;
     color: #3A4568;
+  }
+
+  .eum-page-frame {
+    min-height: 100%;
+    padding: 24px;
+    border: 2px solid transparent;
+    border-radius: 29px;
+    background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+      linear-gradient(135deg, #FF9AD8, #FFD98C, #8CC7FF, #18DDEB, #B98CFF) border-box;
+    box-shadow: 0 22px 42px -26px rgba(31,95,217,0.35);
+  }
+  @media (max-width: 768px) {
+    .eum-page-frame { padding: 16px; border-radius: 22px; }
+  }
+
+  /* 전 페이지 공통 대비 보정 — 흰/옅은 배경 위의 레거시 다크 유틸리티와
+     경고용 앰버 유틸리티를 블루 미니멀 토큰으로 수렴시킨다. */
+  [class*="bg-slate-950"],
+  [class*="bg-slate-900"],
+  [class*="bg-slate-800"] {
+    background-color: #FFFFFF !important;
+    color: #101A3D !important;
+  }
+  [class*="text-slate-100"],
+  [class*="text-slate-200"],
+  [class*="text-slate-300"] {
+    color: #101A3D !important;
+  }
+  [class*="text-slate-400"],
+  [class*="text-slate-500"] {
+    color: #5C6A93 !important;
+  }
+  [class*="border-white/"] {
+    border-color: #DDEEFF !important;
+  }
+  [class*="text-amber-"] {
+    color: #1F5FD9 !important;
+  }
+  [class*="bg-amber-"] {
+    background-color: rgba(31,95,217,0.08) !important;
+  }
+  [class*="border-amber-"] {
+    border-color: rgba(31,95,217,0.28) !important;
+  }
+  [style*="245,158,11"],
+  [style*="245, 158, 11"],
+  [style*="#f59e0b"],
+  [style*="#d97706"] {
+    color: #1F5FD9 !important;
+    background-color: rgba(31,95,217,0.08) !important;
+    border-color: rgba(31,95,217,0.28) !important;
   }
 }
