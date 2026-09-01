@@ -29,7 +29,7 @@ const ROOM_MAP  = new Map<string, string>(mockRooms.map(r => [r.id, r.name]));
 const CARD = {
   background: 'rgba(255,255,255,0.07)',
   border:     '1px solid rgba(255,255,255,0.12)',
-  boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+  boxShadow:  '0 4px 24px rgba(31,95,217,0.25)',
 } as const;
 
 // ── 타입 ──────────────────────────────────────────────────────────────────────
@@ -219,7 +219,7 @@ function printChurchDetail(stat: ChurchStat) {
 
 // ── 상세 모달 ─────────────────────────────────────────────────────────────────
 function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void }) {
-  const TH  = 'px-3 py-2 text-left text-[10px] font-bold text-slate-400 whitespace-nowrap sticky top-0';
+  const TH  = 'px-3 py-2 text-left text-[10px] font-bold text-white/70 whitespace-nowrap sticky top-0';
   const TD  = 'px-3 py-1.5 text-[11px] text-slate-300 whitespace-nowrap';
   const TDc = `${TD} text-center`;
   const COL_HEADERS = ['이름','구분','학년','성별','참가비','조','방','차량','연락처','보호자연락처','특이사항'];
@@ -227,7 +227,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center pt-12 px-3 pb-6"
-      style={{ background: 'rgba(0,0,0,0.78)', backdropFilter: 'blur(4px)' }}
+      style={{ background: 'rgba(31,95,217,0.78)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}
     >
       <div
@@ -237,7 +237,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
           maxHeight: 'calc(100vh - 80px)',
           background: '#F8FBFF',
           border:     '1px solid rgba(37, 99, 235,0.3)',
-          boxShadow:  '0 20px 60px rgba(0,0,0,0.6)',
+          boxShadow:  '0 20px 60px rgba(31,95,217,0.6)',
         }}
         onClick={e => e.stopPropagation()}
       >
@@ -266,7 +266,7 @@ function DetailModal({ stat, onClose }: { stat: ChurchStat; onClose: () => void 
 
         <div className="overflow-auto flex-1">
           <table className="w-full border-collapse">
-            <thead style={{ background: '#071a36' }}>
+            <thead style={{ background: 'var(--eum-modal-background)' }}>
               <tr>
                 {COL_HEADERS.map(h => (
                   <th key={h} className={TH} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>{h}</th>
@@ -333,7 +333,7 @@ function ViewCard({
   return (
     <div className="rounded-2xl p-4 flex flex-col gap-3 transition-all duration-200"
       style={stat.confirmed
-        ? { background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.28)', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }
+        ? { background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.28)', boxShadow: '0 4px 24px rgba(31,95,217,0.25)' }
         : stat.isExtra
           ? { background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.25)' }
           : CARD
@@ -718,7 +718,7 @@ export default function Churches() {
             <div key={s.label} className="rounded-2xl p-3 sm:p-4 flex items-center gap-3"
               style={{
                 background: `linear-gradient(135deg, ${s.color}14 0%, rgba(255,255,255,0.04) 100%)`,
-                border: `1px solid ${s.color}30`, boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                border: `1px solid ${s.color}30`, boxShadow: '0 4px 16px rgba(31,95,217,0.2)',
               }}>
               <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
                 style={{ background: `${s.color}22` }}>{s.emoji}</div>

@@ -77,9 +77,9 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
           aria-label="자동 방 배정"
           className="pointer-events-auto w-full sm:max-w-3xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
-            background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+            background: 'var(--eum-modal-background)',
             border: '1px solid rgba(37, 99, 235,0.2)',
-            boxShadow: '0 32px 72px rgba(0,0,0,0.75)',
+            boxShadow: '0 32px 72px rgba(31,95,217,0.75)',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -87,7 +87,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
           <div
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
-              background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+              background: 'var(--eum-modal-background)',
               borderBottom: '1px solid rgba(255,255,255,0.07)',
             }}
           >
@@ -101,13 +101,13 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                   <BedDouble size={15} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#101A3D]">자동 방 배정 미리보기</h3>
-                  <p className="text-xs text-slate-500 mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
+                  <h3 className="text-base font-bold text-white">자동 방 배정 미리보기</h3>
+                  <p className="text-xs text-white/60 mt-0.5">배정 결과를 확인 후 적용해 주세요</p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-slate-500 hover:text-slate-200 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-white/60 hover:text-slate-200 hover:bg-white/10 transition-colors"
                 aria-label="닫기"
               >
                 <X size={16} />
@@ -169,7 +169,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                   style={{ background: `${s.color}18`, border: `1px solid ${s.color}35` }}
                 >
                   <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
-                  <div className="text-xs text-slate-400 mt-0.5">{s.label}</div>
+                  <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -212,7 +212,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                           {/* Name + count */}
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-sm font-bold text-[#101A3D]">{room.name}</span>
+                              <span className="text-sm font-bold text-white">{room.name}</span>
                               <span
                                 className="text-[10px] px-1.5 py-0.5 rounded-md font-medium"
                                 style={{ background: `${color}20`, color }}
@@ -221,7 +221,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
                               </span>
                             </div>
                             <span className="text-sm font-black" style={{ color }}>
-                              {members.length}<span className="text-xs font-normal text-slate-500">/{room.capacity}</span>
+                              {members.length}<span className="text-xs font-normal text-white/60">/{room.capacity}</span>
                             </span>
                           </div>
 
@@ -316,12 +316,12 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
             className="sticky bottom-0 px-5 py-4 flex items-center gap-2 flex-shrink-0"
             style={{
               borderTop: '1px solid rgba(255,255,255,0.07)',
-              background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+              background: 'var(--eum-modal-background)',
             }}
           >
             <button
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
@@ -329,7 +329,7 @@ export default function RoomAssignModal({ participants, rooms, churchMap, onAppl
             <div className="flex-1" />
             <button
               onClick={() => onApply(preview)}
-              className="px-5 py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95"
+              className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
               style={{ background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)', boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)' }}
             >
               적용 ({totalAssigned}명)

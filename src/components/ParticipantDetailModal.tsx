@@ -26,7 +26,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
       className="flex items-start gap-3 py-2.5"
       style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
     >
-      <span className="text-xs text-slate-500 w-28 flex-shrink-0 pt-0.5">{label}</span>
+      <span className="text-xs text-white/60 w-28 flex-shrink-0 pt-0.5">{label}</span>
       <span className="text-sm text-slate-200 flex-1 min-w-0">{value}</span>
     </div>
   );
@@ -95,9 +95,9 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
           className="pointer-events-auto w-full sm:max-w-lg rounded-t-3xl sm:rounded-2xl
                      flex flex-col max-h-[92dvh] sm:max-h-[88vh]"
           style={{
-            background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+            background: 'var(--eum-modal-background)',
             border: '1px solid rgba(37, 99, 235,0.2)',
-            boxShadow: '0 32px 72px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)',
+            boxShadow: '0 32px 72px rgba(31,95,217,0.7), 0 0 0 1px rgba(255,255,255,0.04)',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -106,7 +106,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
           <div
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
-              background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+              background: 'var(--eum-modal-background)',
               borderBottom: '1px solid rgba(255,255,255,0.07)',
             }}
           >
@@ -127,8 +127,8 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                   {p.name.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#101A3D] leading-tight">{p.name}</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <h3 className="text-lg font-bold text-white leading-tight">{p.name}</h3>
+                  <p className="text-xs text-white/50 mt-0.5">
                     {church}
                     <span className="text-slate-600 mx-1">·</span>
                     <span style={{ color: genderColor }}>{p.grade}</span>
@@ -141,7 +141,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
                 onClick={onClose}
                 aria-label="모달 닫기"
                 className="w-8 h-8 rounded-xl flex items-center justify-center
-                           text-slate-500 hover:text-slate-200 hover:bg-white/10
+                           text-white/60 hover:text-slate-200 hover:bg-white/10
                            transition-colors flex-shrink-0"
               >
                 <X size={16} />
@@ -273,7 +273,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
               className="sticky bottom-0 px-5 py-4 flex gap-3 flex-shrink-0"
               style={{
                 borderTop: '1px solid rgba(255,255,255,0.07)',
-                background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+                background: 'var(--eum-modal-background)',
               }}
             >
               <button
@@ -290,7 +290,7 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
               </button>
               <button
                 onClick={() => onEdit(p)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-[#101A3D] transition-all active:scale-95"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all active:scale-95"
                 style={{
                   background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                   boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
@@ -302,10 +302,10 @@ export default function ParticipantDetailModal({ participant: p, onClose, onEdit
             </div>
           ) : (
             <div
-              className="sticky bottom-0 px-5 py-3 flex items-center justify-center gap-1.5 text-[11px] text-slate-500 flex-shrink-0"
+              className="sticky bottom-0 px-5 py-3 flex items-center justify-center gap-1.5 text-[11px] text-white/60 flex-shrink-0"
               style={{
                 borderTop: '1px solid rgba(255,255,255,0.07)',
-                background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+                background: 'var(--eum-modal-background)',
               }}
             >
               조회 전용 모드 — 수정·삭제는 진행위원 권한이 필요합니다

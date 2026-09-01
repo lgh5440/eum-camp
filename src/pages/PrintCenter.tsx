@@ -505,7 +505,7 @@ export default function PrintCenter() {
       <div
         id="print-area"
         className="bg-white rounded-2xl p-6 sm:p-8"
-        style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.4)', minHeight: '400px' }}
+        style={{ boxShadow: '0 8px 40px rgba(31,95,217,0.4)', minHeight: '400px' }}
       >
         {renderContent()}
       </div>

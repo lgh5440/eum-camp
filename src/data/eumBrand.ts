@@ -10,17 +10,20 @@ export const EUM_BRAND = {
   logoUrl: '/eum-logo.png',
 } as const;
 
-// 브랜드 가이드 추정 컬러 — 정확한 값 받으면 즉시 교체
+// 브랜드 컬러 — 블루 미니멀 3D 카드형 디자인 시스템 정본 적용(Phase 2, 2026-09-01).
+// 정본: D:\HONG\09_이음\01_부서\경영조정실\_디자인시스템\eum_웹토큰_v1.css
+// 키 이름은 하위호환을 위해 유지(orange/navy/gold 등), 값만 정본 블루로 교체 —
+// 과거의 주황·다크네이비·골드(다크 배경 위 강조용) 브랜드 시안은 폐기됨(오너 확정 지시).
 export const EUM_COLORS = {
-  // Primary — 따뜻한 주황 (로고 골드 계열)
-  orange:    '#F08C28',
-  orangeD:   '#D87515',
-  orangeL:   '#FFB870',
-  // Secondary — 깊은 청 (다음세대 신뢰감)
-  navy:      '#1B3A5C',
-  navyD:     '#0F2540',
-  // Neutral
-  cream:     '#FFF8EC',
-  gold:      '#FFD98C',
-  goldL:     '#FFD98C',  // 슬로건 텍스트 등 다크 배경 위 강조용
+  // Primary — 정본 Primary Blue
+  orange:    '#2F73F2',
+  orangeD:   '#1F5FD9',
+  orangeL:   '#6FA7FF',
+  // Secondary — 정본 Primary Blue Deep (다크 배경 자체를 더 이상 쓰지 않음)
+  navy:      '#1F5FD9',
+  navyD:     '#101A3D',
+  // Neutral — 정본 Background
+  cream:     '#F5F7FA',
+  gold:      '#2F73F2',
+  goldL:     '#6FA7FF',  // 슬로건 텍스트 등 강조용(다크 배경 전제 폐기, 밝은 블루로 대체)
 } as const;

@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 :root {
+  /* 블루 미니멀 3D 카드형 디자인 시스템 정본(eum_웹토큰_v1.css, D:\HONG\09_이음\01_부서\경영조정실\_디자인시스템\)
+     — 아래 --eum-* 값은 이미 그 정본 hex와 일치(orange/gold 이름은 레거시, 값은 블루). Phase 2에서 누락된
+     light-blue·panel-bg·블루톤 그림자 변수만 신규 보강(리터럴 신규 발명 아님 — 전부 정본 hex 그대로). */
   --eum-orange:   #1F5FD9;
   --eum-orange-d: #17439C;
   --eum-orange-l: #2F73F2;
+  --eum-blue-light: #6FA7FF;
   --eum-navy:     #101A3D;
   --eum-navy-d:   #0B142E;
   --eum-cream:    #F8FBFF;
@@ -12,8 +16,11 @@
   --eum-bg-0:     #EAF3FF;
   --eum-bg-1:     #F8FBFF;
   --eum-bg-2:     #FFFFFF;
-  --eum-page-background: linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%);
-  --eum-orb-background: radial-gradient(circle at 30% 26%, #ffffff, #EAF3FF 42%, #BFD9FF 76%, #8FB8FF 100%);
+  --eum-bg-panel: #DDEEFF;
+  --eum-page-background: linear-gradient(180deg,#DDEEFF 0%,#EAF3FF 45%,#FFFFFF 100%);
+  --eum-orb-background: radial-gradient(circle at 30% 26%, #ffffff, #EAF3FF 42%, #6FA7FF 76%, #2F73F2 100%);
+  --eum-modal-background: linear-gradient(160deg, #2F73F2 0%, #1F5FD9 100%);
+  --eum-shadow-blue-soft: rgba(31,95,217,0.25);
   --eum-title:       #101A3D;
   --eum-subtext:     #5C6A93;
   --eum-body:        #3A4568;

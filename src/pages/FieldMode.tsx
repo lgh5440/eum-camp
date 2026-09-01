@@ -81,7 +81,7 @@ function ckItemTag(item: ChecklistItem): string {
 const PANEL = {
   background: 'rgba(255,255,255,0.05)',
   border:     '1px solid rgba(255,255,255,0.1)',
-  boxShadow:  '0 4px 20px rgba(0,0,0,0.2)',
+  boxShadow:  '0 4px 20px rgba(31,95,217,0.2)',
 } as const;
 
 const PANEL_HDR = 'flex items-center gap-2 mb-3 pb-2.5' as const;

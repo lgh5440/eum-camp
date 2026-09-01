@@ -277,7 +277,7 @@ export default function Checklist() {
             border: '1px solid rgba(16,185,129,0.45)',
             color: '#6ee7b7',
             backdropFilter: 'blur(8px)',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
+            boxShadow: '0 4px 14px rgba(31,95,217,0.35)',
           }}
           role="status"
           aria-live="polite"
@@ -697,9 +697,9 @@ export default function Checklist() {
                                 aria-label="상태 선택"
                                 className="absolute right-0 top-full mt-1.5 z-50 rounded-xl overflow-hidden py-1"
                                 style={{
-                                  background: '#0d1a30',
+                                  background: 'var(--eum-modal-background)',
                                   border: '1px solid rgba(255,255,255,0.12)',
-                                  boxShadow: '0 8px 28px rgba(0,0,0,0.65)',
+                                  boxShadow: '0 8px 28px rgba(31,95,217,0.65)',
                                   minWidth: '108px',
                                 }}
                               >

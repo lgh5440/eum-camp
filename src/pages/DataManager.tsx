@@ -154,7 +154,7 @@ function validateBackup(raw: unknown): ValidateResult {
 const CARD = {
   background: 'rgba(255,255,255,0.07)',
   border:     '1px solid rgba(255,255,255,0.12)',
-  boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+  boxShadow:  '0 4px 24px rgba(31,95,217,0.25)',
 } as const;
 
 const BTN_CYAN = {
@@ -743,7 +743,7 @@ export default function DataManager() {
         style={{
           background: 'rgba(239,68,68,0.05)',
           border:     '1px solid rgba(239,68,68,0.18)',
-          boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+          boxShadow:  '0 4px 24px rgba(31,95,217,0.25)',
         }}
       >
         {/* 헤더 */}

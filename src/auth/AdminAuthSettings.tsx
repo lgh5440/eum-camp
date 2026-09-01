@@ -69,7 +69,7 @@ function Inner() {
       style={{
         background: 'rgba(245,158,11,0.05)',
         border: '1px solid rgba(245,158,11,0.2)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+        boxShadow: '0 4px 24px rgba(31,95,217,0.25)',
       }}
       aria-labelledby="admin-auth-heading"
     >

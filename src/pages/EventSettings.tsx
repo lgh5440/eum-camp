@@ -145,7 +145,7 @@ function EventMetaEditor() {
       style={{
         background: 'rgba(37, 99, 235,0.05)',
         border: '1px solid rgba(37, 99, 235,0.2)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+        boxShadow: '0 4px 24px rgba(31,95,217,0.25)',
       }}
       aria-labelledby="meta-heading"
     >
@@ -354,7 +354,7 @@ function FullBackupSection() {
       style={{
         background: 'rgba(34,197,94,0.04)',
         border: '1px solid rgba(34,197,94,0.2)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+        boxShadow: '0 4px 24px rgba(31,95,217,0.25)',
       }}
       aria-labelledby="backup-heading"
     >
@@ -450,7 +450,7 @@ function NewEventSection() {
       style={{
         background: 'rgba(245,158,11,0.04)',
         border: '1px solid rgba(245,158,11,0.2)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+        boxShadow: '0 4px 24px rgba(31,95,217,0.25)',
       }}
       aria-labelledby="reset-meta-heading"
     >

@@ -54,20 +54,15 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
       aria-label="이음 패밀리 앱"
       className={s.section}
       style={{
-        background: 'linear-gradient(150deg, #0d1b3e 0%, #1a1050 50%, #1e3a8a 100%)',
-        border: '1px solid rgba(252,211,77,0.25)',
-        boxShadow: '0 8px 28px rgba(13,27,62,0.45)',
+        background: 'var(--eum-modal-background)',
+        border: '1px solid rgba(255,255,255,0.2)',
+        boxShadow: '0 8px 28px rgba(31,95,217,0.45)',
       }}
     >
       <header className={s.headerMb}>
         <h3
           className={s.heading}
-          style={{
-            background: 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #a16207 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
+          style={{ color: '#fff' }}
         >
           {heading}
         </h3>
@@ -84,7 +79,7 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
         <a
           href="mailto:lgh544092@gmail.com?subject=%5BE%3AUM%20%ED%8C%A8%EB%B0%80%EB%A6%AC%5D%20%EB%AC%B8%EC%9D%98%C2%B7%EC%98%A4%EB%A5%98%20%EC%A0%9C%EB%B3%B4"
           style={{
-            color: 'rgba(252,211,77,0.9)',
+            color: '#fff',
             textDecoration: 'underline',
             textUnderlineOffset: 4,
           }}

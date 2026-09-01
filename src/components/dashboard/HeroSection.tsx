@@ -9,7 +9,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
   return (
     <div className="relative rounded-3xl overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, rgba(31,95,217,0.16) 0%, rgba(27,58,92,0.45) 50%, rgba(15,37,64,0.55) 100%)',
+        background: 'linear-gradient(135deg, rgba(31,95,217,0.16) 0%, rgba(47,115,242,0.10) 50%, rgba(111,167,255,0.08) 100%)',
         border: '1px solid rgba(47,115,242,0.25)',
         boxShadow: '0 0 80px rgba(31,95,217,0.08)',
       }}>
@@ -21,7 +21,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="px-3 py-1 rounded-full text-[11px] font-bold"
-              style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', color: '#cbd5e1' }}>
+              style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(31,95,217,0.18)', color: 'var(--eum-body)' }}>
               {EVENT.title}
             </span>
             <span className="px-3 py-1 rounded-full text-xs font-black tracking-wide"
@@ -34,7 +34,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
           <p className="font-bold" style={{ color: 'var(--eum-gold)', fontSize: 'clamp(0.85rem, 2vw, 1.25rem)' }}>
             {EVENT.subTheme}
           </p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs sm:text-sm text-slate-300">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs sm:text-sm" style={{ color: 'var(--eum-subtext)' }}>
             <span className="flex items-center gap-1.5">
               <MapPin size={13} style={{ color: 'var(--eum-gold)' }} className="flex-shrink-0"/>{EVENT.venue}
             </span>
@@ -52,7 +52,7 @@ export default function HeroSection({ dday }: { dday: DdayInfo }) {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               border: '1px solid rgba(47,115,242,0.18)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+              boxShadow: '0 8px 32px rgba(31,95,217,0.35)',
             }}
             aria-label="행사 메인 이미지"
           />

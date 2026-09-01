@@ -98,7 +98,7 @@ function SectionDivider({ label }: { label: string }) {
 
 function FieldLabel({ required, children }: { required?: boolean; children: string }) {
   return (
-    <p className="text-xs font-medium text-slate-400 mb-1.5">
+    <p className="text-xs font-medium text-white/50 mb-1.5">
       {children}{required && <span className="text-red-400 ml-0.5">*</span>}
     </p>
   );
@@ -228,9 +228,9 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           aria-label={isEdit ? '참가자 수정' : '참가자 추가'}
           className="pointer-events-auto w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl flex flex-col max-h-[92dvh] sm:max-h-[90vh]"
           style={{
-            background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+            background: 'var(--eum-modal-background)',
             border: '1px solid rgba(37, 99, 235,0.2)',
-            boxShadow: '0 32px 72px rgba(0,0,0,0.75)',
+            boxShadow: '0 32px 72px rgba(31,95,217,0.75)',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -238,7 +238,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
           <div
             className="sticky top-0 z-10 px-5 pt-4 pb-4 flex-shrink-0 rounded-t-3xl sm:rounded-t-2xl"
             style={{
-              background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+              background: 'var(--eum-modal-background)',
               borderBottom: '1px solid rgba(255,255,255,0.07)',
             }}
           >
@@ -253,13 +253,13 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
                     ? <Pencil size={14} className="text-cyan-400" />
                     : <UserPlus size={15} className="text-cyan-400" />}
                 </div>
-                <h3 className="text-base font-bold text-[#101A3D]">
+                <h3 className="text-base font-bold text-white">
                   {isEdit ? '참가자 수정' : '참가자 추가'}
                 </h3>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-slate-500 hover:text-slate-200 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-white/60 hover:text-slate-200 hover:bg-white/10 transition-colors"
                 aria-label="닫기"
               >
                 <X size={16} />
@@ -475,7 +475,7 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
                     </button>
                   ))}
                 </div>
-                <p className="text-[10px] text-slate-500 mt-1.5">
+                <p className="text-[10px] text-white/60 mt-1.5">
                   단계 선택 시 fee 상태와 금액이 자동 책정됩니다.
                 </p>
               </div>
@@ -540,19 +540,19 @@ export default function ParticipantFormModal({ mode, initialValue, onSubmit, onC
             className="sticky bottom-0 px-5 py-4 flex gap-3 flex-shrink-0"
             style={{
               borderTop: '1px solid rgba(255,255,255,0.07)',
-              background: 'linear-gradient(160deg, #0f1e3a 0%, #091525 100%)',
+              background: 'var(--eum-modal-background)',
             }}
           >
             <button
               onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-[#101A3D] hover:bg-white/10 transition-colors"
+              className="flex-1 py-2.5 rounded-xl text-sm font-medium text-white/50 hover:text-white hover:bg-white/10 transition-colors"
               style={{ border: '1px solid rgba(255,255,255,0.10)' }}
             >
               취소
             </button>
             <button
               onClick={handleSubmit}
-              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-[#101A3D] transition-all active:scale-95"
+              className="flex-[2] py-2.5 rounded-xl text-sm font-bold text-white transition-all active:scale-95"
               style={{
                 background: 'linear-gradient(90deg, #1B3A5C, #93C5FD)',
                 boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',

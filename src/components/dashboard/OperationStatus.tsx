@@ -20,7 +20,7 @@ interface Props {
 const CARD = {
   background: 'rgba(255,255,255,0.07)',
   border:     '1px solid rgba(255,255,255,0.12)',
-  boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+  boxShadow:  '0 4px 24px rgba(31,95,217,0.25)',
 } as const;
 
 export default function OperationStatus({ stats, ckStats, warnings, onNavigate }: Props) {

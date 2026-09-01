@@ -491,7 +491,7 @@ export default function Rooms() {
                                 style={{
                                   background: '#3B4759',
                                   border: '1px solid rgba(255,255,255,0.12)',
-                                  boxShadow: '0 8px 24px rgba(0,0,0,0.32)',
+                                  boxShadow: '0 8px 24px rgba(31,95,217,0.32)',
                                   maxHeight: '220px',
                                   overflowY: 'auto',
                                 }}

@@ -6,7 +6,7 @@ import type { CheckInStats } from '../../utils/dashboardStats';
 const CARD = {
   background: 'rgba(255,255,255,0.07)',
   border:     '1px solid rgba(255,255,255,0.12)',
-  boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+  boxShadow:  '0 4px 24px rgba(31,95,217,0.25)',
 } as const;
 
 export default function CheckInOverview({
@@ -18,7 +18,7 @@ export default function CheckInOverview({
   const pct = ci.pct;
   const bc  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b';
   const ps  = pct === 100
-    ? { background: 'linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(16,185,129,0.35)', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }
+    ? { background: 'linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(16,185,129,0.35)', boxShadow: '0 4px 24px rgba(31,95,217,0.25)' }
     : CARD;
 
   const pendingPct = ci.total      > 0 ? Math.round(ci.pending      / ci.total      * 100) : 0;

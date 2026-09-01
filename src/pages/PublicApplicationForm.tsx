@@ -276,14 +276,14 @@ export default function PublicApplicationForm() {
   }
 
   return (
-    <main className="min-h-screen px-4 py-8" style={{ background: 'linear-gradient(180deg,#CFE6FF 0%,#EAF3FF 45%,#F8FBFF 100%)' }}>
+    <main className="min-h-screen px-4 py-8" style={{ background: 'var(--eum-page-background)' }}>
       <div className="mx-auto w-full max-w-3xl space-y-5">
         <header className="space-y-4">
           {/* E:um 브랜드 영역 */}
           <div
             className="rounded-2xl px-5 py-5 flex items-center gap-4"
             style={{
-              background: `linear-gradient(135deg, ${EUM_COLORS.orange}1A 0%, rgba(15,37,64,0.5) 100%)`,
+              background: `linear-gradient(135deg, ${EUM_COLORS.orange}1A 0%, ${EUM_COLORS.navy}80 100%)`,
               border: `1px solid ${EUM_COLORS.orangeL}33`,
             }}
           >
@@ -329,7 +329,7 @@ export default function PublicApplicationForm() {
             {EVENT.title ? `${EVENT.title} 등록 신청서` : '등록 신청서'}
           </h1>
           {(EVENT.dates || EVENT.venue || EVENT.theme || EVENT.district) && (
-            <div className="rounded-2xl p-4 text-sm text-slate-200 space-y-1.5" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(148,163,184,0.18)' }}>
+            <div className="rounded-2xl p-4 text-sm text-slate-200 space-y-1.5" style={{ background: 'rgba(31,95,217,0.75)', border: '1px solid rgba(255,255,255,0.18)' }}>
               {EVENT.dates && <p>📅 {EVENT.dates}</p>}
               {EVENT.venue && (
                 <p>📍 장소: {EVENT.venue}{EVENT.venueAddress ? ` (${EVENT.venueAddress})` : ''}</p>
@@ -343,7 +343,7 @@ export default function PublicApplicationForm() {
           <p className="text-xs text-slate-500">✏️ 아래 항목을 차근차근 작성해 주세요. 약 2분이면 완료됩니다.</p>
         </header>
 
-        <form onSubmit={submit} className="rounded-2xl p-5 sm:p-6 space-y-5" style={{ background: 'rgba(15,23,42,0.86)', border: '1px solid rgba(148,163,184,0.18)' }}>
+        <form onSubmit={submit} className="rounded-2xl p-5 sm:p-6 space-y-5" style={{ background: 'var(--eum-modal-background)', border: '1px solid rgba(255,255,255,0.18)' }}>
           <div className="grid sm:grid-cols-2 gap-4">
             <Field label="이름" required>
               <input value={form.name} onChange={e => set('name', e.target.value)} className="input" />
@@ -441,7 +441,7 @@ export default function PublicApplicationForm() {
           <button
             type="submit"
             disabled={isComplete}
-            className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-black text-[#101A3D] transition-all"
+            className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-black text-white transition-all"
             style={isComplete
               ? { background: `${EUM_COLORS.orangeD}99`, cursor: 'not-allowed' }
               : {
@@ -503,7 +503,7 @@ function Field({
         {label}{required && <span className="text-rose-300"> *</span>}
       </span>
       {children}
-      {hint && <span className="block text-[11px] text-slate-500 leading-relaxed">{hint}</span>}
+      {hint && <span className="block text-[11px] text-white/60 leading-relaxed">{hint}</span>}
     </label>
   );
 }
@@ -525,10 +525,10 @@ function ConsentCheckbox({
         className="mt-1 w-4 h-4 accent-emerald-500"
       />
       <span className="space-y-1">
-        <span className="block text-sm font-bold text-[#101A3D]">
+        <span className="block text-sm font-bold text-white">
           {title}<span className="text-rose-300"> *</span>
         </span>
-        <span className="block text-xs text-slate-400 leading-relaxed">{body}</span>
+        <span className="block text-xs text-white/50 leading-relaxed">{body}</span>
       </span>
     </label>
   );
