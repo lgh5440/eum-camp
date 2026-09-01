@@ -14,15 +14,15 @@ import type { ChecklistItem, Schedule } from '../types';
 
 // ── 정적 데이터 ──────────────────────────────────────────────────────────────
 
-const CARD_PALETTE = ['#3B82F6', '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#84cc16'];
-const DAY_ACCENTS = ['#8b5cf6', '#3B82F6', '#3b82f6', '#10b981', '#f59e0b'];
+const CARD_PALETTE = ['#3B82F6', '#3b82f6', '#6FA7FF', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#84cc16'];
+const DAY_ACCENTS = ['#6FA7FF', '#3B82F6', '#3b82f6', '#10b981', '#f59e0b'];
 const DOW_KO = ['일', '월', '화', '수', '목', '금', '토'];
 
 const SC: Record<ChecklistItem['status'], { label: string; color: string; bg: string }> = {
-  done:       { label: '완료',  color: '#10b981', bg: 'rgba(16,185,129,0.18)' },
-  inprogress: { label: '진행중', color: '#3B82F6', bg: 'rgba(37, 99, 235,0.18)' },
-  pending:    { label: '대기',  color: '#94a3b8', bg: 'rgba(148,163,184,0.12)' },
-  blocked:    { label: '차단',  color: '#ef4444', bg: 'rgba(239,68,68,0.18)' },
+  done:       { label: '완료',  color: '#10b981', bg: '#DCFCE7' },
+  inprogress: { label: '진행중', color: '#3B82F6', bg: '#EAF3FF' },
+  pending:    { label: '대기',  color: '#5C6A93', bg: '#F5F8FC' },
+  blocked:    { label: '차단',  color: '#ef4444', bg: '#FEE2E2' },
 };
 
 // ── 서브 컴포넌트 ─────────────────────────────────────────────────────────────
@@ -35,7 +35,7 @@ function DonutChart({ pct }: { pct: number }) {
   return (
     <div className="relative w-16 h-16 flex-shrink-0">
       <svg width={64} height={64} viewBox="0 0 64 64" className="absolute inset-0 -rotate-90">
-        <circle cx={32} cy={32} r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={7} />
+        <circle cx={32} cy={32} r={r} fill="none" stroke="#E5EEFB" strokeWidth={7} />
         <circle cx={32} cy={32} r={r} fill="none" stroke={color} strokeWidth={7}
           strokeDasharray={`${dash} ${circ}`} strokeLinecap="round" />
       </svg>
@@ -61,10 +61,10 @@ function CircuitDecoration() {
         </circle>
       ))}
       <rect x="82" y="46" width="56" height="36" rx="5"
-        stroke="#3B82F6" strokeWidth="1.5" fill="rgba(37, 99, 235,0.08)" />
+        stroke="#3B82F6" strokeWidth="1.5" fill="#EAF3FF" />
       <text x="110" y="68" textAnchor="middle" fill="#2563EB" fontSize="9" fontFamily="monospace" fontWeight="bold">AI</text>
-      <rect x="18"  y="110" width="10" height="10" rx="2" stroke="#3b82f6" strokeWidth="1" fill="rgba(59,130,246,0.1)" />
-      <rect x="185" y="40"  width="12" height="12" rx="2" stroke="#8b5cf6" strokeWidth="1" fill="rgba(139,92,246,0.1)" />
+      <rect x="18"  y="110" width="10" height="10" rx="2" stroke="#3b82f6" strokeWidth="1" fill="#EAF3FF" />
+      <rect x="185" y="40"  width="12" height="12" rx="2" stroke="#6FA7FF" strokeWidth="1" fill="#F5F8FC" />
     </svg>
   );
 }
@@ -75,12 +75,12 @@ function HeroDecoration() {
       <div className="relative w-12 h-16">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-2.5 h-full rounded-full"
           style={{
-            background: 'linear-gradient(to bottom, rgba(37, 99, 235,0.95), rgba(59,130,246,0.4))',
+            background: '#3B82F6',
             boxShadow: '0 0 20px rgba(37, 99, 235,0.8), 0 0 40px rgba(37, 99, 235,0.4)',
           }} />
         <div className="absolute top-4 left-0 w-full h-2.5 rounded-full"
           style={{
-            background: 'linear-gradient(to right, transparent, rgba(37, 99, 235,0.95), transparent)',
+            background: '#6FA7FF',
             boxShadow: '0 0 20px rgba(37, 99, 235,0.8), 0 0 40px rgba(37, 99, 235,0.4)',
           }} />
       </div>
@@ -88,21 +88,21 @@ function HeroDecoration() {
       <div
         className="w-36 h-24 rounded-2xl flex flex-col items-center justify-center gap-2 relative overflow-hidden"
         style={{
-          background: 'rgba(255,255,255,0.07)',
-          border: '1px solid rgba(37, 99, 235,0.4)',
-          boxShadow: '0 0 28px rgba(47,115,242,0.28), inset 0 0 20px rgba(37, 99, 235,0.05)',
+          background: '#FFFFFF',
+          border: '1px solid #DDEEFF',
+          boxShadow: '0 0 28px #EAF3FF, inset 0 0 20px rgba(37, 99, 235,0.05)',
         }}
       >
         <div className="absolute top-0 left-0 right-0 h-0.5"
-          style={{ background: 'linear-gradient(to right, transparent, rgba(37, 99, 235,0.6), transparent)' }} />
+          style={{ background: '#DDEEFF' }} />
         <div className="w-10 h-10 rounded-full flex items-center justify-center text-lg"
-          style={{ background: 'rgba(47,115,242,0.28)', border: '1px solid rgba(37, 99, 235,0.4)' }}>
+          style={{ background: '#EAF3FF', border: '1px solid #BFDBFE' }}>
           👤
         </div>
         <div className="space-y-1 w-full px-4">
-          <div className="h-1.5 rounded-full w-full" style={{ background: 'rgba(37, 99, 235,0.5)' }} />
-          <div className="h-1.5 rounded-full w-3/4"  style={{ background: 'rgba(37, 99, 235,0.25)' }} />
-          <div className="h-1.5 rounded-full w-1/2"  style={{ background: 'rgba(37, 99, 235,0.15)' }} />
+          <div className="h-1.5 rounded-full w-full" style={{ background: '#6FA7FF' }} />
+          <div className="h-1.5 rounded-full w-3/4"  style={{ background: '#BFDBFE' }} />
+          <div className="h-1.5 rounded-full w-1/2"  style={{ background: '#EAF3FF' }} />
         </div>
       </div>
 
@@ -116,13 +116,13 @@ function HeroDecoration() {
 // ── 카드 공통 스타일 ─────────────────────────────────────────────────────────
 
 const CARD = {
-  background: 'rgba(255,255,255,0.07)',
-  border:     '1px solid rgba(255,255,255,0.12)',
-  boxShadow:  '0 4px 24px rgba(0,0,0,0.25)',
+  background: '#FFFFFF',
+  border:     '1px solid #E5EEFB',
+  boxShadow:  '0 4px 20px rgba(16,26,61,0.06)',
 } as const;
 
-const CARD_HEADER       = 'flex items-center gap-2 mb-3.5 pb-2.5' as const;
-const CARD_HEADER_STYLE = { borderBottom: '1px solid rgba(255,255,255,0.07)' } as const;
+const CARD_HEADER       = 'flex items-center gap-2 mb-4 pb-3' as const;
+const CARD_HEADER_STYLE = { borderBottom: '1px solid #E5EEFB' } as const;
 
 // ── 메인 컴포넌트 ─────────────────────────────────────────────────────────────
 
@@ -264,22 +264,22 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       <div
         className="relative rounded-3xl overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, rgba(37, 99, 235,0.18) 0%, rgba(37,99,235,0.25) 45%, rgba(109,40,217,0.2) 80%, rgba(139,92,246,0.12) 100%)',
-          border: '1px solid rgba(37, 99, 235,0.25)',
-          boxShadow: '0 0 80px rgba(37, 99, 235,0.08), inset 0 0 120px rgba(37,99,235,0.06)',
+          background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F8FC 55%, #EAF3FF 100%)',
+          border: '1px solid #DDEEFF',
+          boxShadow: '0 0 80px #EAF3FF, inset 0 0 120px rgba(37,99,235,0.06)',
         }}
       >
         <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(47,115,242,0.10) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(circle, #EAF3FF 0%, #FFFFFF 65%)' }} />
         <div className="absolute -bottom-20 -left-12 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)' }} />
+          style={{ background: 'radial-gradient(circle, #F5F8FC 0%, #FFFFFF 60%)' }} />
 
         <div className="relative z-10 flex items-center justify-between gap-6 px-7 sm:px-10 py-8 sm:py-10">
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span
                 className="px-3 py-1 rounded-full text-[11px] font-bold"
-                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', color: '#cbd5e1' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E5EEFB', color: '#3A4568' }}
               >
                 {EVENT.title}
               </span>
@@ -299,7 +299,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               {EVENT.subTheme}
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-4 text-xs sm:text-sm text-slate-300">
+            <div className="flex flex-wrap gap-4 mt-4 text-xs sm:text-sm text-[#3A4568]">
               <span className="flex items-center gap-1.5">
                 <MapPin size={13} className="text-[color:var(--eum-gold)] flex-shrink-0" />
                 {EVENT.venue}
@@ -331,7 +331,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             key={s.label}
             className="rounded-2xl p-3 sm:p-4 flex items-center gap-3"
             style={{
-              background: `linear-gradient(135deg, ${s.color}14 0%, rgba(255,255,255,0.04) 100%)`,
+              background: '#FFFFFF',
               border: `1px solid ${s.color}30`,
               boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
             }}
@@ -341,10 +341,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               {s.emoji}
             </div>
             <div className="min-w-0">
-              <div className="text-[10px] text-slate-400 whitespace-nowrap">{s.label}</div>
+              <div className="text-[10px] text-[#3A4568] whitespace-nowrap">{s.label}</div>
               <div className="font-black leading-tight" style={{ color: s.color, fontSize: '1.35rem' }}>
                 {s.value}
-                <span className="text-[11px] font-semibold ml-0.5 text-slate-300">{s.unit}</span>
+                <span className="text-[11px] font-semibold ml-0.5 text-[#101A3D]">{s.unit}</span>
               </div>
             </div>
           </div>
@@ -354,8 +354,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div
           className="rounded-2xl p-3 sm:p-4 flex items-center gap-3"
           style={{
-            background: 'linear-gradient(135deg, rgba(37, 99, 235,0.14) 0%, rgba(255,255,255,0.04) 100%)',
-            border: '1px solid rgba(37, 99, 235,0.3)',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F8FC 100%)',
+            border: '1px solid #DDEEFF',
             boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
           }}
         >
@@ -364,7 +364,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="text-[10px] text-slate-400">준비 진행률</div>
             <div className="font-black text-[#101A3D] leading-tight" style={{ fontSize: '1.15rem' }}>
               {ckStats.doneCount}
-              <span className="text-xs font-medium text-slate-400">/{ckStats.total}</span>
+              <span className="text-xs font-medium text-[#3A4568]">/{ckStats.total}</span>
             </div>
             <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-0.5">
               {ckStats.overdueCount > 0 && (
@@ -388,11 +388,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       {/* ═══════════════════════════════════════════════════════
           운영 준비 현황 패널
       ═══════════════════════════════════════════════════════ */}
-      <div className="rounded-2xl p-4 sm:p-5" style={CARD}>
+      <div className="rounded-3xl p-5 sm:p-6" style={CARD}>
 
         {/* 헤더 + 경고 배지 */}
         <div className="flex flex-wrap items-center gap-2 mb-4 pb-2.5"
-          style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+          style={{ borderBottom: '1px solid #E5EEFB' }}>
           <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
             style={{ background: 'rgba(47,115,242,0.28)' }}>📊</span>
           <h3 className="text-sm font-bold text-[#101A3D]">운영 준비 현황</h3>
@@ -435,14 +435,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 type="button"
                 onClick={() => onNavigate(item.page as PageKey)}
                 className="rounded-xl px-3 py-3 text-left transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E5EEFB' }}
                 aria-label={`${item.label} 페이지로 이동`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-slate-300">{item.label}</span>
+                  <span className="text-xs font-semibold text-[#101A3D]">{item.label}</span>
                   <span className="text-xs font-black tabular-nums" style={{ color: barColor }}>{item.pct}%</span>
                 </div>
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#EAF3FF' }}>
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{ width: `${item.pct}%`, background: barColor }}
@@ -465,7 +465,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         const pct   = ci.pct;
         const barColor  = pct === 100 ? '#10b981' : pct >= 80 ? '#10b981' : pct >= 50 ? '#3B82F6' : '#f59e0b';
         const panelStyle = pct === 100
-          ? { background: 'linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(16,185,129,0.35)', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }
+          ? { background: '#F0FDF4', border: '1px solid #BBF7D0', boxShadow: '0 4px 24px rgba(16,26,61,0.06)' }
           : CARD;
 
         return (
@@ -473,7 +473,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
             {/* ── 헤더 ─────────────────────────────────────── */}
             <div className="flex flex-wrap items-center gap-2 mb-4 pb-2.5"
-              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+              style={{ borderBottom: '1px solid #E5EEFB' }}>
               <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
                 style={{ background: 'rgba(16,185,129,0.2)' }}>
                 <UserCheck size={15} className="text-emerald-400" />
@@ -499,7 +499,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
               {/* 전체 진행 바 */}
               <div className="ml-auto flex items-center gap-2 flex-shrink-0">
-                <div className="w-28 h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                <div className="w-28 h-1.5 rounded-full" style={{ background: '#EAF3FF' }}>
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{ width: `${pct}%`, background: barColor }}
@@ -514,7 +514,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
               {/* 체크인 완료 */}
               <div className="rounded-xl px-3 py-3"
-                style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)' }}>
+              style={{ background: '#F0FDF4', border: '1px solid #BBF7D0' }}>
                 <div className="text-[10px] text-slate-400 mb-0.5">체크인 완료</div>
                 <div className="font-black tabular-nums leading-tight" style={{ color: '#10b981', fontSize: '1.4rem' }}>
                   {ci.checked}
@@ -526,8 +526,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               {/* 미도착 */}
               <div className="rounded-xl px-3 py-3"
                 style={{
-                  background: ci.pending === 0 ? 'rgba(255,255,255,0.03)' : 'rgba(245,158,11,0.07)',
-                  border: `1px solid ${ci.pending === 0 ? 'rgba(255,255,255,0.07)' : 'rgba(245,158,11,0.22)'}`,
+                  background: ci.pending === 0 ? '#FFFFFF' : '#FFFBEB',
+                  border: `1px solid ${ci.pending === 0 ? '#E5EEFB' : '#FDE68A'}`,
                 }}>
                 <div className="text-[10px] text-slate-400 mb-0.5">미도착</div>
                 <div
@@ -544,14 +544,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
               {/* 학생 체크인 */}
               <div className="rounded-xl px-3 py-3"
-                style={{ background: 'rgba(59,130,246,0.07)', border: '1px solid rgba(59,130,246,0.18)' }}>
+                style={{ background: '#F5F8FC', border: '1px solid #DDEEFF' }}>
                 <div className="text-[10px] text-slate-400 mb-0.5">학생 체크인</div>
                 <div className="font-black tabular-nums leading-tight text-[#101A3D]" style={{ fontSize: '1.25rem' }}>
                   {ci.stuChecked}
                   <span className="text-sm font-semibold text-slate-400">/{ci.stuTotal}</span>
                   <span className="text-[11px] font-semibold text-slate-400 ml-0.5">명</span>
                 </div>
-                <div className="h-1 rounded-full mt-1.5" style={{ background: 'rgba(255,255,255,0.07)' }}>
+                <div className="h-1 rounded-full mt-1.5" style={{ background: '#EAF3FF' }}>
                   <div className="h-full rounded-full" style={{
                     width: `${ci.stuTotal > 0 ? Math.round(ci.stuChecked / ci.stuTotal * 100) : 0}%`,
                     background: '#3b82f6',
@@ -561,17 +561,17 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
               {/* 교사·운영진 체크인 */}
               <div className="rounded-xl px-3 py-3"
-                style={{ background: 'rgba(139,92,246,0.07)', border: '1px solid rgba(139,92,246,0.18)' }}>
+                style={{ background: '#F5F8FC', border: '1px solid #DDEEFF' }}>
                 <div className="text-[10px] text-slate-400 mb-0.5">교사·운영진</div>
                 <div className="font-black tabular-nums leading-tight text-[#101A3D]" style={{ fontSize: '1.25rem' }}>
                   {ci.staffChecked}
                   <span className="text-sm font-semibold text-slate-400">/{ci.staffTotal}</span>
                   <span className="text-[11px] font-semibold text-slate-400 ml-0.5">명</span>
                 </div>
-                <div className="h-1 rounded-full mt-1.5" style={{ background: 'rgba(255,255,255,0.07)' }}>
+                <div className="h-1 rounded-full mt-1.5" style={{ background: '#EAF3FF' }}>
                   <div className="h-full rounded-full" style={{
                     width: `${ci.staffTotal > 0 ? Math.round(ci.staffChecked / ci.staffTotal * 100) : 0}%`,
-                    background: '#8b5cf6',
+                    background: '#6FA7FF',
                   }} />
                 </div>
               </div>
@@ -588,13 +588,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                       <div
                         key={v.label}
                         className="rounded-xl px-3 py-2.5"
-                        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                        style={{ background: '#FFFFFF', border: '1px solid #E5EEFB' }}
                       >
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xs font-semibold text-slate-300">{v.label}</span>
+                          <span className="text-xs font-semibold text-[#101A3D]">{v.label}</span>
                           <span className="text-xs font-black tabular-nums" style={{ color: vColor }}>{v.pct}%</span>
                         </div>
-                        <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.07)' }}>
+                        <div className="h-1.5 rounded-full" style={{ background: '#EAF3FF' }}>
                           <div className="h-full rounded-full transition-all duration-500"
                             style={{ width: `${v.pct}%`, background: vColor }} />
                         </div>
@@ -627,7 +627,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('churches')}
-          className="rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+          className="rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
           style={CARD}
           aria-label="교회별 신청 현황 페이지로 이동"
         >
@@ -639,7 +639,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </div>
           <div className="space-y-2.5">
             {churchBreakdown.length === 0 ? (
-              <div className="text-xs text-slate-500 py-4 text-center">
+              <div className="text-xs text-[#5C6A93] py-4 text-center">
                 등록된 교회 없음 — 클릭해서 추가하세요
               </div>
             ) : churchBreakdown.slice(0, 6).map(c => {
@@ -647,7 +647,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               return (
                 <div key={c.id}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-slate-300 font-medium truncate">{c.name}</span>
+                    <span className="text-xs text-[#101A3D] font-medium truncate">{c.name}</span>
                     <span className="text-xs font-bold tabular-nums flex-shrink-0" style={{ color: c.color }}>
                       {c.count}{c.quota > 0 && <span className="text-slate-500">/{c.quota}</span>}명
                     </span>
@@ -660,7 +660,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               );
             })}
             <div className="text-[10px] text-slate-600 pt-2"
-              style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              style={{ borderTop: '1px solid #E5EEFB' }}>
               전체 {churchBreakdown.length}개 교회{churchBreakdown.length > 6 ? ` (상위 6개 표시)` : ''}
             </div>
           </div>
@@ -670,7 +670,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('schedule')}
-          className="xl:col-span-2 rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+          className="xl:col-span-2 rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
           style={CARD}
           aria-label="일정 관리 페이지로 이동"
         >
@@ -681,7 +681,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <span className="ml-auto text-[10px] text-slate-500">편집 ›</span>
           </div>
           {scheduleByDay.length === 0 ? (
-            <div className="text-xs text-slate-500 py-6 text-center">
+            <div className="text-xs text-[#5C6A93] py-6 text-center">
               등록된 일정 없음 — 클릭해서 추가하세요
             </div>
           ) : (
@@ -697,7 +697,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 >
                   <div className="text-center mb-2">
                     <div className="text-xs font-bold" style={{ color: day.accent }}>{day.day}</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">{day.date}</div>
+                    <div className="text-[10px] text-[#5C6A93] mt-0.5">{day.date}</div>
                     <div className="h-px mt-1.5 mx-1" style={{ background: `${day.accent}40` }} />
                   </div>
                   <div className="space-y-1.5">
@@ -707,7 +707,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                       <div key={`${item.t}-${item.v}`} className="flex items-start gap-1">
                         <div className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0"
                           style={{ background: day.accent }} />
-                        <div className="text-[10px] text-slate-400 leading-tight">
+                        <div className="text-[10px] text-[#3A4568] leading-tight">
                           <span className="text-slate-600">{item.t} </span>
                           {item.v}
                         </div>
@@ -724,7 +724,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('groups')}
-          className="rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+          className="rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
           style={CARD}
           aria-label="조 편성 페이지로 이동"
         >
@@ -736,7 +736,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </div>
           <div className="space-y-1.5">
             {groupBreakdown.groups.length === 0 ? (
-              <div className="text-xs text-slate-500 py-4 text-center">
+              <div className="text-xs text-[#5C6A93] py-4 text-center">
                 등록된 조 없음 — 클릭해서 추가하세요
               </div>
             ) : groupBreakdown.groups.slice(0, 6).map(g => (
@@ -749,14 +749,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: g.color }} />
                   <span className="text-xs font-bold text-[#101A3D] truncate">{g.name}</span>
                 </div>
-                <span className="text-[10px] text-slate-400 flex-1 min-w-0 truncate">{g.leader}</span>
+                <span className="text-[10px] text-[#3A4568] flex-1 min-w-0 truncate">{g.leader}</span>
                 <span className="text-xs font-bold flex-shrink-0 tabular-nums" style={{ color: g.color }}>
                   {g.count}명
                 </span>
               </div>
             ))}
             <div className="text-[10px] text-slate-600 pt-2"
-              style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              style={{ borderTop: '1px solid #E5EEFB' }}>
               전체 {groupBreakdown.groups.length}개 조 · {groupBreakdown.totalAssigned}명 배정
             </div>
           </div>
@@ -766,7 +766,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('rooms')}
-          className="rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+          className="rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
           style={CARD}
           aria-label="숙소 방 배정 페이지로 이동"
         >
@@ -778,13 +778,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </div>
           <div className="space-y-1.5">
             {roomBreakdown.rooms.length === 0 ? (
-              <div className="text-xs text-slate-500 py-4 text-center">
+              <div className="text-xs text-[#5C6A93] py-4 text-center">
                 등록된 방 없음 — 클릭해서 추가하세요
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-4 text-[9px] text-slate-500 pb-2"
-                  style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="grid grid-cols-4 text-[9px] text-[#5C6A93] pb-2"
+                  style={{ borderBottom: '1px solid #E5EEFB' }}>
                   <span>방 번호</span>
                   <span className="text-center">수용</span>
                   <span className="text-center">배정</span>
@@ -796,11 +796,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                     <div key={r.id} className="grid grid-cols-4 items-center py-0.5">
                       <span className="text-xs font-bold text-[#101A3D] truncate">{r.name}</span>
                       <span className="text-xs text-slate-400 text-center">{r.cap}명</span>
-                      <span className="text-xs text-slate-300 text-center">{r.assigned}명</span>
+                      <span className="text-xs text-[#101A3D] text-center">{r.assigned}명</span>
                       <div className="flex justify-end">
                         {full ? (
                           <span className="text-[9px] px-1.5 py-0.5 rounded font-bold"
-                            style={{ color: '#6ee7b7', background: 'rgba(16,185,129,0.18)' }}>
+                            style={{ color: '#6ee7b7', background: '#DCFCE7' }}>
                             배정완료
                           </span>
                         ) : (
@@ -816,7 +816,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               </>
             )}
             <div className="text-[10px] text-slate-600 pt-2"
-              style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              style={{ borderTop: '1px solid #E5EEFB' }}>
               전체 {roomConfig.length}개 방 · 여유 {roomBreakdown.totalSlack}명
             </div>
           </div>
@@ -833,14 +833,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('checklist')}
-          className="rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99] w-full"
+          className="rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99] w-full"
           style={CARD}
           aria-label="운영 체크리스트 페이지로 이동">
           <div className={CARD_HEADER} style={CARD_HEADER_STYLE}>
             <span className="w-7 h-7 rounded-lg flex items-center justify-center text-base flex-shrink-0"
               style={{ background: 'rgba(47,115,242,0.28)' }}>☑️</span>
             <h3 className="text-sm font-bold text-[#101A3D]">운영 체크리스트</h3>
-            <span className="ml-auto text-xs text-slate-500 flex-shrink-0">
+            <span className="ml-auto text-xs text-[#5C6A93] flex-shrink-0">
               {ckStats.doneCount}/{ckStats.total}
             </span>
           </div>
@@ -884,9 +884,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               return (
                 <div key={item.id}
                   className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                  style={{ background: '#FFFFFF', border: '1px solid #E5EEFB' }}>
                   <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: sc.color }} />
-                  <span className="text-[10px] text-slate-300 truncate flex-1 min-w-0">{item.title}</span>
+                  <span className="text-[10px] text-[#101A3D] truncate flex-1 min-w-0">{item.title}</span>
                   <span className="text-[8px] px-1.5 py-0.5 rounded-full font-bold flex-shrink-0 whitespace-nowrap"
                     style={{ color: sc.color, background: sc.bg }}>
                     {sc.label}
@@ -906,7 +906,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <button
           type="button"
           onClick={() => onNavigate('safety')}
-          className="rounded-2xl p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+          className="rounded-3xl p-5 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
           style={CARD}
           aria-label="안전 관리 페이지로 이동"
         >
@@ -926,16 +926,16 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 <div className="text-lg font-black leading-none" style={{ color: item.color }}>
                   {item.value}
                 </div>
-                <div className="text-[10px] text-slate-400 leading-tight">{item.label}</div>
+                <div className="text-[10px] text-[#3A4568] leading-tight">{item.label}</div>
               </div>
             ))}
           </div>
           <div
             className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl"
-            style={{ background: 'rgba(37, 99, 235,0.06)', border: '1px solid rgba(37, 99, 235,0.12)' }}
+            style={{ background: '#F5F8FC', border: '1px solid #DDEEFF' }}
           >
             <span className="text-[color:var(--eum-gold)] text-sm flex-shrink-0">ℹ</span>
-            <span className="text-[10px] text-slate-400">
+            <span className="text-[10px] text-[#3A4568]">
               {safetyItems.length === 0
                 ? '안전 관리 항목 미등록 — 클릭해서 추가하세요.'
                 : `안전 항목 ${safetyItems.length}개 관리 중 — 자세히 보려면 클릭하세요.`}
@@ -947,14 +947,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div
           className="rounded-2xl p-5 relative overflow-hidden flex flex-col"
           style={{
-            background: 'linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 55%, #2563eb 100%)',
-            border: '1px solid rgba(59,130,246,0.45)',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F8FC 55%, #EAF3FF 100%)',
+            border: '1px solid #DDEEFF',
             boxShadow: '0 4px 32px rgba(29,78,216,0.25)',
             minHeight: '200px',
           }}
         >
           <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.07), transparent 60%)' }} />
+            style={{ background: 'radial-gradient(circle, #EAF3FF, #FFFFFF 60%)' }} />
           <div className="absolute bottom-4 right-5 opacity-12 pointer-events-none">
             <div className="relative w-10 h-14">
               <div className="absolute left-1/2 top-0 -translate-x-1/2 w-2 h-full rounded-full bg-white" />

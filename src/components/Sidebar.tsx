@@ -86,7 +86,7 @@ export default function Sidebar({
       {/* ── 모바일 오버레이 ───────────────────────────────────── */}
       <div
         className={`
-          fixed inset-0 z-40 bg-[#E4ECF7] backdrop-blur-sm
+          fixed inset-0 z-40 bg-[#F5F8FC]
           lg:hidden transition-opacity duration-300
           ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}
@@ -94,7 +94,7 @@ export default function Sidebar({
         aria-hidden="true"
       />
 
-      {/* ── 사이드바 본체 ─────────────────────────────────────── */}
+      {/* ── 사이드바 본체 — 화이트 기반, 블루는 active 포인트로만 ───────── */}
       <aside
         id="primary-sidebar"
         aria-label="주 메뉴"
@@ -106,16 +106,17 @@ export default function Sidebar({
           ${mobileOpen ? 'translate-x-0' : ''}
         `}
         style={{
-          background: 'linear-gradient(180deg, #020c1e 0%, #071a36 60%, #0a2040 100%)',
-          borderRight: '1px solid rgba(31,95,217,0.18)',
+          background: '#FFFFFF',
+          borderRight: '1px solid #E5EEFB',
+          boxShadow: '4px 0 24px rgba(16,26,61,0.04)',
         }}
       >
         {/* E:um 브랜드 영역 (모든 페이지 공통 고정) */}
         <div
-          className="flex items-center gap-3 px-4 py-4 flex-shrink-0 relative"
+          className="flex items-center gap-3 px-5 py-5 flex-shrink-0 relative"
           style={{
-            borderBottom: '1px solid #2F73F233',
-            background: 'linear-gradient(135deg, #1F5FD90F 0%, rgba(15,37,64,0.4) 100%)',
+            borderBottom: '1px solid #E5EEFB',
+            background: '#F5F8FC',
           }}
         >
           {/* E:um 로고 — 좌측 */}
@@ -124,7 +125,7 @@ export default function Sidebar({
             style={{
               width: collapsed ? 36 : 64,
               height: collapsed ? 36 : 64,
-              filter: 'drop-shadow(0 0 10px #2F73F240)',
+              filter: 'drop-shadow(0 0 10px rgba(47,115,242,0.18))',
               transition: 'all 0.3s ease',
             }}
           >
@@ -140,7 +141,7 @@ export default function Sidebar({
             <div className="overflow-hidden flex-1 min-w-0">
               <div
                 className="text-[12px] font-bold leading-snug"
-                style={{ color: 'rgba(255,255,255,0.85)', letterSpacing: '0.3px' }}
+                style={{ color: '#101A3D', letterSpacing: '0.3px' }}
               >
                 {EUM_BRAND.sloganLine1}<br/>
                 {EUM_BRAND.sloganLine2}
@@ -152,11 +153,11 @@ export default function Sidebar({
           <button
             type="button"
             onClick={() => onCollapsedChange(!collapsed)}
-            className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 flex-shrink-0 w-6 h-6 rounded-full items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold)] transition-colors z-10"
+            className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 flex-shrink-0 w-6 h-6 rounded-full items-center justify-center text-[#5C6A93] hover:text-[color:var(--eum-gold)] transition-colors z-10"
             style={{
-              background: '#F8FBFF',
-              border: '1px solid rgba(255,255,255,0.12)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              background: '#FFFFFF',
+              border: '1px solid #E5EEFB',
+              boxShadow: '0 2px 8px rgba(16,26,61,0.12)',
             }}
             title={collapsed ? '사이드바 펼치기' : '사이드바 접기'}
             aria-label={collapsed ? '사이드바 펼치기' : '사이드바 접기'}
@@ -171,7 +172,7 @@ export default function Sidebar({
           <button
             type="button"
             onClick={onMobileClose}
-            className="lg:hidden flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-[color:var(--eum-gold)] hover:bg-white/5 transition-colors"
+            className="lg:hidden flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-[#5C6A93] hover:text-[color:var(--eum-gold)] hover:bg-[#EAF3FF] transition-colors"
             title="닫기"
             aria-label="메뉴 닫기"
           >
@@ -182,19 +183,19 @@ export default function Sidebar({
         {/* 날짜 배지 (펼쳐진 상태) */}
         {!collapsed && (
           <div
-            className="mx-3 mt-3 mb-1 px-3 py-2 rounded-xl text-center flex-shrink-0"
+            className="mx-3.5 mt-4 mb-1.5 px-3.5 py-2.5 rounded-xl text-center flex-shrink-0"
             style={{
-              background: 'linear-gradient(135deg, rgba(31,95,217,0.12) 0%, rgba(47,115,242,0.08) 100%)',
-              border: '1px solid rgba(47,115,242,0.28)',
+              background: 'linear-gradient(135deg, #F5F8FC 0%, #EAF3FF 100%)',
+              border: '1px solid #DDEEFF',
             }}
           >
-            <div className="text-[10px] font-medium" style={{ color: 'rgba(111,167,255,0.9)' }}>{EVENT.dateBadge}</div>
-            <div className="text-[11px] font-bold mt-0.5" style={{ color: '#fff' }}>{computeDdayLabel()}</div>
+            <div className="text-[10px] font-medium" style={{ color: '#1F5FD9' }}>{EVENT.dateBadge}</div>
+            <div className="text-[11px] font-bold mt-0.5" style={{ color: '#101A3D' }}>{computeDdayLabel()}</div>
           </div>
         )}
 
         {/* 네비게이션 */}
-        <nav className="flex-1 overflow-y-auto py-3 px-2" aria-label="페이지 이동">
+        <nav className="flex-1 overflow-y-auto py-3.5 px-2.5" aria-label="페이지 이동">
           <ul className="list-none p-0 m-0">
             {visibleItems.map(item => {
               const isActive = currentPage === item.key;
@@ -207,25 +208,25 @@ export default function Sidebar({
                     aria-current={isActive ? 'page' : undefined}
                     aria-label={collapsed ? item.label : undefined}
                     className={`
-                      w-full flex items-center gap-3 px-3 py-2.5 rounded-xl mb-1
+                      w-full flex items-center gap-3 px-3.5 py-3 rounded-xl mb-1.5
                       transition-all duration-150 text-left group min-h-[44px]
                       focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--eum-gold)]/60
                       ${isActive
                         ? 'text-[color:var(--eum-gold)]'
-                        : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                        : 'text-[#3A4568] hover:text-[#101A3D] hover:bg-[#F5F8FF]'
                       }
                     `}
                     style={isActive
                       ? {
                           boxShadow: 'inset 3px 0 0 var(--eum-gold)',
-                          background: 'linear-gradient(90deg, rgba(31,95,217,0.16) 0%, rgba(47,115,242,0.06) 100%)',
+                          background: '#EAF3FF',
                         }
                       : {}}
                   >
                     <span
                       aria-hidden="true"
                       className={`flex-shrink-0 ${
-                        isActive ? 'text-[color:var(--eum-gold)]' : 'text-slate-500 group-hover:text-slate-300'
+                        isActive ? 'text-[color:var(--eum-gold)]' : 'text-[#5C6A93] group-hover:text-[#101A3D]'
                       }`}
                     >
                       {item.icon}
@@ -245,32 +246,32 @@ export default function Sidebar({
         {/* 하단 테마 표시 */}
         {!collapsed && (
           <div
-            className="px-3 pb-4 flex-shrink-0"
-            style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+            className="px-3.5 pb-5 flex-shrink-0"
+            style={{ borderTop: '1px solid #E5EEFB' }}
           >
             <div
-              className="mt-3 px-3 py-2.5 rounded-xl"
+              className="mt-4 px-3.5 py-3 rounded-xl"
               style={{
-                background: 'linear-gradient(135deg, rgba(31,95,217,0.10) 0%, rgba(15,37,64,0.5) 100%)',
-                border: '1px solid rgba(47,115,242,0.22)',
+                background: '#F5F8FC',
+                border: '1px solid #E5EEFB',
               }}
             >
-              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgba(111,167,255,0.9)' }}>
+              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#1F5FD9' }}>
                 2026 THEME
               </div>
               <div className="text-xs text-[#101A3D] font-bold mt-1 leading-tight">
                 {EVENT.theme}
               </div>
-              <div className="text-[10px] text-slate-400 mt-0.5">
+              <div className="text-[10px] mt-0.5" style={{ color: '#5C6A93' }}>
                 {EVENT.subTheme}
               </div>
             </div>
 
             {/* ── E:UM 크레딧 (fork되어도 고정) ─────────────── */}
-            <div className="mt-3 flex items-center justify-center gap-1.5 opacity-60">
+            <div className="mt-3.5 flex items-center justify-center gap-1.5 opacity-80">
               <img src="/eum-logo.png" alt="E:UM" className="w-3.5 h-3.5 object-contain" />
-              <span className="text-[9px] text-slate-500">
-                Built by <span style={{ color: 'rgba(111,167,255,0.8)' }}>E:UM</span> · 이음
+              <span className="text-[9px]" style={{ color: '#5C6A93' }}>
+                Built by <span style={{ color: '#1F5FD9' }}>E:UM</span> · 이음
               </span>
             </div>
           </div>
