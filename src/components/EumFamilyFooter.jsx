@@ -117,7 +117,7 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
                 </span>
               ) : (
                 <img
-                  src={`/icons-3d/${app.key === 'eumplay' ? 'play' : app.key === 'eumschool' ? 'school' : app.key === 'eumphoto' ? 'photo' : 'talentroad'}.png`}
+                  src={`${import.meta.env.BASE_URL}icons-3d/${app.key === 'eumplay' ? 'play' : app.key === 'eumschool' ? 'school' : app.key === 'eumphoto' ? 'photo' : 'talentroad'}.png`}
                   alt={`${app.name} 아이콘`}
                   style={{ width: s.emoji.fontSize, height: s.emoji.fontSize, marginBottom: s.emoji.marginBottom, objectFit: 'cover', borderRadius: 8 }}
                 />
