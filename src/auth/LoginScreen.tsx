@@ -95,6 +95,9 @@ export default function LoginScreen() {
           }}
           aria-describedby={error ? errorId : undefined}
         >
+          <div className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9] mb-3">
+            이음 캠프 · 1단계 / 운영 화면 접속
+          </div>
           <div className="flex items-center gap-2 mb-5">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center"
@@ -103,8 +106,14 @@ export default function LoginScreen() {
               <ShieldCheck size={17} className="text-[#1F5FD9]" aria-hidden="true" />
             </div>
             <div>
-              <div className="text-sm font-semibold text-[#101A3D]">운영 시스템 접속</div>
-              <div className="text-[11px] text-[#5C6A93]">아래 안내에서 접속 방법을 고른 뒤 값을 입력하세요.</div>
+              <div className="text-sm font-semibold text-[#101A3D]">
+                {isFirstRun ? '우리 교회 운영자를 먼저 설정해 주세요' : '이음 캠프 운영 화면에 접속'}
+              </div>
+              <div className="text-[11px] text-[#5C6A93]">
+                {isFirstRun
+                  ? '관리자 비밀번호를 만들면 다음 단계에서 행사 정보를 입력할 수 있습니다.'
+                  : '관리자는 비밀번호, 운영위원은 안내받은 PIN으로 접속합니다.'}
+              </div>
             </div>
           </div>
 
@@ -117,7 +126,7 @@ export default function LoginScreen() {
 
           {/* 표시명 (조회 사용자가 본인 이름 적게) */}
           <label htmlFor={nameId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
-              {isFirstRun ? '관리자 이름' : '본인 이름 (선택 — 활동 로그에 표시)'}
+              {isFirstRun ? '관리자 표시 이름' : '본인 이름 (선택 — 활동 로그에 표시)'}
           </label>
           <input
             id={nameId}
@@ -130,10 +139,15 @@ export default function LoginScreen() {
             placeholder={isFirstRun ? '예: 홍길동 목사' : '예: 김교사'}
             disabled={isLocked || submitting}
           />
+          {isFirstRun && (
+            <p className="text-[11px] text-[#5C6A93] -mt-2 mb-4">
+              운영 화면과 변경 기록에 표시될 이름입니다. 예: 김○○ 목사, 수련회 운영팀
+            </p>
+          )}
 
           {/* 비밀번호 / PIN */}
           <label htmlFor={inputId} className="block text-[11px] font-medium text-[#3A4568] mb-1.5">
-            {isFirstRun ? '관리자 비밀번호 (8자 이상)' : '비밀번호 또는 PIN'}
+            {isFirstRun ? '관리자 비밀번호 · 8자 이상' : '비밀번호 또는 PIN'}
           </label>
           <div
             className="flex items-center gap-2 px-3 py-2.5 rounded-xl mb-4"
@@ -162,6 +176,11 @@ export default function LoginScreen() {
               {showPw ? <EyeOff size={14} /> : <Eye size={14} />}
             </button>
           </div>
+          {isFirstRun && (
+            <p className="text-[11px] text-[#5C6A93] -mt-2 mb-4">
+              참가자 명단과 행사 설정을 관리할 때 사용합니다. 운영위원에게는 공유하지 말고 별도 조회용 PIN을 사용하세요.
+            </p>
+          )}
 
           {!isLocked && error && (
             <div
@@ -195,7 +214,7 @@ export default function LoginScreen() {
             }}
           >
             <LogIn size={14} aria-hidden="true" />
-            {submitting ? '확인 중…' : '로그인'}
+            {submitting ? '확인 중…' : (isFirstRun ? '관리자 설정 저장하고 다음 단계로' : '로그인')}
           </button>
         </form>
 

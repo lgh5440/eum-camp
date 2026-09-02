@@ -65,6 +65,9 @@ export default function SetupScreen() {
             boxShadow: '0 20px 44px rgba(27,58,92,0.14), 0 3px 8px rgba(31,95,217,0.08)',
           }}
         >
+          <div className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9] mb-3">
+            1단계 / 관리자 접속 설정
+          </div>
           {/* 화면 정체성 — 가장 눈에 띄게: 큰 아이콘 + 큰 제목 + 1줄 부제 */}
           <div className="flex items-center gap-4 mb-7">
             <div
@@ -77,9 +80,9 @@ export default function SetupScreen() {
               <ShieldCheck size={26} className="text-white" aria-hidden="true" />
             </div>
             <div>
-              <h1 className="text-2xl font-extrabold text-[#101A3D] leading-tight tracking-tight">초기 설정</h1>
+              <h1 className="text-2xl font-extrabold text-[#101A3D] leading-tight tracking-tight">관리자 접속 정보를 만들어 주세요</h1>
               <p className="text-sm text-[#5C6A93] mt-1">
-                {EVENT.title ? `${EVENT.title} — ` : ''}관리자 비밀번호를 설정합니다
+                {EVENT.title ? `${EVENT.title} — ` : ''}이 정보를 저장하면 다음 단계에서 행사 기본 정보를 입력합니다.
               </p>
             </div>
           </div>
@@ -88,10 +91,10 @@ export default function SetupScreen() {
             className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
             style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(31,95,217,0.28)', color: '#17439C' }}
           >
-            <div className="flex items-center gap-2 font-semibold text-[#17439C] mb-1"><KeyRound size={14} aria-hidden="true" />한 번만 진행되는 설정입니다</div>
-            이 비밀번호는 이 브라우저에 SHA-256 해시로 저장됩니다. 운영위원과 공유할 조회용 PIN은
-            로그인 후 <strong className="text-[#17439C]">'진행위원 인증 설정'</strong>에서 나중에 추가할 수
-            있습니다. 관리자 비밀번호는 절대 공유하지 마세요.
+            <div className="flex items-center gap-2 font-semibold text-[#17439C] mb-1"><KeyRound size={14} aria-hidden="true" />한 번만 진행되는 관리자 설정입니다</div>
+            이 정보는 이 브라우저에 저장되며, 참가자 명단과 행사 설정을 관리할 때 사용합니다.
+            운영위원에게 공유할 조회용 PIN은 행사 화면에 들어간 뒤 별도로 만들 수 있습니다.
+            관리자 비밀번호는 관리자만 사용하세요.
           </div>
 
           <form onSubmit={handleSubmit} aria-describedby={error ? errorId : undefined}>
@@ -152,7 +155,7 @@ export default function SetupScreen() {
                 boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
               }}
             >
-              {submitting ? '설정 저장 중…' : '설정 완료'}
+              {submitting ? '설정 저장 중…' : '저장하고 행사 정보 입력하기'}
             </button>
           </form>
         </div>

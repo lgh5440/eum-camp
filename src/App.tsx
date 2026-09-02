@@ -498,10 +498,13 @@ function PendingSetupScreen() {
           boxShadow: '0 6px 24px rgba(27,58,92,0.10)',
         }}
       >
+        <div className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9] mb-3">
+          현재 상태 · 행사 정보 미등록
+        </div>
         <h2 className="text-base font-bold text-[#101A3D] mb-2">행사 정보 등록 대기 중</h2>
         <p className="text-xs text-[#5C6A93] leading-relaxed">
-          관리자가 행사 기본 정보를 입력하면 운영 화면이 활성화됩니다.<br />
-          잠시 후 다시 접속해 주세요.
+          현재 계정은 운영위원 권한입니다. 관리자가 행사명과 일정을 먼저 저장하면 참가자·운영 정보를 확인할 수 있습니다.<br />
+          관리자에게 행사 기본 정보 저장을 요청한 뒤, 완료 안내를 받으면 이 페이지를 새로고침해 주세요.
         </p>
       </div>
     </div>

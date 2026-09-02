@@ -70,6 +70,9 @@ export default function EventSetupWizard() {
           boxShadow: '0 20px 44px rgba(27,58,92,0.14), 0 3px 8px rgba(31,95,217,0.08)',
         }}
       >
+        <div className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9] mb-3">
+          2단계 / 행사 기본 정보
+        </div>
         <header className="flex items-center gap-3 mb-5">
           <div
             className="w-12 h-12 rounded-xl flex items-center justify-center"
@@ -81,9 +84,9 @@ export default function EventSetupWizard() {
             <Sparkles size={22} className="text-white" aria-hidden="true" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-[#101A3D]">행사 기본 정보 입력</h1>
+            <h1 className="text-lg font-bold text-[#101A3D]">우리 교회 행사를 등록해 주세요</h1>
             <p className="text-xs text-[#5C6A93] mt-0.5">
-              이음 캠프를 처음 사용하시는군요. 우선 우리 교회·행사 기본 정보를 입력해 주세요.
+              행사명과 일정만 먼저 입력해도 시작할 수 있습니다. 나머지 정보는 나중에 설정에서 채울 수 있습니다.
             </p>
           </div>
         </header>
@@ -92,8 +95,8 @@ export default function EventSetupWizard() {
           className="rounded-xl p-3 mb-5 text-xs leading-relaxed"
           style={{ background: 'rgba(31,95,217,0.08)', border: '1px solid rgba(31,95,217,0.3)', color: '#1F5FD9' }}
         >
-          입력한 내용은 <strong className="text-[#101A3D]">설정 → 행사 기본 정보</strong>에서 언제든 변경할 수 있습니다.
-          강사·찬양팀·정원·참가비 같은 세부 정보는 나중에 천천히 채우세요.
+          입력한 내용은 로그인 화면과 운영 대시보드에 표시되며 <strong className="text-[#101A3D]">설정 → 행사 기본 정보</strong>에서 언제든 변경할 수 있습니다.
+          먼저 행사명과 시작일·종료일을 입력하세요. 주제·장소·주관 단체·문의 담당자는 필요할 때 추가하면 됩니다.
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -197,7 +200,7 @@ export default function EventSetupWizard() {
               boxShadow: '0 6px 16px rgba(31,95,217,0.35)',
             }}
           >
-            {submitting ? '저장 중…' : <>저장하고 시작하기 <ChevronRight size={16} /></>}
+            {submitting ? '저장 중…' : <>행사 정보 저장하고 운영 화면 열기 <ChevronRight size={16} /></>}
           </button>
         </form>
       </div>
