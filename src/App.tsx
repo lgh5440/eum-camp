@@ -72,6 +72,7 @@ function isPageKey(v: string | null): v is PageKey {
 }
 
 const PAGE_STORE_KEY = 'eum-camp:ui:lastPage';
+const INSTALL_GUIDE_URL = 'https://github.com/lgh5440/eum-camp/blob/main/docs/AI_SETUP_GUIDE.md';
 
 function getHashPage(): string {
   return window.location.hash.replace(/^#\/?/, '').split('?')[0];
@@ -118,7 +119,7 @@ function MainShell({ sessionOverride }: { sessionOverride?: Session } = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed]   = useState(false);
 
-  const { state, logout, resetInstallation } = useAuth();
+  const { state, logout } = useAuth();
   const session = state.session ?? sessionOverride!; // 데모는 백그라운드 세션 저장 전에도 바로 진입한다.
 
   // 페이지 변경 → URL hash + localStorage 동기화
@@ -239,20 +240,18 @@ function MainShell({ sessionOverride }: { sessionOverride?: Session } = {}) {
             </span>
             {/* 체험판 → 설치 전환 — 항상 보이는 위치(헤더)에 상시 노출, 데모 배포본에서만 */}
             {DEMO_MODE && (
-              <button
-                type="button"
-                onClick={() => {
-                  try { localStorage.setItem(DEMO_INSTALL_CHOSEN_KEY, '1'); } catch { /* 저장 실패해도 진행 */ }
-                  resetInstallation();
-                }}
+              <a
+                href={INSTALL_GUIDE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-opacity"
                 style={{ background: 'linear-gradient(135deg,#2F73F2,#1F5FD9)' }}
-                aria-label="내 교회로 설정하기 — 지금은 체험판입니다"
-                title="지금은 체험판입니다. 눌러서 우리 교회 계정으로 설정하세요."
+                aria-label="내 교회로 설치하기 — 설치 방법 보기"
+                title="우리 교회 Firebase에 설치하는 방법을 봅니다."
               >
                 <UserCog size={13} aria-hidden="true" />
-                <span className="hidden sm:inline">내 교회로 설정하기</span>
-              </button>
+                <span className="hidden sm:inline">설치 방법 보기</span>
+              </a>
             )}
             <button
               type="button"
@@ -380,8 +379,6 @@ function useDemoEventConfigBootstrap(active: boolean): boolean {
 //
 // '내 교회로 설정하기'를 눌러 설치를 선택한 브라우저는(DEMO_INSTALL_CHOSEN_KEY) 다시
 // 자동 진입시키지 않는다 — 그래야 재설정 중 SetupScreen 입력이 이 훅에 덮이지 않는다.
-const DEMO_INSTALL_CHOSEN_KEY = 'eum-camp:demo:installChosen';
-
 function useDemoAutoEnter(active: boolean, hasCreds: boolean, hasSession: boolean): boolean {
   const shouldStart = active && !hasCreds;
 
@@ -418,13 +415,7 @@ function AuthGate() {
   const demoActive = DEMO_MODE && loggedIn && !applyPage && !configured;
   const demoChecking = useDemoEventConfigBootstrap(demoActive);
 
-  let installChosen = false;
-  try {
-    installChosen = localStorage.getItem(DEMO_INSTALL_CHOSEN_KEY) === '1';
-  } catch {
-    // 저장소를 못 읽으면 안전한 쪽(자동체험 계속 시도)으로 둔다.
-  }
-  const autoEnterActive = DEMO_MODE && !applyPage && !installChosen;
+  const autoEnterActive = DEMO_MODE && !applyPage;
   const autoEntering = useDemoAutoEnter(autoEnterActive, Boolean(state.creds), Boolean(state.session));
 
   if (shouldBypassAuthGate(DEMO_MODE, applyPage) && !autoEntering && !demoChecking) {
