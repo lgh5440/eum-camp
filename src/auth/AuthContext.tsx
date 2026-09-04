@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import type { AuthState, Role, Session } from './types';
 import {
   clearCreds, clearSession, CREDS_KEY, loadAttempts, loadCreds, loadSession, resetAttempts, SESSION_KEY,
-  rotateCreds, saveAttempts, saveCreds, saveSession, hash,
+  rotateCreds, saveAttempts, saveCreds, saveSession, upgradeCreds, verifyCredential,
 } from './storage';
 import { AuthContext, type AuthContextValue } from './authContextValue';
 import { COMMITTEE_ALLOWED, useAuth, type AuthAction } from './useAuth';
@@ -74,10 +74,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     if (state.lockedUntil && state.lockedUntil > Date.now()) return null;
 
-    const h = await hash(input);
     let role: Role | null = null;
-    if (h === creds.adminHash)                              role = 'admin';
-    else if (creds.committeeHash && h === creds.committeeHash) role = 'committee';
+    let upgrade: Partial<{ adminPassword: string; committeePin: string }> = {};
+    const adminCheck = await verifyCredential(input, creds.adminHash);
+    if (adminCheck.valid) {
+      role = 'admin';
+      if (adminCheck.needsRehash) upgrade = { adminPassword: input };
+    } else if (creds.committeeHash) {
+      const committeeCheck = await verifyCredential(input, creds.committeeHash);
+      if (committeeCheck.valid) {
+        role = 'committee';
+        if (committeeCheck.needsRehash) upgrade = { committeePin: input };
+      }
+    }
 
     if (!role) {
       const next = state.failedAttempts + 1;
@@ -87,6 +96,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return null;
     }
 
+    const upgradedCreds = Object.keys(upgrade).length ? await upgradeCreds(upgrade) : null;
     const session: Session = {
       role,
       displayName: role === 'admin' ? creds.adminName : (displayName.trim() || '운영위원'),
@@ -94,7 +104,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
     saveSession(session);
     resetAttempts();
-    setState(s => ({ ...s, session, failedAttempts: 0, lockedUntil: null }));
+    setState(s => ({ ...s, creds: upgradedCreds ?? s.creds, session, failedAttempts: 0, lockedUntil: null }));
     return role;
   }, [state.creds, state.failedAttempts, state.lockedUntil]);
 
