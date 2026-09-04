@@ -41,9 +41,6 @@ const SIZE = {
   },
 }
 
-const EMOJI_FONT =
-  '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", emoji'
-
 export default function EumFamilyFooter({ currentApp, variant = 'footer', size = 'normal' }) {
   const s = SIZE[size] || SIZE.normal
   const items = variant === 'cta' ? EUM_FAMILY.filter((app) => app.key !== currentApp) : EUM_FAMILY
@@ -111,17 +108,11 @@ export default function EumFamilyFooter({ currentApp, variant = 'footer', size =
                 border: `1px solid ${isCurrent || !hasUrl ? 'rgba(31,95,217,0.12)' : `${app.accent}55`}`,
               }}
             >
-              {app.key === 'myrealid' ? (
-                <span aria-hidden style={{ fontSize: s.emoji.fontSize, marginBottom: s.emoji.marginBottom, fontFamily: EMOJI_FONT, lineHeight: 1 }}>
-                  {app.emoji}
-                </span>
-              ) : (
-                <img
-                  src={`${import.meta.env.BASE_URL}icons-3d/${app.key === 'eumplay' ? 'play' : app.key === 'eumschool' ? 'school' : app.key === 'eumphoto' ? 'photo' : 'talentroad'}.png`}
-                  alt={`${app.name} 아이콘`}
-                  style={{ width: s.emoji.fontSize, height: s.emoji.fontSize, marginBottom: s.emoji.marginBottom, objectFit: 'cover', borderRadius: 8 }}
-                />
-              )}
+              <img
+                src={`${import.meta.env.BASE_URL}icons-3d/${app.key === 'eumplay' ? 'play' : app.key === 'eumschool' ? 'school' : app.key === 'eumphoto' ? 'photo' : app.key === 'myrealid' ? 'camp' : 'talentroad'}.png`}
+                alt={`${app.name} 아이콘`}
+                style={{ width: s.emoji.fontSize, height: s.emoji.fontSize, marginBottom: s.emoji.marginBottom, objectFit: 'cover', borderRadius: 8 }}
+              />
               <p
                 className={s.name}
                 style={{ color: isCurrent || !hasUrl ? '#5C6A93' : '#101A3D' }}
