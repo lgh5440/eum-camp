@@ -95,8 +95,13 @@ export default function LoginScreen() {
           }}
           aria-describedby={error ? errorId : undefined}
         >
-          <div className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9] mb-3">
-            이음 캠프 · 1단계 / 운영 화면 접속
+          <div className="flex items-center gap-2 mb-3">
+            <span className="rounded-md border border-[#1F5FD9] bg-white px-2 py-0.5 text-[10px] font-black tracking-wider text-[#1F5FD9]">
+              실제 운영
+            </span>
+            <span className="text-[10px] font-extrabold tracking-[0.16em] text-[#1F5FD9]">
+              이음 캠프 · 실제 운영 화면 접속
+            </span>
           </div>
           <div className="flex items-center gap-2 mb-5">
             <div
