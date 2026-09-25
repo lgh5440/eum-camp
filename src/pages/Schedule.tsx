@@ -42,6 +42,7 @@ export default function SchedulePage() {
     if (!isAdmin || editingSchedule) return;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (consumeEditRequest('schedule', 'schedule')) openScheduleEdit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editingSchedule, isAdmin, schedules]);
 
   function updateScheduleItem(id: string, patch: Partial<Schedule>) {
